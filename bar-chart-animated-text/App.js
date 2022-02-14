@@ -1,315 +1,256 @@
-/* eslint-disable react-native/no-inline-styles */
-//Custom bank spendings - custom bar chart + number animation
-import React, { useEffect, useMemo, useRef } from "react";
+import React from "react";
+import { View, StyleSheet } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
 import {
-  View,
-  Text,
-  StyleSheet,
-  StatusBar,
-  TouchableWithoutFeedback,
-  Dimensions,
-} from "react-native";
-import faker from "faker";
-import Animated, {
-  useAnimatedStyle,
-  useAnimatedProps,
-  useSharedValue,
-  withTiming,
-  interpolateColor,
-  useDerivedValue,
-} from "react-native-reanimated";
-import { AntDesign as Icon } from "@expo/vector-icons";
-import AppLoading from "expo-app-loading";
-import {
-  useFonts,
-  Inter_500Medium,
-  Inter_300Light,
-  Inter_400Regular,
-  Inter_700Bold,
-  Inter_900Black,
-} from "@expo-google-fonts/inter";
-import Constants from "expo-constants";
-import { MotiView, MotiText } from "moti";
-
-const { width, height } = Dimensions.get("window");
-
-const months = [
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
-  "May",
-  "Jun",
-  "Jul",
-  "Aug",
-  "Sep",
-  "Oct",
-  "Nov",
-  "Dec",
-];
-
-faker.seed(21);
-
-const _min = 3000;
-const _max = 10000;
-const _limit = _min + _max;
-const _minH = height * 0.1;
-const _maxH = height * 0.4;
-const _maxItems = 6;
-const _itemWidth = width / (_maxItems + 2);
-const _colors = {
-  active: "#329F82",
-  inactive: "#E9F0EE",
-  up: "#329F82",
-  down: "#E7B824",
-};
-
-function scaleBetween(
-  value,
-  minH = _minH,
-  maxH = _maxH,
-  min = _min,
-  max = _limit
-) {
-  return Math.round(((maxH - minH) * (value - min)) / (max - min) + minH);
-}
-
-const _data = months.map((month) => {
-  const visitors = faker.datatype.number(_max) + _min;
-  return {
-    key: month,
-    visitors,
-    visitorsHeight: scaleBetween(visitors),
-    usage: faker.datatype.number(4000) + _min,
-  };
-});
+  Animation1,
+  Animation2,
+  Animation3,
+  Animation4,
+  Animation5,
+} from "./src/screens";
+import Button from "./src/components/Button";
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
-    backgroundColor: "#FFF",
-    padding: 20,
-    paddingTop: Constants.statusBarHeight,
+    alignItems: "center",
+    backgroundColor: "wheat",
   },
 });
 
-const Item = ({ d, activeIndex, index, onPress }) => {
-  const v = useDerivedValue(() => {
-    return withTiming(activeIndex.value - index === 0 ? 1 : 0.15);
-  });
-  const stylez = useAnimatedStyle(() => {
-    return {
-      // backgroundColor: interpolateColor(v.value, [index - 1.3, index, index + 1.3], [_colors.inactive, _colors.active, _colors.inactive])
-      opacity: v.value,
-    };
-  });
-  return (
-    <TouchableWithoutFeedback onPress={onPress}>
-      <View
-        key={d.key}
-        style={{ width: _itemWidth, justifyContent: "flex-end" }}
-      >
-        <Animated.View
-          style={[
-            {
-              height: d.visitorsHeight,
-              backgroundColor: _colors.active,
-              borderRadius: 16,
-              marginBottom: 10,
-            },
-            stylez,
-          ]}
-        />
-        <Text
-          style={{
-            textTransform: "uppercase",
-            fontSize: 10,
-            fontWeight: "700",
-            alignSelf: "center",
-          }}
-        >
-          {d.key}
-        </Text>
-      </View>
-    </TouchableWithoutFeedback>
-  );
-};
+const Stack = createNativeStackNavigator();
 
-function usePrevious(value) {
-  const ref = useRef();
-  useEffect(() => {
-    ref.current = value;
-  }, [value]);
-  return ref.current;
-}
-
-const AnimatedIcon = Animated.createAnimatedComponent(Icon);
-
-const AnimatedText = ({ num, value, style, formatter }) => {
-  const xxx = usePrevious(num);
-  return (
-    <MotiView style={{ height: 32, overflow: "hidden" }}>
-      <MotiView
-        from={{ translateY: -32 * (xxx ?? 0) }}
-        animate={{ translateY: -32 * num }}
-        transition={{
-          type: "timing",
-          duration: 500,
-          delay: 80,
-        }}
-      >
-        <MotiText style={style}>
-          {value} {formatter}
-        </MotiText>
-      </MotiView>
-    </MotiView>
-  );
-};
-
-const BottomStats = ({ label, activeIndex, percentage, data, value }) => {
-  const direction = useDerivedValue(() => {
-    return withTiming(percentage.value < 0 ? -1 : 1);
-  });
-  const newPercentage = useDerivedValue(() => {
-    return Math.abs(percentage.value);
-  });
-  const animatedProps = useAnimatedProps(() => {
-    return {
-      color: interpolateColor(
-        direction.value,
-        [-1, 1],
-        [_colors.down, _colors.up]
-      ),
-    };
-  });
-  const iconStyles = useAnimatedStyle(() => {
-    return {
-      transform: [
-        {
-          rotate: `${-direction.value * 45}deg`,
-        },
-      ],
-    };
-  });
-  return (
-    <View style={{ width: width / 2 }}>
-      <Text style={{ fontSize: 32, fontFamily: "Inter_700Bold" }}>{label}</Text>
-      <View style={{ flexDirection: "row", alignItems: "flex-end" }}>
-        <AnimatedText
-          text={value}
-          style={{
-            fontFamily: "Inter_400Regular",
-            fontSize: 32,
-            lineHeight: 32 * 1.4,
-            width: 90,
-          }}
-        />
-        <View style={{ flexDirection: "row", justifyContent: "flex-start" }}>
-          <AnimatedIcon
-            name={"arrowright"}
-            size={24}
-            animatedProps={animatedProps}
-            style={iconStyles}
-          />
-          <AnimatedText
-            text={15}
-            formatter="%"
-            style={{
-              fontFamily: "Inter_500Medium",
-              fontSize: 16,
-              color: "fuchsia",
-            }}
-          />
-        </View>
-      </View>
-    </View>
-  );
-};
-
-export default function App() {
-  const activeIndex = useSharedValue(0);
-  const visitorsValue = useSharedValue(_data[activeIndex.value].visitors);
-  const usageValue = useSharedValue(_data[activeIndex.value].usage);
-  const prevVisitorsPercentage = useSharedValue(0);
-  const prevUsagePercentage = useSharedValue(0);
-  const totalVisitors = useMemo(() =>
-    _data.reduce((acc, item) => (acc += item.visitors), 0)
-  );
-
-  let [fontsLoaded] = useFonts({
-    Inter_500Medium,
-    Inter_300Light,
-    Inter_400Regular,
-    Inter_700Bold,
-    Inter_900Black,
-  });
-
-  if (!fontsLoaded) {
-    return <AppLoading />;
-  }
-
+function HomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
-      <StatusBar hidden />
-      <View style={{ alignItems: "center", marginBottom: height * 0.1 }}>
-        <Text style={{ fontSize: 52, fontFamily: "Inter_700Bold" }}>
-          {totalVisitors}
-        </Text>
-        <Text style={{ fontSize: 32, fontFamily: "Inter_300Light" }}>
-          Last 6 months
-        </Text>
-      </View>
-
-      <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
-        {_data.slice(0, _maxItems).map((d, index) => {
-          return (
-            <Item
-              key={index}
-              d={d}
-              activeIndex={activeIndex}
-              index={index}
-              onPress={() => {
-                activeIndex.value = index;
-                visitorsValue.value = withTiming(d.visitors);
-                usageValue.value = withTiming(d.usage);
-                const prevVisitors = _data[index - 1]
-                  ? _data[index - 1].visitors
-                  : d.visitors;
-                const prevUsage = _data[index - 1]
-                  ? _data[index - 1].usage
-                  : d.usage;
-                prevVisitorsPercentage.value = withTiming(
-                  (d.visitors * 100) / prevVisitors - 100
-                );
-                prevUsagePercentage.value = withTiming(
-                  (d.usage * 100) / prevUsage - 100
-                );
-              }}
-            />
-          );
-        })}
-      </View>
-
-      <View style={{ flexDirection: "row" }}>
-        <BottomStats
-          data={_data}
-          activeIndex={activeIndex}
-          percentage={prevVisitorsPercentage}
-          value={visitorsValue}
-          label={"Visitors"}
+      <Button
+        onPress={() => navigation.navigate("Peeps")}
+        color={"#F00"}
+        text={"Animation 1"}
+      />
+      <Button
+        onPress={() => navigation.navigate("StarWars")}
+        color={"#FFA500"}
+        text={"Animation 2"}
+      />
+      <Button
+        onPress={() => navigation.navigate("CustomCell")}
+        color={"#FF0"}
+        text={"Animation 3"}
+      />
+      <Button
+        onPress={() => navigation.navigate("SvgProgress")}
+        color={"#080"}
+        text={"Animation 4"}
+      />
+      <Button
+        onPress={() => navigation.navigate("Unknown")}
+        color={"#00F"}
+        text={"Animation 5"}
+      />
+      {/*  <Button
+          onPress={() => navigation.navigate("Ticker")}
+          color={"#4B0082"}
+          text={"Animation 6"}
         />
-        {console.log(prevVisitorsPercentage)}
-        <BottomStats
-          data={_data}
-          activeIndex={activeIndex}
-          percentage={prevUsagePercentage}
-          value={usageValue}
-          label={"Usage"}
+        <Button
+          onPress={() => navigation.navigate("Flags")}
+          color={"#EE82EE"}
+          text={"Animation 7"}
         />
-      </View>
+        <Button
+          onPress={() => navigation.navigate("Behance")}
+          color={"mistyrose"}
+          text={"Animation 8"}
+        />
+        <Button
+          onPress={() => navigation.navigate("Checklist")}
+          color={"cadetblue"}
+          text={"Animation 9"}
+        />
+        <Button
+          onPress={() => navigation.navigate("C")}
+          color={"salmon"}
+          text={"Animation 10"}
+        /> */}
     </View>
   );
 }
 
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={{
+          headerTitle: "",
+          headerTransparent: true,
+          headerBackTitleVisible: false,
+        }}
+      >
+        <Stack.Screen name={"Home"} component={HomeScreen} />
+        <Stack.Screen name={"Peeps"} component={Animation1} />
+        <Stack.Screen name={"StarWars"} component={Animation2} />
+        <Stack.Screen name={"CustomCell"} component={Animation3} />
+        <Stack.Screen name={"SvgProgress"} component={Animation4} />
+        <Stack.Screen name={"Unknown"} component={Animation5} />
+        {/*  <Stack.Screen name={"Ticker"} component={Animation6} />
+          <Stack.Screen name={"Flags"} component={Animation7} />
+          <Stack.Screen name={"Behance"} component={Animation8} />
+          <Stack.Screen name={"Checklist"} component={Animation9} />
+          <Stack.Screen name={"C"} component={Animation10} /> */}
+      </Stack.Navigator>
+    </NavigationContainer>
+    // <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+    //   <Text>Carpe Diem</Text>
+    // </View>
+  );
+}
 
+// import React from "react";
+// import { NavigationContainer } from "@react-navigation/native";
+// import { createNativeStackNavigator } from "@react-navigation/stack";
+// import { MaterialCommunityIcons as Icon } from "@expo/vector-icons";
+// import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+
+// import {
+//   Animation1,
+//   Animation2,
+//   Animation3,
+//   Animation4,
+//   Animation5,
+//   Animation6,
+//   Animation7,
+//   Animation8,
+//   Animation9,
+//   Animation10,
+// } from "./src/screens";
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     justifyContent: "center",
+//     alignItems: "center",
+//     backgroundColor: "wheat",
+//   },
+//row: {
+//           flexDirection: "row",
+//           alignItems: "center",
+//           marginVertical: 7,
+//         },
+// text: {
+//             fontSize: 32,
+//             fontWeight: "300",
+//             fontStyle: "italic",
+//             textAlign: "center",
+//           }
+// });
+
+// const Stack = createNativeStackNavigator();
+
+// const Button = ({ onPress, color, text }) => {
+//   return (
+//     <TouchableOpacity onPress={onPress}>
+//       <View
+//         style={styles.row}
+//       >
+//         <Icon
+//           name={"hand-pointing-right"}
+//           color={color}
+//           size={32}
+//           style={{ marginRight: 30 }}
+//         />
+//         <Text
+//           style={styles.text}
+//         >
+//           {text}
+//         </Text>
+//       </View>
+//     </TouchableOpacity>
+//   );
+// };
+
+// function HomeScreen({ navigation }) {
+//   return (
+//     <View style={styles.container}>
+//       <Button
+//         onPress={() => navigation.navigate("Peeps")}
+//         color={"#F00"}
+//         text={"Animation 1"}
+//       />
+//       <Button
+//         onPress={() => navigation.navigate("StarWars")}
+//         color={"#FFA500"}
+//         text={"Animation 2"}
+//       />
+//       <Button
+//         onPress={() => navigation.navigate("CustomCell")}
+//         color={"#FF0"}
+//         text={"Animation 3"}
+//       />
+//       <Button
+//         onPress={() => navigation.navigate("Angular")}
+//         color={"#080"}
+//         text={"Animation 4"}
+//       />
+//       <Button
+//         onPress={() => navigation.navigate("SvgProgress")}
+//         color={"#00F"}
+//         text={"Animation 5"}
+//       />
+//       <Button
+//         onPress={() => navigation.navigate("Ticker")}
+//         color={"#4B0082"}
+//         text={"Animation 6"}
+//       />
+//       <Button
+//         onPress={() => navigation.navigate("Flags")}
+//         color={"#EE82EE"}
+//         text={"Animation 7"}
+//       />
+//       <Button
+//         onPress={() => navigation.navigate("Behance")}
+//         color={"mistyrose"}
+//         text={"Animation 8"}
+//       />
+//       <Button
+//         onPress={() => navigation.navigate("Checklist")}
+//         color={"cadetblue"}
+//         text={"Animation 9"}
+//       />
+//       <Button
+//         onPress={() => navigation.navigate("C")}
+//         color={"salmon"}
+//         text={"Animation 10"}
+//       />
+//     </View>
+//   );
+// }
+
+// export default function App({ navigation }) {
+//   return (
+//     <NavigationContainer>
+//       <Stack.Navigator
+//         screenOptions={{
+//           headerTitle: "",
+//           headerTransparent: true,
+//           headerBackTitleVisible: false,
+//         }}
+//       >
+//         <Stack.Screen name={"Home"} component={HomeScreen} />
+//         <Stack.Screen name={"Peeps"} component={Animation1} />
+//         <Stack.Screen name={"StarWars"} component={Animation2} />
+//         <Stack.Screen name={"CustomCell"} component={Animation3} />
+//         <Stack.Screen name={"Angular"} component={Animation4} />
+//         <Stack.Screen name={"SvgProgress"} component={Animation5} />
+//         <Stack.Screen name={"Ticker"} component={Animation6} />
+//         <Stack.Screen name={"Flags"} component={Animation7} />
+//         <Stack.Screen name={"Behance"} component={Animation8} />
+//         <Stack.Screen name={"Checklist"} component={Animation9} />
+//         <Stack.Screen name={"C"} component={Animation10} />
+//       </Stack.Navigator>
+//     </NavigationContainer>
+//   );
+// }
