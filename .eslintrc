@@ -1,0 +1,31 @@
+{
+  "extends": "@react-native-community",
+  "plugins": ["import", "prettier"],
+  "parser": "@babel/eslint-parser",
+  "rules": {
+    "quotes": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "comma-dangle": "off",
+    "sort-imports": 
+    ["error", {
+      "ignoreCase": true,
+      "ignoreDeclarationSort": true
+    }],
+    "import/order": [
+      1,
+      {
+        "groups": [
+          "builtin", "external", "internal",
+          ["parent", "sibling", "index"]
+        ],
+        "newlines-between": "always"
+      }
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ]
+  }
+}
