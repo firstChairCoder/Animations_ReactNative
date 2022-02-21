@@ -1,26 +1,38 @@
 import "react-native-gesture-handler";
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { ScrollView, StyleSheet, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import {
   Animation1,
+  Animation10,
+  Animation11,
+  Animation12,
+  Animation13,
+  Animation14,
+  Animation15,
   Animation2,
   Animation3,
   Animation4,
   Animation5,
   Animation6,
   Animation7,
+  Animation8,
+  Animation9,
 } from "./src/screens";
 import Button from "./src/components/Button";
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    // justifyContent: "center",
+    // alignItems: "center",
     backgroundColor: "wheat",
+    paddingTop: 20,
+  },
+  content: {
+    paddingLeft: 20,
   },
 });
 
@@ -28,7 +40,7 @@ const Stack = createNativeStackNavigator();
 
 function HomeScreen({ navigation }) {
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container} contentContainerStyle={styles.content}>
       <Button
         onPress={() => navigation.navigate("Peeps")}
         color={"#F00"}
@@ -64,22 +76,47 @@ function HomeScreen({ navigation }) {
         color={"#EE82EE"}
         text={"Animation 7"}
       />
-      {/*      <Button
-          onPress={() => navigation.navigate("Behance")}
-          color={"mistyrose"}
-          text={"Animation 8"}
-        />
-        <Button
-          onPress={() => navigation.navigate("Checklist")}
-          color={"cadetblue"}
-          text={"Animation 9"}
-        />
-        <Button
-          onPress={() => navigation.navigate("C")}
-          color={"salmon"}
-          text={"Animation 10"}
-        /> */}
-    </View>
+      <Button
+        onPress={() => navigation.navigate("SvgProgress3")}
+        color={"mistyrose"}
+        text={"Animation 8"}
+      />
+      <Button
+        onPress={() => navigation.navigate("TimePicker")}
+        color={"cadetblue"}
+        text={"Animation 9"}
+      />
+      <Button
+        onPress={() => navigation.navigate("Counter")}
+        color={"salmon"}
+        text={"Animation 10"}
+      />
+      {/* <Button
+        onPress={() => navigation.navigate("Counter")}
+        color={"#E52B50"}
+        text={"Animation 11"}
+      />
+      <Button
+        onPress={() => navigation.navigate("Counter")}
+        color={"mediumaquamarine"}
+        text={"Animation 12"}
+      />
+      <Button
+        onPress={() => navigation.navigate("Counter")}
+        color={"sandybrown"}
+        text={"Animation 13"}
+      />
+      <Button
+        onPress={() => navigation.navigate("Counter")}
+        color={"#E49B0F"}
+        text={"Animation 14"}
+      />
+      <Button
+        onPress={() => navigation.navigate("Counter")}
+        color={"#ACE1AF"}
+        text={"Animation 15"}
+      /> */}
+    </ScrollView>
   );
 }
 
@@ -101,13 +138,18 @@ export default function App() {
         <Stack.Screen name={"NumTicker"} component={Animation5} />
         <Stack.Screen name={"Carousel"} component={Animation6} />
         <Stack.Screen name={"SvgProgress2"} component={Animation7} />
-        {/*  <Stack.Screen name={"Behance"} component={Animation8} />
-          <Stack.Screen name={"Checklist"} component={Animation9} />
-          <Stack.Screen name={"C"} component={Animation10} /> */}
+        <Stack.Screen name={"SvgProgress3"} component={Animation8} />
+        <Stack.Screen name={"TimePicker"} component={Animation9} />
+        <Stack.Screen name={"Counter"} component={Animation10} />
+        {/* <Stack.Screen name={"A"} component={Animation11} />
+        <Stack.Screen name={"B"} component={Animation12} />
+        <Stack.Screen name={"C"} component={Animation13} />
+        <Stack.Screen name={"D"} component={Animation14} />
+        <Stack.Screen name={"E"} component={Animation15} /> */}
       </Stack.Navigator>
     </NavigationContainer>
-    // <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-    //   <Text>Carpe Diem</Text>
+    // <View style={styles.container}>
+    //   <Text>Siempre quiero mas</Text>
     // </View>
   );
 }

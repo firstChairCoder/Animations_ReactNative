@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { MaterialCommunityIcons as Icon } from "@expo/vector-icons";
 
 const styles = StyleSheet.create({
@@ -9,10 +9,11 @@ const styles = StyleSheet.create({
     marginVertical: 7,
   },
   text: {
+    flex: 1,
     fontSize: 32,
     fontWeight: "300",
     fontStyle: "italic",
-    textAlign: "center",
+    textAlign: "auto",
   },
 });
 
