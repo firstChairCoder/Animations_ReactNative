@@ -6,6 +6,7 @@ import {
   StatusBar,
   StyleSheet,
   Text,
+  TouchableOpacity,
   View,
 } from "react-native";
 import Animated, {
@@ -23,13 +24,6 @@ import Svg, {
   Text as SvgText,
 } from "react-native-svg";
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#FFF",
-  },
-});
-
 const { width, height } = Dimensions.get("window");
 const maxCups = 10;
 const waveConfig = {
@@ -42,8 +36,27 @@ const waveConfig = {
 
 const AnimatedPath = Animated.createAnimatedComponent(Path);
 
+const styles = StyleSheet.create({
+  btn: {
+    position: "absolute",
+    bottom: 100,
+    width,
+  },
+  btnTextWrapper: {
+    backgroundColor: "#FFF",
+    padding: 16,
+    alignSelf: "center",
+    borderWidth: 1,
+    borderRadius: 50,
+  },
+  container: {
+    flex: 1,
+    backgroundColor: "#FFF",
+  },
+});
+
 export const Animation8 = () => {
-  const [cups, setCups] = useState(5);
+  const [cups, setCups] = useState(1);
   const offset = useSharedValue(0);
   const waveHeight = useSharedValue(height);
   const amplitude = useSharedValue(0);
@@ -114,7 +127,7 @@ export const Animation8 = () => {
   return (
     <View style={styles.container}>
       <StatusBar hidden />
-      <Svg width={width} height={height} viewBox="0 0 384 780">
+      <Svg width={width} height={height} viewBox={`0 0 ${width} ${height}`}>
         <ClipPath id="clip">
           <G>
             <SvgText
@@ -143,30 +156,22 @@ export const Animation8 = () => {
         />
       </Svg>
 
-      <Pressable
+      <TouchableOpacity
         // onPress={() => null}
         onPress={() => {
-          setCups((cup) => {
-            return (cup + 1) % maxCups;
+          setCups((cups) => {
+            return cups + 1;
           });
           console.log(cups);
         }}
-        style={{ position: "absolute", bottom: 100, width }}
+        style={styles.btn}
       >
-        <View
-          style={{
-            backgroundColor: "#FFF",
-            padding: 16,
-            alignSelf: "center",
-            borderWidth: 1,
-            borderRadius: 50,
-          }}
-        >
-          <Text style={{ fontWeight: "bold", textTransform: "uppercase" }}>
+        <View style={styles.btnTextWrapper}>
+          <Text style={{ fontWeight: "700", textTransform: "uppercase" }}>
             Press for more water
           </Text>
         </View>
-      </Pressable>
+      </TouchableOpacity>
     </View>
   );
 };

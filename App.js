@@ -1,6 +1,6 @@
 import "react-native-gesture-handler";
 import React from "react";
-import { ScrollView, StyleSheet, View } from "react-native";
+import { ScrollView, StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
@@ -10,8 +10,8 @@ import {
   Animation11,
   Animation12,
   Animation13,
-  Animation14,
-  Animation15,
+  // Animation14,
+  // Animation15,
   Animation2,
   Animation3,
   Animation4,
@@ -91,22 +91,22 @@ function HomeScreen({ navigation }) {
         color={"salmon"}
         text={"Animation 10"}
       />
-      {/* <Button
-        onPress={() => navigation.navigate("Counter")}
+      <Button
+        onPress={() => navigation.navigate("Sidebar")}
         color={"#E52B50"}
         text={"Animation 11"}
       />
       <Button
-        onPress={() => navigation.navigate("Counter")}
+        onPress={() => navigation.navigate("ScrollableTabs")}
         color={"mediumaquamarine"}
         text={"Animation 12"}
       />
       <Button
-        onPress={() => navigation.navigate("Counter")}
+        onPress={() => navigation.navigate("ScrollableTabs2")}
         color={"sandybrown"}
         text={"Animation 13"}
       />
-      <Button
+      {/*<Button
         onPress={() => navigation.navigate("Counter")}
         color={"#E49B0F"}
         text={"Animation 14"}
@@ -141,10 +141,10 @@ export default function App() {
         <Stack.Screen name={"SvgProgress3"} component={Animation8} />
         <Stack.Screen name={"TimePicker"} component={Animation9} />
         <Stack.Screen name={"Counter"} component={Animation10} />
-        {/* <Stack.Screen name={"A"} component={Animation11} />
-        <Stack.Screen name={"B"} component={Animation12} />
-        <Stack.Screen name={"C"} component={Animation13} />
-        <Stack.Screen name={"D"} component={Animation14} />
+        <Stack.Screen name={"Sidebar"} component={Animation11} />
+        <Stack.Screen name={"ScrollableTabs"} component={Animation12} />
+        <Stack.Screen name={"ScrollableTabs2"} component={Animation13} />
+        {/*<Stack.Screen name={"D"} component={Animation14} />
         <Stack.Screen name={"E"} component={Animation15} /> */}
       </Stack.Navigator>
     </NavigationContainer>
