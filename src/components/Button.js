@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import { MaterialCommunityIcons as Icon } from "@expo/vector-icons";
 
 const styles = StyleSheet.create({
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
 
 const Button = ({ onPress, color, text }) => {
   return (
-    <TouchableOpacity onPress={onPress}>
+    <Pressable onPress={onPress}>
       <View style={styles.row}>
         <Icon
           name={"hand-pointing-right"}
@@ -30,7 +30,7 @@ const Button = ({ onPress, color, text }) => {
         />
         <Text style={styles.text}>{text}</Text>
       </View>
-    </TouchableOpacity>
+    </Pressable>
   );
 };
 

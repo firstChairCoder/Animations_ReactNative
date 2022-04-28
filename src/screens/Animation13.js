@@ -1,6 +1,6 @@
-// /* eslint-disable react-native/no-inline-styles */
-// import React from "react";
-// import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+/* eslint-disable react-native/no-inline-styles */
+import React from "react";
+import { Text, View } from "react-native";
 
 // import data from "../mockdata/tabsData";
 
@@ -39,10 +39,17 @@
 //   );
 // };
 
-// export const Animation13 = () => {
-//   return (
-//     <View style={{ flex: 1, backgroundColor: "whitesmoke" }}>
-//       {/* <DishItem /> */}
-//     </View>
-//   );
-// };
+export const Animation13 = () => {
+  return (
+    <View
+      style={{
+        flex: 1,
+        backgroundColor: "whitesmoke",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <Text>Oye como va</Text>
+    </View>
+  );
+};
