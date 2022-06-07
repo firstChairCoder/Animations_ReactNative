@@ -12,6 +12,8 @@ import {
   Animation13,
   Animation14,
   Animation15,
+  Animation16,
+  Animation17,
   Animation2,
   Animation3,
   Animation4,
@@ -29,7 +31,7 @@ const styles = StyleSheet.create({
     // justifyContent: "center",
     // alignItems: "center",
     backgroundColor: "wheat",
-    paddingTop: 20,
+    paddingVertical: 8,
   },
   content: {
     paddingLeft: 20,
@@ -112,35 +114,20 @@ function HomeScreen({ navigation }) {
         text={"Animation 14"}
       />
       <Button
-        onPress={() => navigation.navigate("Example")}
-        color={"#F0F0FF"}
-        text={"Animation 15"}
-      />
-      {/*<Button
-        onPress={() => navigation.navigate("Counter")}
-        color={"#27CEEB"}
+        onPress={() => navigation.navigate("Liquid")}
+        color={"#ACE1AF"}
         text={"Animation 15"}
       />
       <Button
-        onPress={() => navigation.navigate("Counter")}
-        color={"rebeccapurple"}
-        text={"Animation 15"}
+        onPress={() => navigation.navigate("ScrollableTabs3")}
+        color={"goldenrod"}
+        text={"Animation 16"}
       />
       <Button
-        onPress={() => navigation.navigate("Counter")}
-        color={"#B2BF2F"}
-        text={"Animation 15"}
+        onPress={() => navigation.navigate("SectionTabs")}
+        color={"#C0C529"}
+        text={"Animation 17"}
       />
-      <Button
-        onPress={() => navigation.navigate("Counter")}
-        color={"olive"}
-        text={"Animation 15"}
-      />
-      <Button
-        onPress={() => navigation.navigate("Counter")}
-        color={"tomato"}
-        text={"Animation 15"}
-      /> */}
     </ScrollView>
   );
 }
@@ -170,7 +157,9 @@ export default function App() {
         <Stack.Screen name={"ScrollableTabs"} component={Animation12} />
         <Stack.Screen name={"ScrollableTabs2"} component={Animation13} />
         <Stack.Screen name={"BarberPole"} component={Animation14} />
-        <Stack.Screen name={"Example"} component={Animation15} />
+        <Stack.Screen name={"Liquid"} component={Animation15} />
+        <Stack.Screen name={"ScrollableTabs3"} component={Animation16} />
+        <Stack.Screen name={"SectionTabs"} component={Animation17} />
       </Stack.Navigator>
     </NavigationContainer>
   );

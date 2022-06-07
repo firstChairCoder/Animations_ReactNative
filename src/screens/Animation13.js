@@ -1,7 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
-import React from "react";
-import { Text, View } from "react-native";
-
 // import data from "../mockdata/tabsData";
 
 // const styles = StyleSheet.create({
@@ -38,7 +34,6 @@ import { Text, View } from "react-native";
 //     </TouchableOpacity>
 //   );
 // };
-
 export const Animation13 = () => {
   return (
     <View
@@ -52,4 +47,3 @@ export const Animation13 = () => {
       <Text>Oye como va</Text>
     </View>
   );
-};
