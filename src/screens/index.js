@@ -17,3 +17,4 @@ export * from "./Animation16";
 export * from "./Animation17";
 export * from "./Animation18";
 export * from "./Animation19";
+export * from "./Animation20";

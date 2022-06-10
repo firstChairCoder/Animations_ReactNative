@@ -17,6 +17,7 @@ import {
   Animation18,
   Animation19,
   Animation2,
+  Animation20,
   Animation3,
   Animation4,
   Animation5,
@@ -140,6 +141,11 @@ function HomeScreen({ navigation }) {
         color={"#FF5700"}
         text={"Animation 19"}
       />
+      <Button
+        onPress={() => navigation.navigate("Ejemplo")}
+        color={"#772BAE"}
+        text={"Animation 20"}
+      />
     </ScrollView>
   );
 }
@@ -174,14 +180,8 @@ export default function App() {
         <Stack.Screen name={"ImagePan"} component={Animation17} />
         <Stack.Screen name={"ChannelList"} component={Animation18} />
         <Stack.Screen name={"Penguin"} component={Animation19} />
+        <Stack.Screen name={"Ejemplo"} component={Animation20} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
-
-// import React from "react";
-// import { View } from "react-native";
-
-// export default function App() {
-//   return <View style={{ flex: 1, backgroundColor: "#772BAE" }} />;
-// }
