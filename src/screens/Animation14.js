@@ -74,6 +74,7 @@ export const Animation14 = () => {
       <View style={styles.redStripe} />
     </Animated.View>
   );
+};
 
 // /* eslint-disable react-native/no-inline-styles */
 // import React, { useState } from "react";

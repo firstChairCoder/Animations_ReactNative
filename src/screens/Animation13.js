@@ -34,9 +34,13 @@
 //     </TouchableOpacity>
 //   );
 // };
+import React from "react";
+import { Text, View } from "react-native";
+
 export const Animation13 = () => {
   return (
     <View
+      // eslint-disable-next-line react-native/no-inline-styles
       style={{
         flex: 1,
         backgroundColor: "whitesmoke",
@@ -47,3 +51,4 @@ export const Animation13 = () => {
       <Text>Oye como va</Text>
     </View>
   );
+};
