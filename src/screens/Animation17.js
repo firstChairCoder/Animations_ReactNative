@@ -1,9 +1,105 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from "react";
-import { View } from "react-native";
+import { StyleSheet, View } from "react-native";
+import { Gesture, GestureDetector } from "react-native-gesture-handler";
+import Animated, {
+  useAnimatedStyle,
+  useSharedValue,
+  withSpring,
+} from "react-native-reanimated";
+import { SafeAreaView } from "react-native-safe-area-context";
+
+const IMG_URL =
+  "https://images.unsplash.com/photo-1553697388-94e804e2f0f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80";
+const styles = StyleSheet.create({
+  img: { width: 300, height: 300 },
+});
 
 export const Animation17 = () => {
-  return <View style={{ flex: 1, backgroundColor: "lime" }} />;
+  const scale = useSharedValue(1);
+  const savedScale = useSharedValue(1);
+  const positionX = useSharedValue(0);
+  const positionY = useSharedValue(0);
+  const savedPosition = useSharedValue({
+    x: 0,
+    y: 0,
+  });
+
+  const pinchGesture = Gesture.Pinch()
+    .onUpdate((e) => {
+      scale.value = savedScale.value * e.scale;
+    })
+    .onStart(() => {
+      savedScale.value = scale.value;
+    });
+
+  const panGesture = Gesture.Pan()
+    .onUpdate(({ translationX, translationY }) => {
+      positionX.value = savedPosition.value.x + translationX / scale.value;
+      positionY.value = savedPosition.value.y + translationY / scale.value;
+    })
+    .onStart(() => {
+      savedPosition.value = {
+        x: positionX.value,
+        y: positionY.value,
+      };
+    });
+
+  const doubleTapGesture = Gesture.Tap()
+    .numberOfTaps(2)
+    .onStart(() => {
+      if (scale.value !== 1 || positionX.value !== 0 || positionY.value !== 0) {
+        scale.value = withSpring(1, {
+          overshootClamping: true,
+        });
+        positionX.value = withSpring(0, {
+          overshootClamping: true,
+        });
+        positionY.value = withSpring(0, {
+          overshootClamping: true,
+        });
+      } else {
+        scale.value = withSpring(2, {
+          overshootClamping: true,
+        });
+      }
+    });
+
+  const composed = Gesture.Simultaneous(
+    panGesture,
+    Gesture.Simultaneous(pinchGesture, doubleTapGesture)
+  );
+
+  const animatedImg = useAnimatedStyle(() => ({
+    transform: [
+      {
+        scale: scale.value,
+      },
+      {
+        translateX: positionX.value,
+      },
+      {
+        translateY: positionY.value,
+      },
+    ],
+  }));
+
+  return (
+    // <SafeAreaView
+    //   mode="margin"
+    //   style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
+    // >
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <GestureDetector gesture={composed}>
+        <Animated.Image
+          style={[styles.img, animatedImg]}
+          source={{ uri: IMG_URL }}
+        />
+      </GestureDetector>
+    </View>
+  );
 };
+
 // import React from "react";
 // import {
 //   Animated,
@@ -27,6 +123,7 @@ export const Animation17 = () => {
 //   },
 //   coverPhoto: {
 //     width: "100%",
+
 //     height: "100%",
 //   },
 //   tabBar: {

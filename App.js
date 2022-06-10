@@ -14,6 +14,8 @@ import {
   Animation15,
   Animation16,
   Animation17,
+  Animation18,
+  Animation19,
   Animation2,
   Animation3,
   Animation4,
@@ -124,9 +126,19 @@ function HomeScreen({ navigation }) {
         text={"Animation 16"}
       />
       <Button
-        onPress={() => navigation.navigate("SectionTabs")}
+        onPress={() => navigation.navigate("ImagePan")}
         color={"#C0C529"}
         text={"Animation 17"}
+      />
+      <Button
+        onPress={() => navigation.navigate("ChannelList")}
+        color={"honeydew"}
+        text={"Animation 18"}
+      />
+      <Button
+        onPress={() => navigation.navigate("Penguin")}
+        color={"#FF5700"}
+        text={"Animation 19"}
       />
     </ScrollView>
   );
@@ -159,7 +171,9 @@ export default function App() {
         <Stack.Screen name={"BarberPole"} component={Animation14} />
         <Stack.Screen name={"Liquid"} component={Animation15} />
         <Stack.Screen name={"ScrollableTabs3"} component={Animation16} />
-        <Stack.Screen name={"SectionTabs"} component={Animation17} />
+        <Stack.Screen name={"ImagePan"} component={Animation17} />
+        <Stack.Screen name={"ChannelList"} component={Animation18} />
+        <Stack.Screen name={"Penguin"} component={Animation19} />
       </Stack.Navigator>
     </NavigationContainer>
   );
