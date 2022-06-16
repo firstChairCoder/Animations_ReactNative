@@ -6,14 +6,15 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: "row",
     alignItems: "center",
-    marginVertical: 7,
+    marginVertical: 8,
   },
   text: {
     flex: 1,
     fontSize: 32,
-    fontWeight: "300",
-    fontStyle: "italic",
+    // fontWeight: "300",
+    // fontStyle: "italic",
     textAlign: "auto",
+    fontFamily: "Lobster",
   },
 });
 

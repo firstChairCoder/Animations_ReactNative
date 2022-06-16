@@ -1,22 +1,24 @@
 import React from "react";
 import {
-  View,
-  StyleSheet,
-  Platform,
   Dimensions,
-  Image,
   FlatList,
+  Image,
+  Platform,
   StatusBar,
+  StyleSheet,
+  Text,
+  View,
 } from "react-native";
 import faker from "faker";
 import Animated, {
   interpolate,
   useAnimatedScrollHandler,
-  useSharedValue,
   useAnimatedStyle,
   useDerivedValue,
+  useSharedValue,
 } from "react-native-reanimated";
-import { FlingGestureHandler, Directions } from "react-native-gesture-handler";
+import { Directions, FlingGestureHandler } from "react-native-gesture-handler";
+
 import stickers from "../mockdata/stickersData";
 
 const { width, height } = Dimensions.get("window");
@@ -46,6 +48,7 @@ const data = stickers.map((image) => {
     name: faker.commerce.product(),
   };
 });
+console.log(data.map(({ name }) => ({ name })));
 
 const Item = ({ item, index, scrollY }) => {
   const v = useDerivedValue(() => {
@@ -75,6 +78,7 @@ const Item = ({ item, index, scrollY }) => {
       style={[{ justifyContent: "center", alignItems: "center" }, style]}
     >
       <Image style={styles.image} source={{ uri: item.image }} />
+      <Text>{item.name}</Text>
     </Animated.View>
   );
 };

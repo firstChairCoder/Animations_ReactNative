@@ -2,34 +2,34 @@
 // //Custom bank spendings - custom bar chart + number animation
 import React, { useEffect, useMemo, useRef } from "react";
 import {
-  View,
-  Text,
-  StyleSheet,
-  StatusBar,
-  TouchableWithoutFeedback,
   Dimensions,
+  StatusBar,
+  StyleSheet,
+  Text,
+  TouchableWithoutFeedback,
+  View,
 } from "react-native";
 import faker from "faker";
 import Animated, {
-  useAnimatedStyle,
+  interpolateColor,
   useAnimatedProps,
+  useAnimatedStyle,
+  useDerivedValue,
   useSharedValue,
   withTiming,
-  interpolateColor,
-  useDerivedValue,
 } from "react-native-reanimated";
 import { AntDesign as Icon } from "@expo/vector-icons";
 import AppLoading from "expo-app-loading";
 import {
-  useFonts,
-  Inter_500Medium,
   Inter_300Light,
   Inter_400Regular,
+  Inter_500Medium,
   Inter_700Bold,
   Inter_900Black,
+  useFonts,
 } from "@expo-google-fonts/inter";
 import Constants from "expo-constants";
-import { MotiView, MotiText } from "moti";
+import { MotiText, MotiView } from "moti";
 
 const { width, height } = Dimensions.get("window");
 

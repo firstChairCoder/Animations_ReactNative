@@ -1,21 +1,15 @@
 import React from "react";
-import {
-  View,
-  StyleSheet,
-  FlatList,
-  Dimensions,
-  StatusBar,
-} from "react-native";
+import { Dimensions, FlatList, StyleSheet, View } from "react-native";
 import faker from "faker";
 import Animated, {
   Extrapolate,
   interpolate,
-  useSharedValue,
-  useAnimatedStyle,
   useAnimatedScrollHandler,
+  useAnimatedStyle,
+  useSharedValue,
 } from "react-native-reanimated";
 import { MotiView, useDynamicAnimation } from "moti";
-import Constants from "expo-constants";
+import { StatusBar } from "expo-status-bar";
 
 import data from "../mockdata/peepsData";
 
@@ -31,10 +25,12 @@ const headings = [
   "Encapsulated by MD96",
 ];
 
+//sets translation values
 const random = () => {
   return ((Math.random() > 0.5 ? -1 : 1) * Math.random() * width) / 2;
 };
 
+//sets circle border values
 const randomBorder = () => {
   return Math.floor(Math.random() * 14) + 4;
 };
@@ -44,26 +40,26 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     backgroundColor: "#FFF",
-    paddingTop: Constants.statusBarHeight,
   },
   circle: {
     width: width * 0.8,
     height: width * 0.8,
     borderRadius: width,
-    borderWidth: 4,
-    borderColor: "rgba(0,0,0,1)",
+    borderColor: "#17161A",
     position: "absolute",
   },
   circlesWrapper: {
     position: "absolute",
-    top: height * 0.1,
+    top: height * 0.15,
   },
   itemImg: {
-    flex: 1,
+    width: width * 0.75,
+    height: height * 0.5,
     resizeMode: "contain",
   },
   textItem: {
     position: "absolute",
+    fontFamily: "VolkornCaps",
   },
   dotsWrapper: {
     flexDirection: "row",
@@ -181,7 +177,7 @@ const Pagination = ({ data, scrollX }) => {
   return (
     <View style={styles.dotsWrapper}>
       {data.map((_, index) => (
-        <PaginationDot index={index} scrollX={scrollX} />
+        <PaginationDot key={index} index={index} scrollX={scrollX} />
       ))}
     </View>
   );
@@ -196,9 +192,9 @@ export const Animation1 = () => {
   const first = useDynamicAnimation(() => ({
     translateX: random(),
     translateY: random(),
-    width: width * 0.8,
-    height: width * 0.8,
-    borderRadius: width * 0.8,
+    width: width * 0.67,
+    height: width * 0.67,
+    borderRadius: width * 0.67,
     borderWidth: randomBorder(),
   }));
 
@@ -222,7 +218,7 @@ export const Animation1 = () => {
 
   return (
     <View style={styles.container}>
-      <StatusBar hidden />
+      <StatusBar style="auto" />
       <Circles first={first} second={second} third={third} />
       <AnimatedFlatList
         data={_data}
