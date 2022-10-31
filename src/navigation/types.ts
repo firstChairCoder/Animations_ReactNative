@@ -1,6 +1,9 @@
 export type RootStackParamList = {
   Home: undefined;
   Details: undefined;
+
+  Player: undefined;
+  Clock: undefined;
 };
 
 export type RootParamList = RootStackParamList | null;

@@ -1,7 +1,9 @@
 import { Animated, Pressable, StyleSheet } from "react-native";
-import React, { FC, useEffect, useRef } from "react";
-import Container from "../common/Container";
+import type { FC } from "react";
+import React, { useEffect, useRef } from "react";
 import { Ionicons } from "@expo/vector-icons";
+
+import Container from "../common/Container";
 import Typography from "../common/Typography";
 import Button from "../common/Button";
 
@@ -14,7 +16,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginLeft: 30,
-    marginTop: 30
+    marginTop: 30,
   },
   bottom: {
     position: "absolute",
@@ -24,16 +26,16 @@ const styles = StyleSheet.create({
     backgroundColor: "#262d35",
     right: 0,
     borderTopLeftRadius: 30,
-    padding: 30
-  }
+    padding: 30,
+  },
 });
 
 const Details: FC = (props: any) => {
   const {
     navigation,
     route: {
-      params: { item }
-    }
+      params: { item },
+    },
   } = props;
 
   const animateValue = useRef(new Animated.Value(0)).current;
@@ -43,7 +45,7 @@ const Details: FC = (props: any) => {
     Animated.timing(animateValue, {
       toValue: 1,
       duration: 700,
-      useNativeDriver: false
+      useNativeDriver: false,
     }).start();
   };
 
@@ -51,7 +53,7 @@ const Details: FC = (props: any) => {
     Animated.timing(clearValue, {
       toValue: 1,
       duration: 700,
-      useNativeDriver: false
+      useNativeDriver: false,
     }).start();
   };
 
@@ -61,12 +63,12 @@ const Details: FC = (props: any) => {
 
   const animateView = animateValue.interpolate({
     inputRange: [0, 1],
-    outputRange: [300, 0]
+    outputRange: [300, 0],
   });
 
   const animateView2 = clearValue.interpolate({
     inputRange: [0, 1],
-    outputRange: [0, 300]
+    outputRange: [0, 300],
   });
 
   const goBack = () => {
@@ -88,12 +90,12 @@ const Details: FC = (props: any) => {
           marginTop: 70,
           transform: [
             {
-              translateX: animateView
+              translateX: animateView,
             },
             {
-              translateX: animateView2
-            }
-          ]
+              translateX: animateView2,
+            },
+          ],
         }}
       />
       <Animated.View
@@ -102,20 +104,20 @@ const Details: FC = (props: any) => {
           {
             transform: [
               {
-                translateY: animateView
+                translateY: animateView,
               },
               {
-                translateY: animateView2
-              }
-            ]
-          }
+                translateY: animateView2,
+              },
+            ],
+          },
         ]}
       >
         <Typography text={item.name} size={22} />
         <Typography
           text={`$${item.price}.00`}
           style={{
-            marginVertical: 20
+            marginVertical: 20,
           }}
         />
         <Typography text={item.description} color="#717880" />
@@ -124,7 +126,7 @@ const Details: FC = (props: any) => {
           textSize={12}
           style={{
             marginTop: 30,
-            width: "50%"
+            width: "50%",
           }}
         />
       </Animated.View>

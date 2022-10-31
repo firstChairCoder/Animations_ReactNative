@@ -6,6 +6,8 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Home from "../screens/Home";
 import Details from "../screens/Details";
 import type { RootStackParamList } from "./types";
+import Player from "../screens/Player";
+import { ClockScreen } from "../screens/Clock";
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -20,6 +22,10 @@ const Root = () => {
     >
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="Details" component={Details} />
+
+      <Stack.Screen name="Player" component={Player} />
+
+      <Stack.Screen name="Clock" component={ClockScreen} />
     </Stack.Navigator>
   );
 };
