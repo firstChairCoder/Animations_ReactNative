@@ -1,8 +1,9 @@
+/* eslint-disable no-shadow */
 /* eslint-disable react-native/no-inline-styles */
+//WIP! related to Animation 15
 import React, { useEffect, useState } from "react";
 import {
   Dimensions,
-  Pressable,
   StatusBar,
   StyleSheet,
   Text,
@@ -157,7 +158,6 @@ export const Animation8 = () => {
       </Svg>
 
       <TouchableOpacity
-        // onPress={() => null}
         onPress={() => {
           setCups((cups) => {
             return cups + 1;

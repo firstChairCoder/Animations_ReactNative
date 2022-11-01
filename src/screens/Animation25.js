@@ -99,7 +99,7 @@ const data = [
   },
   {
     icon: "social-foursqare",
-    name: "foursqare",
+    name: "foursquare",
   },
   {
     icon: "social-soundcloud",

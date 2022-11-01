@@ -1,4 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
+//WIP!
 import * as React from "react";
 import {
   Animated,

@@ -129,6 +129,131 @@ const screens = [
     color: "teal",
     label: "Animation 26",
   },
+  {
+    name: "ScrollableTabs4",
+    color: "#FD499B",
+    label: "Animation 27",
+  },
+  {
+    name: "ProcessLoader",
+    color: "#FDA7FB",
+    label: "Animation 28",
+  },
+  {
+    name: "SensorCard",
+    color: "midnightblue",
+    label: "Animation 29",
+  },
+  {
+    name: "NavTransition",
+    color: "#C43EED",
+    label: "Animation 30",
+  },
+  {
+    name: "MarvelSlides",
+    color: "slateblue",
+    label: "Animation 31",
+  },
+  {
+    name: "DotInverse",
+    color: "lightseagreen",
+    label: "Animation 32",
+  },
+  {
+    name: "Headphones",
+    color: "paleturquoise",
+    label: "Animation 33",
+  },
+  {
+    name: "Login",
+    color: "rosybrown",
+    label: "Animation 34",
+  },
+  {
+    name: "Login2",
+    color: "gainsboro",
+    label: "Animation 35",
+  },
+  {
+    name: "MoreBtn",
+    color: "orangered",
+    label: "Animation 36",
+  },
+  {
+    name: "NumAnim",
+    color: "darkkhaki",
+    label: "Animation 37",
+  },
+  {
+    name: "Voter",
+    color: "rebeccapurple",
+    label: "Animation 38",
+  },
+  {
+    name: "PassCode",
+    color: "peachpuff",
+    label: "Animation 39",
+  },
+  {
+    name: "MenuTransition",
+    color: "lightcoral",
+    label: "Animation 40",
+  },
+  {
+    name: "MoreBtn2",
+    color: "magenta",
+    label: "Animation 41",
+  },
+  {
+    name: "RandomCircles",
+    color: "hotpink",
+    label: "Animation 42",
+  },
+  {
+    name: "BeatsConcept",
+    color: "orchid",
+    label: "Animation 43",
+  },
+  {
+    name: "FabBtn",
+    color: "darkcyan",
+    label: "Animation 44",
+  },
+  {
+    name: "Switch",
+    color: "cornflowerblue",
+    label: "Animation 45",
+  },
+  {
+    name: "MotiProgress",
+    color: "darkgoldenrod",
+    label: "Animation 46",
+  },
+  {
+    name: "FabBtn2",
+    color: "aliceblue",
+    label: "Animation 47",
+  },
+  {
+    name: "MotionUI",
+    color: "cornsilk",
+    label: "Animation 48",
+  },
+  {
+    name: "CallVibe",
+    color: "slategray",
+    label: "Animation 49",
+  },
+  {
+    name: "ProcessingLoop",
+    color: "saddlebrown",
+    label: "Animation 50",
+  },
+  {
+    name: "ProcessingLoop",
+    color: "springgreen",
+    label: "Animation 51",
+  },
 ];
 
 export default screens;

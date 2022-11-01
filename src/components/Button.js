@@ -11,8 +11,6 @@ const styles = StyleSheet.create({
   text: {
     flex: 1,
     fontSize: 32,
-    // fontWeight: "300",
-    // fontStyle: "italic",
     textAlign: "auto",
     fontFamily: "Lobster",
   },

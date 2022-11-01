@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 // Inspiration: https://dribbble.com/shots/3147975-Product-Page-Interaction?1481310235
 // Images from Pexels.com: https://www.pexels.com/collections/abstract-art-4cxqlt3/
-
+//WIP!
 import * as React from "react";
 import {
   Dimensions,

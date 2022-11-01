@@ -28,9 +28,33 @@ import {
   Animation24,
   Animation25,
   Animation26,
+  Animation27,
+  Animation28,
+  Animation29,
   Animation3,
+  Animation30,
+  Animation31,
+  Animation32,
+  Animation33,
+  Animation34,
+  Animation35,
+  Animation36,
+  Animation37,
+  Animation38,
+  Animation39,
   Animation4,
+  Animation40,
+  Animation41,
+  Animation42,
+  Animation43,
+  Animation44,
+  Animation45,
+  Animation46,
+  Animation47,
+  Animation48,
+  Animation49,
   Animation5,
+  Animation50,
   Animation6,
   Animation7,
   Animation8,
@@ -43,11 +67,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "snow",
-    // paddingVertical: 8,
     paddingTop: Constants.statusBarHeight + 20,
   },
   content: {
     paddingLeft: 20,
+    paddingBottom: 20,
   },
 });
 
@@ -142,6 +166,30 @@ export default function App() {
           <Stack.Screen name={"RubberSlide"} component={Animation24} />
           <Stack.Screen name={"AnimatedTab2"} component={Animation25} />
           <Stack.Screen name={"Ejemplo2"} component={Animation26} />
+          <Stack.Screen name={"ScrollableTabs4"} component={Animation27} />
+          <Stack.Screen name={"ProcessLoader"} component={Animation28} />
+          <Stack.Screen name={"SensorCard"} component={Animation29} />
+          <Stack.Screen name={"NavTransition"} component={Animation30} />
+          <Stack.Screen name={"MarvelSlides"} component={Animation31} />
+          <Stack.Screen name={"DotInverse"} component={Animation32} />
+          <Stack.Screen name={"Headphones"} component={Animation33} />
+          <Stack.Screen name={"Login"} component={Animation34} />
+          <Stack.Screen name={"Login2"} component={Animation35} />
+          <Stack.Screen name={"MoreBtn"} component={Animation36} />
+          <Stack.Screen name={"NumAnim"} component={Animation37} />
+          <Stack.Screen name={"Voter"} component={Animation38} />
+          <Stack.Screen name={"PassCode"} component={Animation39} />
+          <Stack.Screen name={"MenuTransition"} component={Animation40} />
+          <Stack.Screen name={"MoreBtn2"} component={Animation41} />
+          <Stack.Screen name={"RandomCircles"} component={Animation42} />
+          <Stack.Screen name={"BeatsConcept"} component={Animation43} />
+          <Stack.Screen name={"FabBtn"} component={Animation44} />
+          <Stack.Screen name={"Switch"} component={Animation45} />
+          <Stack.Screen name={"MotiProgress"} component={Animation46} />
+          <Stack.Screen name={"FabBtn2"} component={Animation47} />
+          <Stack.Screen name={"MotionUI"} component={Animation48} />
+          <Stack.Screen name={"CallVibe"} component={Animation49} />
+          <Stack.Screen name={"ProcessingLoop"} component={Animation50} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

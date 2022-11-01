@@ -1,3 +1,4 @@
+//slight fix: Breather in text doesn't disappear when breathe out shows...
 import React, { useEffect, useRef } from "react";
 import { Animated, Dimensions, StyleSheet, Text, View } from "react-native";
 
@@ -84,17 +85,6 @@ export const Animation20 = () => {
   const animatedText2 = {
     opacity: exhale,
   };
-
-  //   const animatedCircle = {
-  //     transform: [
-  //       {
-  //         translateY: translate,
-  //       },
-  //       {
-  //         translateX: translate,
-  //       },
-  //     ],
-  //   };
 
   return (
     <View style={styles.container}>

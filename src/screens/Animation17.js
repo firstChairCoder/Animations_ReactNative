@@ -1,4 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
+//WIP!
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
@@ -7,7 +8,6 @@ import Animated, {
   useSharedValue,
   withSpring,
 } from "react-native-reanimated";
-import { SafeAreaView } from "react-native-safe-area-context";
 
 const IMG_URL =
   "https://images.unsplash.com/photo-1553697388-94e804e2f0f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80";
@@ -85,10 +85,6 @@ export const Animation17 = () => {
   }));
 
   return (
-    // <SafeAreaView
-    //   mode="margin"
-    //   style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
-    // >
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
       <GestureDetector gesture={composed}>
         <Animated.Image
