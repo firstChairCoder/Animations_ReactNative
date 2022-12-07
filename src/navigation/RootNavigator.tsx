@@ -3,11 +3,47 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import Home from "../screens/Home";
-import Details from "../screens/Details";
+import {
+  IntroScreen,
+  ProgressScreen,
+  BasicGestureScreen,
+  InterpolateScrollViewScreen,
+  ColorScreen,
+  AdvancedFlatListScreen,
+  AirlineScreen
+} from "../screens";
 import type { RootStackParamList } from "./types";
-import Player from "../screens/Player";
-import { ClockScreen } from "../screens/Clock";
+
+const screens = [
+  {
+    name: "Intro",
+    component: IntroScreen,
+  },
+  {
+    name: "Progress",
+    component: ProgressScreen,
+  },
+  {
+    name: "BasicGesture",
+    component: BasicGestureScreen,
+  },
+  {
+    name: "IntScroll",
+    component: InterpolateScrollViewScreen,
+  },
+  {
+    name: "IntColor",
+    component: ColorScreen,
+  },
+  {
+    name: "AdvancedFlatList",
+    component: AdvancedFlatListScreen,
+  },
+  {
+    name: "Flight",
+    component: AirlineScreen,
+  },
+];
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -20,12 +56,13 @@ const Root = () => {
         headerShown: false,
       }}
     >
-      <Stack.Screen name="Home" component={Home} />
-      <Stack.Screen name="Details" component={Details} />
-
-      <Stack.Screen name="Player" component={Player} />
-
-      <Stack.Screen name="Clock" component={ClockScreen} />
+      {screens.map((screen) => (
+        <Stack.Screen
+          key={screen.name}
+          name={screen.name}
+          component={screen.component}
+        />
+      ))}
     </Stack.Navigator>
   );
 };
