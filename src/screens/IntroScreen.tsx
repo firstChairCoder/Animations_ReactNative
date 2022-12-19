@@ -190,6 +190,36 @@ export const IntroScreen = ({ navigation }) => {
 					/>
 				</View>
 			</Pressable>
+
+			<Pressable onPress={() => navigation.navigate("Toolbar")} style={{ marginVertical: 8 }}>
+				<View
+					style={{
+						flexDirection: "row",
+						height: 48,
+						borderWidth: 1,
+						borderColor: "#FDA",
+						borderRadius: 12,
+						paddingHorizontal: 32,
+						justifyContent: "space-between",
+						alignItems: "center",
+					}}
+				>
+					<Text
+						style={{
+							marginRight: 32,
+							fontSize: 24,
+							fontWeight: "bold",
+						}}
+					>
+						Toolbar
+					</Text>
+					<Icon
+						name="chevron-circle-right"
+						color={"white"}
+						size={24}
+					/>
+				</View>
+			</Pressable>
 		</View>
 	);
 };

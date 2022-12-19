@@ -10,7 +10,8 @@ import {
   InterpolateScrollViewScreen,
   ColorScreen,
   AdvancedFlatListScreen,
-  AirlineScreen
+  AirlineScreen,
+  ToolbarDemoScreen
 } from "../screens";
 import type { RootStackParamList } from "./types";
 
@@ -42,6 +43,10 @@ const screens = [
   {
     name: "Flight",
     component: AirlineScreen,
+  },
+  {
+    name: "Toolbar",
+    component: ToolbarDemoScreen,
   },
 ];
 
