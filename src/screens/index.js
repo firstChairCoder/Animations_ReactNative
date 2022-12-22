@@ -49,3 +49,6 @@ export * from "./Animation48";
 export * from "./Animation49";
 export * from "./Animation50";
 export { default as Animation51 } from "./Animation51";
+export * from "./Animation52";
+export * from "./Animation53";
+export * from "./Animation54";
