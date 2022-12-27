@@ -85,7 +85,7 @@ export const ColorScreen = () => {
 					animatedTextStyle
 				]}
 			>
-				Theme
+				{theme === "light" ? "Light" : "Dark"}
 			</Animated.Text>
 
 			<Animated.View

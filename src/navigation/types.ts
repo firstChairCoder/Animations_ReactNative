@@ -1,6 +1,14 @@
 export type RootStackParamList = {
   Home: undefined;
   Details: undefined;
+  Wallet: undefined;
+  SlideCounter: undefined;
+  Layout: undefined;
+  Swipe: undefined;
+  BottomSheet: undefined;
+  Menu: undefined;
+  Square: undefined;
+  Countdown: undefined;
 
   Player: undefined;
   Clock: undefined;

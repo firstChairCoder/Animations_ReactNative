@@ -11,7 +11,16 @@ import {
   ColorScreen,
   AdvancedFlatListScreen,
   AirlineScreen,
-  ToolbarDemoScreen
+  ToolbarDemoScreen,
+  WalletFlatListScreen,
+  SlideCounterScreen,
+  LayoutAnimationScreen,
+  SwipeDeleteScreen,
+  BottomSheetDemoScreen,
+  RippleScreen,
+  SquareRotationScreen,
+  MenuDemoScreen,
+  CountdownScreen
 } from "../screens";
 import type { RootStackParamList } from "./types";
 
@@ -47,6 +56,42 @@ const screens = [
   {
     name: "Toolbar",
     component: ToolbarDemoScreen,
+  },
+  {
+    name: "Wallet",
+    component: WalletFlatListScreen,
+  },
+  {
+    name: "SlideCounter",
+    component: SlideCounterScreen,
+  },
+  {
+    name: "Layout",
+    component: LayoutAnimationScreen,
+  },
+  {
+    name: "Swipe",
+    component: SwipeDeleteScreen,
+  },
+  {
+    name: "BottomSheet",
+    component: BottomSheetDemoScreen,
+  },
+  {
+    name: "Ripple",
+    component: RippleScreen,
+  },
+  {
+    name: "Menu",
+    component: MenuDemoScreen,
+  },
+  {
+    name: "Square",
+    component: SquareRotationScreen,
+  },
+  {
+    name: "Countdown",
+    component: CountdownScreen,
   },
 ];
 
