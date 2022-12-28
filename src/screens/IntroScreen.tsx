@@ -512,6 +512,72 @@ export const IntroScreen = ({ navigation }) => {
 						/>
 					</View>
 				</Pressable>
+
+				<Pressable
+					onPress={() => navigation.navigate("Countdown")}
+					style={{ marginVertical: 8 }}
+				>
+					<View
+						style={{
+							flexDirection: "row",
+							height: 48,
+							borderWidth: 2,
+							borderColor: "#FA1",
+							borderRadius: 12,
+							paddingHorizontal: 32,
+							justifyContent: "space-between",
+							alignItems: "center",
+						}}
+					>
+						<Text
+							style={{
+								marginRight: 32,
+								fontSize: 24,
+								fontWeight: "bold",
+							}}
+						>
+							Countdown
+						</Text>
+						<Icon
+							name="chevron-circle-right"
+							color={"white"}
+							size={24}
+						/>
+					</View>
+				</Pressable>
+
+				<Pressable
+					onPress={() => navigation.navigate("Carousel")}
+					style={{ marginVertical: 8 }}
+				>
+					<View
+						style={{
+							flexDirection: "row",
+							height: 48,
+							borderWidth: 2,
+							borderColor: "#1FC",
+							borderRadius: 12,
+							paddingHorizontal: 32,
+							justifyContent: "space-between",
+							alignItems: "center",
+						}}
+					>
+						<Text
+							style={{
+								marginRight: 32,
+								fontSize: 24,
+								fontWeight: "bold",
+							}}
+						>
+							3D Carousel
+						</Text>
+						<Icon
+							name="chevron-circle-right"
+							color={"white"}
+							size={24}
+						/>
+					</View>
+				</Pressable>
 			</ScrollView>
 			<View style={{ flex: 0.05, backgroundColor: "linen" }} />
 		</>

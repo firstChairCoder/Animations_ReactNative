@@ -20,7 +20,8 @@ import {
   RippleScreen,
   SquareRotationScreen,
   MenuDemoScreen,
-  CountdownScreen
+  CountdownScreen,
+  Carousel3DScreen
 } from "../screens";
 import type { RootStackParamList } from "./types";
 
@@ -92,6 +93,10 @@ const screens = [
   {
     name: "Countdown",
     component: CountdownScreen,
+  },
+  {
+    name: "Carousel",
+    component: Carousel3DScreen,
   },
 ];
 

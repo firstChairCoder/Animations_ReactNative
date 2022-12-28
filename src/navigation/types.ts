@@ -9,6 +9,7 @@ export type RootStackParamList = {
   Menu: undefined;
   Square: undefined;
   Countdown: undefined;
+  Carousel: undefined;
 
   Player: undefined;
   Clock: undefined;
