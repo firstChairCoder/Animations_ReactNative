@@ -21,11 +21,13 @@ import {
   SquareRotationScreen,
   MenuDemoScreen,
   CountdownScreen,
-  Carousel3DScreen
+  Carousel3DScreen,
+  CardsSwapScreen,
+  ImageViewerScreen
 } from "../screens";
 import type { RootStackParamList } from "./types";
 
-const screens = [
+export const screens = [
   {
     name: "Intro",
     component: IntroScreen,
@@ -33,70 +35,116 @@ const screens = [
   {
     name: "Progress",
     component: ProgressScreen,
+    borderColor: "#F00",
+    label: "Progress",
   },
   {
     name: "BasicGesture",
     component: BasicGestureScreen,
+    borderColor: "#F0F",
+    label: "Basic Gesture",
   },
   {
     name: "IntScroll",
     component: InterpolateScrollViewScreen,
+    borderColor: "#FF0",
+    label: "Scroll Int.",
   },
   {
     name: "IntColor",
     component: ColorScreen,
+    borderColor: "#BE9",
+    label: "Color Int.",
   },
   {
     name: "AdvancedFlatList",
     component: AdvancedFlatListScreen,
+    borderColor: "#CC3",
+    label: "FlatList",
   },
   {
     name: "Flight",
     component: AirlineScreen,
+    borderColor: "#FDA",
+    label: "Airline",
   },
   {
     name: "Toolbar",
     component: ToolbarDemoScreen,
+    borderColor: "#369",
+    label: "Toolbar",
   },
   {
     name: "Wallet",
     component: WalletFlatListScreen,
+    borderColor: "#640",
+    label: "Wallet FlatList",
   },
   {
     name: "SlideCounter",
     component: SlideCounterScreen,
+    borderColor: "#C1A",
+    label: "Slide Counter",
   },
   {
     name: "Layout",
     component: LayoutAnimationScreen,
+    borderColor: "#1CE",
+    label: "Layout Animation",
   },
   {
     name: "Swipe",
     component: SwipeDeleteScreen,
+    borderColor: "#FDA",
+    label: "Swiper",
   },
   {
     name: "BottomSheet",
     component: BottomSheetDemoScreen,
+    borderColor: "#8EA",
+    label: "Bottom Sheet"
   },
   {
     name: "Ripple",
     component: RippleScreen,
+    borderColor: "#ACE",
+    label: "Ripple"
   },
   {
     name: "Menu",
     component: MenuDemoScreen,
+    borderColor: "#DED369",
+    label: "Menu"
   },
   {
     name: "Square",
     component: SquareRotationScreen,
+    borderColor: "#FA1",
+    label: "Rotating Square"
   },
   {
     name: "Countdown",
     component: CountdownScreen,
+    borderColor: "#1FC",
+    label: "Countdown"
   },
   {
     name: "Carousel",
     component: Carousel3DScreen,
+    borderColor: "#B16",
+    label: "3D Carousel"
+  },
+  {
+    name: "CardsSwap",
+    component: CardsSwapScreen,
+    borderColor: "#B0D",
+    label: "Cards Gest."
+  },
+  {
+    name: "ImageViewer",
+    component: ImageViewerScreen,
+    borderColor: "#000",
+    label: "Image Viewer"
   },
 ];
 
