@@ -23,7 +23,8 @@ import {
   CountdownScreen,
   Carousel3DScreen,
   CardsSwapScreen,
-  ImageViewerScreen
+  ImageViewerScreen,
+  FireworksScreen
 } from "../screens";
 import type { RootStackParamList } from "./types";
 
@@ -145,6 +146,12 @@ export const screens = [
     component: ImageViewerScreen,
     borderColor: "#000",
     label: "Image Viewer"
+  },
+  {
+    name: "Fireworks",
+    component: FireworksScreen,
+    borderColor: "#EBA",
+    label: "Fireworks"
   },
 ];
 
