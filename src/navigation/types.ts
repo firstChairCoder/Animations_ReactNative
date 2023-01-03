@@ -14,6 +14,7 @@ export type RootStackParamList = {
   Player: undefined;
   Clock: undefined;
   Intro: undefined;
+  CustomSpin: undefined;
 };
 
 export type RootParamList = RootStackParamList | null;

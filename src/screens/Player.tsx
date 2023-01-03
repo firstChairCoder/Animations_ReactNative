@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import type { ImageSourcePropType } from "react-native";
 import { Dimensions, StatusBar, StyleSheet, View } from "react-native";
 import type { PanGestureHandlerGestureEvent } from "react-native-gesture-handler";

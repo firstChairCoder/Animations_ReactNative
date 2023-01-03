@@ -13,6 +13,7 @@ import {
   Carousel3DScreen,
   ColorScreen,
   CountdownScreen,
+  CustomSpinScreen,
   FireworksScreen,
   ImageViewerScreen,
   InterpolateScrollViewScreen,
@@ -159,6 +160,12 @@ export const screens = [
     component: AnimatedCardsScreen,
     borderColor: "#BAE",
     label: "Animated Cards",
+  },
+  {
+    name: "CustomSpin",
+    component: CustomSpinScreen,
+    borderColor: "#DA3",
+    label: "Custom Spin",
   },
 ];
 
