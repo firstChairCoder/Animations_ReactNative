@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-import "react-native-gesture-handler";
 import React, { useLayoutEffect } from "react";
 import * as NavigationBar from "expo-navigation-bar";
 import { useFont } from "@shopify/react-native-skia";
-import {GestureHandlerRootView} from "react-native-gesture-handler";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+
 import { RootNavigator } from "./src/navigation/RootNavigator";
 
 // type RootNavigationProp = StackNavigationProp<RootStackParamList, "root">;

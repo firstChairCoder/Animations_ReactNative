@@ -4,27 +4,28 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
 import {
-  IntroScreen,
-  ProgressScreen,
-  BasicGestureScreen,
-  InterpolateScrollViewScreen,
-  ColorScreen,
   AdvancedFlatListScreen,
   AirlineScreen,
+  AnimatedCardsScreen,
+  BasicGestureScreen,
+  BottomSheetDemoScreen,
+  CardsSwapScreen,
+  Carousel3DScreen,
+  ColorScreen,
+  CountdownScreen,
+  FireworksScreen,
+  ImageViewerScreen,
+  InterpolateScrollViewScreen,
+  IntroScreen,
+  LayoutAnimationScreen,
+  MenuDemoScreen,
+  ProgressScreen,
+  RippleScreen,
+  SlideCounterScreen,
+  SquareRotationScreen,
+  SwipeDeleteScreen,
   ToolbarDemoScreen,
   WalletFlatListScreen,
-  SlideCounterScreen,
-  LayoutAnimationScreen,
-  SwipeDeleteScreen,
-  BottomSheetDemoScreen,
-  RippleScreen,
-  SquareRotationScreen,
-  MenuDemoScreen,
-  CountdownScreen,
-  Carousel3DScreen,
-  CardsSwapScreen,
-  ImageViewerScreen,
-  FireworksScreen
 } from "../screens";
 import type { RootStackParamList } from "./types";
 
@@ -103,55 +104,61 @@ export const screens = [
     name: "BottomSheet",
     component: BottomSheetDemoScreen,
     borderColor: "#8EA",
-    label: "Bottom Sheet"
+    label: "Bottom Sheet",
   },
   {
     name: "Ripple",
     component: RippleScreen,
     borderColor: "#ACE",
-    label: "Ripple"
+    label: "Ripple",
   },
   {
     name: "Menu",
     component: MenuDemoScreen,
     borderColor: "#DED369",
-    label: "Menu"
+    label: "Menu",
   },
   {
     name: "Square",
     component: SquareRotationScreen,
     borderColor: "#FA1",
-    label: "Rotating Square"
+    label: "Rotating Square",
   },
   {
     name: "Countdown",
     component: CountdownScreen,
     borderColor: "#1FC",
-    label: "Countdown"
+    label: "Countdown",
   },
   {
     name: "Carousel",
     component: Carousel3DScreen,
     borderColor: "#B16",
-    label: "3D Carousel"
+    label: "3D Carousel",
   },
   {
     name: "CardsSwap",
     component: CardsSwapScreen,
     borderColor: "#B0D",
-    label: "Cards Gest."
+    label: "Cards Gest.",
   },
   {
     name: "ImageViewer",
     component: ImageViewerScreen,
     borderColor: "#000",
-    label: "Image Viewer"
+    label: "Image Viewer",
   },
   {
     name: "Fireworks",
     component: FireworksScreen,
     borderColor: "#EBA",
-    label: "Fireworks"
+    label: "Fireworks",
+  },
+  {
+    name: "AnimatedCards",
+    component: AnimatedCardsScreen,
+    borderColor: "#BAE",
+    label: "Animated Cards",
   },
 ];
 

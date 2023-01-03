@@ -19,3 +19,5 @@ export * from "./Carousel3DScreen";
 export * from "./CardsSwapScreen";
 export * from "./ImageViewerScreen";
 export * from "./FireworksScreen";
+export * from "./AnimatedCardsScreen";
+export * from "./CustomSpinScreen";
