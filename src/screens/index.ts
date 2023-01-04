@@ -21,3 +21,5 @@ export * from "./ImageViewerScreen";
 export * from "./FireworksScreen";
 export * from "./AnimatedCardsScreen";
 export * from "./CustomSpinScreen";
+export * from "./HourglassScreen";
+export * from "./ElasticScrollScreen";

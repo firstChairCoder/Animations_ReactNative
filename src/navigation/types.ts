@@ -15,6 +15,7 @@ export type RootStackParamList = {
   Clock: undefined;
   Intro: undefined;
   CustomSpin: undefined;
+  ElasticScroll: undefined;
 };
 
 export type RootParamList = RootStackParamList | null;

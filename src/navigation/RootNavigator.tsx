@@ -14,7 +14,9 @@ import {
   ColorScreen,
   CountdownScreen,
   CustomSpinScreen,
+  ElasticScrollScreen,
   FireworksScreen,
+  HourglassScreen,
   ImageViewerScreen,
   InterpolateScrollViewScreen,
   IntroScreen,
@@ -166,6 +168,18 @@ export const screens = [
     component: CustomSpinScreen,
     borderColor: "#DA3",
     label: "Custom Spin",
+  },
+  {
+    name: "Hourglass",
+    component: HourglassScreen,
+    borderColor: "#0AD",
+    label: "Hourglass",
+  },
+  {
+    name: "Elastic",
+    component: ElasticScrollScreen,
+    borderColor: "#8DE",
+    label: "Elastic Scroll",
   },
 ];
 
