@@ -36,16 +36,14 @@ const styles = StyleSheet.create({
 	toolbarHead: {
 		width: 66,
 		height: TOOLBAR_HEIGHT,
-		backgroundColor: "white",
 		borderRadius: 12,
 		marginHorizontal: 24,
 		marginVertical: 40,
-		shadowColor: "gray",
 		shadowOffset: { width: 0, height: 8 },
 		shadowOpacity: 0.44,
 		shadowRadius: 10.32,
 		elevation: 32,
-		backgroundColor: "#313a44",
+		backgroundColor: "#313A44",
 		shadowColor: "rgb(128, 128, 128, 0.6)",
 	},
 	btnList: {
@@ -173,9 +171,9 @@ const BackButton = ({ style }: { style: StyleProp<ViewStyle> }) => {
 					borderRadius: 20,
 					justifyContent: "center",
 					alignItems: "center",
-					backgroundColor: "rgba(0, 0, 0, 0.2)",
+					backgroundColor: "rgba(0, 0, 0, 0.25)",
 					marginRight: 16,
-					marginTop: 24,
+					marginTop: 32,
 					paddingLeft: 8,
 					alignSelf: "flex-end",
 				},
@@ -185,7 +183,7 @@ const BackButton = ({ style }: { style: StyleProp<ViewStyle> }) => {
 			android_ripple={{ color: "darkgray", borderless: true, radius: 24 }}
 			onPress={() => navigation.goBack()}
 		>
-			<Icon name="arrow-back-ios" size={18} color="white" />
+			<Icon name="arrow-back-ios" size={20} color="white" />
 		</Pressable>
 	);
 };
@@ -288,7 +286,6 @@ const Button = ({ item, index, activeY, offset }: ButtonProps) => {
 	);
 };
 
-{
 	/*
 import React from "react";
 import { View } from "react-native";
@@ -301,4 +298,3 @@ export const ToolbarDemoScreen = () => {
 1. dark mode statusbar
 
 */
-}
