@@ -42,7 +42,7 @@ export const RippleScreen = () => {
         style={styles.ripple}
         onTap={() => {
           setCount(count + 1);
-          console.log("tapped", +count + "times");
+          console.log("tapped", +count + " times");
         }}
       >
         <Text style={{ fontSize: 25 }}>Tap me!</Text>

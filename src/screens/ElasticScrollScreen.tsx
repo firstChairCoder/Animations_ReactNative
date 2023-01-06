@@ -1,10 +1,6 @@
 import React, { useCallback, useRef } from "react";
-import { Dimensions, Text, View } from "react-native";
-import type {
-  FlatList,
-  ImageSourcePropType,
-  ListRenderItem,
-} from "react-native";
+import { Dimensions, FlatList, Text, View } from "react-native";
+import type { ImageSourcePropType, ListRenderItem } from "react-native";
 import Animated, {
   useAnimatedScrollHandler,
   useDerivedValue,
@@ -24,7 +20,7 @@ export interface Item {
   read: boolean;
 }
 
-const AnimatedFlatlist = Animated.createAnimatedComponent(FlatList<Item>);
+const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
 
 export const ElasticScrollScreen = () => {
   const ref = useRef<FlatList>(null);
