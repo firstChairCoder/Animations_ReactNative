@@ -24,3 +24,4 @@ export * from "./CustomSpinScreen";
 export * from "./HourglassScreen";
 export * from "./ElasticScrollScreen";
 export * from "./SensorRotationScreen";
+export * from "./ColorSwatchScreen";

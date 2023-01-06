@@ -30,8 +30,11 @@ import {
   HourglassScreen,
   ElasticScrollScreen,
   SensorRotationScreen,
+  ColorSwatchScreen
 } from "../screens";
 import type { RootStackParamList } from "./types";
+
+import { DraggableDemoScreen } from "../screens/DraggableDemoScreen";
 
 export const screens = [
   {
@@ -116,7 +119,7 @@ export const screens = [
     borderColor: "#ACE",
     label: "Ripple",
   },
-   {
+  {
     name: "Menu",
     component: MenuDemoScreen,
     borderColor: "#DED369",
@@ -185,8 +188,20 @@ export const screens = [
   {
     name: "SensorRotationScreen",
     component: SensorRotationScreen,
-    borderColor: "#8DE",
+    borderColor: "#1DE",
     label: "Sensor",
+  },
+  {
+    name: "Draggable",
+    component: DraggableDemoScreen,
+    borderColor: "#D9A4B3",
+    label: "Draggable Basic",
+  },
+  {
+    name: "ColorSwatch",
+    component: ColorSwatchScreen,
+    borderColor: "#D90",
+    label: "Color Swatch",
   },
 ];
 
