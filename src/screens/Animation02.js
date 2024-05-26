@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Dimensions,
   FlatList,
@@ -48,7 +47,7 @@ const data = stickers.map((image) => {
     name: faker.commerce.product(),
   };
 });
-console.log(data.map(({ name }) => ({ name })));
+// console.log(data.map(({ name }) => ({ name })));
 
 const Item = ({ item, index, scrollY }) => {
   const v = useDerivedValue(() => {

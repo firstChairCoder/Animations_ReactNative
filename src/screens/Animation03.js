@@ -1,7 +1,8 @@
 //WORK IN PROGRESS!!
 // //Custom bank spendings - custom bar chart + number animation
-import React, { useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import {
+  ActivityIndicator,
   Dimensions,
   StatusBar,
   StyleSheet,
@@ -19,7 +20,6 @@ import Animated, {
   withTiming,
 } from "react-native-reanimated";
 import { AntDesign as Icon } from "@expo/vector-icons";
-import AppLoading from "expo-app-loading";
 import {
   Inter_300Light,
   Inter_400Regular,
@@ -82,21 +82,21 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     color: _colors.active,
   },
-  label: { fontSize: 32, fontFamily: "Inter_700Bold" },
+  label: { fontSize: 32, fontFamily: "Bold" },
   value: {
-    fontFamily: "Inter_400Regular",
+    fontFamily: "Regular",
     fontSize: 32,
     lineHeight: 32 * 1.4,
     width: 90,
     // color: "lime",
   },
   percent: {
-    fontFamily: "Inter_500Medium",
+    fontFamily: "Medium",
     fontSize: 16,
     // color: "fuchsia",
   },
-  visitorsText: { fontSize: 52, fontFamily: "Inter_700Bold", color: "#000" },
-  monthsLabel: { fontSize: 32, fontFamily: "Inter_300Light" },
+  visitorsText: { fontSize: 52, fontFamily: "Bold", color: "#000" },
+  monthsLabel: { fontSize: 32, fontFamily: "Light" },
 });
 
 faker.seed(21);
@@ -224,7 +224,7 @@ const BottomStats = ({ label, activeIndex, percentage, data, value }) => {
   );
 };
 
-export const Animation3 = () => {
+export const Animation03 = () => {
   const activeIndex = useSharedValue(0);
   const visitorsValue = useSharedValue(_data[activeIndex.value].visitors);
   const usageValue = useSharedValue(_data[activeIndex.value].usage);
@@ -235,15 +235,15 @@ export const Animation3 = () => {
   );
 
   let [fontsLoaded] = useFonts({
-    Inter_500Medium,
-    Inter_300Light,
-    Inter_400Regular,
-    Inter_700Bold,
-    Inter_900Black,
+    Medium: Inter_500Medium,
+    Light: Inter_300Light,
+    Regular: Inter_400Regular,
+    Bold: Inter_700Bold,
+    Black: Inter_900Black,
   });
 
   if (!fontsLoaded) {
-    return <AppLoading />;
+    return <ActivityIndicator size={"large"} color={"lime"} />;
   }
 
   return (

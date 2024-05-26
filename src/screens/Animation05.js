@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { StatusBar, StyleSheet, View } from "react-native";
 import Constants from "expo-constants";
 import { MotiText, MotiView } from "moti";
@@ -17,8 +17,8 @@ const styles = StyleSheet.create({
 
 const numZeroToNine = [...Array(10).keys()];
 function usePrevious(value) {
-  const ref = React.useRef();
-  React.useEffect(() => {
+  const ref = useRef();
+  useEffect(() => {
     ref.current = value;
   }, [value]);
   return ref.current;
@@ -85,7 +85,7 @@ const Ticker = ({ number, textSize, textStyle }) => {
   );
 };
 
-export const Animation5 = () => {
+export const Animation05 = () => {
   const [number, setNumber] = useState(
     Math.floor(Math.random() * 89999) + 10000
   );

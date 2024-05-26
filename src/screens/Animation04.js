@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { StatusBar, StyleSheet, Text, View } from "react-native";
 import Svg, { Path } from "react-native-svg";
 import Constants from "expo-constants";
@@ -174,7 +174,7 @@ function AnimatedThing({
   );
 }
 
-export const Animation4 = () => {
+export const Animation04 = () => {
   return (
     <View style={styles.container}>
       <StatusBar hidden />
