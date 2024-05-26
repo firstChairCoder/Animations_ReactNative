@@ -7,6 +7,7 @@ import {
 	View,
 	StyleSheet,
 	TouchableOpacity,
+	Text,
 } from "react-native";
 import Animated, {
 	useSharedValue,
@@ -15,7 +16,7 @@ import Animated, {
 	withTiming,
 } from "react-native-reanimated";
 
-import { BackgroundImage, Dot } from "../components/Set";
+// import { BackgroundImage, Dot } from "../components/Set";
 
 const { width, height } = Dimensions.get("window");
 const styles = StyleSheet.create({
@@ -82,7 +83,7 @@ export const Animation52 = () => {
 
 	return (
 		<View style={styles.container}>
-			{data?.map((item, index) => (
+			{/* {data?.map((item, index) => (
 				<BackgroundImage
 					item={item}
 					translationY={translationY}
@@ -136,7 +137,8 @@ export const Animation52 = () => {
 						/>
 					</TouchableOpacity>
 				))}
-			</View>
+			</View> */}
+			<Text>Empty</Text>
 		</View>
 	);
 };

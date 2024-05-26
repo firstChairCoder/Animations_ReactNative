@@ -1,13 +1,13 @@
 import React from "react";
-import { FlatList, SafeAreaView, View } from "react-native";
+import { FlatList, SafeAreaView, Text, View } from "react-native";
 
-import { Header, SwipableItem, Card } from "../components/Set";
-import swipeData from "../mockdata/swipeData";
+// import { Header, SwipableItem, Card } from "../components/Set";
+// import swipeData from "../mockdata/swipeData";
 
 export const Animation54 = () => {
 	return (
 		<SafeAreaView style={{ flex: 1, backgroundColor: "#FFF" }}>
-			<View style={{ marginTop: 48, paddingHorizontal: 16, marginBottom: 24 }}>
+			{/* <View style={{ marginTop: 48, paddingHorizontal: 16, marginBottom: 24 }}>
 				<Header />
 
 				<FlatList
@@ -23,7 +23,8 @@ export const Animation54 = () => {
 					showsVerticalScrollIndicator={false}
 					bounces={false}
 				/>
-			</View>
+			</View> */}
+			<Text>Empty</Text>
 		</SafeAreaView>
 	);
 };
