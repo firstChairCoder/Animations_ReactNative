@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const Button = ({ onPress, color, text }) => {
+const Button = ({ onPress, color, label }) => {
   return (
     <Pressable onPress={onPress}>
       <View style={styles.row}>
@@ -27,7 +27,7 @@ const Button = ({ onPress, color, text }) => {
           // eslint-disable-next-line react-native/no-inline-styles
           style={{ marginRight: 30 }}
         />
-        <Text style={styles.text}>{text}</Text>
+        <Text style={styles.text}>{label}</Text>
       </View>
     </Pressable>
   );

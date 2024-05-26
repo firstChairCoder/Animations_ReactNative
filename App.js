@@ -8,9 +8,9 @@ import Constants from "expo-constants";
 import * as SplashScreen from "expo-splash-screen";
 import * as Font from "expo-font";
 
-
 import Button from "./src/components/Button";
 import screens from "./src/data/screensData";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 const styles = StyleSheet.create({
   container: {
@@ -80,20 +80,22 @@ export default function App() {
   return (
     // eslint-disable-next-line react-native/no-inline-styles
     <SafeAreaProvider style={{ flex: 1 }}>
-      <NavigationContainer>
-        <Stack.Navigator
-          screenOptions={{
-            headerTitle: "",
-            headerTransparent: true,
-            headerBackTitleVisible: false,
-          }}
-        >
-          <Stack.Screen name={"Home"} component={HomeScreen} />
-          {screens.map(({ name, component }, index) => (
-            <Stack.Screen key={index} {...{ name }} {...{ component }} />
-          ))}
-        </Stack.Navigator>
-      </NavigationContainer>
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <NavigationContainer>
+          <Stack.Navigator
+            screenOptions={{
+              headerTitle: "",
+              headerTransparent: true,
+              headerBackTitleVisible: false,
+            }}
+          >
+            <Stack.Screen name={"Home"} component={HomeScreen} />
+            {screens.map(({ name, component }, index) => (
+              <Stack.Screen key={index} {...{ name }} {...{ component }} />
+            ))}
+          </Stack.Navigator>
+        </NavigationContainer>
+      </GestureHandlerRootView>
     </SafeAreaProvider>
   );
 }

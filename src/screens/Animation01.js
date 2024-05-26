@@ -1,8 +1,8 @@
 import React from "react";
-import { Dimensions, FlatList, StyleSheet, View } from "react-native";
+import { Dimensions, StyleSheet, View } from "react-native";
 import faker from "faker";
 import Animated, {
-  Extrapolate,
+  Extrapolation,
   interpolate,
   useAnimatedScrollHandler,
   useAnimatedStyle,
@@ -15,7 +15,6 @@ import data from "../mockdata/peepsData";
 
 const DOT_SIZE = 8;
 const { width, height } = Dimensions.get("window");
-const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
 const headings = [
   "Open Peeps",
   "A hand drawn \nillustration library",
@@ -159,13 +158,13 @@ const PaginationDot = ({ index, scrollX }) => {
         scrollX.value / width,
         [index - 1, index, index + 1],
         [DOT_SIZE * 1.5, DOT_SIZE * 3, DOT_SIZE * 1.5],
-        Extrapolate.CLAMP
+        Extrapolation.CLAMP
       ),
       opacity: interpolate(
         scrollX.value / width,
         [index - 1, index, index + 1],
         [0.2, 1, 0.2],
-        Extrapolate.CLAMP
+        Extrapolation.CLAMP
       ),
     };
   });
@@ -183,7 +182,7 @@ const Pagination = ({ data, scrollX }) => {
   );
 };
 
-export const Animation1 = () => {
+export const Animation01 = () => {
   const scrollX = useSharedValue(0);
   const onScroll = useAnimatedScrollHandler((ev) => {
     scrollX.value = ev.contentOffset.x;
@@ -220,7 +219,7 @@ export const Animation1 = () => {
     <View style={styles.container}>
       <StatusBar style="auto" />
       <Circles first={first} second={second} third={third} />
-      <AnimatedFlatList
+      <Animated.FlatList
         data={_data}
         keyExtractor={(item) => item}
         renderItem={({ item, index }) => {

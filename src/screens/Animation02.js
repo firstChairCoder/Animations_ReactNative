@@ -83,7 +83,7 @@ const Item = ({ item, index, scrollY }) => {
   );
 };
 
-export const Animation2 = () => {
+export const Animation02 = () => {
   const scrollY = useSharedValue(0);
   const onScroll = useAnimatedScrollHandler((ev) => {
     scrollY.value = ev.contentOffset.y;
