@@ -222,7 +222,7 @@ const Card = () => {
 
           <Pressable onPress={decreaseCounter}>
             <Animated.View style={[styles.decrease, decreaseStyles]}>
-              <Icon name={"md-remove"} color={"#828282"} size={32} />
+              <Icon name={"remove-sharp"} color={"#828282"} size={32} />
             </Animated.View>
           </Pressable>
 
@@ -234,7 +234,7 @@ const Card = () => {
                 incrementStyles,
               ]}
             >
-              <Icon name={"md-add"} color={"#FFF"} size={32} />
+              <Icon name={"add-sharp"} color={"#FFF"} size={32} />
             </Animated.View>
           </Pressable>
         </View>

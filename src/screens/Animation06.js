@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import Constants from "expo-constants";
 import Animated, {
-  Extrapolate,
+  Extrapolation,
   interpolate,
   useAnimatedScrollHandler,
   useAnimatedStyle,
@@ -38,8 +38,6 @@ const itemHeight = itemWidth * 1.67;
 const spacing = 10;
 const itemWidthWithSpacing = spacing * 2 + itemWidth;
 
-const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
-
 const Item = ({ scrollX, index, item, activeIndex }) => {
   const currentIndex = useDerivedValue(() => {
     return scrollX.value / itemWidthWithSpacing;
@@ -55,7 +53,7 @@ const Item = ({ scrollX, index, item, activeIndex }) => {
             currentIndex.value,
             inputRange,
             [itemHeight * 0.1, 0, itemHeight * 0.1],
-            Extrapolate.CLAMP
+            Extrapolation.CLAMP
           ),
         },
       ],
@@ -71,7 +69,7 @@ const Item = ({ scrollX, index, item, activeIndex }) => {
               currentIndex.value,
               inputRange,
               [itemHeight * 0.8, itemHeight * 0.5, itemHeight * 0.8],
-              Extrapolate.CLAMP
+              Extrapolation.CLAMP
             )
           ),
         },
@@ -85,7 +83,7 @@ const Item = ({ scrollX, index, item, activeIndex }) => {
         currentIndex.value,
         inputRange,
         [0.5, 1, 0.5],
-        Extrapolate.CLAMP
+        Extrapolation.CLAMP
       ),
       transform: [
         {
@@ -93,7 +91,7 @@ const Item = ({ scrollX, index, item, activeIndex }) => {
             currentIndex.value,
             inputRange,
             [0.2, 1, 0],
-            Extrapolate.CLAMP
+            Extrapolation.CLAMP
           ),
         },
         {
@@ -109,7 +107,7 @@ const Item = ({ scrollX, index, item, activeIndex }) => {
                     currentIndex.value,
                     inputRange,
                     [spacing * 4, -spacing * 2, spacing * 4],
-                    Extrapolate.CLAMP
+                    Extrapolation.CLAMP
                   )
                 ),
         },
@@ -172,7 +170,7 @@ const Item = ({ scrollX, index, item, activeIndex }) => {
   );
 };
 
-export const Animation6 = () => {
+export const Animation06 = () => {
   const scrollX = useSharedValue(0);
   const activeIndex = useSharedValue(0);
   const onScroll = useAnimatedScrollHandler({
@@ -190,7 +188,7 @@ export const Animation6 = () => {
   return (
     <View style={styles.container}>
       <StatusBar hidden />
-      <AnimatedFlatList
+      <Animated.FlatList
         data={data}
         keyExtractor={(item) => item.key}
         renderItem={({ item, index }) => {

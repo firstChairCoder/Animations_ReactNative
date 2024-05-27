@@ -73,7 +73,7 @@ const AnimatedText = ({ text, style, ...props }) => {
   );
 };
 
-export const Animation7 = () => {
+export const Animation07 = () => {
   const posY = useSharedValue(50);
   const currentY = useSharedValue(50);
   const currentX = useSharedValue(width / 2);

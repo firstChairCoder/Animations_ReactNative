@@ -1,6 +1,6 @@
 import {
   Animation01 as Animation1,
-  // Animation10,
+  Animation10,
   // Animation11,
   // Animation12,
   // Animation13,
@@ -49,10 +49,10 @@ import {
   // Animation52,
   // Animation53,
   // Animation54,
-  // Animation6,
-  // Animation7,
-  // Animation8,
-  // Animation9,
+  Animation06 as Animation6,
+  Animation07 as Animation7,
+  Animation08 as Animation8,
+  Animation09 as Animation9,
 } from "../screens";
 
 const screens = [
@@ -86,36 +86,36 @@ const screens = [
     label: "Animation 5",
     component: Animation5,
   },
-  // {
-  //   name: "Carousel",
-  //   color: "#4B0082",
-  //   label: "Animation 6",
-  //   component: Animation6,
-  // },
-  // {
-  //   name: "SvgProgress2",
-  //   color: "#EE82EE",
-  //   label: "Animation 7",
-  //   component: Animation7,
-  // },
-  // {
-  //   name: "SvgProgress3",
-  //   color: "mistyrose",
-  //   label: "Animation 8",
-  //   component: Animation8,
-  // },
-  // {
-  //   name: "TimePicker",
-  //   color: "cadetblue",
-  //   label: "Animation 9",
-  //   component: Animation9,
-  // },
-  // {
-  //   name: "Counter",
-  //   color: "salmon",
-  //   label: "Animation 10",
-  //   component: Animation10,
-  // },
+  {
+    name: "Carousel",
+    color: "#4B0082",
+    label: "Animation 6",
+    component: Animation6,
+  },
+  {
+    name: "SvgProgress2",
+    color: "#EE82EE",
+    label: "Animation 7",
+    component: Animation7,
+  },
+  {
+    name: "SvgProgress3",
+    color: "mistyrose",
+    label: "Animation 8",
+    component: Animation8,
+  },
+  {
+    name: "TimePicker",
+    color: "cadetblue",
+    label: "Animation 9",
+    component: Animation9,
+  },
+  {
+    name: "Counter",
+    color: "salmon",
+    label: "Animation 10",
+    component: Animation10,
+  },
   // {
   //   name: "Sidebar",
   //   color: "#E52B50",

@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export const Animation8 = () => {
+export const Animation08 = () => {
   const [cups, setCups] = useState(1);
   const offset = useSharedValue(0);
   const waveHeight = useSharedValue(height);
@@ -162,7 +162,7 @@ export const Animation8 = () => {
           setCups((cups) => {
             return cups + 1;
           });
-          console.log(cups);
+          // console.log(cups);
         }}
         style={styles.btn}
       >

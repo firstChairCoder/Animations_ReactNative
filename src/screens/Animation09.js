@@ -123,7 +123,7 @@ const CustomPicker = forwardRef(
   }
 );
 
-export const Animation9 = () => {
+export const Animation09 = () => {
   const [hour, setHour] = useState(hours[0]);
   const [minute, setMinute] = useState(minutes[0]);
   const [dayOrNight, setDayOrNight] = useState(t[0].label);
