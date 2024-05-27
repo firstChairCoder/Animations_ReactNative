@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 //WIP!
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { SafeAreaView, TextInput, View } from "react-native";
 import Svg, { Circle } from "react-native-svg";
 import Animated, {

@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, { forwardRef, useEffect, useRef, useState } from "react";
+import { forwardRef, useEffect, useRef, useState } from "react";
 import { Animated, StatusBar, StyleSheet, Text, View } from "react-native";
 
 const styles = StyleSheet.create({

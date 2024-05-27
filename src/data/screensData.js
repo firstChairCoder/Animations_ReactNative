@@ -1,11 +1,11 @@
 import {
   Animation01 as Animation1,
   Animation10,
-  // Animation11,
-  // Animation12,
-  // Animation13,
-  // Animation14,
-  // Animation15,
+  Animation11,
+  Animation12,
+  Animation13,
+  Animation14,
+  Animation15,
   // Animation16,
   // Animation17,
   // Animation18,
@@ -116,36 +116,36 @@ const screens = [
     label: "Animation 10",
     component: Animation10,
   },
-  // {
-  //   name: "Sidebar",
-  //   color: "#E52B50",
-  //   label: "Animation 11",
-  //   component: Animation11,
-  // },
-  // {
-  //   name: "ScrollableTabs",
-  //   color: "mediumaquamarine",
-  //   label: "Animation 12",
-  //   component: Animation12,
-  // },
-  // {
-  //   name: "ScrollableTabs2",
-  //   color: "sandybrown",
-  //   label: "Animation 13",
-  //   component: Animation13,
-  // },
-  // {
-  //   name: "BarberPole",
-  //   color: "#E49B0F",
-  //   label: "Animation 14",
-  //   component: Animation14,
-  // },
-  // {
-  //   name: "Liquid",
-  //   color: "#ACE1AF",
-  //   label: "Animation 15",
-  //   component: Animation15,
-  // },
+  {
+    name: "Sidebar",
+    color: "#E52B50",
+    label: "Animation 11",
+    component: Animation11,
+  },
+  {
+    name: "ScrollableTabs",
+    color: "mediumaquamarine",
+    label: "Animation 12",
+    component: Animation12,
+  },
+  {
+    name: "ScrollableTabs2",
+    color: "sandybrown",
+    label: "Animation 13",
+    component: Animation13,
+  },
+  {
+    name: "BarberPole",
+    color: "#E49B0F",
+    label: "Animation 14",
+    component: Animation14,
+  },
+  {
+    name: "Liquid",
+    color: "#ACE1AF",
+    label: "Animation 15",
+    component: Animation15,
+  },
   // {
   //   name: "ScrollableTabs3",
   //   color: "goldenrod",
@@ -380,6 +380,13 @@ const screens = [
   //   label: "Animation 54",
   //   component: Animation54,
   // },
+  // for extra bottom padding on main screen. simply a non-existent button
+  {
+    name: "Blank",
+    color: "transparent",
+    label: "blank",
+    component: Animation14,
+  },
 ];
 
 export default screens;

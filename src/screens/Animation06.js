@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import {
   Dimensions,
   FlatList,

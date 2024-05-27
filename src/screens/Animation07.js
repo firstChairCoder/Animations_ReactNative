@@ -1,7 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 // Inspiration: https://dribbble.com/shots/3845034-Listening-now-Kishi-Bashi
 
-import React from "react";
 import {
   Dimensions,
   StatusBar,

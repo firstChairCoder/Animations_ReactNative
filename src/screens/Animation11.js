@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Dimensions,
   Image,
@@ -157,6 +157,7 @@ export const Animation11 = () => {
           {_menu.map((item, index) => {
             return (
               <MotiView
+                key={index}
                 animate={{
                   translateY: isVisible ? 0 : 40,
                   opacity: isVisible ? 1 : 0,

@@ -32,9 +32,9 @@ function HomeScreen({ navigation }) {
       {screens.map(({ name, color, label }, index) => (
         <Button
           key={`~screen` + index}
-          onPress={() => navigation.navigate(name)}
+          onPress={label === "blank" ? true : () => navigation.navigate(name)}
           color={color}
-          label={label}
+          label={label === "blank" ? " " : label}
         />
       ))}
     </ScrollView>

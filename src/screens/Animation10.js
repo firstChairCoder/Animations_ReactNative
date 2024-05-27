@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import { Ionicons as Icon } from "@expo/vector-icons";
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Animated,
   Dimensions,

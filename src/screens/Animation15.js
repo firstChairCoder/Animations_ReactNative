@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 //WIP! related to Animation 8
-import * as React from "react";
+import { useEffect, useState } from "react";
 import {
   Dimensions,
   StatusBar,
@@ -25,6 +25,7 @@ import Animated, {
   withRepeat,
   withTiming,
 } from "react-native-reanimated";
+
 const { width, height } = Dimensions.get("window");
 
 const AnimatedPath = Animated.createAnimatedComponent(Path);
@@ -43,7 +44,7 @@ export const Animation15 = () => {
   const offset = useSharedValue(0);
   const waveHeight = useSharedValue(height);
   const amplitude = useSharedValue(0);
-  const [cups, setCups] = React.useState(1);
+  const [cups, setCups] = useState(1);
 
   const animatedProps = useAnimatedProps(() => {
     let lines = ``;
@@ -68,7 +69,7 @@ export const Animation15 = () => {
     };
   });
 
-  React.useEffect(() => {
+  useEffect(() => {
     //
     // waveHeight.value = withTiming(height - height * cups / maxCups , {
     //   duration: 1000,
@@ -90,7 +91,7 @@ export const Animation15 = () => {
     );
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     // const newHeight = height * Math.random();
     waveHeight.value = withTiming(height - (height * cups) / (maxCups - 1), {
       duration: 1000,
