@@ -1,5 +1,4 @@
 /* eslint-disable react-native/no-inline-styles */
-import React from "react";
 import { Dimensions, View } from "react-native";
 import { MotiView as MView } from "moti";
 

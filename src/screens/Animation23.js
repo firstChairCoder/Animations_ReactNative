@@ -1,5 +1,5 @@
 /* eslint-disable no-shadow */
-import React, { useState } from "react";
+import { useState } from "react";
 import Animated, {
   interpolate,
   runOnJS,

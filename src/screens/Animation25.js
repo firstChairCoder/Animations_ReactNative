@@ -2,7 +2,6 @@
 /**
  * Inspiration: https://dribbble.com/shots/3431451-HUNGRY
  */
-import * as React from "react";
 import {
   Alert,
   Animated,
@@ -14,6 +13,7 @@ import {
   View,
 } from "react-native";
 import { SimpleLineIcons } from "@expo/vector-icons";
+import { memo, useCallback, useRef, useState } from "react";
 
 const ICON_SIZE = 42;
 const ITEM_HEIGHT = ICON_SIZE * 2;
@@ -131,11 +131,11 @@ const data = [
   },
 ];
 
-const Icon = React.memo(({ icon, color }) => {
+const Icon = memo(({ icon, color }) => {
   return <SimpleLineIcons name={icon} color={color} size={ICON_SIZE} />;
 });
 
-const Item = React.memo(({ icon, color, name, showText }) => {
+const Item = memo(({ icon, color, name, showText }) => {
   return (
     <View style={styles.itemWrapper}>
       {showText ? (
@@ -149,7 +149,7 @@ const Item = React.memo(({ icon, color, name, showText }) => {
   );
 });
 
-const ConnectWithText = React.memo(() => {
+const ConnectWithText = memo(() => {
   return (
     <View
       style={{
@@ -173,7 +173,7 @@ const ConnectWithText = React.memo(() => {
   );
 });
 
-const ConnectButton = React.memo(({ onPress }) => {
+const ConnectButton = memo(({ onPress }) => {
   return (
     <View
       style={{
@@ -208,8 +208,8 @@ const ConnectButton = React.memo(({ onPress }) => {
   );
 });
 
-const List = React.memo(
-  React.forwardRef(
+const List = memo(
+  forwardRef(
     ({ color, showText, style, onScroll, onItemIndexChange }, ref) => {
       return (
         <Animated.FlatList
@@ -248,19 +248,19 @@ const List = React.memo(
   )
 );
 export const Animation25 = () => {
-  const [index, setIndex] = React.useState(0);
-  const onConnectPress = React.useCallback(() => {
+  const [index, setIndex] = useState(0);
+  const onConnectPress = useCallback(() => {
     Alert.alert("Connect with:", data[index].name.toUpperCase());
   }, [index]);
-  const yellowRef = React.useRef();
-  const darkRef = React.useRef();
-  const scrollY = React.useRef(new Animated.Value(0)).current;
+  const yellowRef = useRef();
+  const darkRef = useRef();
+  const scrollY = useRef(new Animated.Value(0)).current;
   const onScroll = Animated.event(
     [{ nativeEvent: { contentOffset: { y: scrollY } } }],
     { useNativeDriver: true }
   );
-  const onItemIndexChange = React.useCallback(setIndex, []);
-  React.useEffect(() => {
+  const onItemIndexChange = useCallback(setIndex, []);
+  useEffect(() => {
     scrollY.addListener((v) => {
       if (darkRef?.current) {
         darkRef.current.scrollToOffset({

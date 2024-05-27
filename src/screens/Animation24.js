@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 //WIP!
-import * as React from "react";
+import { Component, createRef } from "react";
 import {
   Animated,
   Dimensions,
@@ -81,9 +81,9 @@ const Ruler = () => {
   );
 };
 
-export default class Animation24 extends React.Component {
-  textRef = React.createRef();
-  scrollRef = React.createRef();
+export default class Animation24 extends Component {
+  textRef = createRef();
+  scrollRef = createRef();
   value = 0;
   constructor(props) {
     super(props);
