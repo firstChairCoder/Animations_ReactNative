@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import { Dimensions, View } from "react-native";
-import { MotiView as MView } from "moti";
+import { MotiView } from "moti";
 
 const { width } = Dimensions.get("window");
 
@@ -24,7 +24,7 @@ export const Animation28 = () => {
           overflow: "hidden",
         }}
       >
-        <MView
+        <MotiView
           from={{
             translateX: -size / 2 - INDICATOR_SIZE / 2 + thumbHeight,
           }}

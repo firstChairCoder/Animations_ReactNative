@@ -1,8 +1,9 @@
 /* eslint-disable react-native/no-inline-styles */
 // Inspo: https://dribbble.com/shots/5935613-Marvel-Movies-Interaction
 //WIP!
-import React, { Component } from "react";
+import { Component } from "react";
 import {
+  Animated,
   Dimensions,
   Easing,
   Image,
@@ -11,7 +12,6 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import Animated from "react-native-reanimated";
 import { LinearGradient } from "expo-linear-gradient";
 import { PanGestureHandler } from "react-native-gesture-handler";
 

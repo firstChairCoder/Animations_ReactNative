@@ -1,10 +1,10 @@
 /* eslint-disable react-native/no-inline-styles */
-import * as React from "react";
 import { Dimensions, Pressable, StatusBar, View } from "react-native";
 import Constants from "expo-constants";
 import pack from "pack-spheres";
 import Random from "canvas-sketch-util/random";
 import colors from "nice-color-palettes";
+import { useEffect, useState } from "react";
 
 const { width } = Dimensions.get("window");
 const borderWidth = 0;
@@ -37,8 +37,8 @@ const initialCircles = (isCircle) =>
   );
 
 function Circles({ bgs, isCircle }) {
-  const [circles, setCircles] = React.useState(initialCircles(isCircle));
-  React.useEffect(() => {
+  const [circles, setCircles] = useState(initialCircles(isCircle));
+  useEffect(() => {
     setCircles(initialCircles(isCircle));
   }, [bgs]);
   return (
@@ -79,7 +79,7 @@ function Circles({ bgs, isCircle }) {
 }
 
 export const Animation42 = () => {
-  const [bgs, setBgs] = React.useState(
+  const [bgs, setBgs] = useState(
     colors[Math.floor(Math.random() * colors.length)]
   );
 

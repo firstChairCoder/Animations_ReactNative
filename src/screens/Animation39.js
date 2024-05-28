@@ -1,8 +1,8 @@
 /* eslint-disable react-native/no-inline-styles */
 //Inspo: https://dribbble.com/shots/11638410-dinero
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { MotiView } from "@motify/components";
-import * as React from "react";
+import { MotiView } from "moti";
+import { useEffect, useState } from "react";
 import {
   Dimensions,
   StatusBar,
@@ -82,7 +82,6 @@ const PassCode = ({ passcode, isValid }) => {
           <View
             key={`passcode-${i}-${passcode[i]}`}
             style={{
-              // flex: 1,
               width: passCodeSize,
               height: passCodeSize,
               borderRadius: passCodeSize,
@@ -99,11 +98,6 @@ const PassCode = ({ passcode, isValid }) => {
                     isValid && passcode.length === passcodeLength
                       ? [1.1, 1]
                       : 1,
-                  // backgroundColor:
-                  //   isValid && passcode.length === passcodeLength
-                  //     ? '#72C17F'
-                  //     : '#8971FF',
-                  // scale: 1.1, backgroundColor: '#72C17F'
                 }}
                 exit={{ scale: 0 }}
                 transition={{
@@ -143,12 +137,12 @@ const PassCode = ({ passcode, isValid }) => {
 };
 
 export default function Animation39() {
-  const [passcode, setPasscode] = React.useState([]);
-  const [isValid, setIsValid] = React.useState(false);
+  const [passcode, setPasscode] = useState([]);
+  const [isValid, setIsValid] = useState(false);
 
-  console.log(isValid);
+  // console.log(isValid);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (passcode.length === passcodeLength) {
       setIsValid(passcode.join("") === correctPasscode);
     }
@@ -187,7 +181,7 @@ export default function Animation39() {
             return;
           }
 
-          console.log("setKey: ", char);
+          // console.log("setKey: ", char);
 
           const newPasscode = [...passcode, char];
           setPasscode(newPasscode);

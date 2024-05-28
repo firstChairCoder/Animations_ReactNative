@@ -1,13 +1,13 @@
 /* eslint-disable react-native/no-inline-styles */
-import * as React from "react";
 import { TouchableOpacity, View } from "react-native";
-import { AnimatePresence, MotiView as MView } from "moti";
+import { AnimatePresence, MotiView } from "moti";
 import { Feather as Icon } from "@expo/vector-icons";
+import { useState } from "react";
 
 const Button = ({ icon = "plus", onPress }) => {
   return (
     <TouchableOpacity onPress={onPress}>
-      <MView
+      <MotiView
         style={{
           width: 36,
           height: 36,
@@ -17,13 +17,13 @@ const Button = ({ icon = "plus", onPress }) => {
         }}
       >
         <Icon name={icon} size={20} color="black" />
-      </MView>
+      </MotiView>
     </TouchableOpacity>
   );
 };
 
 export default function MoreButton() {
-  const [active, setActive] = React.useState(false);
+  const [active, setActive] = useState(false);
   return (
     <View
       style={{
@@ -36,7 +36,7 @@ export default function MoreButton() {
       <View style={{ alignItems: "center" }}>
         <AnimatePresence>
           {!!active && (
-            <MView
+            <MotiView
               from={{ opacity: 0, translateY: 0, paddingBottom: 0 }}
               animate={{ opacity: 1, translateY: 0, paddingBottom: 50 }}
               exit={{ opacity: 0, translateY: 10, paddingBottom: 0 }}
@@ -54,7 +54,7 @@ export default function MoreButton() {
               <Button icon="bluetooth" onPress={() => setActive(false)} />
               <Button icon="cast" onPress={() => setActive(false)} />
               <Button icon="coffee" onPress={() => setActive(false)} />
-            </MView>
+            </MotiView>
           )}
         </AnimatePresence>
         <TouchableOpacity
@@ -62,7 +62,7 @@ export default function MoreButton() {
           onPress={() => setActive((active) => !active)}
           activeOpacity={1}
         >
-          <MView
+          <MotiView
             animate={{
               backgroundColor: !active ? "#FCD259" : "#dfdfdf",
               rotate: active ? "-45deg" : "0deg",
@@ -77,7 +77,7 @@ export default function MoreButton() {
             }}
           >
             <Icon name="plus" size={24} color="black" />
-          </MView>
+          </MotiView>
         </TouchableOpacity>
       </View>
     </View>

@@ -1,6 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
 //Inspiration: https://dribbble.com/shots/6558740-Add-Button-Interaction
-import * as React from "react";
 import {
   Dimensions,
   SafeAreaView,
@@ -8,10 +7,12 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { Image as MImage, Text as MText, View as MView } from "moti";
+import { MotiImage, MotiText, MotiView } from "moti";
 import { Feather } from "@expo/vector-icons";
 import { StatusBar } from "expo-status-bar";
 import { Easing } from "react-native-reanimated";
+import { useState } from "react";
+
 const { width } = Dimensions.get("screen");
 
 const spacing = 20;
@@ -21,9 +22,9 @@ const borderRadius = icons / 2;
 const sideIconSize = icons * 0.9;
 
 export const Animation41 = () => {
-  const [isVisible, setIsVisible] = React.useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
-  console.log(isVisible);
+  // console.log(isVisible);
 
   return (
     <View style={{ flex: 1 }}>
@@ -43,7 +44,7 @@ export const Animation41 = () => {
             }}
           >
             {[Array(5).keys()].map((i) => (
-              <MImage
+              <MotiImage
                 key={i}
                 source={{
                   uri: "https://www.fidoo.com/wp-content/uploads/2020/02/placeholder.png",
@@ -125,7 +126,7 @@ export const Animation41 = () => {
         </View>
       </SafeAreaView>
       <View style={{ flex: 1 }}>
-        <MView
+        <MotiView
           from={{ translateY: 0, translateX: 0 }}
           animate={{
             translateX: isVisible ? -movingSize : 0,
@@ -144,10 +145,10 @@ export const Animation41 = () => {
             borderRadius,
           }}
         >
-          <MText style={{ fontSize: 42, color: "#fff", opacity: 0.5 }}>
+          <MotiText style={{ fontSize: 42, color: "#fff", opacity: 0.5 }}>
             Content
-          </MText>
-        </MView>
+          </MotiText>
+        </MotiView>
 
         <TouchableOpacity
           onPress={() => {
@@ -156,7 +157,6 @@ export const Animation41 = () => {
           style={{
             width: icons * 1.3,
             height: icons * 1.5,
-            backgroundColor: "lime",
             justifyContent: "center",
             alignItems: "center",
             alignSelf: "center",
@@ -166,7 +166,7 @@ export const Animation41 = () => {
           }}
         >
           <>
-            <MView
+            <MotiView
               animate={{
                 scale: isVisible ? [2, 0] : 0,
                 opacity: isVisible ? 0 : 1,
@@ -187,7 +187,7 @@ export const Animation41 = () => {
                 bottom: spacing,
               }}
             />
-            <MView
+            <MotiView
               animate={{
                 rotate: isVisible ? "90deg" : "0deg",
               }}
@@ -208,7 +208,7 @@ export const Animation41 = () => {
               }}
             >
               <Feather name="plus" size={24} color="#fff" />
-            </MView>
+            </MotiView>
           </>
         </TouchableOpacity>
       </View>

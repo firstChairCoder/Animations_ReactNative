@@ -2,9 +2,8 @@
 /* eslint-disable react-native/no-inline-styles */
 // Inspiration: https://dribbble.com/shots/2148183-Streak-Interaction-Design
 import { Feather } from "@expo/vector-icons";
-import { MotiText, MotiView } from "@motify/components";
-import { AnimatePresence } from "framer-motion";
-import * as React from "react";
+import { MotiText, MotiView, AnimatePresence } from "moti";
+import { useRef, useState } from "react";
 import { Dimensions, Pressable, StatusBar, View } from "react-native";
 
 const { width } = Dimensions.get("window");
@@ -27,8 +26,8 @@ const MyText = ({ hasVoted, children, ...props }) => {
 };
 
 export const Animation38 = () => {
-  const [progress, setProgress] = React.useState(17);
-  const hasVoted = React.useRef(false);
+  const [progress, setProgress] = useState(17);
+  const hasVoted = useRef(false);
 
   return (
     <View

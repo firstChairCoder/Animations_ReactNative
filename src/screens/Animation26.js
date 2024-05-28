@@ -11,11 +11,11 @@ import {
   View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-const { width } = Dimensions.get("screen");
 import { AntDesign } from "@expo/vector-icons";
 import faker from "faker";
 import { StatusBar } from "expo-status-bar";
 
+const { width } = Dimensions.get("screen");
 const IMAGE_WIDTH = width * 0.65;
 const IMAGE_HEIGHT = IMAGE_WIDTH * 0.7;
 const images = [
@@ -144,7 +144,6 @@ export const Animation26 = () => {
               width: IMAGE_WIDTH + SPACING * 2,
               position: "absolute",
               backgroundColor: "white",
-              //   backfaceVisibility: true,
               zIndex: -1,
               top: SPACING * 2,
               left: SPACING,

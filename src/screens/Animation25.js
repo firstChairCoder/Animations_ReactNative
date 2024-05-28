@@ -13,7 +13,7 @@ import {
   View,
 } from "react-native";
 import { SimpleLineIcons } from "@expo/vector-icons";
-import { memo, useCallback, useRef, useState } from "react";
+import { forwardRef, memo, useCallback, useEffect, useRef, useState } from "react";
 
 const ICON_SIZE = 42;
 const ITEM_HEIGHT = ICON_SIZE * 2;

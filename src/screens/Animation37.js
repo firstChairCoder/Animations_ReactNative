@@ -1,9 +1,9 @@
 /* eslint-disable react-native/no-inline-styles */
 //Inspiration:  https://dribbble.com/shots/8930339-Tesla-Cybertruck-Control-App
-import * as React from "react";
 import { View } from "react-native";
-import { AnimatePresence, MotiText as MText, MotiView as MView } from "moti";
+import { AnimatePresence, MotiText, MotiView } from "moti";
 import { StatusBar } from "expo-status-bar";
+import { useEffect, useState } from "react";
 
 const _min = 30;
 const _max = 60;
@@ -37,11 +37,11 @@ const AnimatedNumber = ({ percentage = "00", style }) => {
                 overflow: "hidden",
                 height: 20,
                 justifyContent: "center",
-                width: 14,
+                width: 20,
               }}
             >
               <AnimatePresence>
-                <MText
+                <MotiText
                   from={{ translateY: 20 }}
                   animate={{ translateY: 0 }}
                   exit={{ translateY: -20 }}
@@ -59,7 +59,7 @@ const AnimatedNumber = ({ percentage = "00", style }) => {
                   }}
                 >
                   {t}
-                </MText>
+                </MotiText>
               </AnimatePresence>
             </View>
           );
@@ -70,11 +70,9 @@ const AnimatedNumber = ({ percentage = "00", style }) => {
 };
 
 export const Animation37 = () => {
-  const [percentage, setPercentage] = React.useState(
-    Math.floor(Math.random() * 100)
-  );
+  const [percentage, setPercentage] = useState(Math.floor(Math.random() * 100));
 
-  React.useEffect(() => {
+  useEffect(() => {
     const timeout = setTimeout(() => {
       setPercentage(Math.floor(Math.random() * 100));
     }, 5000);
@@ -97,13 +95,12 @@ export const Animation37 = () => {
       <AnimatedNumber
         percentage={percentage < 10 ? ` ${percentage}%` : `${percentage}%`}
         style={{ marginBottom: _spacing }}
-        // percentage={percentage.toString()}
       />
       <>
         {[...Array(_items).keys()].reverse().map((i) => {
           const isActive = Math.floor((percentage * _items) / 100) >= i;
           return (
-            <MView
+            <MotiView
               key={i}
               from={{
                 backgroundColor: _colors.active,

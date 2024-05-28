@@ -87,42 +87,44 @@ export const Animation20 = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <Animated.View style={[styles.titleWrapper, animatedText]}>
-        <Text style={styles.title}>Breathe in</Text>
-      </Animated.View>
-      <Animated.View style={[styles.titleWrapper, animatedText2]}>
-        <Text style={styles.title}>Breathe out</Text>
-      </Animated.View>
+    <View syle={{ flex: 1, backgroundColor: "white" }}>
+      <View style={styles.container}>
+        <Animated.View style={[styles.titleWrapper, animatedText]}>
+          <Text style={styles.title}>Breathe in</Text>
+        </Animated.View>
+        <Animated.View style={[styles.titleWrapper, animatedText2]}>
+          <Text style={styles.title}>Breathe out</Text>
+        </Animated.View>
 
-      {NUMBERS.map((num) => {
-        const rotateZ = move.interpolate({
-          inputRange: [0, 1],
-          outputRange: [`${num * 45}deg`, `${num * 45 + 180}deg`],
-        });
+        {NUMBERS.map((num) => {
+          const rotateZ = move.interpolate({
+            inputRange: [0, 1],
+            outputRange: [`${num * 45}deg`, `${num * 45 + 180}deg`],
+          });
 
-        return (
-          <Animated.View
-            key={num}
-            style={[
-              styles.rolls,
-              {
-                transform: [
-                  {
-                    rotateZ,
-                  },
-                  {
-                    translateY: translate,
-                  },
-                  {
-                    translateX: translate,
-                  },
-                ],
-              },
-            ]}
-          />
-        );
-      })}
+          return (
+            <Animated.View
+              key={num}
+              style={[
+                styles.rolls,
+                {
+                  transform: [
+                    {
+                      rotateZ,
+                    },
+                    {
+                      translateY: translate,
+                    },
+                    {
+                      translateX: translate,
+                    },
+                  ],
+                },
+              ]}
+            />
+          );
+        })}
+      </View>
     </View>
   );
 };

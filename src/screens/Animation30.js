@@ -4,10 +4,10 @@ import {
   Animated,
   Dimensions,
   Easing,
+  Pressable,
   StatusBar,
   StyleSheet,
   Text,
-  TouchableWithoutFeedback,
   View,
 } from "react-native";
 import Constants from "expo-constants";
@@ -436,7 +436,8 @@ export default class Animation30 extends Component {
           ]}
         />
 
-        <TouchableWithoutFeedback
+        <Pressable
+          style={[styles.closeContainer, styles.burgerContainer]}
           onPress={() => {
             this.setState({
               finished: !this.state.finished,
@@ -460,7 +461,7 @@ export default class Animation30 extends Component {
             {this.renderCloseButton()}
             {this.renderBurger()}
           </View>
-        </TouchableWithoutFeedback>
+        </Pressable>
       </View>
     );
   }

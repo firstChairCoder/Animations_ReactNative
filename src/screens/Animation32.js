@@ -2,7 +2,7 @@
 //Inspo: https://dribbble.com/shots/6654320-Animated-Onboarding-Screens
 //WIP!
 import { AntDesign } from "@expo/vector-icons";
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import {
   Animated,
   Dimensions,
@@ -13,7 +13,6 @@ import {
   View,
 } from "react-native";
 import Constants from "expo-constants";
-// import Animated from "react-native-reanimated";
 
 import quotes from "../mockdata/dotQuotesData";
 

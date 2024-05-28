@@ -29,12 +29,13 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 5,
     backgroundColor: "#000",
-    width: "50%",
+    width: "60%",
     justifyContent: "space-around",
   },
   item: {
     fontSize: 16,
     color: "#FFF",
+    marginHorizontal: 16
   },
 });
 
@@ -50,13 +51,13 @@ export const Animation27 = () => {
         isScrolling.value
       ) {
         translateY.value = 0;
-        console.log("Up!");
+        // console.log("Up!");
       } else if (
         lastContentOffset.value < event.contentOffset.y &&
         isScrolling.value
       ) {
         translateY.value = 100;
-        console.log("Down!");
+        // console.log("Down!");
       }
       lastContentOffset.value = event.contentOffset.y;
     },
