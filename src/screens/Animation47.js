@@ -2,7 +2,6 @@
 /* eslint-disable react-native/no-inline-styles */
 // Fabicon - multi-colored
 // Inspiration: https://dribbble.com/shots/17057599-Fashico-Mobile-Prototype-Animation
-import * as React from "react";
 import { Pressable, StatusBar, Text, View } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { motify } from "moti";
@@ -10,6 +9,7 @@ import {
   AnonymousPro_700Bold,
   useFonts,
 } from "@expo-google-fonts/anonymous-pro";
+import { useMemo, useState } from "react";
 
 const MotifyPressable = motify(Pressable)();
 const _size = 64;
@@ -28,8 +28,8 @@ const extraMenu = [
 ];
 
 const FabButton = ({ menu, size = 64, onPress, closedOffset = 4 }) => {
-  const iconSize = React.useMemo(() => size * 0.4, [size]);
-  const [isOpen, setIsOpen] = React.useState(false);
+  const iconSize = useMemo(() => size * 0.4, [size]);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <View>

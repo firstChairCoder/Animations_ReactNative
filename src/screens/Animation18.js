@@ -1,18 +1,13 @@
 /* eslint-disable react-native/no-inline-styles */
-import React from "react";
 import { Dimensions, StyleSheet, View } from "react-native";
 import Animated, {
-  Extrapolate,
   useAnimatedScrollHandler,
-  useAnimatedStyle,
-  useDerivedValue,
   useSharedValue,
 } from "react-native-reanimated";
 import {
   SafeAreaView,
   useSafeAreaInsets,
 } from "react-native-safe-area-context";
-import { interpolate } from "popmotion";
 
 import { channels } from "../mockdata/channelsData";
 import ChannelItem from "../components/ChannelItem";
@@ -36,22 +31,6 @@ export const Animation18 = () => {
   const onScroll = useAnimatedScrollHandler((e) => {
     scrollY.value = e.contentOffset.y;
   });
-
-  //   const animatedFooterOpacity = useDerivedValue(() =>
-  //     interpolate(
-  //       scrollY.value,
-  //       [
-  //         (channels.length - 2) * imageBigHeight,
-  //         (channels.length - 1) * imageBigHeight,
-  //       ],
-  //       [0, 1],
-  //       Extrapolate.CLAMP
-  //     )
-  //   );
-
-  //   const animatedFooterStyle = useAnimatedStyle(() => ({
-  //     opacity: animatedFooterOpacity.value,
-  //   }));
 
   return (
     <SafeAreaView mode="margin" style={{ flex: 1, backgroundColor: "#444" }}>

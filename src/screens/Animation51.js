@@ -1,9 +1,9 @@
 /* eslint-disable react-native/no-inline-styles */
 //Inspiration: https://dribbble.com/shots/4858673-Button-PRD
-import * as React from "react";
 import { Dimensions, StyleSheet, TouchableOpacity, View } from "react-native";
 import { AnimatePresence, Text as MText, View as MView } from "moti";
 import { StatusBar } from "expo-status-bar";
+import { useState } from "react";
 
 const { width, height } = Dimensions.get("window");
 const buttonHeight = 60;
@@ -17,7 +17,7 @@ const colors = {
 };
 
 const Animation51 = () => {
-  const [enabled, setEnabled] = React.useState(true);
+  const [enabled, setEnabled] = useState(true);
   return (
     <View
       style={{

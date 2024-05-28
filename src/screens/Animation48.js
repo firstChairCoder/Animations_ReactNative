@@ -3,7 +3,7 @@
 // Inspiration: https://dribbble.com/shots/15754381-Motion-UI-Exploration
 import { MotiText, MotiView } from "@motify/components";
 import { AnimatePresence } from "framer-motion";
-import * as React from "react";
+import { useState } from "react";
 import {
   Dimensions,
   Pressable,
@@ -23,7 +23,7 @@ const restDuration = duration - bigDuration;
 const restHeight = (size * (1 - ratio)) / 2;
 
 export const Animation48 = () => {
-  const [isAdded, setIsAdded] = React.useState(false);
+  const [isAdded, setIsAdded] = useState(false);
 
   return (
     <View

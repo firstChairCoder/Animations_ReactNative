@@ -1,5 +1,4 @@
 /* eslint-disable react-native/no-inline-styles */
-import * as React from "react";
 import { StyleSheet, View } from "react-native";
 import { MotiView as MView } from "moti";
 import { StatusBar } from "expo-status-bar";

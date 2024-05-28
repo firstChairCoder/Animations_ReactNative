@@ -1,9 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 // Inspiration: https://dribbble.com/shots/15294651-Bank-App
-import * as React from "react";
 import {
   Dimensions,
-  FlatList,
   SafeAreaView,
   SectionList,
   StatusBar,
@@ -14,7 +12,7 @@ import {
 import Constants from "expo-constants";
 import faker from "faker";
 import Animated, {
-  Extrapolate,
+  Extrapolation,
   interpolate,
   useAnimatedScrollHandler,
   useAnimatedStyle,
@@ -27,7 +25,6 @@ import {
   useFonts,
 } from "@expo-google-fonts/lato";
 
-const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
 const AnimatedSectionList = Animated.createAnimatedComponent(SectionList);
 
 const { width, height } = Dimensions.get("screen");
@@ -79,6 +76,26 @@ const _spacing = 10;
 const _itemSize = width * 0.4;
 const _otherSize = width * 0.3;
 
+const styles = StyleSheet.create({
+  regular: {
+    fontFamily: "LatoRegular",
+  },
+  bold: {
+    fontFamily: "LatoBold",
+  },
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    paddingTop: Constants.statusBarHeight,
+    backgroundColor: _colors.bg,
+    padding: _spacing,
+  },
+  header: {
+    top: Constants.statusBarHeight,
+    left: _spacing,
+  },
+});
+
 export const Animation16 = () => {
   let [fontsLoaded] = useFonts({
     LatoRegular: Lato_400Regular,
@@ -90,9 +107,7 @@ export const Animation16 = () => {
   const onScroll = useAnimatedScrollHandler((event) => {
     const { y } = event.contentOffset;
     scrollY.value = y;
-    // if (y < _itemSize) {
     headerAnim.value = y;
-    // }
   });
   const dummyHeaderStylez = useAnimatedStyle(() => {
     return {
@@ -139,7 +154,7 @@ export const Animation16 = () => {
             headerAnim.value,
             [0, _itemSize],
             [0, -_itemSize / 2],
-            Extrapolate.CLAMP
+            Extrapolation.CLAMP
           ),
         },
         {
@@ -147,7 +162,7 @@ export const Animation16 = () => {
             headerAnim.value,
             [0, _itemSize],
             [0, 90],
-            Extrapolate.CLAMP
+            Extrapolation.CLAMP
           )}deg`,
         },
       ],
@@ -155,13 +170,10 @@ export const Animation16 = () => {
         headerAnim.value,
         [0, _itemSize / 2, _itemSize],
         [1, 1, 0],
-        Extrapolate.CLAMP
+        Extrapolation.CLAMP
       ),
     };
   });
-  // React.useEffect(() => {
-  //   headerAnim.value = withRepeat(withTiming(_itemSize, {duration: 2000}), Infinity, true)
-  // })
 
   if (!fontsLoaded) {
     return (
@@ -194,7 +206,7 @@ export const Animation16 = () => {
             Total Balance
           </Text>
         </Animated.View>
-        <AnimatedFlatList
+        <Animated.FlatList
           data={_headerData}
           keyExtractor={(item) => item.key}
           horizontal
@@ -330,24 +342,3 @@ export const Animation16 = () => {
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  regular: {
-    fontFamily: "LatoRegular",
-  },
-  bold: {
-    fontFamily: "LatoBold",
-  },
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    paddingTop: Constants.statusBarHeight,
-    backgroundColor: _colors.bg,
-    padding: _spacing,
-    // marginTop: 20
-  },
-  header: {
-    top: Constants.statusBarHeight,
-    left: _spacing,
-  },
-});

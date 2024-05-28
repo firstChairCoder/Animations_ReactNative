@@ -1,7 +1,7 @@
 /* eslint-disable react/react-in-jsx-scope */
 import { Dimensions, Image, StyleSheet, View } from "react-native";
 import Animated, {
-  Extrapolate,
+  Extrapolation,
   interpolate,
   useAnimatedStyle,
   useDerivedValue,
@@ -45,14 +45,14 @@ const ChannelItem = ({ path, scrollY, index, credit }) => {
       scrollY.value,
       inputRange,
       [imageSmallHeight, imageBigHeight],
-      Extrapolate.CLAMP
+      Extrapolation.CLAMP
     )
   );
   const animatedImage = useAnimatedStyle(() => ({
     height: animatedImageHeight.value,
   }));
   const animatedTitleScale = useDerivedValue(() =>
-    interpolate(scrollY.value, inputRange, [0.5, 1], Extrapolate.CLAMP)
+    interpolate(scrollY.value, inputRange, [0.5, 1], Extrapolation.CLAMP)
   );
   const animatedTitle = useAnimatedStyle(() => ({
     transform: [
@@ -62,7 +62,7 @@ const ChannelItem = ({ path, scrollY, index, credit }) => {
     ],
   }));
   const animatedSubTitleOpacity = useDerivedValue(() =>
-    interpolate(scrollY.value, inputRange, [0, 1], Extrapolate.CLAMP)
+    interpolate(scrollY.value, inputRange, [0, 1], Extrapolation.CLAMP)
   );
   const animatedSubTitle = useAnimatedStyle(() => ({
     opacity: animatedSubTitleOpacity.value,

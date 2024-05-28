@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 // Fab Button with moti
-import React, { useState } from "react";
+import { useState } from "react";
 import { Pressable, View } from "react-native";
 import { AnimatePresence, MotiView } from "moti";
 import { MaterialCommunityIcons as Icon } from "@expo/vector-icons";

@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 // Inspiration: // https://dribbble.com/shots/15224317-Processing-Loop
-import * as React from "react";
+import { useEffect } from "react";
 import { Dimensions, View } from "react-native";
 import Animated, {
   useAnimatedStyle,
@@ -26,7 +26,7 @@ const Rect = ({ index }) => {
     };
   });
 
-  React.useEffect(() => {
+  useEffect(() => {
     animation.value = withDelay(
       index * DURATION,
       withRepeat(

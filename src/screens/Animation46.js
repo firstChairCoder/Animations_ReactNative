@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Dimensions, StyleSheet, View } from "react-native";
 import { AnimatePresence, Text as MText, View as MView } from "moti";
 import { StatusBar } from "expo-status-bar";
