@@ -29,12 +29,13 @@ const Stack = createNativeStackNavigator();
 function HomeScreen({ navigation }) {
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.content}>
-      {screens.map(({ name, color, label }, index) => (
+      {screens.map(({ name, color, label, disabled = false }, index) => (
         <Button
           key={`~screen` + index}
           onPress={label === "blank" ? true : () => navigation.navigate(name)}
           color={color}
           label={label === "blank" ? " " : label}
+          disabled={disabled}
         />
       ))}
     </ScrollView>

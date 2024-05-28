@@ -16,9 +16,9 @@ const styles = StyleSheet.create({
   },
 });
 
-const Button = ({ onPress, color, label }) => {
+const Button = ({ onPress, color, label, disabled = false }) => {
   return (
-    <Pressable onPress={onPress}>
+    <Pressable onPress={onPress} disabled={disabled}>
       <View style={styles.row}>
         <Icon
           name={"hand-pointing-right"}
