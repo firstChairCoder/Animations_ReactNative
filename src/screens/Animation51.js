@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 //Inspiration: https://dribbble.com/shots/4858673-Button-PRD
 import { Dimensions, StyleSheet, TouchableOpacity, View } from "react-native";
-import { AnimatePresence, Text as MText, View as MView } from "moti";
+import { AnimatePresence, MotiText, MotiView } from "moti";
 import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
 
@@ -40,7 +40,7 @@ const Animation51 = () => {
         >
           <AnimatePresence>
             {!enabled && (
-              <MView
+              <MotiView
                 key="bg-enabled"
                 from={{ translateY: -buttonHeight }}
                 animate={{ translateY: 0 }}
@@ -56,7 +56,7 @@ const Animation51 = () => {
           <View>
             <AnimatePresence>
               {enabled ? (
-                <MText
+                <MotiText
                   from={{ opacity: 0, translateY: 20 }}
                   animate={{ opacity: 1, translateY: 0 }}
                   exit={{ opacity: 0, translateY: 20 }}
@@ -68,13 +68,12 @@ const Animation51 = () => {
                     letterSpacing: -0.5,
                     textTransform: "uppercase",
                     color: colors.disabledText,
-                    // color: colors.enabledText,
                   }}
                 >
                   Enabled
-                </MText>
+                </MotiText>
               ) : (
-                <MText
+                <MotiText
                   from={{ opacity: 0, translateY: -20 }}
                   animate={{ opacity: 1, translateY: 0 }}
                   exit={{ opacity: 0, translateY: -20 }}
@@ -89,7 +88,7 @@ const Animation51 = () => {
                   }}
                 >
                   Disabled
-                </MText>
+                </MotiText>
               )}
             </AnimatePresence>
           </View>

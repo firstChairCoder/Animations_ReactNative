@@ -103,7 +103,7 @@ const FabButton = ({ menu, size = 64, onPress, closedOffset = 4 }) => {
 
 export const Animation47 = () => {
   let [fontsLoaded] = useFonts({
-    AnonymousPro_700Bold,
+    Bold: AnonymousPro_700Bold,
   });
 
   if (!fontsLoaded) {
@@ -139,7 +139,7 @@ export const Animation47 = () => {
         />
         <Text
           style={{
-            fontFamily: "AnonymousPro_700Bold",
+            fontFamily: "Bold",
             position: "absolute",
             bottom: 10,
             right: 10,
@@ -171,7 +171,7 @@ export const Animation47 = () => {
         />
         <Text
           style={{
-            fontFamily: "AnonymousPro_700Bold",
+            fontFamily: "Bold",
             position: "absolute",
             bottom: 10,
             right: 10,
@@ -203,7 +203,7 @@ export const Animation47 = () => {
         />
         <Text
           style={{
-            fontFamily: "AnonymousPro_700Bold",
+            fontFamily: "Bold",
             position: "absolute",
             bottom: 10,
             right: 10,

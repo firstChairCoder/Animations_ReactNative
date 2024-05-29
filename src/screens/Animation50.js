@@ -15,7 +15,6 @@ const { width, height } = Dimensions.get("window");
 const CONTAINER_WIDTH = width * 0.7;
 const CONTAINER_HEIGHT = height * 0.2;
 const DURATION = 1000;
-// const DELAY = 500;
 const MAX = 3;
 
 const Rect = ({ index }) => {

@@ -1,8 +1,7 @@
 /* eslint-disable no-shadow */
 /* eslint-disable react-native/no-inline-styles */
 // Inspiration: https://dribbble.com/shots/15754381-Motion-UI-Exploration
-import { MotiText, MotiView } from "@motify/components";
-import { AnimatePresence } from "framer-motion";
+import { MotiText, MotiView, AnimatePresence } from "moti";
 import { useState } from "react";
 import {
   Dimensions,

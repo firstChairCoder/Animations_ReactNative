@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import { StyleSheet, View } from "react-native";
-import { MotiView as MView } from "moti";
+import { MotiView } from "moti";
 import { StatusBar } from "expo-status-bar";
 import { Feather as Icon } from "@expo/vector-icons";
 import { Easing } from "react-native-reanimated";
@@ -8,13 +8,23 @@ import { Easing } from "react-native-reanimated";
 const color = "#6E01EF";
 const size = 100;
 
+const styles = StyleSheet.create({
+  dot: {
+    width: size,
+    height: size,
+    borderRadius: size,
+    backgroundColor: color,
+  },
+  center: { alignItems: "center", justifyContent: "center" },
+});
+
 export const Animation49 = () => {
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <StatusBar hidden />
-      <MView style={[styles.dot, styles.center]}>
+      <MotiView style={[styles.dot, styles.center]}>
         {[...Array(3).keys()].map((i) => (
-          <MView
+          <MotiView
             key={i}
             from={{ scale: 1, opacity: 0.3 }}
             animate={{ scale: 4, opacity: 0 }}
@@ -30,17 +40,7 @@ export const Animation49 = () => {
           />
         ))}
         <Icon name="phone-outgoing" size={32} color="#fff" />
-      </MView>
+      </MotiView>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  dot: {
-    width: size,
-    height: size,
-    borderRadius: size,
-    backgroundColor: color,
-  },
-  center: { alignItems: "center", justifyContent: "center" },
-});

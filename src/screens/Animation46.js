@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import { useEffect, useState } from "react";
 import { Dimensions, StyleSheet, View } from "react-native";
-import { AnimatePresence, Text as MText, View as MView } from "moti";
+import { AnimatePresence, MotiText, MotiView } from "moti";
 import { StatusBar } from "expo-status-bar";
 
 const { width } = Dimensions.get("window").width;
@@ -63,7 +63,7 @@ export const Animation46 = () => {
           maxWidth: width,
         }}
       >
-        <MView
+        <MotiView
           onLayout={(e) => {
             // console.log()
             setBar(e.nativeEvent.layout.width);
@@ -94,7 +94,7 @@ export const Animation46 = () => {
           >
             <AnimatePresence>
               {progress === "100" && (
-                <MText
+                <MotiText
                   from={{ translateY: 20 }}
                   animate={{ translateY: 0 }}
                   exit={{ translateY: 20 }}
@@ -112,11 +112,11 @@ export const Animation46 = () => {
                   }}
                 >
                   DONE
-                </MText>
+                </MotiText>
               )}
             </AnimatePresence>
           </View>
-        </MView>
+        </MotiView>
 
         <View
           style={{
@@ -139,7 +139,7 @@ export const Animation46 = () => {
                     }}
                   >
                     <AnimatePresence>
-                      <MText
+                      <MotiText
                         from={{ translateY: 20 }}
                         animate={{ translateY: 0 }}
                         exit={{ translateY: -20 }}
@@ -155,7 +155,7 @@ export const Animation46 = () => {
                         }}
                       >
                         {t}
-                      </MText>
+                      </MotiText>
                     </AnimatePresence>
                   </View>
                 );
