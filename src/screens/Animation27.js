@@ -4,39 +4,39 @@ import Animated, {
   useAnimatedScrollHandler,
   useAnimatedStyle,
   useSharedValue,
-  withTiming,
+  withTiming
 } from "react-native-reanimated";
 import Constants from "expo-constants";
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     alignItems: "center",
+    flex: 1,
     justifyContent: "center",
-    paddingTop: Constants.statusBarHeight + 20,
+    paddingTop: Constants.statusBarHeight + 20
   },
   scroll: {
-    paddingHorizontal: 20,
+    paddingHorizontal: 20
   },
   text: {
-    fontSize: 32,
+    fontSize: 32
   },
   action: {
-    flexDirection: "row",
-    borderWidth: 1,
+    backgroundColor: "#000",
     borderRadius: 25,
+    borderWidth: 1,
+    bottom: 5,
+    flexDirection: "row",
+    justifyContent: "space-around",
     padding: 16,
     position: "absolute",
-    bottom: 5,
-    backgroundColor: "#000",
-    width: "60%",
-    justifyContent: "space-around",
+    width: "60%"
   },
   item: {
-    fontSize: 16,
     color: "#FFF",
+    fontSize: 16,
     marginHorizontal: 16
-  },
+  }
 });
 
 export const Animation27 = () => {
@@ -61,12 +61,12 @@ export const Animation27 = () => {
       }
       lastContentOffset.value = event.contentOffset.y;
     },
-    onBeginDrag: (e) => {
+    onBeginDrag: () => {
       isScrolling.value = true;
     },
-    onEndDrag: (e) => {
+    onEndDrag: () => {
       isScrolling.value = false;
-    },
+    }
   });
 
   const animatedStyle = useAnimatedStyle(() => {
@@ -75,10 +75,10 @@ export const Animation27 = () => {
         {
           translateY: withTiming(translateY.value, {
             duration: 750,
-            easing: Easing.inOut(Easing.ease),
-          }),
-        },
-      ],
+            easing: Easing.inOut(Easing.ease)
+          })
+        }
+      ]
     };
   });
 

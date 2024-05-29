@@ -52,5 +52,5 @@ export default [
   "https://assets.website-files.com/5e51c674258ffe10d286d30a/5e535840d39923925454c88d_peep-56.png",
   "https://assets.website-files.com/5e51c674258ffe10d286d30a/5e5356c67371bb2b069e35e3_peep-44.png",
   "https://assets.website-files.com/5e51c674258ffe10d286d30a/5e5353362b568a99fd167467_peep-21.png",
-  "https://assets.website-files.com/5e51c674258ffe10d286d30a/5e5353ecf3aa4bf2fc2bbf6b_peep-26.png",
+  "https://assets.website-files.com/5e51c674258ffe10d286d30a/5e5353ecf3aa4bf2fc2bbf6b_peep-26.png"
 ];

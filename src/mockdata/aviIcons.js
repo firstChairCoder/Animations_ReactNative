@@ -11,5 +11,5 @@ export default [
   "https://cdn-icons-png.flaticon.com/512/4333/4333620.png",
   "https://cdn-icons-png.flaticon.com/512/4333/4333623.png",
   "https://cdn-icons-png.flaticon.com/512/4333/4333626.png",
-  "https://cdn-icons-png.flaticon.com/512/4333/4333629.png",
+  "https://cdn-icons-png.flaticon.com/512/4333/4333629.png"
 ];

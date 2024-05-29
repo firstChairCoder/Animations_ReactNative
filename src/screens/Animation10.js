@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 import { Ionicons as Icon } from "@expo/vector-icons";
 import { useState } from "react";
 import {
@@ -7,71 +6,71 @@ import {
   Pressable,
   StyleSheet,
   Text,
-  View,
+  View
 } from "react-native";
 
 const { width } = Dimensions.get("window");
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#F0F0F0",
+    flex: 1,
+    justifyContent: "center"
   },
   cardWrapper: {
-    width: width - 40,
+    alignItems: "flex-start",
+    borderColor: "#C3C3C3",
+    borderRadius: 5,
+    borderWidth: 1.5,
+    elevation: 3,
     height: "30%",
     justifyContent: "space-around",
-    alignItems: "flex-start",
-    borderRadius: 5,
-    shadowOpacity: 4,
-    shadowOffset: { x: 0, y: 2 },
     shadowColor: "black",
-    borderColor: "#C3C3C3",
-    elevation: 3,
-    borderWidth: 1.5,
+    shadowOffset: { x: 0, y: 2 },
+    shadowOpacity: 4,
+    width: width - 40
   },
   headerMain: {
-    flexDirection: "row",
-    width: "90%",
-    justifyContent: "space-between",
     alignItems: "center",
+    flexDirection: "row",
+    justifyContent: "space-between",
     marginHorizontal: 20,
+    width: "90%"
   },
   price: {
-    fontSize: 42,
     color: "#828282",
-    fontWeight: "300",
+    fontSize: 42,
+    fontWeight: "300"
   },
   counterDisplay: {
-    width: 60,
-    height: 60,
-    justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#F0F0F0",
-    borderWidth: 1,
     borderRadius: 30,
-  },
-  count: {
-    fontSize: 28,
-    color: "#828282",
-  },
-  decrease: {
-    width: 60,
+    borderWidth: 1,
     height: 60,
     justifyContent: "center",
+    width: 60
+  },
+  count: {
+    color: "#828282",
+    fontSize: 28
+  },
+  decrease: {
     alignItems: "center",
     backgroundColor: "#FFF",
-    shadowOpacity: 0.3,
-    shadowOffset: { x: 0, y: 2 },
-    shadowColor: "black",
-    elevation: 2,
-    paddingTop: 4,
+    borderColor: "#828282",
     borderRadius: 30,
     borderWidth: 3,
-    borderColor: "#828282",
-  },
+    elevation: 2,
+    height: 60,
+    justifyContent: "center",
+    paddingTop: 4,
+    shadowColor: "black",
+    shadowOffset: { x: 0, y: 2 },
+    shadowOpacity: 0.3,
+    width: 60
+  }
 });
 
 const Card = () => {
@@ -85,16 +84,16 @@ const Card = () => {
       {
         translateX: animation.interpolate({
           inputRange: [0, 1],
-          outputRange: [120, 100],
-        }),
+          outputRange: [120, 100]
+        })
       },
       {
         scale: animation.interpolate({
           inputRange: [0, 0.2, 1],
-          outputRange: [0.9, 1, 1.25],
-        }),
-      },
-    ],
+          outputRange: [0.9, 1, 1.25]
+        })
+      }
+    ]
   };
 
   const countTextStyles = {
@@ -102,10 +101,10 @@ const Card = () => {
       {
         scale: tapAnimation.interpolate({
           inputRange: [0, 0.2, 0.8, 1],
-          outputRange: [1, 0.8, 1.25, 1],
-        }),
-      },
-    ],
+          outputRange: [1, 0.8, 1.25, 1]
+        })
+      }
+    ]
   };
 
   const decreaseStyles = {
@@ -113,13 +112,13 @@ const Card = () => {
       {
         translateX: animation.interpolate({
           inputRange: [0, 1],
-          outputRange: [60, 0],
-        }),
+          outputRange: [60, 0]
+        })
       },
       {
-        scale: 0.7,
-      },
-    ],
+        scale: 0.7
+      }
+    ]
   };
 
   const incrementStyles = {
@@ -127,29 +126,29 @@ const Card = () => {
       {
         scale: animation.interpolate({
           inputRange: [0, 1],
-          outputRange: [1, 0.7],
-        }),
+          outputRange: [1, 0.7]
+        })
       },
       {
         translateX: animation.interpolate({
           inputRange: [0, 1],
-          outputRange: [1, 30],
-        }),
+          outputRange: [1, 30]
+        })
       },
       {
         rotate: animation.interpolate({
           inputRange: [0, 1],
-          outputRange: ["0deg", "90deg"],
-        }),
-      },
-    ],
+          outputRange: ["0deg", "90deg"]
+        })
+      }
+    ]
   };
 
   const animateQuantityChange = () => {
     Animated.timing(tapAnimation, {
       toValue: 1,
       duration: 500,
-      useNativeDriver: true,
+      useNativeDriver: true
     }).start(() => tapAnimation.setValue(0));
   };
 
@@ -167,7 +166,7 @@ const Card = () => {
       Animated.timing(animation, {
         toValue: 1,
         duration: 300,
-        useNativeDriver: true,
+        useNativeDriver: true
       }).start(() => setOpen(1));
     } else {
       setCounter(counter + 1);
@@ -184,7 +183,7 @@ const Card = () => {
             height: 30,
             margin: 5,
             backgroundColor: "#C9CDD5",
-            borderRadius: 5,
+            borderRadius: 5
           }}
         />
       </View>
@@ -196,7 +195,7 @@ const Card = () => {
             height: 15,
             margin: 5,
             backgroundColor: "#C9CDD5",
-            borderRadius: 5,
+            borderRadius: 5
           }}
         />
         <View
@@ -205,7 +204,7 @@ const Card = () => {
             height: 15,
             margin: 5,
             backgroundColor: "#C9CDD5",
-            borderRadius: 5,
+            borderRadius: 5
           }}
         />
         <Text>On my way</Text>
@@ -231,7 +230,7 @@ const Card = () => {
               style={[
                 styles.decrease,
                 { backgroundColor: "#31BAC9" },
-                incrementStyles,
+                incrementStyles
               ]}
             >
               <Icon name={"add-sharp"} color={"#FFF"} size={32} />

@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 // /* eslint-disable react-native/no-inline-styles */
 // //Inspo: https://dribbble.com/shots/6555779-Menu-Transition
 // //this is because we would like to have this container + the menucontainer on the same zIndex so they'll both be visible when themenu is visible.        //
@@ -253,9 +254,8 @@
 //   );
 // };
 
-
-import { View } from "react-native"
+import { View } from "react-native";
 
 export const Animation40 = () => {
-  return <View style={{ flex: 1, backgroundColor: "lime" }} />
-}
+  return <View style={{ flex: 1, backgroundColor: "lime" }} />;
+};

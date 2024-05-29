@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 // Inspiration: https://dribbble.com/shots/4707036-Switcher-XXXVIII
 import { Pressable, View } from "react-native";
 import { StatusBar } from "expo-status-bar";
@@ -8,21 +7,21 @@ import Animated, {
   useAnimatedStyle,
   useDerivedValue,
   useSharedValue,
-  withSpring,
+  withSpring
 } from "react-native-reanimated";
 import { MotiView } from "moti";
 import { useCallback, useMemo, useState } from "react";
 
 const colors = {
   on: "rgba(73,233,138,1)",
-  off: "rgba(253,63,80,1)",
+  off: "rgba(253,63,80,1)"
 };
 
 function AwesomeSwitch({
   disabled = false,
   size = 64,
   value = false,
-  onValueChange,
+  onValueChange
 }) {
   const [switchState, setSwitchState] = useState(value);
 
@@ -38,7 +37,7 @@ function AwesomeSwitch({
     () => ({
       track: size,
       thumb: size / 2,
-      border: size / 6,
+      border: size / 6
     }),
     [size]
   );
@@ -54,7 +53,7 @@ function AwesomeSwitch({
   const stylez = useAnimatedStyle(() => {
     return {
       backgroundColor: v.value,
-      shadowColor: v.value,
+      shadowColor: v.value
     };
   });
 
@@ -70,25 +69,25 @@ function AwesomeSwitch({
             alignItems: "center",
             shadowOffset: {
               width: 0,
-              height: 0,
+              height: 0
             },
             shadowOpacity: 0.8,
             shadowRadius: sizes.border,
             // shadowColor: "#000000",
-            elevation: sizes.border,
+            elevation: sizes.border
           },
-          stylez,
+          stylez
         ]}
       >
         <MotiView
           animate={{
             width: switchState ? 0 : sizes.thumb,
-            borderWidth: switchState ? sizes.border * 0.67 : sizes.border,
+            borderWidth: switchState ? sizes.border * 0.67 : sizes.border
           }}
           style={{
             height: sizes.thumb,
             borderRadius: sizes.thumb / 2,
-            borderColor: "#fff",
+            borderColor: "#fff"
           }}
         />
       </Animated.View>
@@ -105,7 +104,7 @@ const Animation45 = () => {
         alignItems: "center",
         paddingTop: Constants.statusBarHeight,
         backgroundColor: "#ecf0f1",
-        padding: 8,
+        padding: 8
       }}
     >
       <StatusBar hidden />

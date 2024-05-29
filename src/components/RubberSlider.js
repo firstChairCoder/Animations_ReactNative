@@ -1,4 +1,3 @@
-import React from "react";
 import { StyleSheet, TextInput, TouchableOpacity, View } from "react-native";
 import { Ionicons as Icon } from "@expo/vector-icons";
 import Animated, { useAnimatedProps } from "react-native-reanimated";
@@ -21,7 +20,7 @@ export function Header({ onSettingsPress }) {
 export default function AnimatedText({ style, text }) {
   const animatedText = useAnimatedProps(() => {
     return {
-      text: text.value + "",
+      text: text.value + ""
     };
   });
 
@@ -38,11 +37,11 @@ export default function AnimatedText({ style, text }) {
 
 const styles = StyleSheet.create({
   root: {
-    justifyContent: "space-between",
-    flexDirection: "row",
     alignItems: "center",
-    paddingHorizontal: 24,
+    flexDirection: "row",
+    justifyContent: "space-between",
     paddingBottom: 24,
-    paddingTop: 24 + 20,
-  },
+    paddingHorizontal: 24,
+    paddingTop: 24 + 20
+  }
 });

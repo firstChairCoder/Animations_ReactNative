@@ -1,8 +1,7 @@
-/* eslint-disable no-shadow */
-/* eslint-disable react-native/no-inline-styles */
+/* eslint-disable @typescript-eslint/no-shadow */
 // Inspiration: https://dribbble.com/shots/2148183-Streak-Interaction-Design
 import { Feather } from "@expo/vector-icons";
-import { MotiText, MotiView, AnimatePresence } from "moti";
+import { AnimatePresence, MotiText, MotiView } from "moti";
 import { useRef, useState } from "react";
 import { Dimensions, Pressable, StatusBar, View } from "react-native";
 
@@ -34,7 +33,7 @@ export const Animation38 = () => {
       style={{
         flex: 1,
         justifyContent: "space-evenly",
-        alignItems: "center",
+        alignItems: "center"
       }}
     >
       <StatusBar hidden />
@@ -47,7 +46,7 @@ export const Animation38 = () => {
             exit={{ translateY: -10, opacity: 0 }}
             transition={{
               type: "timing",
-              duration: duration * 0.7,
+              duration: duration * 0.7
             }}
             key="nope"
           >
@@ -62,7 +61,7 @@ export const Animation38 = () => {
               style={{
                 fontSize: 16,
                 textTransform: "uppercase",
-                marginBottom: 10,
+                marginBottom: 10
               }}
             >
               TODAY
@@ -76,7 +75,7 @@ export const Animation38 = () => {
             exit={{ translateY: -10, opacity: 0 }}
             transition={{
               type: "timing",
-              duration: duration * 0.7,
+              duration: duration * 0.7
             }}
             key="yep"
           >
@@ -91,7 +90,7 @@ export const Animation38 = () => {
               style={{
                 fontSize: 16,
                 textTransform: "uppercase",
-                marginBottom: 10,
+                marginBottom: 10
               }}
             >
               You're amazing
@@ -103,11 +102,11 @@ export const Animation38 = () => {
         {/* Green bg */}
         <MotiView
           animate={{
-            scale: hasVoted.current ? 10 : 1,
+            scale: hasVoted.current ? 10 : 1
           }}
           transition={{
             type: "timing",
-            duration: duration * 1.4,
+            duration: duration * 1.4
           }}
           style={{
             position: "absolute",
@@ -116,7 +115,7 @@ export const Animation38 = () => {
             borderRadius: size / 2,
             backgroundColor: color,
             alignItems: "center",
-            justifyContent: "center",
+            justifyContent: "center"
           }}
         />
         <Pressable
@@ -131,11 +130,11 @@ export const Animation38 = () => {
         >
           <MotiView
             animate={{
-              backgroundColor: hasVoted.current ? "#fff" : color,
+              backgroundColor: hasVoted.current ? "#fff" : color
             }}
             transition={{
               type: "timing",
-              duration: duration,
+              duration: duration
             }}
             style={{
               width: size,
@@ -143,7 +142,7 @@ export const Animation38 = () => {
               borderRadius: size / 2,
               backgroundColor: color,
               alignItems: "center",
-              justifyContent: "center",
+              justifyContent: "center"
             }}
           >
             <AnimatePresence exitBeforeEnter>
@@ -155,7 +154,7 @@ export const Animation38 = () => {
                   exit={{ opacity: 0 }}
                   transition={{
                     type: "timing",
-                    duration: duration / 10,
+                    duration: duration / 10
                   }}
                 >
                   <Feather name="check" size={size / 2} color="white" />
@@ -168,7 +167,7 @@ export const Animation38 = () => {
                   exit={{ opacity: 0 }}
                   transition={{
                     type: "timing",
-                    duration: duration / 10,
+                    duration: duration / 10
                   }}
                 >
                   <Feather name="check" size={size / 2} color={color} />
@@ -198,7 +197,7 @@ export const Animation38 = () => {
                     justifyContent: "center",
                     height: counterSize,
                     width: counterSize * 0.6,
-                    alignItems: "center",
+                    alignItems: "center"
                   }}
                 >
                   <AnimatePresence>
@@ -208,29 +207,29 @@ export const Animation38 = () => {
                         translateY: hasVoted.current
                           ? counterSize * 1.2
                           : -counterSize * 1.2,
-                        color: hasVoted.current ? "#000" : "#fff",
+                        color: hasVoted.current ? "#000" : "#fff"
                       }}
                       animate={{
                         opacity: 1,
                         translateY: 0,
-                        color: hasVoted.current ? "#fff" : "#000",
+                        color: hasVoted.current ? "#fff" : "#000"
                       }}
                       exit={{
                         opacity: 0,
                         translateY: hasVoted.current
                           ? counterSize * 1.2
-                          : -counterSize * 1.2,
+                          : -counterSize * 1.2
                       }}
                       transition={{
                         duration: duration,
-                        type: "timing",
+                        type: "timing"
                       }}
                       // transition={{duration: 350, type: 'timing'}}
                       key={`progress-${index}-${value}`}
                       style={{
                         fontSize: counterSize,
                         position: "absolute",
-                        margin: 0,
+                        margin: 0
                       }}
                     >
                       {value}

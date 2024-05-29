@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 //Inspiration:  https://dribbble.com/shots/8930339-Tesla-Cybertruck-Control-App
 import { View } from "react-native";
 import { AnimatePresence, MotiText, MotiView } from "moti";
@@ -13,7 +12,7 @@ const _items = 20;
 const _colors = {
   bg: "#101527",
   active: "#0CFBBB",
-  inactive: "#17303F",
+  inactive: "#17303F"
 };
 
 const AnimatedNumber = ({ percentage = "00", style }) => {
@@ -23,9 +22,9 @@ const AnimatedNumber = ({ percentage = "00", style }) => {
         {
           flexDirection: "row",
           justifyContent: "space-between",
-          alignItems: "center",
+          alignItems: "center"
         },
-        style,
+        style
       ]}
     >
       <View style={{ flexDirection: "row" }}>
@@ -37,7 +36,7 @@ const AnimatedNumber = ({ percentage = "00", style }) => {
                 overflow: "hidden",
                 height: 20,
                 justifyContent: "center",
-                width: 20,
+                width: 20
               }}
             >
               <AnimatePresence>
@@ -48,14 +47,14 @@ const AnimatedNumber = ({ percentage = "00", style }) => {
                   transition={{
                     duration: 500,
                     type: "timing",
-                    delay: 800 + i * 50,
+                    delay: 800 + i * 50
                   }}
                   key={`percentage-${t}-${i}`}
                   style={{
                     position: "absolute",
                     fontWeight: "800",
                     fontSize: 20,
-                    color: _colors.active,
+                    color: _colors.active
                   }}
                 >
                   {t}
@@ -88,7 +87,7 @@ export const Animation37 = () => {
         flex: 1,
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: _colors.bg,
+        backgroundColor: _colors.bg
       }}
     >
       <StatusBar hidden />
@@ -103,20 +102,20 @@ export const Animation37 = () => {
             <MotiView
               key={i}
               from={{
-                backgroundColor: _colors.active,
+                backgroundColor: _colors.active
               }}
               animate={{
-                backgroundColor: isActive ? _colors.active : _colors.inactive,
+                backgroundColor: isActive ? _colors.active : _colors.inactive
               }}
               transition={{
-                delay: isActive ? i * 100 : (_items - i) * 100,
+                delay: isActive ? i * 100 : (_items - i) * 100
               }}
               style={{
                 width: _min + (i * (_max - _min)) / 15,
                 height: 4,
                 marginBottom: _spacing / 2,
                 borderRadius: 10,
-                backgroundColor: _colors.active,
+                backgroundColor: _colors.active
               }}
             />
           );

@@ -1,4 +1,4 @@
-/* eslint-disable react-native/no-inline-styles */
+/* eslint-disable @typescript-eslint/no-shadow */
 import { TouchableOpacity, View } from "react-native";
 import { AnimatePresence, MotiView } from "moti";
 import { Feather as Icon } from "@expo/vector-icons";
@@ -13,7 +13,7 @@ const Button = ({ icon = "plus", onPress }) => {
           height: 36,
           borderRadius: 36,
           alignItems: "center",
-          justifyContent: "center",
+          justifyContent: "center"
         }}
       >
         <Icon name={icon} size={20} color="black" />
@@ -30,7 +30,7 @@ export default function MoreButton() {
         flex: 1,
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "#F5F3F5",
+        backgroundColor: "#F5F3F5"
       }}
     >
       <View style={{ alignItems: "center" }}>
@@ -47,7 +47,7 @@ export default function MoreButton() {
                 alignItems: "center",
                 paddingBottom: 50,
                 position: "absolute",
-                bottom: 0,
+                bottom: 0
               }}
             >
               <Button icon="bell" onPress={() => setActive(false)} />
@@ -58,14 +58,13 @@ export default function MoreButton() {
           )}
         </AnimatePresence>
         <TouchableOpacity
-          // eslint-disable-next-line no-shadow
           onPress={() => setActive((active) => !active)}
           activeOpacity={1}
         >
           <MotiView
             animate={{
               backgroundColor: !active ? "#FCD259" : "#dfdfdf",
-              rotate: active ? "-45deg" : "0deg",
+              rotate: active ? "-45deg" : "0deg"
             }}
             style={{
               width: 50,
@@ -73,7 +72,7 @@ export default function MoreButton() {
               borderRadius: 50,
               backgroundColor: "#FCD259",
               alignItems: "center",
-              justifyContent: "center",
+              justifyContent: "center"
             }}
           >
             <Icon name="plus" size={24} color="black" />

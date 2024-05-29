@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 // /* eslint-disable no-shadow */
 // /* eslint-disable react-native/no-inline-styles */
 // // Inspiration:https://dribbble.com/shots/12294992-Beats-Concept-App

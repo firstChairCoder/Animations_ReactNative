@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 // Inspiration: https://dribbble.com/shots/3845034-Listening-now-Kishi-Bashi
 
 import {
@@ -7,11 +6,11 @@ import {
   StyleSheet,
   Text,
   TextInput,
-  View,
+  View
 } from "react-native";
 import {
   GestureHandlerRootView,
-  PanGestureHandler,
+  PanGestureHandler
 } from "react-native-gesture-handler";
 import Animated, {
   interpolate,
@@ -20,15 +19,15 @@ import Animated, {
   useAnimatedStyle,
   useDerivedValue,
   useSharedValue,
-  withSpring,
+  withSpring
 } from "react-native-reanimated";
 import Svg, { Path } from "react-native-svg";
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: "#FFF",
-  },
+    flex: 1
+  }
 });
 
 const { width, height } = Dimensions.get("window");
@@ -49,13 +48,13 @@ const clamp = (value, min, max) => {
   return Math.min(Math.max(min, value), max);
 };
 
-const AnimatedText = ({ text, style, ...props }) => {
+const AnimatedText = ({ text, style }) => {
   const animatedProps = useAnimatedProps(() => {
     if (!text) {
       return {};
     }
     return {
-      text: String(text.value),
+      text: String(text.value)
     };
   });
 
@@ -90,7 +89,7 @@ export const Animation07 = () => {
     L${width + 100} ${height}
     L0 ${height}
     Z
-  `,
+  `
     };
   });
 
@@ -108,16 +107,16 @@ export const Animation07 = () => {
       currentY.value = ctx.startY + event.translationY / 18;
       currentX.value = ctx.startX + event.translationX / 3;
     },
-    onEnd: (event, ctx) => {
+    onEnd: () => {
       currentY.value = withSpring(posY.value, {
         damping: 3,
-        stiffness: 400,
+        stiffness: 400
       });
       currentX.value = withSpring(width / 2, {
         damping: 10,
-        stiffness: 100,
+        stiffness: 100
       });
-    },
+    }
   });
 
   const topViewStyle = useAnimatedStyle(() => {
@@ -126,9 +125,9 @@ export const Animation07 = () => {
       height: (height * posY.value) / 100,
       transform: [
         {
-          translateY: currentY.value / 2,
-        },
-      ],
+          translateY: currentY.value / 2
+        }
+      ]
     };
   });
 
@@ -138,9 +137,9 @@ export const Animation07 = () => {
       height: height - (height * posY.value) / 100,
       transform: [
         {
-          translateY: -currentY.value / 2,
-        },
-      ],
+          translateY: -currentY.value / 2
+        }
+      ]
     };
   });
 
@@ -156,7 +155,7 @@ export const Animation07 = () => {
     return {
       fontSize: Math.floor(
         interpolate(posY.value, [clampMin, clampMax], [minF, maxF])
-      ),
+      )
     };
   });
 
@@ -164,7 +163,7 @@ export const Animation07 = () => {
     return {
       fontSize: Math.floor(
         interpolate(posY.value, [clampMin, clampMax], [maxF, minF])
-      ),
+      )
     };
   });
 
@@ -187,9 +186,9 @@ export const Animation07 = () => {
                   right: 0,
                   bottom: 0,
                   justifyContent: "flex-end",
-                  paddingBottom: height * 0.1,
+                  paddingBottom: height * 0.1
                 },
-                topViewStyle,
+                topViewStyle
               ]}
             >
               <View style={{ flexDirection: "row", alignItems: "center" }}>
@@ -197,7 +196,7 @@ export const Animation07 = () => {
                   text={topValue}
                   style={[
                     topTextStyle,
-                    { fontSize: minF + maxF / 2, marginLeft: 20, color: color },
+                    { fontSize: minF + maxF / 2, marginLeft: 20, color: color }
                   ]}
                 />
                 <Text
@@ -205,7 +204,7 @@ export const Animation07 = () => {
                     color: color,
                     fontSize: 24,
                     marginLeft: 20,
-                    textAlign: "center",
+                    textAlign: "center"
                   }}
                 >
                   Points you {"\n"} need
@@ -221,9 +220,9 @@ export const Animation07 = () => {
                   right: 0,
                   bottom: 0,
                   justifyContent: "flex-start",
-                  paddingTop: height * 0.1,
+                  paddingTop: height * 0.1
                 },
-                bottomViewStyle,
+                bottomViewStyle
               ]}
             >
               <View style={{ flexDirection: "row", alignItems: "center" }}>
@@ -233,9 +232,9 @@ export const Animation07 = () => {
                     {
                       fontSize: minF + maxF / 2,
                       marginLeft: 20,
-                      color: "#FFF",
+                      color: "#FFF"
                     },
-                    bottomTextStyle,
+                    bottomTextStyle
                   ]}
                 />
                 <Text
@@ -243,7 +242,7 @@ export const Animation07 = () => {
                     color: "#FFF",
                     fontSize: 24,
                     marginLeft: 20,
-                    textAlign: "center",
+                    textAlign: "center"
                   }}
                 >
                   Points you {"\n"} have

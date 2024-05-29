@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import { Component } from "react";
 import { StyleSheet } from "react-native";
 import { Text, View } from "react-native-animatable";
 
@@ -10,7 +10,7 @@ export default class LoginForm extends Component {
   state = {
     email: "",
     password: "",
-    fullName: "",
+    fullName: ""
   };
 
   hideForm = async () => {
@@ -18,7 +18,7 @@ export default class LoginForm extends Component {
       await Promise.all([
         this.buttonRef.zoomOut(200),
         this.formRef.fadeOut(300),
-        this.linkRef.fadeOut(300),
+        this.linkRef.fadeOut(300)
       ]);
     }
   };
@@ -94,25 +94,25 @@ export default class LoginForm extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: DEVICE_WIDTH * 0.1,
+    paddingHorizontal: DEVICE_WIDTH * 0.1
   },
   form: {
-    marginTop: 20,
+    marginTop: 20
   },
   footer: {
     height: 100,
-    justifyContent: "center",
+    justifyContent: "center"
   },
   loginButton: {
-    backgroundColor: "white",
+    backgroundColor: "white"
   },
   loginButtonText: {
     color: "#3E464D",
-    fontWeight: "bold",
+    fontWeight: "bold"
   },
   signupLink: {
-    color: "rgba(255,255,255,0.6)",
     alignSelf: "center",
-    padding: 20,
-  },
+    color: "rgba(255,255,255,0.6)",
+    padding: 20
+  }
 });

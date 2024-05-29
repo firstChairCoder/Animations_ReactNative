@@ -1,4 +1,4 @@
-/* eslint-disable react-native/no-inline-styles */
+/* eslint-disable @typescript-eslint/no-shadow */
 //Inspo: https://dribbble.com/shots/11638410-dinero
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { MotiView } from "moti";
@@ -8,7 +8,7 @@ import {
   StatusBar,
   Text,
   TouchableOpacity,
-  View,
+  View
 } from "react-native";
 import { Easing } from "react-native-reanimated";
 
@@ -30,7 +30,7 @@ const PassCodeKeyboard = ({ onPress }) => {
         flexDirection: "row",
         flexWrap: "wrap",
         paddingHorizontal: passcodeSpacing,
-        alignItems: "center",
+        alignItems: "center"
       }}
     >
       {keys.map((key) => {
@@ -44,7 +44,7 @@ const PassCodeKeyboard = ({ onPress }) => {
               width: keySize,
               height: keySize,
               alignItems: "center",
-              justifyContent: "center",
+              justifyContent: "center"
             }}
             key={key}
           >
@@ -72,7 +72,7 @@ const PassCode = ({ passcode, isValid }) => {
       animate={{
         translateX: isValid
           ? 0
-          : [0, 0, 0, 0, 0, 0, 0, 5, -5, 5, -5, 5, -5, 5, 0],
+          : [0, 0, 0, 0, 0, 0, 0, 5, -5, 5, -5, 5, -5, 5, 0]
       }}
       transition={{ type: "timing", duration: 100 }}
       style={{ flexDirection: "row", marginVertical: passcodeSpacing }}
@@ -86,7 +86,7 @@ const PassCode = ({ passcode, isValid }) => {
               height: passCodeSize,
               borderRadius: passCodeSize,
               backgroundColor: "rgba(0,0,0,0.3)",
-              marginLeft: i === 0 ? 0 : passCodeSize / 4,
+              marginLeft: i === 0 ? 0 : passCodeSize / 4
             }}
           >
             {passcode[i] && (
@@ -95,17 +95,14 @@ const PassCode = ({ passcode, isValid }) => {
                 from={{ scale: 0 }}
                 animate={{
                   scale:
-                    isValid && passcode.length === passcodeLength
-                      ? [1.1, 1]
-                      : 1,
+                    isValid && passcode.length === passcodeLength ? [1.1, 1] : 1
                 }}
                 exit={{ scale: 0 }}
                 transition={{
                   type: "timing",
                   duration: 500,
                   easing: Easing.elastic(1.1),
-                  delay:
-                    isValid && passcode.length === passcodeLength ? 500 : 0,
+                  delay: isValid && passcode.length === passcodeLength ? 500 : 0
                 }}
                 style={{
                   backgroundColor:
@@ -115,14 +112,14 @@ const PassCode = ({ passcode, isValid }) => {
                   justifyContent: "center",
                   alignItems: "center",
                   flex: 1,
-                  borderRadius: passCodeSize / 2,
+                  borderRadius: passCodeSize / 2
                 }}
               >
                 <Text
                   style={{
                     fontSize: passCodeSize / 2,
                     color: "#FFF",
-                    fontWeight: "700",
+                    fontWeight: "700"
                   }}
                 >
                   {passcode[i]}
@@ -156,7 +153,7 @@ export default function Animation39() {
           fontSize: 16,
           paddingHorizontal: passcodeSpacing * 2,
           textAlign: "center",
-          color: "rgba(0,0,0,.3)",
+          color: "rgba(0,0,0,.3)"
         }}
       >
         Enter the access code to get started.
@@ -169,7 +166,7 @@ export default function Animation39() {
         onPress={(char) => {
           if (char === "delete") {
             console.log("delete");
-            // eslint-disable-next-line no-shadow
+
             setPasscode((passcode) =>
               passcode.length === 0
                 ? []

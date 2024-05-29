@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 import { StyleSheet, View } from "react-native";
 import { MotiView } from "moti";
 import { StatusBar } from "expo-status-bar";
@@ -10,12 +9,12 @@ const size = 100;
 
 const styles = StyleSheet.create({
   dot: {
-    width: size,
-    height: size,
-    borderRadius: size,
     backgroundColor: color,
+    borderRadius: size,
+    height: size,
+    width: size
   },
-  center: { alignItems: "center", justifyContent: "center" },
+  center: { alignItems: "center", justifyContent: "center" }
 });
 
 export const Animation49 = () => {
@@ -34,7 +33,7 @@ export const Animation49 = () => {
               duration: 2000,
               delay: i * 400,
               type: "timing",
-              easing: Easing.out(Easing.ease),
+              easing: Easing.out(Easing.ease)
             }}
             style={[StyleSheet.absoluteFillObject, styles.dot]}
           />

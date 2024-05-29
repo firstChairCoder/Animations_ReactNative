@@ -1,12 +1,11 @@
-/* eslint-disable react-native/no-inline-styles */
 import { forwardRef, useEffect, useRef, useState } from "react";
 import { Animated, StatusBar, StyleSheet, Text, View } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-  },
+    justifyContent: "center"
+  }
 });
 
 const ITEM_HEIGHT = 42;
@@ -20,11 +19,8 @@ const hours = [...Array(24).keys()].map((i) => {
     // numbers: 0..9..12..23
     // output 00..09..12..01..11
     label:
-      start === 12
-        ? "12"
-        : start % 12 < 10
-        ? `0${start % 12}`
-        : `${start % 12}`,
+      // eslint-disable-next-line no-nested-ternary
+      start === 12 ? "12" : start % 12 < 10 ? `0${start % 12}` : `${start % 12}`
   };
 });
 
@@ -32,7 +28,7 @@ const minutes = [...Array(60).keys()].map((i) => {
   return {
     key: `minute-${i}`,
     index: i,
-    label: i < 10 ? `0${i}` : `${i}`,
+    label: i < 10 ? `0${i}` : `${i}`
   };
 });
 
@@ -40,7 +36,7 @@ const t = ["AM", "PM"].map((v, i) => {
   return {
     index: i,
     key: v,
-    label: v,
+    label: v
   };
 });
 
@@ -54,7 +50,7 @@ const Item = ({ opacity, item }) => {
       style={{
         height: ITEM_HEIGHT,
         justifyContent: "center",
-        alignItems: "center",
+        alignItems: "center"
       }}
     >
       <Animated.Text
@@ -96,7 +92,7 @@ const CustomPicker = forwardRef(
         onScroll={Animated.event(
           [{ nativeEvent: { contentOffset: { y: animatedValue } } }],
           {
-            useNativeDriver: true,
+            useNativeDriver: true
           }
         )}
         showsVerticalScrollIndicator={false}
@@ -104,7 +100,7 @@ const CustomPicker = forwardRef(
         keyExtractor={(item) => item.key}
         style={{ height: PICKER_HEIGHT, flexGrow: 0 }}
         contentContainerStyle={{
-          paddingVertical: PICKER_HEIGHT / 2 - ITEM_HEIGHT / 2,
+          paddingVertical: PICKER_HEIGHT / 2 - ITEM_HEIGHT / 2
         }}
         snapToInterval={ITEM_HEIGHT}
         decelerationRate="fast"
@@ -114,7 +110,7 @@ const CustomPicker = forwardRef(
             ITEM_HEIGHT
           ).interpolate({
             inputRange: [index - 1, index, index + 1],
-            outputRange: [0.15, 1, 0.15],
+            outputRange: [0.15, 1, 0.15]
           });
           return <Item opacity={opacity} item={item} />;
         }}
@@ -135,7 +131,7 @@ export const Animation09 = () => {
       setDayOrNight(type);
       d?.current?.scrollToOffset({
         offset: type === "AM" ? 0 : ITEM_HEIGHT,
-        animated: true,
+        animated: true
       });
     }
   }, [hour]);

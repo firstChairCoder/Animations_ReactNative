@@ -1,4 +1,4 @@
-import "react-native-gesture-handler";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { useEffect, useState } from "react";
 import { ScrollView, StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
@@ -10,18 +10,17 @@ import * as Font from "expo-font";
 
 import Button from "./src/components/Button";
 import screens from "./src/data/screensData";
-import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: "snow",
-    paddingTop: Constants.statusBarHeight + 20,
+    flex: 1,
+    paddingTop: Constants.statusBarHeight + 20
   },
   content: {
-    paddingLeft: 20,
     paddingBottom: 20,
-  },
+    paddingLeft: 20
+  }
 });
 
 const Stack = createNativeStackNavigator();
@@ -54,7 +53,7 @@ export default function App() {
         await Font.loadAsync({
           Lobster: require("./assets/fonts/Lobster-Regular.ttf"),
           VolkornCaps: require("./assets/fonts/VollkornSC-Regular.ttf"),
-          Volkorn: require("./assets/fonts/Vollkorn-Regular.ttf"),
+          Volkorn: require("./assets/fonts/Vollkorn-Regular.ttf")
         });
       } catch (e) {
         console.error(e);
@@ -79,7 +78,6 @@ export default function App() {
   }
 
   return (
-    // eslint-disable-next-line react-native/no-inline-styles
     <SafeAreaProvider style={{ flex: 1 }}>
       <GestureHandlerRootView style={{ flex: 1 }}>
         <NavigationContainer>
@@ -87,7 +85,7 @@ export default function App() {
             screenOptions={{
               headerTitle: "",
               headerTransparent: true,
-              headerBackTitleVisible: false,
+              headerBackTitleVisible: false
             }}
           >
             <Stack.Screen name={"Home"} component={HomeScreen} />

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import { Component } from "react";
 import { StyleSheet } from "react-native";
 import { Text, View } from "react-native-animatable";
 
@@ -43,34 +43,34 @@ export default class Opening extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginHorizontal: DEVICE_WIDTH * 0.1,
     justifyContent: "center",
+    marginHorizontal: DEVICE_WIDTH * 0.1
   },
   createAccountButton: {
-    backgroundColor: "#9B9FA4",
+    backgroundColor: "#9B9FA4"
   },
   createAccountButtonText: {
-    color: "white",
+    color: "white"
   },
   separatorContainer: {
     alignItems: "center",
     flexDirection: "row",
-    marginVertical: 20,
+    marginVertical: 20
   },
   separatorLine: {
-    flex: 1,
-    borderWidth: StyleSheet.hairlineWidth,
-    height: StyleSheet.hairlineWidth,
     borderColor: "#9B9FA4",
+    borderWidth: StyleSheet.hairlineWidth,
+    flex: 1,
+    height: StyleSheet.hairlineWidth
   },
   separatorOr: {
     color: "#9B9FA4",
-    marginHorizontal: 8,
+    marginHorizontal: 8
   },
   signInButton: {
-    backgroundColor: "#1976D2",
+    backgroundColor: "#1976D2"
   },
   signInButtonText: {
-    color: "white",
-  },
+    color: "white"
+  }
 });

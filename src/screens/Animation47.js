@@ -1,5 +1,4 @@
-/* eslint-disable no-shadow */
-/* eslint-disable react-native/no-inline-styles */
+/* eslint-disable @typescript-eslint/no-shadow */
 // Fabicon - multi-colored
 // Inspiration: https://dribbble.com/shots/17057599-Fashico-Mobile-Prototype-Animation
 import { Pressable, StatusBar, Text, View } from "react-native";
@@ -7,7 +6,7 @@ import { Feather } from "@expo/vector-icons";
 import { motify } from "moti";
 import {
   AnonymousPro_700Bold,
-  useFonts,
+  useFonts
 } from "@expo-google-fonts/anonymous-pro";
 import { useMemo, useState } from "react";
 
@@ -16,15 +15,15 @@ const _size = 64;
 const menu = [
   { icon: "rotate-ccw", color: "#33A5E4" },
   { icon: "youtube", color: "#F73B30" },
-  { icon: "image", color: "#FE63F4" },
+  { icon: "image", color: "#FE63F4" }
 ];
 const colors = {
   gray: "#1D1520",
-  white: "#f3f3f3",
+  white: "#f3f3f3"
 };
 const extraMenu = [
   { icon: "award", color: "turquoise" },
-  { icon: "cast", color: "salmon" },
+  { icon: "cast", color: "salmon" }
 ];
 
 const FabButton = ({ menu, size = 64, onPress, closedOffset = 4 }) => {
@@ -55,7 +54,7 @@ const FabButton = ({ menu, size = 64, onPress, closedOffset = 4 }) => {
                 position: "absolute",
                 width: size,
                 height: size,
-                borderRadius: size / 2,
+                borderRadius: size / 2
               }}
               onPress={() => {
                 setIsOpen((isOpen) => !isOpen);
@@ -67,10 +66,10 @@ const FabButton = ({ menu, size = 64, onPress, closedOffset = 4 }) => {
                   (isOpen ? radius : closedOffset),
                 translateY:
                   -Math.cos(reflectedIndex * offsetAngle) *
-                  (isOpen ? radius : closedOffset),
+                  (isOpen ? radius : closedOffset)
               }}
               transition={{
-                delay: index * 100,
+                delay: index * 100
               }}
             >
               <Feather name={item.icon} size={iconSize} color={colors.white} />
@@ -86,13 +85,13 @@ const FabButton = ({ menu, size = 64, onPress, closedOffset = 4 }) => {
           backgroundColor: colors.gray,
           width: size,
           height: size,
-          borderRadius: size / 2,
+          borderRadius: size / 2
         }}
         onPress={() => {
           setIsOpen((isOpen) => !isOpen);
         }}
         animate={{
-          rotate: isOpen ? "0deg" : "-45deg",
+          rotate: isOpen ? "0deg" : "-45deg"
         }}
       >
         <Feather name="x" size={iconSize} color={colors.white} />
@@ -103,7 +102,7 @@ const FabButton = ({ menu, size = 64, onPress, closedOffset = 4 }) => {
 
 export const Animation47 = () => {
   let [fontsLoaded] = useFonts({
-    Bold: AnonymousPro_700Bold,
+    Bold: AnonymousPro_700Bold
   });
 
   if (!fontsLoaded) {
@@ -115,7 +114,7 @@ export const Animation47 = () => {
         flex: 1,
         justifyContent: "space-evenly",
         padding: 8,
-        backgroundColor: "#ecf0f1",
+        backgroundColor: "#ecf0f1"
       }}
     >
       <StatusBar hidden />
@@ -125,7 +124,7 @@ export const Animation47 = () => {
           alignItems: "center",
           justifyContent: "flex-end",
           paddingBottom: 40,
-          marginBottom: 20,
+          marginBottom: 20
         }}
       >
         <FabButton
@@ -143,7 +142,7 @@ export const Animation47 = () => {
             position: "absolute",
             bottom: 10,
             right: 10,
-            textAlign: "right",
+            textAlign: "right"
           }}
         >
           [Default]{"\n"}size: 64{"\n"}closedOffset:4
@@ -156,7 +155,7 @@ export const Animation47 = () => {
           alignItems: "center",
           justifyContent: "flex-end",
           paddingBottom: 40,
-          marginBottom: 20,
+          marginBottom: 20
         }}
       >
         <FabButton
@@ -175,7 +174,7 @@ export const Animation47 = () => {
             position: "absolute",
             bottom: 10,
             right: 10,
-            textAlign: "right",
+            textAlign: "right"
           }}
         >
           size: 42{"\n"}closedOffset: 4
@@ -188,7 +187,7 @@ export const Animation47 = () => {
           alignItems: "center",
           marginBottom: 20,
           justifyContent: "center",
-          paddingBottom: 0,
+          paddingBottom: 0
         }}
       >
         <FabButton
@@ -207,7 +206,7 @@ export const Animation47 = () => {
             position: "absolute",
             bottom: 10,
             right: 10,
-            textAlign: "right",
+            textAlign: "right"
           }}
         >
           size: 52{"\n"} closedOffset:3{"\n"}menu: 5 items

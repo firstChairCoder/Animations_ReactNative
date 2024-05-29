@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 import { useEffect } from "react";
 import { StatusBar, StyleSheet, Text, View } from "react-native";
 import Svg, { Path } from "react-native-svg";
@@ -7,7 +6,7 @@ import Animated, {
   useAnimatedProps,
   useSharedValue,
   withDelay,
-  withTiming,
+  withTiming
 } from "react-native-reanimated";
 import { svgPathProperties } from "svg-path-properties";
 
@@ -20,60 +19,60 @@ const AnimatedPath = Animated.createAnimatedComponent(Path);
 const colors = {
   bg: "#232839",
   inactive: "#353C51",
-  active: "#80D15A",
+  active: "#80D15A"
 };
 
 const data = [
   {
     current: 36,
     max: 120,
-    color: "#4985E0",
+    color: "#4985E0"
   },
   {
     current: 12,
     max: 50,
-    color: "#80D15A",
+    color: "#80D15A"
   },
   {
     current: 10,
     max: 20,
-    color: "#42B6DB",
+    color: "#42B6DB"
   },
   {
     current: 8,
     max: 8,
-    color: "#6B5CFE",
+    color: "#6B5CFE"
   },
   {
     current: 2,
     max: 5,
-    color: "#F9AB4F",
-  },
+    color: "#F9AB4F"
+  }
 ];
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: colors.bg,
     flex: 1,
     justifyContent: "center",
-    paddingTop: Constants.statusBarHeight,
-    backgroundColor: colors.bg,
+    paddingTop: Constants.statusBarHeight
   },
   text: {
     fontSize: 17,
     fontWeight: "bold",
-    textAlign: "center",
+    textAlign: "center"
   },
   numWrapper: {
-    flex: 1,
-    justifyContent: "space-evenly",
     alignItems: "center",
+    flex: 1,
+    justifyContent: "space-evenly"
   },
   slash: {
-    width: "50%",
-    height: 2,
     backgroundColor: colors.inactive,
+    height: 2,
     transform: [{ rotate: "-14deg" }],
-  },
+    width: "50%"
+  }
 });
 
 function AnimatedThing({
@@ -85,10 +84,9 @@ function AnimatedThing({
   strokeWidth = STROKE_WIDTH,
   current = 2,
   max = 4,
-  duration = 500,
   delay = 500,
   children,
-  style,
+  style
 }) {
   const d = `
     M ${width / 2} 0
@@ -121,7 +119,7 @@ function AnimatedThing({
   const animatedProps = useAnimatedProps(() => {
     // console.log(strokeDashOffset.value)
     return {
-      strokeDashoffset: animatedValue.value,
+      strokeDashoffset: animatedValue.value
     };
   });
 
@@ -165,7 +163,7 @@ function AnimatedThing({
           right: strokeWidth,
           bottom: strokeWidth,
           position: "absolute",
-          borderRadius: radius - strokeWidth * 2,
+          borderRadius: radius - strokeWidth * 2
         }}
       >
         {children}

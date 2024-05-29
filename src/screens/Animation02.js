@@ -6,7 +6,7 @@ import {
   StatusBar,
   StyleSheet,
   Text,
-  View,
+  View
 } from "react-native";
 import faker from "faker";
 import Animated, {
@@ -14,7 +14,7 @@ import Animated, {
   useAnimatedScrollHandler,
   useAnimatedStyle,
   useDerivedValue,
-  useSharedValue,
+  useSharedValue
 } from "react-native-reanimated";
 import { Directions, FlingGestureHandler } from "react-native-gesture-handler";
 
@@ -28,15 +28,15 @@ const ITEM_HEIGHT = ITEM_WIDTH * 1.1;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: "center",
     backgroundColor: "#FFF",
+    flex: 1,
+    justifyContent: "center"
   },
   image: {
-    width: ITEM_WIDTH,
     height: ITEM_HEIGHT,
     resizeMode: "contain",
-  },
+    width: ITEM_WIDTH
+  }
 });
 
 faker.seed(1);
@@ -44,7 +44,7 @@ const data = stickers.map((image) => {
   return {
     key: faker.datatype.uuid(),
     image,
-    name: faker.commerce.product(),
+    name: faker.commerce.product()
   };
 });
 // console.log(data.map(({ name }) => ({ name })));
@@ -61,19 +61,18 @@ const Item = ({ item, index, scrollY }) => {
             v.value,
             [index - 1, index, index + 1, index + 2],
             [3, 1, 1 - SCALE_FACTOR, 1 - SCALE_FACTOR * 2]
-          ),
-        },
+          )
+        }
       ],
       opacity: interpolate(
         v.value,
         [index - 1, index, index + 1, index + 2],
         [0, 1, 0.85, 0.7]
-      ),
+      )
     };
   });
   return (
     <Animated.View
-      // eslint-disable-next-line react-native/no-inline-styles
       style={[{ justifyContent: "center", alignItems: "center" }, style]}
     >
       <Image style={styles.image} source={{ uri: item.image }} />
@@ -107,9 +106,10 @@ export const Animation02 = () => {
               paddingTop: height - ITEM_HEIGHT,
               ...(Platform.OS !== "web" && {
                 height:
-                  ITEM_HEIGHT * (data.length + 1) * 0.5 + height - ITEM_HEIGHT,
-              }),
+                  ITEM_HEIGHT * (data.length + 1) * 0.5 + height - ITEM_HEIGHT
+              })
             }}
+            // eslint-disable-next-line react/no-unstable-nested-components
             CellRendererComponent={({ style, index, children, ...props }) => {
               return (
                 <View

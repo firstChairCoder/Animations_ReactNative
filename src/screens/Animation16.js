@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 // Inspiration: https://dribbble.com/shots/15294651-Bank-App
 import {
   Dimensions,
@@ -7,7 +6,7 @@ import {
   StatusBar,
   StyleSheet,
   Text,
-  View,
+  View
 } from "react-native";
 import Constants from "expo-constants";
 import faker from "faker";
@@ -17,12 +16,12 @@ import Animated, {
   useAnimatedScrollHandler,
   useAnimatedStyle,
   useSharedValue,
-  withTiming,
+  withTiming
 } from "react-native-reanimated";
 import {
   Lato_400Regular,
   Lato_700Bold,
-  useFonts,
+  useFonts
 } from "@expo-google-fonts/lato";
 
 const AnimatedSectionList = Animated.createAnimatedComponent(SectionList);
@@ -43,14 +42,14 @@ const _months = [
   "September",
   "October",
   "November",
-  "December",
+  "December"
 ];
 
-const _headerData = [...Array(5).keys()].map((i) => ({
+const _headerData = [...Array(5).keys()].map(() => ({
   key: faker.datatype.uuid(),
   amount: faker.finance.amount(500, 8500, 0, "$"),
   department: faker.commerce.department(),
-  emoji: faker.random.arrayElement(emojis),
+  emoji: faker.random.arrayElement(emojis)
 }));
 
 const _data = _months.map((month) => ({
@@ -63,14 +62,14 @@ const _data = _months.map((month) => ({
       type: faker.random.arrayElement(["inbound", "outbound"]),
       department: faker.commerce.department(),
       productName: faker.commerce.productName(),
-      emoji: faker.random.arrayElement(emojis),
+      emoji: faker.random.arrayElement(emojis)
     };
-  }),
+  })
 }));
 
 const _colors = {
   bg: "#030303",
-  text: "#EAE9EE",
+  text: "#EAE9EE"
 };
 const _spacing = 10;
 const _itemSize = width * 0.4;
@@ -78,28 +77,28 @@ const _otherSize = width * 0.3;
 
 const styles = StyleSheet.create({
   regular: {
-    fontFamily: "LatoRegular",
+    fontFamily: "LatoRegular"
   },
   bold: {
-    fontFamily: "LatoBold",
+    fontFamily: "LatoBold"
   },
   container: {
+    backgroundColor: _colors.bg,
     flex: 1,
     justifyContent: "center",
     paddingTop: Constants.statusBarHeight,
-    backgroundColor: _colors.bg,
-    padding: _spacing,
+    padding: _spacing
   },
   header: {
-    top: Constants.statusBarHeight,
     left: _spacing,
-  },
+    top: Constants.statusBarHeight
+  }
 });
 
 export const Animation16 = () => {
   let [fontsLoaded] = useFonts({
     LatoRegular: Lato_400Regular,
-    LatoBold: Lato_700Bold,
+    LatoBold: Lato_700Bold
   });
   const headerAnim = useSharedValue(0);
   const scrollY = useSharedValue(0);
@@ -111,7 +110,7 @@ export const Animation16 = () => {
   });
   const dummyHeaderStylez = useAnimatedStyle(() => {
     return {
-      height: headerHeight.value,
+      height: headerHeight.value
     };
   });
   const balanceStylez = useAnimatedStyle(() => {
@@ -123,7 +122,7 @@ export const Animation16 = () => {
           0,
           _itemSize,
           _itemSize + _extraSectionHeaderSpacing,
-          headerHeight.value,
+          headerHeight.value
         ],
         [1, 1, 1, 0]
       ),
@@ -135,19 +134,19 @@ export const Animation16 = () => {
               0,
               _itemSize,
               _itemSize + _extraSectionHeaderSpacing,
-              _itemSize + _extraSectionHeaderSpacing + 1,
+              _itemSize + _extraSectionHeaderSpacing + 1
             ],
             [0, 0, 0, -1]
-          ),
-        },
-      ],
+          )
+        }
+      ]
     };
   });
   const headerStylez = useAnimatedStyle(() => {
     return {
       transform: [
         {
-          perspective: _itemSize * 5,
+          perspective: _itemSize * 5
         },
         {
           translateY: interpolate(
@@ -155,7 +154,7 @@ export const Animation16 = () => {
             [0, _itemSize],
             [0, -_itemSize / 2],
             Extrapolation.CLAMP
-          ),
+          )
         },
         {
           rotateX: `${interpolate(
@@ -163,15 +162,15 @@ export const Animation16 = () => {
             [0, _itemSize],
             [0, 90],
             Extrapolation.CLAMP
-          )}deg`,
-        },
+          )}deg`
+        }
       ],
       opacity: interpolate(
         headerAnim.value,
         [0, _itemSize / 2, _itemSize],
         [1, 1, 0],
         Extrapolation.CLAMP
-      ),
+      )
     };
   });
 
@@ -192,7 +191,7 @@ export const Animation16 = () => {
             return;
           }
           headerHeight.value = withTiming(ev.nativeEvent.layout.height, {
-            duration: 0,
+            duration: 0
           });
         }}
       >
@@ -221,7 +220,7 @@ export const Animation16 = () => {
                   marginRight: _spacing,
                   width: index === 0 ? _itemSize : _otherSize,
                   height: _itemSize,
-                  borderRadius: 12,
+                  borderRadius: 12
                 }}
               >
                 <View style={{ flex: 1 }}>
@@ -237,7 +236,7 @@ export const Animation16 = () => {
                 <Text
                   style={[
                     styles.regular,
-                    { fontSize: 16, opacity: 0.6, color: _colors.text },
+                    { fontSize: 16, opacity: 0.6, color: _colors.text }
                   ]}
                 >
                   {item.department}
@@ -261,8 +260,8 @@ export const Animation16 = () => {
                   fontSize: 24,
                   color: _colors.text,
                   padding: _spacing,
-                  marginVertical: _spacing,
-                },
+                  marginVertical: _spacing
+                }
               ]}
             >
               {title}
@@ -277,7 +276,7 @@ export const Animation16 = () => {
                 marginBottom: _spacing,
                 flexDirection: "row",
                 justifyContent: "space-between",
-                alignItems: "center",
+                alignItems: "center"
               }}
             >
               <View
@@ -287,7 +286,7 @@ export const Animation16 = () => {
                   borderRadius: 52,
                   backgroundColor: `${_colors.text}16`,
                   alignItems: "center",
-                  justifyContent: "center",
+                  justifyContent: "center"
                 }}
               >
                 <Text style={{ fontSize: 24 }}>{item.emoji}</Text>
@@ -299,8 +298,8 @@ export const Animation16 = () => {
                     {
                       color: _colors.text,
                       fontSize: 16,
-                      marginBottom: _spacing / 2,
-                    },
+                      marginBottom: _spacing / 2
+                    }
                   ]}
                 >
                   {item.productName}
@@ -308,7 +307,7 @@ export const Animation16 = () => {
                 <Text
                   style={[
                     styles.regular,
-                    { color: _colors.text, opacity: 0.6 },
+                    { color: _colors.text, opacity: 0.6 }
                   ]}
                 >
                   {item.department}
@@ -318,7 +317,7 @@ export const Animation16 = () => {
                 style={{
                   flexGrow: 1,
                   alignItems: "flex-end",
-                  justifyContent: "center",
+                  justifyContent: "center"
                 }}
               >
                 <Text
@@ -327,8 +326,8 @@ export const Animation16 = () => {
                     {
                       color:
                         item.type === "inbound" ? "turquoise" : _colors.text,
-                      fontSize: 16,
-                    },
+                      fontSize: 16
+                    }
                   ]}
                 >
                   {item.amount}

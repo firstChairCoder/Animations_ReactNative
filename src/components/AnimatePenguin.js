@@ -3,17 +3,17 @@ import Animated, { useAnimatedStyle } from "react-native-reanimated";
 
 const AnimatedPenguin = ({ size, penguinPressed }) => {
   const awakePenguin = useAnimatedStyle(() => ({
-    opacity: penguinPressed.value ? 1 : 0,
+    opacity: penguinPressed.value ? 1 : 0
   }));
   const asleepPenguin = useAnimatedStyle(() => ({
-    opacity: penguinPressed.value ? 0 : 1,
+    opacity: penguinPressed.value ? 0 : 1
   }));
 
   return (
     <View
       style={{
         height: size,
-        width: size,
+        width: size
       }}
     >
       <Animated.Image
@@ -21,9 +21,9 @@ const AnimatedPenguin = ({ size, penguinPressed }) => {
           StyleSheet.absoluteFill,
           {
             height: undefined,
-            width: undefined,
+            width: undefined
           },
-          awakePenguin,
+          awakePenguin
         ]}
         source={require("../../assets/images/channels/awakePenguin.webp")}
       />
@@ -33,9 +33,9 @@ const AnimatedPenguin = ({ size, penguinPressed }) => {
           StyleSheet.absoluteFill,
           {
             height: undefined,
-            width: undefined,
+            width: undefined
           },
-          asleepPenguin,
+          asleepPenguin
         ]}
         source={require("../../assets/images/channels/asleepPenguin.webp")}
       />

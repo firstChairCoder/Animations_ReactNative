@@ -1,14 +1,13 @@
-/* eslint-disable no-shadow */
-/* eslint-disable react-native/no-inline-styles */
+/* eslint-disable @typescript-eslint/no-shadow */
 // Inspiration: https://dribbble.com/shots/15754381-Motion-UI-Exploration
-import { MotiText, MotiView, AnimatePresence } from "moti";
+import { AnimatePresence, MotiText, MotiView } from "moti";
 import { useState } from "react";
 import {
   Dimensions,
   Pressable,
   StatusBar,
   StyleSheet,
-  View,
+  View
 } from "react-native";
 import { Easing } from "react-native-reanimated";
 
@@ -30,7 +29,7 @@ export const Animation48 = () => {
         flex: 1,
         backgroundColor: "#f7f6f6",
         justifyContent: "center",
-        alignItems: "center",
+        alignItems: "center"
       }}
     >
       <StatusBar hidden />
@@ -45,7 +44,7 @@ export const Animation48 = () => {
             height: size,
             justifyContent: "space-between",
             alignItems: "center",
-            backgroundColor: "#fff",
+            backgroundColor: "#fff"
           }}
         >
           <MotiView
@@ -53,25 +52,25 @@ export const Animation48 = () => {
               height: (size * (1 - ratio)) / 2,
               width: size,
               alignItems: "center",
-              justifyContent: "center",
+              justifyContent: "center"
             }}
             animate={{
               opacity: isAdded ? 0 : 1,
-              translateY: isAdded ? -restHeight : 0,
+              translateY: isAdded ? -restHeight : 0
             }}
             transition={{
               opacity: {
                 delay: isAdded ? 0 : bigDuration,
                 duration: restDuration,
                 type: "timing",
-                easing: Easing.bezier(0.85, 0, 0.15, 1),
+                easing: Easing.bezier(0.85, 0, 0.15, 1)
               },
               translateY: {
                 delay: isAdded ? 0 : bigDuration,
                 duration: restDuration,
                 type: "timing",
-                easing: Easing.bezier(0.85, 0, 0.15, 1),
-              },
+                easing: Easing.bezier(0.85, 0, 0.15, 1)
+              }
             }}
           >
             <MotiText
@@ -79,7 +78,7 @@ export const Animation48 = () => {
                 textTransform: "uppercase",
                 color,
                 fontWeight: "300",
-                fontSize: Math.max(14, restHeight * 0.5),
+                fontSize: Math.max(14, restHeight * 0.5)
               }}
             >
               Add to
@@ -89,7 +88,7 @@ export const Animation48 = () => {
             style={{
               ...StyleSheet.absoluteFillObject,
               justifyContent: "center",
-              alignItems: "center",
+              alignItems: "center"
             }}
           >
             <MotiView
@@ -97,25 +96,25 @@ export const Animation48 = () => {
                 position: "absolute",
                 backgroundColor: color,
                 width: 1,
-                height: size * ratio,
+                height: size * ratio
               }}
               animate={{
                 width: isAdded ? size : 1,
-                height: isAdded ? size : size * ratio,
+                height: isAdded ? size : size * ratio
               }}
               transition={{
                 height: {
                   delay: isAdded ? 0 : bigDuration,
                   type: "timing",
                   easing: Easing.bezier(0.85, 0, 0.15, 1),
-                  duration: restDuration,
+                  duration: restDuration
                 },
                 width: {
                   delay: isAdded ? restDuration : 0,
                   type: "timing",
                   easing: Easing.bezier(0.85, 0, 0.15, 1),
-                  duration: bigDuration,
-                },
+                  duration: bigDuration
+                }
               }}
             />
             <MotiView
@@ -123,15 +122,15 @@ export const Animation48 = () => {
                 position: "absolute",
                 backgroundColor: color,
                 height: 1,
-                width: size * ratio,
+                width: size * ratio
               }}
               animate={{ width: isAdded ? 0 : size * ratio }}
               transition={{
                 width: {
                   delay: isAdded ? 0 : bigDuration,
                   type: "timing",
-                  easing: Easing.bezier(0.85, 0, 0.15, 1),
-                },
+                  easing: Easing.bezier(0.85, 0, 0.15, 1)
+                }
               }}
             />
             <AnimatePresence>
@@ -142,7 +141,7 @@ export const Animation48 = () => {
                     fontWeight: "300",
                     fontSize: Math.max(14, restHeight * 0.5),
                     color: "#fff",
-                    position: "absolute",
+                    position: "absolute"
                   }}
                   key="doneText"
                   from={{ opacity: 0 }}
@@ -152,8 +151,8 @@ export const Animation48 = () => {
                     type: "timing",
                     easing: Easing.bezier(0.85, 0, 0.15, 1),
                     opacity: {
-                      delay: isAdded ? duration : 0,
-                    },
+                      delay: isAdded ? duration : 0
+                    }
                   }}
                 >
                   Done
@@ -166,17 +165,17 @@ export const Animation48 = () => {
               height: (size * (1 - ratio)) / 2,
               width: size,
               alignItems: "center",
-              justifyContent: "center",
+              justifyContent: "center"
             }}
             animate={{
               opacity: isAdded ? 0 : 1,
-              translateY: isAdded ? restHeight : 0,
+              translateY: isAdded ? restHeight : 0
             }}
             transition={{
               delay: isAdded ? 0 : bigDuration,
               duration: restDuration,
               type: "timing",
-              easing: Easing.bezier(0.85, 0, 0.15, 1),
+              easing: Easing.bezier(0.85, 0, 0.15, 1)
             }}
           >
             <MotiText
@@ -184,7 +183,7 @@ export const Animation48 = () => {
                 textTransform: "uppercase",
                 color,
                 fontWeight: "300",
-                fontSize: Math.max(14, restHeight * 0.5),
+                fontSize: Math.max(14, restHeight * 0.5)
               }}
             >
               Library

@@ -1,4 +1,3 @@
-import React from "react";
 import { ActivityIndicator, StyleSheet, Text } from "react-native";
 import { View } from "react-native-animatable";
 
@@ -32,21 +31,21 @@ const CustomButton = ({
 
 const styles = StyleSheet.create({
   button: {
-    height: 42,
-    borderWidth: 1,
-    borderRadius: 3,
     alignSelf: "stretch",
-    justifyContent: "center",
     borderColor: "rgba(0, 0, 0, 0.1)",
+    borderRadius: 3,
+    borderWidth: 1,
+    height: 42,
+    justifyContent: "center"
   },
   spinner: {
-    height: 26,
+    height: 26
   },
   text: {
-    textAlign: "center",
-    fontWeight: "400",
     color: "white",
-  },
+    fontWeight: "400",
+    textAlign: "center"
+  }
 });
 
 export default CustomButton;

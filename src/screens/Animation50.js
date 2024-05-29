@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 // Inspiration: // https://dribbble.com/shots/15224317-Processing-Loop
 import { useEffect } from "react";
 import { Dimensions, View } from "react-native";
@@ -8,7 +7,7 @@ import Animated, {
   withDelay,
   withRepeat,
   withSequence,
-  withTiming,
+  withTiming
 } from "react-native-reanimated";
 
 const { width, height } = Dimensions.get("window");
@@ -21,7 +20,7 @@ const Rect = ({ index }) => {
   const animation = useSharedValue(0);
   const stylez = useAnimatedStyle(() => {
     return {
-      width: animation.value,
+      width: animation.value
     };
   });
 
@@ -54,7 +53,7 @@ export const Animation50 = () => {
           height: CONTAINER_HEIGHT,
           flexDirection: "row",
           justifyContent: "space-between",
-          padding: 10,
+          padding: 10
         }}
       >
         {[...Array(MAX).keys()].map((i) => {

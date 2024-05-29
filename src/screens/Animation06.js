@@ -1,13 +1,5 @@
-/* eslint-disable react-native/no-inline-styles */
 import { useMemo } from "react";
-import {
-  Dimensions,
-  FlatList,
-  StatusBar,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { Dimensions, StatusBar, StyleSheet, Text, View } from "react-native";
 import Constants from "expo-constants";
 import Animated, {
   Extrapolation,
@@ -18,19 +10,19 @@ import Animated, {
   useSharedValue,
   withRepeat,
   withSpring,
-  withTiming,
+  withTiming
 } from "react-native-reanimated";
 
 import data from "../mockdata/carouselData";
 
 const styles = StyleSheet.create({
   container: {
+    alignItems: "center",
+    backgroundColor: "#ECF0F1",
     flex: 1,
     justifyContent: "center",
-    alignItems: "center",
-    paddingTop: Constants.statusBarHeight,
-    backgroundColor: "#ECF0F1",
-  },
+    paddingTop: Constants.statusBarHeight
+  }
 });
 const { width } = Dimensions.get("window");
 const itemWidth = width * 0.6;
@@ -54,9 +46,9 @@ const Item = ({ scrollX, index, item, activeIndex }) => {
             inputRange,
             [itemHeight * 0.1, 0, itemHeight * 0.1],
             Extrapolation.CLAMP
-          ),
-        },
-      ],
+          )
+        }
+      ]
     };
   });
 
@@ -71,9 +63,9 @@ const Item = ({ scrollX, index, item, activeIndex }) => {
               [itemHeight * 0.8, itemHeight * 0.5, itemHeight * 0.8],
               Extrapolation.CLAMP
             )
-          ),
-        },
-      ],
+          )
+        }
+      ]
     };
   });
 
@@ -92,7 +84,7 @@ const Item = ({ scrollX, index, item, activeIndex }) => {
             inputRange,
             [0.2, 1, 0],
             Extrapolation.CLAMP
-          ),
+          )
         },
         {
           translateY:
@@ -109,9 +101,9 @@ const Item = ({ scrollX, index, item, activeIndex }) => {
                     [spacing * 4, -spacing * 2, spacing * 4],
                     Extrapolation.CLAMP
                   )
-                ),
-        },
-      ],
+                )
+        }
+      ]
     };
   });
 
@@ -124,8 +116,8 @@ const Item = ({ scrollX, index, item, activeIndex }) => {
           height: itemHeight,
           margin: spacing,
           borderRadius: 24,
-          overflow: "hidden",
-        },
+          overflow: "hidden"
+        }
       ]}
     >
       <View
@@ -133,7 +125,7 @@ const Item = ({ scrollX, index, item, activeIndex }) => {
           flex: 1,
           justifyContent: "flex-end",
           alignItems: "center",
-          padding: spacing,
+          padding: spacing
         }}
       >
         <Animated.View
@@ -147,8 +139,8 @@ const Item = ({ scrollX, index, item, activeIndex }) => {
               bottom: 0,
               right: 0,
               borderRadius: 24,
-              backgroundColor: "#FFF",
-            },
+              backgroundColor: "#FFF"
+            }
           ]}
         />
         <View style={{ alignItems: "center" }}>
@@ -158,8 +150,8 @@ const Item = ({ scrollX, index, item, activeIndex }) => {
               {
                 width: itemWidth * 0.7,
                 height: itemWidth * 0.7,
-                marginBottom: spacing,
-              },
+                marginBottom: spacing
+              }
             ]}
             source={{ uri: item.icon }}
           />
@@ -174,7 +166,7 @@ export const Animation06 = () => {
   const scrollX = useSharedValue(0);
   const activeIndex = useSharedValue(0);
   const onScroll = useAnimatedScrollHandler({
-    onMomentumBegin: (ev) => {
+    onMomentumBegin: () => {
       activeIndex.value = -1;
     },
     onMomentumEnd: (ev) => {
@@ -182,7 +174,7 @@ export const Animation06 = () => {
     },
     onScroll: (ev) => {
       scrollX.value = ev.contentOffset.x;
-    },
+    }
   });
 
   return (
@@ -203,7 +195,7 @@ export const Animation06 = () => {
         }}
         style={{ flexGrow: 0 }}
         contentContainerStyle={{
-          paddingHorizontal: (width - itemWidthWithSpacing) / 2,
+          paddingHorizontal: (width - itemWidthWithSpacing) / 2
         }}
         onScroll={onScroll}
         scrollEventThrottle={16}

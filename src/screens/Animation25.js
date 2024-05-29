@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 /**
  * Inspiration: https://dribbble.com/shots/3431451-HUNGRY
  */
@@ -10,125 +9,126 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  View,
+  View
 } from "react-native";
 import { SimpleLineIcons } from "@expo/vector-icons";
-import { forwardRef, memo, useCallback, useEffect, useRef, useState } from "react";
+import {
+  forwardRef,
+  memo,
+  useCallback,
+  useEffect,
+  useRef,
+  useState
+} from "react";
 
 const ICON_SIZE = 42;
 const ITEM_HEIGHT = ICON_SIZE * 2;
 const colors = {
   yellow: "#FFE8A3",
-  dark: "#2D2D2D",
+  dark: "#2D2D2D"
 };
 const { width, height } = Dimensions.get("window");
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: colors.dark,
     flex: 1,
     justifyContent: "center",
-    paddingTop: StatusBar.currentHeight,
-    backgroundColor: colors.dark,
-  },
-  paragraph: {
-    margin: 24,
-    fontSize: 18,
-    fontWeight: "bold",
-    textAlign: "center",
+    paddingTop: StatusBar.currentHeight
   },
   itemWrapper: {
-    flexDirection: "row",
-    justifyContent: "space-between",
     alignItems: "center",
+    flexDirection: "row",
     height: ITEM_HEIGHT,
+    justifyContent: "space-between"
   },
   itemText: {
     fontSize: 26,
     fontWeight: "800",
-    textTransform: "capitalize",
-  },
+    textTransform: "capitalize"
+  }
 });
 
 const data = [
   {
     icon: "social-tumblr",
-    name: "tumblr",
+    name: "tumblr"
   },
   {
     icon: "social-twitter",
-    name: "twitter",
+    name: "twitter"
   },
   {
     icon: "social-facebook",
-    name: "facebook",
+    name: "facebook"
   },
   {
     icon: "social-instagram",
-    name: "instagram",
+    name: "instagram"
   },
   {
     icon: "social-linkedin",
-    name: "linkedin",
+    name: "linkedin"
   },
   {
     icon: "social-pinterest",
-    name: "pinterest",
+    name: "pinterest"
   },
   {
     icon: "social-github",
-    name: "github",
+    name: "github"
   },
   {
     icon: "social-google",
-    name: "google",
+    name: "google"
   },
   {
     icon: "social-reddit",
-    name: "reddit",
+    name: "reddit"
   },
   {
     icon: "social-skype",
-    name: "skype",
+    name: "skype"
   },
   {
     icon: "social-dribbble",
-    name: "dribbble",
+    name: "dribbble"
   },
   {
     icon: "social-behance",
-    name: "behance",
+    name: "behance"
   },
   {
     icon: "social-foursqare",
-    name: "foursquare",
+    name: "foursquare"
   },
   {
     icon: "social-soundcloud",
-    name: "soundcloud",
+    name: "soundcloud"
   },
   {
     icon: "social-spotify",
-    name: "spotify",
+    name: "spotify"
   },
   {
     icon: "social-stumbleupon",
-    name: "stumbleupon",
+    name: "stumbleupon"
   },
   {
     icon: "social-youtube",
-    name: "youtube",
+    name: "youtube"
   },
   {
     icon: "social-dropbox",
-    name: "dropbox",
+    name: "dropbox"
   },
   {
     icon: "social-vkontakte",
-    name: "vkontakte",
+    name: "vkontakte"
   },
   {
     icon: "social-steam",
-    name: "steam",
-  },
+    name: "steam"
+  }
 ];
 
 const Icon = memo(({ icon, color }) => {
@@ -156,7 +156,7 @@ const ConnectWithText = memo(() => {
         position: "absolute",
         top: height / 2 - ITEM_HEIGHT * 2,
         width: width * 0.7,
-        paddingHorizontal: 14,
+        paddingHorizontal: 14
       }}
     >
       <Text
@@ -164,7 +164,7 @@ const ConnectWithText = memo(() => {
           color: colors.yellow,
           fontSize: 52,
           fontWeight: "700",
-          lineHeight: 52,
+          lineHeight: 52
         }}
       >
         Connect with...
@@ -179,14 +179,14 @@ const ConnectButton = memo(({ onPress }) => {
       style={{
         position: "absolute",
         top: height / 2 + ITEM_HEIGHT / 2,
-        paddingHorizontal: 14,
+        paddingHorizontal: 14
       }}
     >
       <View
         style={{
           height: ITEM_HEIGHT * 2,
           width: 4,
-          backgroundColor: colors.yellow,
+          backgroundColor: colors.yellow
         }}
       />
       <TouchableOpacity
@@ -196,7 +196,7 @@ const ConnectButton = memo(({ onPress }) => {
           paddingHorizontal: 12,
           backgroundColor: colors.yellow,
           alignItems: "center",
-          justifyContent: "center",
+          justifyContent: "center"
         }}
         activeOpacity={0.8}
       >
@@ -209,43 +209,41 @@ const ConnectButton = memo(({ onPress }) => {
 });
 
 const List = memo(
-  forwardRef(
-    ({ color, showText, style, onScroll, onItemIndexChange }, ref) => {
-      return (
-        <Animated.FlatList
-          ref={ref}
-          data={data}
-          style={style}
-          keyExtractor={(item) => `${item.name}-${item.icon}`}
-          bounces={false}
-          scrollEnabled={!showText}
-          scrollEventThrottle={16}
-          onScroll={onScroll}
-          decelerationRate="fast"
-          snapToInterval={ITEM_HEIGHT}
-          showsVerticalScrollIndicator={false}
-          renderToHardwareTextureAndroid
-          contentContainerStyle={{
-            paddingTop: showText ? 0 : height / 2 - ITEM_HEIGHT / 2,
-            paddingBottom: showText ? 0 : height / 2 - ITEM_HEIGHT / 2,
-            paddingHorizontal: 20,
-          }}
-          renderItem={({ item }) => {
-            return <Item {...item} color={color} showText={showText} />;
-          }}
-          onMomentumScrollEnd={(ev) => {
-            const newIndex = Math.round(
-              ev.nativeEvent.contentOffset.y / ITEM_HEIGHT
-            );
+  forwardRef(({ color, showText, style, onScroll, onItemIndexChange }, ref) => {
+    return (
+      <Animated.FlatList
+        ref={ref}
+        data={data}
+        style={style}
+        keyExtractor={(item) => `${item.name}-${item.icon}`}
+        bounces={false}
+        scrollEnabled={!showText}
+        scrollEventThrottle={16}
+        onScroll={onScroll}
+        decelerationRate="fast"
+        snapToInterval={ITEM_HEIGHT}
+        showsVerticalScrollIndicator={false}
+        renderToHardwareTextureAndroid
+        contentContainerStyle={{
+          paddingTop: showText ? 0 : height / 2 - ITEM_HEIGHT / 2,
+          paddingBottom: showText ? 0 : height / 2 - ITEM_HEIGHT / 2,
+          paddingHorizontal: 20
+        }}
+        renderItem={({ item }) => {
+          return <Item {...item} color={color} showText={showText} />;
+        }}
+        onMomentumScrollEnd={(ev) => {
+          const newIndex = Math.round(
+            ev.nativeEvent.contentOffset.y / ITEM_HEIGHT
+          );
 
-            if (onItemIndexChange) {
-              onItemIndexChange(newIndex);
-            }
-          }}
-        />
-      );
-    }
-  )
+          if (onItemIndexChange) {
+            onItemIndexChange(newIndex);
+          }
+        }}
+      />
+    );
+  })
 );
 export const Animation25 = () => {
   const [index, setIndex] = useState(0);
@@ -265,7 +263,7 @@ export const Animation25 = () => {
       if (darkRef?.current) {
         darkRef.current.scrollToOffset({
           offset: v.value,
-          animated: false,
+          animated: false
         });
       }
     });
@@ -291,7 +289,7 @@ export const Animation25 = () => {
           backgroundColor: colors.yellow,
           width,
           height: ITEM_HEIGHT,
-          top: height / 2 - ITEM_HEIGHT / 2,
+          top: height / 2 - ITEM_HEIGHT / 2
         }}
       />
       <ConnectButton onPress={onConnectPress} />

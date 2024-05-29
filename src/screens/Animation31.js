@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 // Inspo: https://dribbble.com/shots/5935613-Marvel-Movies-Interaction
 //WIP!
 import { Component } from "react";
@@ -10,7 +9,7 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  View,
+  View
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { PanGestureHandler } from "react-native-gesture-handler";
@@ -26,49 +25,49 @@ const GESTURE_STATES = [
   "BEGAN",
   "CANCELLED",
   "ACTIVE",
-  "END",
+  "END"
 ];
 const styles = StyleSheet.create({
   container: {
     alignItems: "center",
-    flex: 1,
     backgroundColor: "#FFFFFF",
+    flex: 1
   },
   flexOne: {
-    flex: 1,
+    flex: 1
   },
   backgroundContainer: {
-    borderRadius: 40,
+    borderRadius: 40
   },
   innerBackgroundContainer: {
-    borderTopRightRadius: 40,
-    borderTopLeftRadius: 40,
-    borderBottomRightRadius: 0,
     borderBottomLeftRadius: 0,
+    borderBottomRightRadius: 0,
+    borderTopLeftRadius: 40,
+    borderTopRightRadius: 40
   },
   navBar: {
     alignItems: "center",
     flexDirection: "row",
     justifyContent: "space-between",
-    position: "absolute",
-    top: 60,
     left: 25,
+    position: "absolute",
     right: 25,
-    zIndex: 100,
+    top: 60,
+    zIndex: 100
   },
   backArrowContainer: {
     alignItems: "center",
-    justifyContent: "center",
     height: 50,
-    width: 50,
+    justifyContent: "center",
+    width: 50
   },
   moviesHeaderText: {
     fontFamily: "serif",
     fontSize: 36,
-    letterSpacing: 1.8,
+    letterSpacing: 1.8
   },
   dummy: {
-    width: 50,
+    width: 50
   },
   card: {
     borderRadius: 40,
@@ -76,73 +75,73 @@ const styles = StyleSheet.create({
     left: 0,
     position: "absolute",
     right: 0,
-    top: 0,
+    top: 0
   },
   heroImage: {
     alignSelf: "center",
-    position: "absolute",
+    position: "absolute"
   },
   paddedContainer: {
     flex: 1,
-    paddingTop: 200,
     paddingHorizontal: 40,
+    paddingTop: 200
   },
   heroHeaderText: {
     color: "#FFFFFF",
-    fontSize: 70,
     fontFamily: "serif",
+    fontSize: 70,
     fontWeight: "bold",
-    lineHeight: 76,
+    lineHeight: 76
   },
   subHeaderText: {
     fontFamily: "serif",
-    fontWeight: "bold",
     fontSize: 28,
+    fontWeight: "bold"
   },
   knowMoreContainer: {
-    marginTop: 20,
+    marginTop: 20
   },
   knowMoreText: {
     color: "#FFB23E",
     fontFamily: "serif",
-    fontWeight: "bold",
     fontSize: 22,
-    letterSpacing: 1.8,
+    fontWeight: "bold",
+    letterSpacing: 1.8
   },
   nameRow: {
     alignItems: "center",
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "space-between"
   },
   marvelLogo: {
     height: 25,
     left: -20,
-    width: 68,
+    width: 68
   },
   bodyTextContainer: {
-    borderTopWidth: StyleSheet.hairlineWidth,
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderColor: "rgba(0,0,0,0.2)",
-    paddingVertical: 15,
+    borderTopWidth: StyleSheet.hairlineWidth,
     marginBottom: 15,
+    paddingVertical: 15
   },
   bodyText: {
     fontFamily: "serif",
-    fontWeight: "200",
     fontSize: 16,
-    lineHeight: 32,
+    fontWeight: "200",
+    lineHeight: 32
   },
   moviesContainer: {
     alignItems: "center",
     flexDirection: "row",
     justifyContent: "space-between",
-    marginTop: 15,
+    marginTop: 15
   },
   movieImage: {
     borderRadius: 15,
     height: 250,
-    width: (width - 80) / 2 - 15,
-  },
+    width: (width - 80) / 2 - 15
+  }
 });
 
 export default class Animation31 extends Component {
@@ -163,7 +162,7 @@ export default class Animation31 extends Component {
   screenHeight = height;
 
   state = {
-    activeIndex: 0,
+    activeIndex: 0
   };
 
   componentDidMount() {
@@ -212,7 +211,7 @@ export default class Animation31 extends Component {
     Animated.timing(this.progress, {
       toValue,
       duration: 150,
-      useNativeDriver: true,
+      useNativeDriver: true
     }).start(() => {
       this.progressPreviousValue = toValue;
       this.setState({ activeIndex: toValue });
@@ -235,25 +234,25 @@ export default class Animation31 extends Component {
         Animated.stagger(
           100,
           this.getSpringAnimations(["slideUpHeader", "slideUpName"], 1)
-        ),
+        )
       ]),
       Animated.stagger(100, [
         Animated.timing(this.slideUpPhaseTwo, {
           toValue: 1,
           duration: 500,
           easing: Easing.out(Easing.linear),
-          useNativeDriver: true,
+          useNativeDriver: true
         }),
         ...this.getSpringAnimations(
           [
             "slideUpBody",
             "slideUpMoviesHeader",
             "slideUpMovies0",
-            "slideUpMovies1",
+            "slideUpMovies1"
           ],
           1
-        ),
-      ]),
+        )
+      ])
     ]).start();
   };
 
@@ -268,7 +267,7 @@ export default class Animation31 extends Component {
         "slideUpName",
         "slideUpHeader",
         "slideUpImage",
-        "slideUp",
+        "slideUp"
       ],
       0
     );
@@ -296,32 +295,32 @@ export default class Animation31 extends Component {
         opacity: this.progress.interpolate({
           inputRange: opacityInputRange,
           outputRange: opacityOutputRange,
-          extrapolate: "clamp",
+          extrapolate: "clamp"
         }),
         top: this.progress.interpolate({
           inputRange: [index - 0.5, index, index + 0.1, index + 0.6],
           outputRange: [-50, -125, -125, -50],
-          extrapolate: "clamp",
+          extrapolate: "clamp"
         }),
         transform: [
           {
             scale: this.progress.interpolate({
               inputRange: [index - 0.5, index, index + 0.1, index + 0.4],
               outputRange: [0.3, 1, 1, 0.3],
-              extrapolate: "clamp",
-            }),
+              extrapolate: "clamp"
+            })
           },
           {
             translateY:
               this.state.activeIndex === index
                 ? this.slideUpImage.interpolate({
                     inputRange: [0, 1],
-                    outputRange: [0, -125],
+                    outputRange: [0, -125]
                   })
-                : 0,
-          },
-        ],
-      },
+                : 0
+          }
+        ]
+      }
     ];
   }
 
@@ -345,39 +344,39 @@ export default class Animation31 extends Component {
       {
         opacity: this.progress.interpolate({
           inputRange: opacityInputRange,
-          outputRange: opacityOutputRange,
-        }),
+          outputRange: opacityOutputRange
+        })
       },
       {
         transform: [
           {
             scale: this.progress.interpolate({
               inputRange: [index - 1, index],
-              outputRange: [0.95, 1],
-            }),
+              outputRange: [0.95, 1]
+            })
           },
           {
             translateY: this.progress.interpolate({
               inputRange: [index - 1, index],
-              outputRange: [this.screenHeight * 0.3, this.screenHeight * 0.335],
-            }),
+              outputRange: [this.screenHeight * 0.3, this.screenHeight * 0.335]
+            })
           },
           {
             translateX: this.progress.interpolate({
               inputRange: [index, index + 1],
               outputRange: [0, -200],
-              extrapolate: "clamp",
-            }),
+              extrapolate: "clamp"
+            })
           },
           {
             rotate: this.progress.interpolate({
               inputRange: [index, index + 0.25],
               outputRange: ["0deg", "-15deg"],
-              extrapolate: "clamp",
-            }),
-          },
-        ],
-      },
+              extrapolate: "clamp"
+            })
+          }
+        ]
+      }
     ];
   }
 
@@ -397,7 +396,7 @@ export default class Animation31 extends Component {
                 zIndex={superheroes.length - index}
                 style={[
                   styles.card,
-                  ...this.getStyleForCardAtIndex(hero, index),
+                  ...this.getStyleForCardAtIndex(hero, index)
                 ]}
               >
                 <Animated.View
@@ -411,12 +410,12 @@ export default class Animation31 extends Component {
                           translateY: isActiveCard
                             ? this.slideUp.interpolate({
                                 inputRange: [0, 1],
-                                outputRange: [0, -300],
+                                outputRange: [0, -300]
                               })
-                            : 0,
-                        },
-                      ],
-                    },
+                            : 0
+                        }
+                      ]
+                    }
                   ]}
                 >
                   <Animated.View
@@ -427,7 +426,7 @@ export default class Animation31 extends Component {
                         bottom: isActiveCard
                           ? this.slideUpPhaseTwo.interpolate({
                               inputRange: [0, 1],
-                              outputRange: [-700, this.screenHeight],
+                              outputRange: [-700, this.screenHeight]
                             })
                           : 0,
                         transform: [
@@ -435,12 +434,12 @@ export default class Animation31 extends Component {
                             translateY: isActiveCard
                               ? this.slideUp.interpolate({
                                   inputRange: [0, 1],
-                                  outputRange: [0, -300],
+                                  outputRange: [0, -300]
                                 })
-                              : 0,
-                          },
-                        ],
-                      },
+                              : 0
+                          }
+                        ]
+                      }
                     ]}
                   >
                     <LinearGradient
@@ -456,9 +455,9 @@ export default class Animation31 extends Component {
                         {
                           backgroundColor: this.progress.interpolate({
                             inputRange: [index - 1, index],
-                            outputRange: ["#000000", "transparent"],
-                          }),
-                        },
+                            outputRange: ["#000000", "transparent"]
+                          })
+                        }
                       ]}
                     />
                   </Animated.View>
@@ -469,7 +468,7 @@ export default class Animation31 extends Component {
                     style={[
                       styles.heroImage,
                       hero.style,
-                      ...this.getStyleForHeroImageAtIndex(hero, index),
+                      ...this.getStyleForHeroImageAtIndex(hero, index)
                     ]}
                   />
                   <Animated.Text
@@ -479,7 +478,7 @@ export default class Animation31 extends Component {
                         color: isActiveCard
                           ? this.slideUpPhaseTwo.interpolate({
                               inputRange: [0, 1],
-                              outputRange: ["#FFFFFF", "#000000"],
+                              outputRange: ["#FFFFFF", "#000000"]
                             })
                           : "#FFFFFF",
                         transform: [
@@ -487,12 +486,12 @@ export default class Animation31 extends Component {
                             translateY: isActiveCard
                               ? this.slideUpHeader.interpolate({
                                   inputRange: [0, 1],
-                                  outputRange: [0, -150],
+                                  outputRange: [0, -150]
                                 })
-                              : 0,
-                          },
-                        ],
-                      },
+                              : 0
+                          }
+                        ]
+                      }
                     ]}
                   >
                     {hero.header}
@@ -506,12 +505,12 @@ export default class Animation31 extends Component {
                             translateY: isActiveCard
                               ? this.slideUpName.interpolate({
                                   inputRange: [0, 1],
-                                  outputRange: [0, -150],
+                                  outputRange: [0, -150]
                                 })
-                              : 0,
-                          },
-                        ],
-                      },
+                              : 0
+                          }
+                        ]
+                      }
                     ]}
                   >
                     <Animated.Text
@@ -521,10 +520,10 @@ export default class Animation31 extends Component {
                           color: isActiveCard
                             ? this.slideUpPhaseTwo.interpolate({
                                 inputRange: [0, 1],
-                                outputRange: ["#FFFFFF", "#000000"],
+                                outputRange: ["#FFFFFF", "#000000"]
                               })
-                            : "#FFFFFF",
-                        },
+                            : "#FFFFFF"
+                        }
                       ]}
                     >
                       {hero.name}
@@ -537,7 +536,7 @@ export default class Animation31 extends Component {
                           opacity: isActiveCard
                             ? this.slideUpBody.interpolate({
                                 inputRange: [0, 1],
-                                outputRange: [0, 1],
+                                outputRange: [0, 1]
                               })
                             : 0,
                           transform: [
@@ -545,12 +544,12 @@ export default class Animation31 extends Component {
                               scale: isActiveCard
                                 ? this.slideUpBody.interpolate({
                                     inputRange: [0, 1],
-                                    outputRange: [0, 1],
+                                    outputRange: [0, 1]
                                   })
-                                : 0,
-                            },
-                          ],
-                        },
+                                : 0
+                            }
+                          ]
+                        }
                       ]}
                     />
                   </Animated.View>
@@ -561,7 +560,7 @@ export default class Animation31 extends Component {
                         opacity: isActiveCard
                           ? this.slideUp.interpolate({
                               inputRange: [0, 1],
-                              outputRange: [1, 0],
+                              outputRange: [1, 0]
                             })
                           : 1,
                         transform: [
@@ -569,12 +568,12 @@ export default class Animation31 extends Component {
                             translateX: isActiveCard
                               ? this.slideUp.interpolate({
                                   inputRange: [0, 1],
-                                  outputRange: [0, 50],
+                                  outputRange: [0, 50]
                                 })
-                              : 0,
-                          },
-                        ],
-                      },
+                              : 0
+                          }
+                        ]
+                      }
                     ]}
                   >
                     <TouchableOpacity
@@ -591,7 +590,7 @@ export default class Animation31 extends Component {
                         opacity: isActiveCard
                           ? this.slideUpBody.interpolate({
                               inputRange: [0, 1],
-                              outputRange: [0, 1],
+                              outputRange: [0, 1]
                             })
                           : 0,
                         transform: [
@@ -599,12 +598,12 @@ export default class Animation31 extends Component {
                             translateY: isActiveCard
                               ? this.slideUpBody.interpolate({
                                   inputRange: [0, 1],
-                                  outputRange: [0, -170],
+                                  outputRange: [0, -170]
                                 })
-                              : 0,
-                          },
-                        ],
-                      },
+                              : 0
+                          }
+                        ]
+                      }
                     ]}
                   >
                     <Text style={styles.bodyText}>
@@ -622,7 +621,7 @@ export default class Animation31 extends Component {
                         opacity: isActiveCard
                           ? this.slideUpMoviesHeader.interpolate({
                               inputRange: [0, 1],
-                              outputRange: [0, 1],
+                              outputRange: [0, 1]
                             })
                           : 0,
                         transform: [
@@ -630,12 +629,12 @@ export default class Animation31 extends Component {
                             translateY: isActiveCard
                               ? this.slideUpMoviesHeader.interpolate({
                                   inputRange: [0, 1],
-                                  outputRange: [0, -170],
+                                  outputRange: [0, -170]
                                 })
-                              : 0,
-                          },
-                        ],
-                      },
+                              : 0
+                          }
+                        ]
+                      }
                     ]}
                   >
                     movies
@@ -651,7 +650,7 @@ export default class Animation31 extends Component {
                             opacity: isActiveCard
                               ? this[`slideUpMovies${n}`].interpolate({
                                   inputRange: [0, 1],
-                                  outputRange: [0, 1],
+                                  outputRange: [0, 1]
                                 })
                               : 0,
                             transform: [
@@ -659,12 +658,12 @@ export default class Animation31 extends Component {
                                 translateY: isActiveCard
                                   ? this[`slideUpMovies${n}`].interpolate({
                                       inputRange: [0, 1],
-                                      outputRange: [0, -170],
+                                      outputRange: [0, -170]
                                     })
-                                  : 0,
-                              },
-                            ],
-                          },
+                                  : 0
+                              }
+                            ]
+                          }
                         ]}
                       />
                     ))}
@@ -689,11 +688,11 @@ export default class Animation31 extends Component {
                   {
                     translateY: this.slideUp.interpolate({
                       inputRange: [0, 1],
-                      outputRange: [0, -100],
-                    }),
-                  },
-                ],
-              },
+                      outputRange: [0, -100]
+                    })
+                  }
+                ]
+              }
             ]}
           >
             movies

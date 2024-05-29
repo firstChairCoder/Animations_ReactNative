@@ -1,15 +1,16 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { StyleSheet, useWindowDimensions, View } from "react-native";
 import Animated, {
   Extrapolation,
   interpolate,
   useAnimatedProps,
   useAnimatedStyle,
-  useSharedValue,
+  useSharedValue
 } from "react-native-reanimated";
 import {
   Gesture,
   GestureDetector,
-  TextInput,
+  TextInput
 } from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -26,43 +27,43 @@ const secondaryBlue = "#2574DE";
 
 const styles = StyleSheet.create({
   container: {
-    justifyContent: "center",
     backgroundColor: primaryBlue,
-    paddingHorizontal: margin,
     flex: 1,
+    justifyContent: "center",
+    paddingHorizontal: margin
   },
   scaleMonitor: {
-    width: scaleMonitor,
-    backgroundColor: "white",
-    height: scaleMonitor,
     alignSelf: "center",
+    backgroundColor: "white",
     borderRadius: scaleMonitor / 2,
-    textAlign: "center",
     color: secondaryBlue,
+    height: scaleMonitor,
+    textAlign: "center",
+    width: scaleMonitor
   },
   fixedBorder: {
-    height: slideHeight,
-    width: slideHeight,
     backgroundColor: secondaryBlue,
-    borderTopLeftRadius: slideHeight / 2,
     borderBottomLeftRadius: slideHeight / 2,
+    borderTopLeftRadius: slideHeight / 2,
+    height: slideHeight,
+    width: slideHeight
   },
   slide: {
-    left: sliderSize / 2,
-    height: slideHeight,
     backgroundColor: "white",
     borderRadius: slideHeight / 2,
+    height: slideHeight,
+    left: sliderSize / 2
   },
   slideBackground: {
     backgroundColor: secondaryBlue,
     borderRadius: slideHeight / 2,
-    left: slideHeight / 2,
+    left: slideHeight / 2
   },
   slideWithSlideContainer: {
     height: sliderSize,
-    justifyContent: "center",
+    justifyContent: "center"
   },
-  slideWithScaleContainer: { flexDirection: "row" },
+  slideWithScaleContainer: { flexDirection: "row" }
 });
 
 export const Animation19 = () => {
@@ -77,8 +78,8 @@ export const Animation19 = () => {
   const animatedSliding = useAnimatedStyle(() => ({
     transform: [
       { translateX: x.value },
-      { rotate: `${interpolate(x.value, [0, slideWidth], [0, 720])}deg` },
-    ],
+      { rotate: `${interpolate(x.value, [0, slideWidth], [0, 720])}deg` }
+    ]
   }));
   const animatedScale = useAnimatedStyle(() => ({
     transform: [
@@ -89,10 +90,10 @@ export const Animation19 = () => {
           [0, slideWidth],
           [0, 1],
           Extrapolation.CLAMP
-        ),
+        )
       },
-      { translateX: slideWidth / 2 },
-    ],
+      { translateX: slideWidth / 2 }
+    ]
   }));
   const animatedProps = useAnimatedProps(() => {
     return { text: percentageParser(x.value, slideWidth) };
@@ -124,16 +125,16 @@ export const Animation19 = () => {
             style={[
               styles.slideWithSlideContainer,
               {
-                width: sliderWithSlideContainer,
-              },
+                width: sliderWithSlideContainer
+              }
             ]}
           >
             <View
               style={[
                 styles.slide,
                 {
-                  width: slideWidth,
-                },
+                  width: slideWidth
+                }
               ]}
             >
               <Animated.View
@@ -142,8 +143,8 @@ export const Animation19 = () => {
                   animatedScale,
                   styles.slideBackground,
                   {
-                    width: slideWidth - slideHeight / 2,
-                  },
+                    width: slideWidth - slideHeight / 2
+                  }
                 ]}
               />
               <Animated.View
@@ -153,9 +154,9 @@ export const Animation19 = () => {
             <Animated.View
               style={[
                 {
-                  position: "absolute",
+                  position: "absolute"
                 },
-                animatedSliding,
+                animatedSliding
               ]}
             >
               {/* @ts-ignore */}
@@ -179,5 +180,3 @@ export const Animation19 = () => {
     </SafeAreaView>
   );
 };
-
-

@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 /*
 Inspiration: https://dribbble.com/shots/3894781-Urbanears-Headphones/
 */
@@ -10,7 +9,7 @@ import {
   StatusBar,
   StyleSheet,
   Text,
-  View,
+  View
 } from "react-native";
 
 import data from "../mockdata/headphonesData";
@@ -24,107 +23,107 @@ const CIRCLE_SIZE = width * 0.6;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1
   },
   itemStyle: {
-    width,
-    height,
     alignItems: "center",
+    height,
     justifyContent: "center",
+    width
   },
   imageStyle: {
-    width: width * 0.75,
+    flex: 1,
     height: width * 0.75,
     resizeMode: "contain",
-    flex: 1,
+    width: width * 0.75
   },
   textContainer: {
     alignItems: "flex-start",
     alignSelf: "flex-end",
-    flex: 0.5,
+    flex: 0.5
   },
   heading: {
     color: "#444",
-    textTransform: "uppercase",
     fontSize: 24,
     fontWeight: "800",
     letterSpacing: 2,
     marginBottom: 5,
+    textTransform: "uppercase"
   },
   description: {
     color: "#ccc",
-    fontWeight: "600",
-    textAlign: "left",
-    width: width * 0.75,
-    marginRight: 10,
     fontSize: 16,
+    fontWeight: "600",
     lineHeight: 16 * 1.5,
+    marginRight: 10,
+    textAlign: "left",
+    width: width * 0.75
   },
   logo: {
-    opacity: 0.9,
-    height: LOGO_HEIGHT,
-    width: LOGO_WIDTH,
-    resizeMode: "contain",
-    position: "absolute",
-    left: 10,
     bottom: 10,
+    height: LOGO_HEIGHT,
+    left: 10,
+    opacity: 0.9,
+    position: "absolute",
+    resizeMode: "contain",
     transform: [
       { translateX: -LOGO_WIDTH / 2 },
       { translateY: -LOGO_HEIGHT / 2 },
       { rotateZ: "-90deg" },
       { translateX: LOGO_WIDTH / 2 },
-      { translateY: LOGO_HEIGHT / 2 },
+      { translateY: LOGO_HEIGHT / 2 }
     ],
+    width: LOGO_WIDTH
   },
   pagination: {
-    position: "absolute",
-    right: 20,
     bottom: 40,
     flexDirection: "row",
     height: DOT_SIZE,
+    position: "absolute",
+    right: 20
   },
   paginationDot: {
-    width: DOT_SIZE * 0.3,
-    height: DOT_SIZE * 0.3,
     borderRadius: DOT_SIZE * 0.15,
+    height: DOT_SIZE * 0.3,
+    width: DOT_SIZE * 0.3
   },
   paginationDotContainer: {
-    width: DOT_SIZE,
     alignItems: "center",
     justifyContent: "center",
+    width: DOT_SIZE
   },
   paginationIndicator: {
-    width: DOT_SIZE,
-    height: DOT_SIZE,
+    borderColor: "#ddd",
     borderRadius: DOT_SIZE / 2,
     borderWidth: 2,
-    borderColor: "#ddd",
+    height: DOT_SIZE,
+    width: DOT_SIZE
   },
   tickerContainer: {
-    position: "absolute",
-    top: 40,
+    height: TICKER_HEIGHT,
     left: 20,
     overflow: "hidden",
-    height: TICKER_HEIGHT,
+    position: "absolute",
+    top: 40
   },
   tickerText: {
     fontSize: TICKER_HEIGHT,
-    lineHeight: TICKER_HEIGHT,
-    textTransform: "uppercase",
     fontWeight: "800",
+    lineHeight: TICKER_HEIGHT,
+    textTransform: "uppercase"
   },
 
   circleContainer: {
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "center"
   },
   circle: {
-    width: CIRCLE_SIZE,
-    height: CIRCLE_SIZE,
     borderRadius: CIRCLE_SIZE / 2,
+    height: CIRCLE_SIZE,
     position: "absolute",
     top: "15%",
-  },
+    width: CIRCLE_SIZE
+  }
 });
 
 const Circle = ({ scrollX }) => {
@@ -134,16 +133,16 @@ const Circle = ({ scrollX }) => {
         const inputRange = [
           (index - 0.55) * width,
           index * width,
-          (index + 0.55) * width,
+          (index + 0.55) * width
         ];
         const scale = scrollX.interpolate({
           inputRange,
           outputRange: [0, 1, 0],
-          extrapolate: "clamp",
+          extrapolate: "clamp"
         });
         const opacity = scrollX.interpolate({
           inputRange,
-          outputRange: [0, 0.2, 0],
+          outputRange: [0, 0.2, 0]
         });
         return (
           <Animated.View
@@ -153,8 +152,8 @@ const Circle = ({ scrollX }) => {
               {
                 backgroundColor: color,
                 opacity,
-                transform: [{ scale }],
-              },
+                transform: [{ scale }]
+              }
             ]}
           />
         );
@@ -168,23 +167,23 @@ const Item = ({ imageUri, heading, description, index, scrollX }) => {
   const inputRangeOpacity = [
     (index - 0.3) * width,
     index * width,
-    (index + 0.3) * width,
+    (index + 0.3) * width
   ];
   const scale = scrollX.interpolate({
     inputRange,
-    outputRange: [0, 1, 0],
+    outputRange: [0, 1, 0]
   });
   const translateXHeading = scrollX.interpolate({
     inputRange,
-    outputRange: [width * 0.1, 0, -width * 0.1],
+    outputRange: [width * 0.1, 0, -width * 0.1]
   });
   const translateXDescription = scrollX.interpolate({
     inputRange,
-    outputRange: [width * 0.7, 0, -width * 0.7],
+    outputRange: [width * 0.7, 0, -width * 0.7]
   });
   const opacity = scrollX.interpolate({
     inputRange: inputRangeOpacity,
-    outputRange: [0, 1, 0],
+    outputRange: [0, 1, 0]
   });
 
   return (
@@ -194,8 +193,8 @@ const Item = ({ imageUri, heading, description, index, scrollX }) => {
         style={[
           styles.imageStyle,
           {
-            transform: [{ scale }],
-          },
+            transform: [{ scale }]
+          }
         ]}
       />
       <View style={styles.textContainer}>
@@ -204,8 +203,8 @@ const Item = ({ imageUri, heading, description, index, scrollX }) => {
             styles.heading,
             {
               opacity,
-              transform: [{ translateX: translateXHeading }],
-            },
+              transform: [{ translateX: translateXHeading }]
+            }
           ]}
         >
           {heading}
@@ -217,10 +216,10 @@ const Item = ({ imageUri, heading, description, index, scrollX }) => {
               opacity,
               transform: [
                 {
-                  translateX: translateXDescription,
-                },
-              ],
-            },
+                  translateX: translateXDescription
+                }
+              ]
+            }
           ]}
         >
           {description}
@@ -234,7 +233,7 @@ const Pagination = ({ scrollX }) => {
   const inputRange = [-width, 0, width];
   const translateX = scrollX.interpolate({
     inputRange,
-    outputRange: [-DOT_SIZE, 0, DOT_SIZE],
+    outputRange: [-DOT_SIZE, 0, DOT_SIZE]
   });
   return (
     <View style={[styles.pagination]}>
@@ -243,8 +242,8 @@ const Pagination = ({ scrollX }) => {
           styles.paginationIndicator,
           {
             position: "absolute",
-            transform: [{ translateX }],
-          },
+            transform: [{ translateX }]
+          }
         ]}
       />
       {data.map((item) => {
@@ -264,7 +263,7 @@ const Ticker = ({ scrollX }) => {
   const inputRange = [-width, 0, width];
   const translateY = scrollX.interpolate({
     inputRange,
-    outputRange: [TICKER_HEIGHT, 0, -TICKER_HEIGHT],
+    outputRange: [TICKER_HEIGHT, 0, -TICKER_HEIGHT]
   });
   return (
     <View style={styles.tickerContainer}>

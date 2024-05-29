@@ -1,4 +1,4 @@
-/* eslint-disable react-native/no-inline-styles */
+/* eslint-disable @typescript-eslint/no-shadow */
 import { useEffect, useMemo, useRef, useState } from "react";
 import { StatusBar, StyleSheet, View } from "react-native";
 import Constants from "expo-constants";
@@ -6,13 +6,13 @@ import { MotiText, MotiView } from "moti";
 
 const styles = StyleSheet.create({
   container: {
+    alignItems: "center",
+    backgroundColor: "#ECF0F1",
     flex: 1,
     justifyContent: "center",
-    alignItems: "center",
     padding: 8,
-    paddingTop: Constants.statusBarHeight,
-    backgroundColor: "#ECF0F1",
-  },
+    paddingTop: Constants.statusBarHeight
+  }
 });
 
 const numZeroToNine = [...Array(10).keys()];
@@ -30,7 +30,7 @@ const Tick = ({ num, index, textSize, textStyle }) => {
     <MotiView
       style={{
         height: textSize,
-        overflow: "hidden",
+        overflow: "hidden"
       }}
     >
       <MotiView
@@ -39,10 +39,10 @@ const Tick = ({ num, index, textSize, textStyle }) => {
         transition={{
           type: "timing",
           duration: 500,
-          delay: 80 * index,
+          delay: 80 * index
         }}
       >
-        {/* eslint-disable-next-line no-shadow */}
+        {}
         {numZeroToNine.map((number, index) => {
           return (
             <MotiText
@@ -53,8 +53,8 @@ const Tick = ({ num, index, textSize, textStyle }) => {
                   height: textSize,
                   fontSize: textSize,
                   lineHeight: textSize * 1.1,
-                  textAlign: "center",
-                },
+                  textAlign: "center"
+                }
               ]}
             >
               {number}

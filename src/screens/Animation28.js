@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 import { Dimensions, View } from "react-native";
 import { MotiView } from "moti";
 
@@ -21,27 +20,27 @@ export const Animation28 = () => {
           backgroundColor: trackColor,
           alignItems: "center",
           justifyContent: "center",
-          overflow: "hidden",
+          overflow: "hidden"
         }}
       >
         <MotiView
           from={{
-            translateX: -size / 2 - INDICATOR_SIZE / 2 + thumbHeight,
+            translateX: -size / 2 - INDICATOR_SIZE / 2 + thumbHeight
           }}
           animate={{
-            translateX: size / 2 + INDICATOR_SIZE / 2 - thumbHeight,
+            translateX: size / 2 + INDICATOR_SIZE / 2 - thumbHeight
           }}
           transition={{
             type: "timing",
             duration: 500,
-            loop: true,
+            loop: true
           }}
           style={{
             position: "absolute",
             backgroundColor: thumbColor,
             width: INDICATOR_SIZE,
             height: thumbHeight,
-            borderRadius: thumbHeight / 2,
+            borderRadius: thumbHeight / 2
           }}
         />
       </View>

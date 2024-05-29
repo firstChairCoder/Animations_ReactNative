@@ -8,7 +8,7 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
-  View,
+  View
 } from "react-native";
 import { Ionicons as Icon } from "@expo/vector-icons";
 import Animated, {
@@ -16,45 +16,45 @@ import Animated, {
   useAnimatedStyle,
   useSharedValue,
   withSequence,
-  withTiming,
+  withTiming
 } from "react-native-reanimated";
 
 const { width, height } = Dimensions.get("window");
 const styles = StyleSheet.create({
   btn: {
+    alignItems: "center",
     backgroundColor: "#303030",
-    height: height / 12,
-    paddingHorizontal: width / 20,
+    borderColor: "#FDD451",
     borderRadius: 10,
     borderWidth: 2,
-    borderColor: "#FDD451",
-    justifyContent: "center",
-    alignItems: "center",
     elevation: 4,
+    height: height / 12,
+    justifyContent: "center",
     marginVertical: 4,
+    paddingHorizontal: width / 20
   },
   btnText: {
     color: "#FDD451",
-    fontSize: height / 20,
+    fontSize: height / 20
     // textAlign: "center",
   },
   badgeWrapper: {
-    flexDirection: "row",
-    justifyContent: "space-between",
     backgroundColor: "#FDD451",
-    paddingHorizontal: width / 10,
-    paddingVertical: height / 60,
     borderColor: "#303030",
+    borderRadius: 10,
     borderWidth: 2,
     elevation: 4,
-    borderRadius: 10,
+    flexDirection: "row",
+    justifyContent: "space-between",
     marginVertical: 8,
+    paddingHorizontal: width / 10,
+    paddingVertical: height / 60
   },
   input: {
     fontSize: height / 25,
-    textDecorationLine: "underline",
     textDecorationColor: "lightblue",
-  },
+    textDecorationLine: "underline"
+  }
 });
 
 const players = [
@@ -64,7 +64,7 @@ const players = [
   "Deborah",
   "Eniola",
   "Femi",
-  "Kabir",
+  "Kabir"
 ];
 
 export const Animation21 = () => {
@@ -89,9 +89,9 @@ export const Animation21 = () => {
     return {
       transform: [
         {
-          scale: withTiming(scale.value, { duration: 200 }),
-        },
-      ],
+          scale: withTiming(scale.value, { duration: 200 })
+        }
+      ]
     };
   });
 
@@ -102,18 +102,19 @@ export const Animation21 = () => {
           scale: withSequence(
             withTiming(addPlayerButtonScale.value, {
               duration: 100,
-              easing: Easing.bezier(0.5, 0.01, 0, 1),
+              easing: Easing.bezier(0.5, 0.01, 0, 1)
             }),
             withTiming(1, {
               duration: 100,
-              easing: Easing.bezier(0.5, 0.01, 0, 1),
+              easing: Easing.bezier(0.5, 0.01, 0, 1)
             })
-          ),
-        },
-      ],
+          )
+        }
+      ]
     };
   });
 
+  // eslint-disable-next-line react/no-unstable-nested-components
   const Badge = ({ name }) => {
     return (
       <Animated.View style={[styles.badgeWrapper, scaleStyle]}>
@@ -132,6 +133,7 @@ export const Animation21 = () => {
     );
   };
 
+  // eslint-disable-next-line react/no-unstable-nested-components
   const Btn = ({ label, onPress, style }) => {
     return (
       <Pressable style={styles.btn} onPress={onPress}>
@@ -150,7 +152,7 @@ export const Animation21 = () => {
     <Animated.View
       style={[
         { flex: 1, padding: 20, paddingTop: height * 0.1 },
-        StyleSheet.absoluteFillObject,
+        StyleSheet.absoluteFillObject
       ]}
     >
       <ScrollView

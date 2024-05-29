@@ -1,10 +1,9 @@
-/* eslint-disable react/react-in-jsx-scope */
 import { Dimensions, Image, StyleSheet, View } from "react-native";
 import Animated, {
   Extrapolation,
   interpolate,
   useAnimatedStyle,
-  useDerivedValue,
+  useDerivedValue
 } from "react-native-reanimated";
 import { memo } from "react";
 
@@ -15,27 +14,27 @@ const styles = StyleSheet.create({
   image: {
     height: undefined,
     width: undefined,
-    ...StyleSheet.absoluteFillObject,
+    ...StyleSheet.absoluteFillObject
   },
   textContainer: {
-    position: "absolute",
     bottom: 0,
     left: 0,
-    right: 0,
     padding: 10,
+    position: "absolute",
+    right: 0
   },
   title: {
     color: "white",
-    textAlign: "center",
-    marginBottom: 20,
     fontSize: 28,
+    marginBottom: 20,
+    textAlign: "center"
   },
   subtitle: {
     color: "white",
-    textAlign: "center",
-    marginBottom: 20,
     fontSize: 15,
-  },
+    marginBottom: 20,
+    textAlign: "center"
+  }
 });
 
 const ChannelItem = ({ path, scrollY, index, credit }) => {
@@ -49,7 +48,7 @@ const ChannelItem = ({ path, scrollY, index, credit }) => {
     )
   );
   const animatedImage = useAnimatedStyle(() => ({
-    height: animatedImageHeight.value,
+    height: animatedImageHeight.value
   }));
   const animatedTitleScale = useDerivedValue(() =>
     interpolate(scrollY.value, inputRange, [0.5, 1], Extrapolation.CLAMP)
@@ -57,15 +56,15 @@ const ChannelItem = ({ path, scrollY, index, credit }) => {
   const animatedTitle = useAnimatedStyle(() => ({
     transform: [
       {
-        scale: animatedTitleScale.value,
-      },
-    ],
+        scale: animatedTitleScale.value
+      }
+    ]
   }));
   const animatedSubTitleOpacity = useDerivedValue(() =>
     interpolate(scrollY.value, inputRange, [0, 1], Extrapolation.CLAMP)
   );
   const animatedSubTitle = useAnimatedStyle(() => ({
-    opacity: animatedSubTitleOpacity.value,
+    opacity: animatedSubTitleOpacity.value
   }));
 
   return (

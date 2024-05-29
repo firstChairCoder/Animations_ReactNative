@@ -1,12 +1,11 @@
-/* eslint-disable react-native/no-inline-styles */
 import { Dimensions, StyleSheet, View } from "react-native";
 import Animated, {
   useAnimatedScrollHandler,
-  useSharedValue,
+  useSharedValue
 } from "react-native-reanimated";
 import {
   SafeAreaView,
-  useSafeAreaInsets,
+  useSafeAreaInsets
 } from "react-native-safe-area-context";
 
 import { channels } from "../mockdata/channelsData";
@@ -16,13 +15,13 @@ const { height } = Dimensions.get("window");
 const imageBigHeight = Math.round(height * 0.7);
 const styles = StyleSheet.create({
   footerWrapper: {
-    position: "absolute",
     bottom: 0,
-    left: 0,
-    right: 0,
     justifyContent: "center",
+    left: 0,
+    position: "absolute",
+    right: 0
   },
-  footer: { color: "white", textAlign: "center" },
+  footer: { color: "white", textAlign: "center" }
 });
 
 export const Animation18 = () => {
@@ -47,7 +46,7 @@ export const Animation18 = () => {
           />
         )}
         contentContainerStyle={{
-          height: (channels.length - 1) * imageBigHeight + (height - top),
+          height: (channels.length - 1) * imageBigHeight + (height - top)
         }}
         onScroll={onScroll}
         scrollEventThrottle={16}
@@ -58,7 +57,7 @@ export const Animation18 = () => {
       <View
         style={[
           styles.footerWrapper,
-          { height: height - imageBigHeight - top },
+          { height: height - imageBigHeight - top }
         ]}
       >
         <Animated.Text style={[styles.footer]}>The End</Animated.Text>

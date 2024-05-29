@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-shadow */
 import { Dimensions, StyleSheet, View } from "react-native";
 import faker from "faker";
 import Animated, {
@@ -5,7 +6,7 @@ import Animated, {
   interpolate,
   useAnimatedScrollHandler,
   useAnimatedStyle,
-  useSharedValue,
+  useSharedValue
 } from "react-native-reanimated";
 import { MotiView, useDynamicAnimation } from "moti";
 import { StatusBar } from "expo-status-bar";
@@ -20,7 +21,7 @@ const headings = [
   "Mix & Match",
   "Designed by \nPablo Stanley",
   "Designed by \nTaras Migulko",
-  "Encapsulated by MD96",
+  "Encapsulated by MD96"
 ];
 
 //sets translation values
@@ -35,49 +36,49 @@ const randomBorder = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: "center",
     backgroundColor: "#FFF",
+    flex: 1,
+    justifyContent: "center"
   },
   circle: {
-    width: width * 0.8,
-    height: width * 0.8,
-    borderRadius: width,
     borderColor: "#17161A",
+    borderRadius: width,
+    height: width * 0.8,
     position: "absolute",
+    width: width * 0.8
   },
   circlesWrapper: {
     position: "absolute",
-    top: height * 0.15,
+    top: height * 0.15
   },
   itemImg: {
-    width: width * 0.75,
     height: height * 0.5,
     resizeMode: "contain",
+    width: width * 0.75
   },
   textItem: {
-    position: "absolute",
     fontFamily: "VolkornCaps",
+    position: "absolute"
   },
   dotsWrapper: {
-    flexDirection: "row",
-    position: "absolute",
     bottom: height * 0.1,
+    flexDirection: "row",
     left: 20,
+    position: "absolute"
   },
   dot: {
-    width: DOT_SIZE,
-    height: DOT_SIZE,
-    borderRadius: DOT_SIZE,
     backgroundColor: "#000",
+    borderRadius: DOT_SIZE,
+    height: DOT_SIZE,
     marginHorizontal: DOT_SIZE / 2,
+    width: DOT_SIZE
   },
   footer: {
-    position: "absolute",
     bottom: height * 0.3,
     left: 20,
-    width: width * 0.7,
-  },
+    position: "absolute",
+    width: width * 0.7
+  }
 });
 
 faker.seed(123);
@@ -110,7 +111,7 @@ const Item = ({ item, index, scrollX }) => {
         scrollX.value / width,
         [index - 0.6, index, index + 0.6],
         [0, 1, 0]
-      ),
+      )
     };
   });
   return (
@@ -134,15 +135,14 @@ const TextItem = ({ index, heading, scrollX }) => {
             scrollX.value / width,
             [index - 0.8, index, index + 0.8],
             [10, 0, -10]
-          ),
-        },
-      ],
+          )
+        }
+      ]
     };
   });
   return (
     <Animated.Text
       key={index}
-      // eslint-disable-next-line react-native/no-inline-styles
       style={[styles.textItem, { fontSize: index === 0 ? 42 : 28 }, style]}
     >
       {heading}
@@ -164,13 +164,12 @@ const PaginationDot = ({ index, scrollX }) => {
         [index - 1, index, index + 1],
         [0.2, 1, 0.2],
         Extrapolation.CLAMP
-      ),
+      )
     };
   });
   return <Animated.View style={[styles.dot, style]} />;
 };
 
-// eslint-disable-next-line no-shadow
 const Pagination = ({ data, scrollX }) => {
   return (
     <View style={styles.dotsWrapper}>
@@ -193,7 +192,7 @@ export const Animation01 = () => {
     width: width * 0.67,
     height: width * 0.67,
     borderRadius: width * 0.67,
-    borderWidth: randomBorder(),
+    borderWidth: randomBorder()
   }));
 
   const second = useDynamicAnimation(() => ({
@@ -202,7 +201,7 @@ export const Animation01 = () => {
     width: width * 0.8,
     height: width * 0.8,
     borderRadius: width * 0.8,
-    borderWidth: randomBorder(),
+    borderWidth: randomBorder()
   }));
 
   const third = useDynamicAnimation(() => ({
@@ -211,7 +210,7 @@ export const Animation01 = () => {
     width: width * 0.8,
     height: width * 0.8,
     borderRadius: width * 0.8,
-    borderWidth: randomBorder(),
+    borderWidth: randomBorder()
   }));
 
   return (
@@ -230,7 +229,7 @@ export const Animation01 = () => {
         onScroll={onScroll}
         scrollEventThrotle={16}
         bounces={false}
-        onMomentumScrollEnd={(e) => {
+        onMomentumScrollEnd={() => {
           const newSize = width * 0.5 + Math.random() * width * 0.5;
           const newSize2 = width * 0.5 + Math.random() * width * 0.5;
           const newSize3 = width * 0.5 + Math.random() * width * 0.5;
@@ -240,7 +239,7 @@ export const Animation01 = () => {
             width: newSize,
             height: newSize,
             borderRadius: newSize,
-            borderWidth: randomBorder(),
+            borderWidth: randomBorder()
           });
           second.animateTo({
             translateX: random(),
@@ -248,7 +247,7 @@ export const Animation01 = () => {
             width: newSize2,
             height: newSize2,
             borderRadius: newSize2,
-            borderWidth: randomBorder(),
+            borderWidth: randomBorder()
           });
           third.animateTo({
             translateX: random(),
@@ -256,7 +255,7 @@ export const Animation01 = () => {
             width: newSize3,
             height: newSize3,
             borderRadius: newSize3,
-            borderWidth: randomBorder(),
+            borderWidth: randomBorder()
           });
         }}
       />

@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 //Inspo: https://dribbble.com/shots/6654320-Animated-Onboarding-Screens
 //WIP!
 import { AntDesign } from "@expo/vector-icons";
@@ -10,7 +9,7 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  View,
+  View
 } from "react-native";
 import Constants from "expo-constants";
 
@@ -34,67 +33,67 @@ const colors = [
   {
     initialBgColor: "goldenrod",
     bgColor: "#222",
-    nextBgColor: "#222",
+    nextBgColor: "#222"
   },
   {
     initialBgColor: "goldenrod",
     bgColor: "#222",
-    nextBgColor: "yellowgreen",
+    nextBgColor: "yellowgreen"
   },
   {
     initialBgColor: "#222",
     bgColor: "yellowgreen",
-    nextBgColor: "midnightblue",
+    nextBgColor: "midnightblue"
   },
   {
     initialBgColor: "yellowgreen",
     bgColor: "midnightblue",
-    nextBgColor: "turquoise",
+    nextBgColor: "turquoise"
   },
   {
     initialBgColor: "midnightblue",
     bgColor: "turquoise",
-    nextBgColor: "goldenrod",
+    nextBgColor: "goldenrod"
   },
   {
     initialBgColor: "turquoise",
     bgColor: "goldenrod",
-    nextBgColor: "#222",
-  },
+    nextBgColor: "#222"
+  }
 ];
 
 const styles = StyleSheet.create({
   container: {
+    alignItems: "center",
     flex: 1,
     justifyContent: "flex-end",
-    alignItems: "center",
     paddingTop: Constants.statusBarHeight,
     padding: 8,
-    paddingBottom: 50,
+    paddingBottom: 50
   },
   paragraph: {
-    margin: 12,
-    fontSize: 24,
-    textAlign: "center",
-    fontFamily: "serif",
     color: "white",
+    fontFamily: "serif",
+    fontSize: 24,
+    margin: 12,
+    textAlign: "center"
   },
   button: {
-    height: 100,
-    width: 100,
-    borderRadius: 50,
-    justifyContent: "center",
     alignItems: "center",
+    borderRadius: 50,
+    height: 100,
+    justifyContent: "center",
+    width: 100
   },
   circle: {
     backgroundColor: "turquoise",
-    width: 100,
-    height: 100,
     borderRadius: 50,
-  },
+    height: 100,
+    width: 100
+  }
 });
 
-const Circle = ({ onPress, index, quotes, animatedValue, animatedValue2 }) => {
+const Circle = ({ onPress, index, animatedValue, animatedValue2 }) => {
   const { initialBgColor, nextBgColor, bgColor } = colors[index];
   const inputRange = [0, 0.001, 0.5, 0.501, 1];
   const backgroundColor = animatedValue2.interpolate({
@@ -104,8 +103,8 @@ const Circle = ({ onPress, index, quotes, animatedValue, animatedValue2 }) => {
       initialBgColor,
       initialBgColor,
       bgColor,
-      bgColor,
-    ],
+      bgColor
+    ]
   });
   const dotBgColor = animatedValue2.interpolate({
     inputRange: [0, 0.001, 0.5, 0.501, 0.9, 1],
@@ -115,8 +114,8 @@ const Circle = ({ onPress, index, quotes, animatedValue, animatedValue2 }) => {
       bgColor,
       initialBgColor,
       initialBgColor,
-      nextBgColor,
-    ],
+      nextBgColor
+    ]
   });
 
   return (
@@ -124,7 +123,7 @@ const Circle = ({ onPress, index, quotes, animatedValue, animatedValue2 }) => {
       style={[
         StyleSheet.absoluteFillObject,
         styles.container,
-        { backgroundColor },
+        { backgroundColor }
       ]}
     >
       <Animated.View
@@ -137,25 +136,25 @@ const Circle = ({ onPress, index, quotes, animatedValue, animatedValue2 }) => {
               {
                 rotateY: animatedValue2.interpolate({
                   inputRange: [0, 0.5, 1],
-                  outputRange: ["0deg", "-90deg", "-180deg"],
-                }),
+                  outputRange: ["0deg", "-90deg", "-180deg"]
+                })
               },
 
               {
                 scale: animatedValue2.interpolate({
                   inputRange: [0, 0.5, 1],
-                  outputRange: [1, 6, 1],
-                }),
+                  outputRange: [1, 6, 1]
+                })
               },
 
               {
                 translateX: animatedValue2.interpolate({
                   inputRange: [0, 0.5, 1],
-                  outputRange: [0, 50, 0],
-                }),
-              },
-            ],
-          },
+                  outputRange: [0, 50, 0]
+                })
+              }
+            ]
+          }
         ]}
       >
         <TouchableOpacity onPress={onPress}>
@@ -167,21 +166,21 @@ const Circle = ({ onPress, index, quotes, animatedValue, animatedValue2 }) => {
                   {
                     scale: animatedValue.interpolate({
                       inputRange: [0, 0.05, 0.5, 1],
-                      outputRange: [1, 0, 0, 1],
-                    }),
+                      outputRange: [1, 0, 0, 1]
+                    })
                   },
                   {
                     rotateY: animatedValue.interpolate({
                       inputRange: [0, 0.5, 0.9, 1],
-                      outputRange: ["0deg", "180deg", "180deg", "180deg"],
-                    }),
-                  },
+                      outputRange: ["0deg", "180deg", "180deg", "180deg"]
+                    })
+                  }
                 ],
                 opacity: animatedValue.interpolate({
                   inputRange: [0, 0.05, 0.9, 1],
-                  outputRange: [1, 0, 0, 1],
-                }),
-              },
+                  outputRange: [1, 0, 0, 1]
+                })
+              }
             ]}
           >
             <AnimatedAntDesign name="arrowright" size={28} color={"white"} />
@@ -204,18 +203,18 @@ export const Animation32 = () => {
       Animated.timing(sliderAnimatedValue, {
         toValue: i,
         duration: TEXT_DURATION,
-        useNativeDriver: true,
+        useNativeDriver: true
       }),
       Animated.timing(animatedValue, {
         toValue: 1,
         duration: DURATION,
-        useNativeDriver: true,
+        useNativeDriver: true
       }),
       Animated.timing(animatedValue2, {
         toValue: 1,
         duration: DURATION,
-        useNativeDriver: false,
-      }),
+        useNativeDriver: false
+      })
     ]);
 
   const onPress = () => {
@@ -242,9 +241,9 @@ export const Animation32 = () => {
             {
               translateX: sliderAnimatedValue.interpolate({
                 inputRange,
-                outputRange: quotes.map((_, i) => -i * width * 2),
-              }),
-            },
+                outputRange: quotes.map((_, i) => -i * width * 2)
+              })
+            }
           ],
           opacity: sliderAnimatedValue.interpolate({
             inputRange: [...Array(quotes.length * 2 + 1).keys()].map(
@@ -252,8 +251,8 @@ export const Animation32 = () => {
             ),
             outputRange: [...Array(quotes.length * 2 + 1).keys()].map((i) =>
               i % 2 === 0 ? 1 : 0
-            ),
-          }),
+            )
+          })
         }}
       >
         {quotes.slice(0, colors.length).map(({ quote, author }, i) => {
@@ -272,8 +271,8 @@ export const Animation32 = () => {
                     fontSize: 10,
                     fontWeight: "normal",
                     textAlign: "right",
-                    opacity: 0.8,
-                  },
+                    opacity: 0.8
+                  }
                 ]}
               >
                 ______ {author}

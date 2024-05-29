@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 // Inspiration: https://dribbble.com/shots/3147975-Product-Page-Interaction?1481310235
 // Images from Pexels.com: https://www.pexels.com/collections/abstract-art-4cxqlt3/
 //WIP!
@@ -8,7 +7,7 @@ import {
   Image,
   Text,
   TouchableOpacity,
-  View,
+  View
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { AntDesign } from "@expo/vector-icons";
@@ -33,7 +32,7 @@ const images = [
   "https://images.pexels.com/photos/1789968/pexels-photo-1789968.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
   "https://images.pexels.com/photos/1774301/pexels-photo-1774301.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
   "https://images.pexels.com/photos/1734364/pexels-photo-1734364.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-  "https://images.pexels.com/photos/1724888/pexels-photo-1724888.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+  "https://images.pexels.com/photos/1724888/pexels-photo-1724888.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
 ];
 
 faker.seed(10);
@@ -44,7 +43,7 @@ const DATA = [...Array(images.length).keys()].map((_, i) => {
     image: images[i],
     title: faker.commerce.productName(),
     subtitle: faker.company.bs(),
-    price: faker.finance.amount(80, 200, 0),
+    price: faker.finance.amount(80, 200, 0)
   };
 });
 const SPACING = 20;
@@ -57,7 +56,7 @@ const Content = ({ item }) => {
           textAlign: "center",
           fontWeight: "800",
           fontSize: 16,
-          textTransform: "uppercase",
+          textTransform: "uppercase"
         }}
         numberOfLines={1}
         adjustsFontSizeToFit
@@ -71,7 +70,7 @@ const Content = ({ item }) => {
             fontSize: 42,
             letterSpacing: 3,
             fontWeight: "900",
-            marginRight: 8,
+            marginRight: 8
           }}
         >
           {item.price}
@@ -81,7 +80,7 @@ const Content = ({ item }) => {
             fontSize: 16,
             lineHeight: 36,
             fontWeight: "800",
-            alignSelf: "flex-end",
+            alignSelf: "flex-end"
           }}
         >
           USD
@@ -106,15 +105,15 @@ export const Animation26 = () => {
             style={{ flexGrow: 0 }}
             contentContainerStyle={{
               height: IMAGE_HEIGHT + SPACING * 2,
-              paddingHorizontal: SPACING * 2,
+              paddingHorizontal: SPACING * 2
             }}
             showsHorizontalScrollIndicator={false}
-            renderItem={({ item, index }) => {
+            renderItem={({ item }) => {
               return (
                 <View
                   style={{
                     width,
-                    paddingVertical: SPACING,
+                    paddingVertical: SPACING
                   }}
                 >
                   <Image
@@ -122,7 +121,7 @@ export const Animation26 = () => {
                     style={{
                       width: IMAGE_WIDTH,
                       height: IMAGE_HEIGHT,
-                      resizeMode: "cover",
+                      resizeMode: "cover"
                     }}
                   />
                 </View>
@@ -134,7 +133,7 @@ export const Animation26 = () => {
               width: IMAGE_WIDTH,
               alignItems: "center",
               paddingHorizontal: SPACING * 2,
-              marginLeft: SPACING * 2,
+              marginLeft: SPACING * 2
             }}
           >
             <Content item={DATA[0]} />
@@ -153,8 +152,8 @@ export const Animation26 = () => {
               shadowRadius: 24,
               shadowOffset: {
                 width: 0,
-                height: 0,
-              },
+                height: 0
+              }
             }}
           />
         </View>
@@ -164,16 +163,16 @@ export const Animation26 = () => {
             justifyContent: "space-between",
             width: IMAGE_WIDTH + SPACING * 4,
             paddingHorizontal: SPACING,
-            paddingVertical: SPACING,
+            paddingVertical: SPACING
           }}
         >
-          <TouchableOpacity onPress={() => {}}>
+          <TouchableOpacity onPress={() => true}>
             <View style={{ flexDirection: "row", alignItems: "center" }}>
               <AntDesign name="swapleft" size={42} color="black" />
               <Text style={{ fontSize: 12, fontWeight: "800" }}>PREV</Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => {}}>
+          <TouchableOpacity onPress={() => true}>
             <View style={{ flexDirection: "row", alignItems: "center" }}>
               <Text style={{ fontSize: 12, fontWeight: "800" }}>NEXT</Text>
               <AntDesign name="swapright" size={42} color="black" />

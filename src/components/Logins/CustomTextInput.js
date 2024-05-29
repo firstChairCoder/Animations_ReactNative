@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import { Component } from "react";
 import { Platform, StyleSheet, TextInput } from "react-native";
 import { View } from "react-native-animatable";
 
@@ -6,7 +6,7 @@ const IS_ANDROID = Platform.OS === "android";
 
 export default class AuthTextInput extends Component {
   state = {
-    isFocused: false,
+    isFocused: false
   };
 
   focus = () => this.textInputRef.focus();
@@ -40,19 +40,19 @@ export default class AuthTextInput extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 2,
     marginBottom: 10,
+    marginTop: 2
   },
   textInputWrapper: {
-    height: 42,
-    marginBottom: 2,
     borderBottomWidth: 1,
+    height: 42,
+    marginBottom: 2
   },
   textInput: {
-    flex: 1,
     color: "white",
-    margin: IS_ANDROID ? -1 : 0,
+    flex: 1,
     height: 42,
-    padding: 7,
-  },
+    margin: IS_ANDROID ? -1 : 0,
+    padding: 7
+  }
 });

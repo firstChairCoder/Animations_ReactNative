@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 import { Dimensions, Pressable, StatusBar, View } from "react-native";
 import Constants from "expo-constants";
 import pack from "pack-spheres";
@@ -16,7 +15,7 @@ const config = {
   minRadius: 2,
   maxRadius: 40,
   padding: 0.5,
-  bounds,
+  bounds
 };
 const initialCircles = (isCircle) =>
   pack(
@@ -31,7 +30,7 @@ const initialCircles = (isCircle) =>
               position[0] * position[0] + position[1] * position[1]
             );
             return length + radius >= bounds;
-          },
+          }
         }
       : config
   );
@@ -51,12 +50,12 @@ function Circles({ bgs, isCircle }) {
         alignItems: "center",
         borderWidth,
         borderColor: `${bgs[0]}66`,
-        backgroundColor: `${bgs[0]}33`,
+        backgroundColor: `${bgs[0]}33`
       }}
     >
       {circles.map((circle, index) => {
         const bg = bgs[Math.floor(Math.random() * bgs.length)];
-        const border = bgs[Math.floor(Math.random() * bgs.length)];
+        // const border = bgs[Math.floor(Math.random() * bgs.length)];
         return (
           <View
             key={index}
@@ -68,8 +67,8 @@ function Circles({ bgs, isCircle }) {
               position: "absolute",
               transform: [
                 { translateX: circle.position[0] },
-                { translateY: circle.position[1] },
-              ],
+                { translateY: circle.position[1] }
+              ]
             }}
           />
         );
@@ -79,6 +78,7 @@ function Circles({ bgs, isCircle }) {
 }
 
 export const Animation42 = () => {
+  // eslint-disable-next-line unused-imports/no-unused-vars, no-unused-vars
   const [bgs, setBgs] = useState(
     colors[Math.floor(Math.random() * colors.length)]
   );
@@ -90,9 +90,9 @@ export const Animation42 = () => {
           flex: 1,
           justifyContent: "center",
           alignItems: "center",
-          paddingTop: Constants.statusBarHeight,
+          paddingTop: Constants.statusBarHeight
         },
-        { backgroundColor: `${bgs[0]}22` },
+        { backgroundColor: `${bgs[0]}22` }
       ]}
     >
       <StatusBar hidden />

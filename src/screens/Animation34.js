@@ -182,7 +182,6 @@
 //   );
 // };
 
-
 import { View } from "react-native";
 export const Animation34 = () => {
   return <View style={{ flex: 1, backgroundColor: "lemonchiffon" }} />;

@@ -5,32 +5,32 @@ import Animated, {
   useAnimatedStyle,
   useSharedValue,
   withRepeat,
-  withTiming,
+  withTiming
 } from "react-native-reanimated";
 
 const { width, height } = Dimensions.get("window");
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1
   },
   redStripe: {
-    height: height / 5,
-    width: width * 2,
     backgroundColor: "#CC1326",
+    height: height / 5,
     transform: [{ rotateZ: "35deg" }, { translateX: -height / 3 }],
+    width: width * 2
   },
   blueStripe: {
-    height: height / 5,
-    width: width * 2,
     backgroundColor: "#73B0E9",
+    height: height / 5,
     transform: [{ rotateZ: "35deg" }, { translateX: -height / 3 }],
+    width: width * 2
   },
   whiteStripe: {
-    height: height / 5,
-    width: width * 2,
     backgroundColor: "#FFF",
+    height: height / 5,
     transform: [{ rotateZ: "35deg" }, { translateX: -height / 3 }],
-  },
+    width: width * 2
+  }
 });
 
 export const Animation14 = () => {
@@ -43,13 +43,13 @@ export const Animation14 = () => {
           translateY: withRepeat(
             withTiming(yTranslation.value, {
               duration: 14000,
-              easing: Easing.inOut(Easing.ease),
+              easing: Easing.inOut(Easing.ease)
             }),
             -1,
             true
-          ),
-        },
-      ],
+          )
+        }
+      ]
     };
   });
 

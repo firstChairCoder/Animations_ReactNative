@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 //WIP!
 import { useEffect } from "react";
 import { SafeAreaView, TextInput, View } from "react-native";
@@ -8,7 +7,7 @@ import Animated, {
   useAnimatedProps,
   useDerivedValue,
   useSharedValue,
-  withTiming,
+  withTiming
 } from "react-native-reanimated";
 
 const AnimatedCircle = Animated.createAnimatedComponent(Circle);
@@ -40,13 +39,13 @@ export const Animation13 = () => {
   const animatedCircleProps = useAnimatedProps(() => {
     return {
       strokeDashOffset: withTiming(strokeOffset.valie, { duration: duration }),
-      stroke: strokeColor.value,
+      stroke: strokeColor.value
     };
   }, []);
 
   const animatedTextProps = useAnimatedProps(() => {
     return {
-      text: `${Math.round(percentage.value)}%`,
+      text: `${Math.round(percentage.value)}%`
     };
   }, []);
 
@@ -62,7 +61,7 @@ export const Animation13 = () => {
             color: "white",
             fontSize: 24,
             fontWeight: "bold",
-            position: "absolute",
+            position: "absolute"
           }}
           animatedProps={animatedTextProps}
         />

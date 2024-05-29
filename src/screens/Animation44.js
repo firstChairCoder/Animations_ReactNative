@@ -1,4 +1,4 @@
-/* eslint-disable react-native/no-inline-styles */
+/* eslint-disable @typescript-eslint/no-shadow */
 // Fab Button with moti
 import { useState } from "react";
 import { Pressable, View } from "react-native";
@@ -8,7 +8,7 @@ import { MaterialCommunityIcons as Icon } from "@expo/vector-icons";
 export const Animation44 = ({
   size = 60,
   bg = "#F23462",
-  activeBg = "#00FFFF",
+  activeBg = "#00FFFF"
 }) => {
   const [isOn, setIsOn] = useState(false);
   // console.log(isOn);
@@ -21,7 +21,7 @@ export const Animation44 = ({
           height: size,
           position: "absolute",
           bottom: size / 2,
-          right: size / 2,
+          right: size / 2
         }}
       >
         <MotiView
@@ -36,7 +36,7 @@ export const Animation44 = ({
             backgroundColor: bg,
             alignItems: "center",
             justifyContent: "center",
-            position: "absolute",
+            position: "absolute"
           }}
         />
         <View
@@ -45,13 +45,13 @@ export const Animation44 = ({
             alignItems: "center",
             justifyContent: "center",
             left: size / 2,
-            top: size / 2,
+            top: size / 2
           }}
         >
           {[
             "account-settings",
             "square-edit-outline",
-            "folder-edit-outline",
+            "folder-edit-outline"
           ].map((icon, i) => {
             return (
               <AnimatePresence key={`parent-${i}`}>
@@ -61,35 +61,35 @@ export const Animation44 = ({
                     from={{
                       transform: [
                         {
-                          scale: 0,
+                          scale: 0
                         },
                         {
-                          rotate: `${i * 45}deg`,
-                        },
+                          rotate: `${i * 45}deg`
+                        }
                       ],
-                      opacity: 0,
+                      opacity: 0
                     }}
                     animate={{
                       transform: [
                         {
-                          scale: 1,
+                          scale: 1
                         },
                         {
-                          rotate: `${i * 45}deg`,
-                        },
+                          rotate: `${i * 45}deg`
+                        }
                       ],
-                      opacity: 1,
+                      opacity: 1
                     }}
                     exit={{
                       opacity: 0,
                       transform: [
                         {
-                          scale: 0,
+                          scale: 0
                         },
                         {
-                          rotate: `${i * 45}deg`,
-                        },
-                      ],
+                          rotate: `${i * 45}deg`
+                        }
+                      ]
                     }}
                     transition={{ delay: i * 50 }}
                     style={{
@@ -98,7 +98,7 @@ export const Animation44 = ({
                       borderRadius: size * 5,
                       alignItems: "flex-start",
                       justifyContent: "center",
-                      position: "absolute",
+                      position: "absolute"
                     }}
                   >
                     <View
@@ -112,9 +112,10 @@ export const Animation44 = ({
                         transform: [
                           {
                             rotate:
-                              i === 1 ? "-45deg" : i === 2 ? "-90deg" : "0deg",
-                          },
-                        ],
+                              // eslint-disable-next-line no-nested-ternary
+                              i === 1 ? "-45deg" : i === 2 ? "-90deg" : "0deg"
+                          }
+                        ]
                       }}
                     >
                       <Icon name={icon} size={size * 0.4} color="white" />
@@ -134,9 +135,8 @@ export const Animation44 = ({
             alignItems: "center",
             position: "absolute",
             backgroundColor: "#45f",
-            borderRadius: size / 2,
+            borderRadius: size / 2
           }}
-          // eslint-disable-next-line no-shadow
           onPress={() => setIsOn((isOn) => !isOn)}
         >
           <MotiView
@@ -147,12 +147,12 @@ export const Animation44 = ({
               alignItems: "center",
               position: "absolute",
               // backgroundColor: "#45f",
-              borderRadius: size / 2,
+              borderRadius: size / 2
             }}
             from={{ rotate: "0deg", backgroundColor: bg }}
             animate={{
               rotate: isOn ? "45deg" : "0deg",
-              backgroundColor: isOn ? activeBg : bg,
+              backgroundColor: isOn ? activeBg : bg
             }}
           >
             <Icon name="plus" size={size * 0.5} color="white" />

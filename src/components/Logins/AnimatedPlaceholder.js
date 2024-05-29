@@ -1,21 +1,20 @@
-import React from "react";
 import { StyleSheet } from "react-native";
 import Animated, { interpolate } from "react-native-reanimated";
 
 const AnimatedPlaceholder = ({ isOpenAnimation }) => {
   const translateX = interpolate(isOpenAnimation, {
     inputRange: [0, 1],
-    outputRange: [80, 0],
+    outputRange: [80, 0]
   });
 
   const translateY = interpolate(isOpenAnimation, {
     inputRange: [0, 0.5, 1],
-    outputRange: [0, 0, -60],
+    outputRange: [0, 0, -60]
   });
 
   const opacity = interpolate(translateY, {
     inputRange: [-60, 0],
-    outputRange: [1, 0],
+    outputRange: [1, 0]
   });
 
   return (
@@ -25,10 +24,10 @@ const AnimatedPlaceholder = ({ isOpenAnimation }) => {
         transform: [
           {
             translateY,
-            translateX,
-          },
+            translateX
+          }
         ],
-        opacity,
+        opacity
       }}
     >
       Enter your mobile Number
@@ -40,6 +39,6 @@ export default AnimatedPlaceholder;
 const styles = StyleSheet.create({
   placeholder: {
     fontSize: 24,
-    position: "absolute",
-  },
+    position: "absolute"
+  }
 });

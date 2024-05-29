@@ -14,7 +14,7 @@ const shortcuts = {
   h: "height",
   w: "width",
   f: "fontSize",
-  z: "zIndex",
+  z: "zIndex"
 };
 
 const DSS = new Proxy(styles, {
@@ -35,7 +35,7 @@ const DSS = new Proxy(styles, {
       Object.assign(target, StyleSheet.create({ [prop]: style }));
     }
     return target[prop];
-  },
+  }
 });
 
 export default DSS;

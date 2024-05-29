@@ -1,5 +1,4 @@
-/* eslint-disable no-shadow */
-/* eslint-disable react-native/no-inline-styles */
+/* eslint-disable @typescript-eslint/no-shadow */
 //WIP! related to Animation 15
 import { useEffect, useState } from "react";
 import {
@@ -8,21 +7,21 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  View,
+  View
 } from "react-native";
 import Animated, {
   Easing,
   useAnimatedProps,
   useSharedValue,
   withRepeat,
-  withTiming,
+  withTiming
 } from "react-native-reanimated";
 import Svg, {
   ClipPath,
   G,
   Path,
   Rect,
-  Text as SvgText,
+  Text as SvgText
 } from "react-native-svg";
 
 const { width, height } = Dimensions.get("window");
@@ -32,28 +31,28 @@ const waveConfig = {
   width: width,
   amplitude: 16,
   speed: 2.5,
-  color: "#0099CC",
+  color: "#0099CC"
 };
 
 const AnimatedPath = Animated.createAnimatedComponent(Path);
 
 const styles = StyleSheet.create({
   btn: {
-    position: "absolute",
     bottom: 100,
-    width,
+    position: "absolute",
+    width
   },
   btnTextWrapper: {
-    backgroundColor: "#FFF",
-    padding: 16,
     alignSelf: "center",
-    borderWidth: 1,
+    backgroundColor: "#FFF",
     borderRadius: 50,
+    borderWidth: 1,
+    padding: 16
   },
   container: {
-    flex: 1,
     backgroundColor: "#FFF",
-  },
+    flex: 1
+  }
 });
 
 export const Animation08 = () => {
@@ -81,7 +80,7 @@ export const Animation08 = () => {
     L${waveConfig.width} ${height}
     L0 ${height}
     Z
-  `,
+  `
     };
   });
 
@@ -100,7 +99,7 @@ export const Animation08 = () => {
     offset.value = withRepeat(
       withTiming(waveConfig.width - 11, {
         duration: 2000 / waveConfig.speed,
-        easing: Easing.linear,
+        easing: Easing.linear
       }),
       Infinity,
       false
@@ -110,7 +109,7 @@ export const Animation08 = () => {
   useEffect(() => {
     // const newHeight = height * Math.random();
     waveHeight.value = withTiming(height - (height * cups) / (maxCups - 1), {
-      duration: 1000,
+      duration: 1000
     });
 
     // higher we go, smaller the amplitude.
@@ -120,7 +119,7 @@ export const Animation08 = () => {
         (height - (height * cups) / (maxCups - 1))) /
         height,
       {
-        duration: 1000,
+        duration: 1000
       }
     );
   }, [cups]);

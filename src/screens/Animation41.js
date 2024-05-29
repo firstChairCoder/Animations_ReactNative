@@ -1,11 +1,10 @@
-/* eslint-disable react-native/no-inline-styles */
 //Inspiration: https://dribbble.com/shots/6558740-Add-Button-Interaction
 import {
   Dimensions,
   SafeAreaView,
   StyleSheet,
   TouchableOpacity,
-  View,
+  View
 } from "react-native";
 import { MotiImage, MotiText, MotiView } from "moti";
 import { Feather } from "@expo/vector-icons";
@@ -40,21 +39,21 @@ export const Animation41 = () => {
               alignItems: "center",
               justifyContent: "flex-end",
               alignSelf: "flex-end",
-              margin: spacing,
+              margin: spacing
             }}
           >
             {[Array(5).keys()].map((i) => (
               <MotiImage
                 key={i}
                 source={{
-                  uri: "https://www.fidoo.com/wp-content/uploads/2020/02/placeholder.png",
+                  uri: "https://www.fidoo.com/wp-content/uploads/2020/02/placeholder.png"
                 }}
                 style={{
                   borderRadius: borderRadius / 2,
                   width: sideIconSize,
                   height: sideIconSize,
                   marginTop: spacing,
-                  opacity: 0.4,
+                  opacity: 0.4
                 }}
               />
             ))}
@@ -66,7 +65,7 @@ export const Animation41 = () => {
                 width: sideIconSize,
                 justifyContent: "center",
                 alignItems: "center",
-                marginTop: spacing,
+                marginTop: spacing
               }}
             >
               <Feather
@@ -84,7 +83,7 @@ export const Animation41 = () => {
                 width: sideIconSize,
                 justifyContent: "center",
                 alignItems: "center",
-                marginTop: spacing,
+                marginTop: spacing
               }}
             >
               <Feather
@@ -101,7 +100,7 @@ export const Animation41 = () => {
           style={{
             paddingHorizontal: spacing,
             width: width - movingSize,
-            justifyContent: "center",
+            justifyContent: "center"
           }}
         >
           <View
@@ -110,7 +109,7 @@ export const Animation41 = () => {
               borderRadius: 20,
               height: icons - spacing,
               justifyContent: "center",
-              padding: spacing / 2,
+              padding: spacing / 2
             }}
           >
             <View
@@ -119,7 +118,7 @@ export const Animation41 = () => {
                 opacity: 0.2,
                 borderRadius: 20,
                 width: "30%",
-                height: icons - spacing * 2,
+                height: icons - spacing * 2
               }}
             />
           </View>
@@ -130,19 +129,19 @@ export const Animation41 = () => {
           from={{ translateY: 0, translateX: 0 }}
           animate={{
             translateX: isVisible ? -movingSize : 0,
-            translateY: isVisible ? -movingSize : 0,
+            translateY: isVisible ? -movingSize : 0
           }}
           transition={{
             type: "timing",
             duration: 600,
-            easing: Easing.elastic(1.1),
+            easing: Easing.elastic(1.1)
           }}
           style={{
             flex: 1,
             justifyContent: "center",
             alignItems: "center",
             backgroundColor: "#5c3281",
-            borderRadius,
+            borderRadius
           }}
         >
           <MotiText style={{ fontSize: 42, color: "#fff", opacity: 0.5 }}>
@@ -162,18 +161,18 @@ export const Animation41 = () => {
             alignSelf: "center",
             position: "absolute",
             bottom: spacing,
-            right: spacing,
+            right: spacing
           }}
         >
           <>
             <MotiView
               animate={{
                 scale: isVisible ? [2, 0] : 0,
-                opacity: isVisible ? 0 : 1,
+                opacity: isVisible ? 0 : 1
               }}
               transition={{
                 type: "timing",
-                duration: 300,
+                duration: 300
               }}
               style={{
                 position: "absolute",
@@ -184,16 +183,16 @@ export const Animation41 = () => {
                 alignItems: "center",
                 justifyContent: "center",
                 right: spacing,
-                bottom: spacing,
+                bottom: spacing
               }}
             />
             <MotiView
               animate={{
-                rotate: isVisible ? "90deg" : "0deg",
+                rotate: isVisible ? "90deg" : "0deg"
               }}
               transition={{
                 type: "timing",
-                duration: 300,
+                duration: 300
               }}
               style={{
                 width: icons,
@@ -204,7 +203,7 @@ export const Animation41 = () => {
                 justifyContent: "center",
                 position: "absolute",
                 right: spacing,
-                bottom: spacing,
+                bottom: spacing
               }}
             >
               <Feather name="plus" size={24} color="#fff" />

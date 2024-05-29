@@ -1,4 +1,3 @@
-import React from "react";
 import Animated from "react-native-reanimated";
 import { StyleSheet, Text } from "react-native";
 
@@ -11,12 +10,12 @@ export default Logo;
 
 const styles = StyleSheet.create({
   logo: {
+    alignItems: "center",
     backgroundColor: "white",
     height: 120,
-    width: 120,
-    padding: 10,
-    alignItems: "center",
     justifyContent: "center",
+    padding: 10,
+    width: 120
   },
-  logoText: { fontWeight: "400", fontSize: 36 },
+  logoText: { fontSize: 36, fontWeight: "400" }
 });

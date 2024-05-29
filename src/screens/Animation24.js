@@ -1,4 +1,4 @@
-/* eslint-disable react-native/no-inline-styles */
+/* eslint-disable max-len */
 //WIP!
 import { Component, createRef } from "react";
 import {
@@ -8,7 +8,7 @@ import {
   StatusBar,
   StyleSheet,
   TextInput,
-  View,
+  View
 } from "react-native";
 
 const { width } = Dimensions.get("window");
@@ -23,37 +23,37 @@ const indicatorWrapperWidth = 100;
 const data = [...Array(segmentsLength).keys()].map((i) => i + minAge);
 const styles = StyleSheet.create({
   spacer: {
-    width: spacerWidth,
     height: 100,
+    width: spacerWidth
   },
   ruler: {
-    width: rulerWidth,
     alignItems: "flex-end",
-    justifyContent: "flex-start",
     flexDirection: "row",
+    justifyContent: "flex-start",
+    width: rulerWidth
   },
   container: {
-    flex: 1,
+    flex: 1
   },
   segment: {
-    width: segmentWidth,
+    width: segmentWidth
   },
   text: {
     fontSize: 42,
-    marginBottom: 10,
+    marginBottom: 10
   },
   indicator: {
-    height: 100,
     backgroundColor: "#f5afaf",
+    height: 100
   },
   indicatorWrapper: {
-    position: "absolute",
-    left: (width - indicatorWrapperWidth) / 2,
-    bottom: 0,
     alignItems: "center",
+    bottom: 0,
     justifyContent: "center",
-    width: indicatorWrapperWidth,
-  },
+    left: (width - indicatorWrapperWidth) / 2,
+    position: "absolute",
+    width: indicatorWrapperWidth
+  }
 });
 
 const Ruler = () => {
@@ -70,8 +70,8 @@ const Ruler = () => {
               {
                 backgroundColor: tenth ? "#4c3e5c" : "#4c3e5c30",
                 height: tenth ? 40 : 20,
-                marginRight: i === data.length - 1 ? 0 : segmentSpacing,
-              },
+                marginRight: i === data.length - 1 ? 0 : segmentSpacing
+              }
             ]}
           />
         );
@@ -89,7 +89,7 @@ export default class Animation24 extends Component {
     super(props);
     this.state = {
       scrolledX: new Animated.Value(0),
-      initialAge: 22,
+      initialAge: 22
     };
 
     // this observer is return an event which contains the value of the animation
@@ -98,7 +98,7 @@ export default class Animation24 extends Component {
       const sliderValue = Math.round(value / snapTo);
       if (this.textRef && this.textRef.current) {
         this.textRef.current.setNativeProps({
-          text: `${sliderValue + minAge}`,
+          text: `${sliderValue + minAge}`
         });
       }
     });
@@ -122,7 +122,7 @@ export default class Animation24 extends Component {
         this.scrollRef.current._component.scrollTo({
           x: this._calculateOffset(),
           y: 0,
-          animated: true,
+          animated: true
         });
       }
     }, 1000);
@@ -136,7 +136,7 @@ export default class Animation24 extends Component {
       <View style={styles.container}>
         <Image
           source={{
-            uri: "https://cdn.dribbble.com/users/1007500/screenshots/3623450/cake_01.gif",
+            uri: "https://cdn.dribbble.com/users/1007500/screenshots/3623450/cake_01.gif"
           }}
           style={{ width: width, height: width * 1.2, resizeMode: "cover" }}
         />
@@ -163,9 +163,9 @@ export default class Animation24 extends Component {
             [
               {
                 nativeEvent: {
-                  contentOffset: { x: this.state.scrolledX },
-                },
-              },
+                  contentOffset: { x: this.state.scrolledX }
+                }
+              }
             ],
             { useNativeDriver: true }
           )}

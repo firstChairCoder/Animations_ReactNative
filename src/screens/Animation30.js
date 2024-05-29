@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 import { Component } from "react";
 import {
   Animated,
@@ -8,7 +7,7 @@ import {
   StatusBar,
   StyleSheet,
   Text,
-  View,
+  View
 } from "react-native";
 import Constants from "expo-constants";
 
@@ -23,68 +22,61 @@ const burgerItems = [0, 1, 2];
 
 const styles = StyleSheet.create({
   closeContainer: {
-    height: ICON_SIZE,
-    width: ICON_SIZE,
-    flex: 1,
     alignItems: "center",
+    flex: 1,
+    height: ICON_SIZE,
     justifyContent: "center",
     position: "absolute",
-    top: 40,
     right: 40,
+    top: 40,
+    width: ICON_SIZE
   },
   line: {
-    height: ICON_LINE_HEIGHT,
-    width: ICON_SIZE,
     backgroundColor: "#AAA",
+    height: ICON_LINE_HEIGHT,
+    width: ICON_SIZE
   },
   burgerContainer: {
-    justifyContent: "space-around",
+    justifyContent: "space-around"
   },
   lineMedium: {
-    width: ICON_SIZE * 0.67,
     alignSelf: "flex-start",
+    width: ICON_SIZE * 0.67
   },
   lineSmall: {
-    width: ICON_SIZE * 0.45,
     alignSelf: "flex-end",
+    width: ICON_SIZE * 0.45
   },
   image: {
-    resizeMode: "contain",
-    width: LOGO_SIZE,
     height: LOGO_SIZE,
-    top: height / 2 - LOGO_SIZE / 2,
     left: width / 2 - LOGO_SIZE / 2,
+    resizeMode: "contain",
+    top: height / 2 - LOGO_SIZE / 2,
+    width: LOGO_SIZE
   },
   menuContainer: {
+    backgroundColor: "white",
     flex: 1,
     justifyContent: "space-around",
-    paddingVertical: height / 5,
-    backgroundColor: "white",
+    paddingVertical: height / 5
   },
   buttonStyle: {
-    fontWeight: "bold",
-    fontSize: 20,
     color: "#353535",
+    fontSize: 20,
+    fontWeight: "bold"
   },
   container: {
-    flex: 1,
     alignItems: "center",
-    justifyContent: "center",
-    paddingTop: Constants.statusBarHeight,
     backgroundColor: "#ecf0f1",
+    flex: 1,
+    justifyContent: "center",
+    paddingTop: Constants.statusBarHeight
   },
   strip: {
     backgroundColor: "#353535",
     height: height,
-    width: width * 3,
-  },
-  paragraph: {
-    margin: 24,
-    fontSize: 18,
-    fontWeight: "bold",
-    textAlign: "center",
-    color: "#34495e",
-  },
+    width: width * 3
+  }
 });
 
 export default class Animation30 extends Component {
@@ -100,7 +92,7 @@ export default class Animation30 extends Component {
       );
     });
 
-    burgerItems.forEach((i) => {
+    burgerItems.forEach(() => {
       this.burgerAnimations.push(new Animated.Value(0));
     });
 
@@ -110,7 +102,7 @@ export default class Animation30 extends Component {
       animateOpacity: new Animated.Value(1),
       finished: false,
       closeFinished: false,
-      burgerFinished: false,
+      burgerFinished: false
     };
   }
 
@@ -124,7 +116,7 @@ export default class Animation30 extends Component {
         return Animated.timing(this.closeAnimations[i], {
           toValue: i === 0 ? -CLOSE_MODE : CLOSE_MODE,
           duration: DURATION,
-          useNativeDriver: false,
+          useNativeDriver: false
         });
       } else {
         return Animated.sequence([
@@ -132,8 +124,8 @@ export default class Animation30 extends Component {
           Animated.timing(this.closeAnimations[i], {
             toValue: 0,
             duration: DURATION,
-            useNativeDriver: false,
-          }),
+            useNativeDriver: false
+          })
         ]);
       }
     });
@@ -147,13 +139,13 @@ export default class Animation30 extends Component {
         return Animated.timing(this.burgerAnimations[i], {
           toValue: 0,
           duration: DURATION,
-          useNativeDriver: false,
+          useNativeDriver: false
         });
       } else {
         return Animated.timing(this.burgerAnimations[i], {
           toValue: CLOSE_MODE,
           duration: DURATION,
-          useNativeDriver: false,
+          useNativeDriver: false
         });
       }
     });
@@ -165,16 +157,16 @@ export default class Animation30 extends Component {
     return (
       <View>
         {closeItems.map((i) => {
-          const inputRange = i === 0 ? [-CLOSE_MODE, 0] : [0, CLOSE_MODE];
+          // const inputRange = i === 0 ? [-CLOSE_MODE, 0] : [0, CLOSE_MODE];
 
           const bg = this.closeAnimations[i].interpolate({
             inputRange: [-CLOSE_MODE / 3, 0, CLOSE_MODE / 3],
-            outputRange: ["#aaa", "#353535", "#aaa"],
+            outputRange: ["#aaa", "#353535", "#aaa"]
           });
-          const opacity = this.closeAnimations[i].interpolate({
-            inputRange: [-CLOSE_MODE / 3, 0, CLOSE_MODE / 3],
-            outputRange: [0, 1, 0],
-          });
+          // const opacity = this.closeAnimations[i].interpolate({
+          //   inputRange: [-CLOSE_MODE / 3, 0, CLOSE_MODE / 3],
+          //   outputRange: [0, 1, 0]
+          // });
 
           return (
             <Animated.View
@@ -186,13 +178,13 @@ export default class Animation30 extends Component {
                   backgroundColor: bg,
                   transform: [
                     {
-                      rotate: i === 0 ? "90deg" : "0deg",
+                      rotate: i === 0 ? "90deg" : "0deg"
                     },
                     {
-                      translateX: this.closeAnimations[i],
-                    },
-                  ],
-                },
+                      translateX: this.closeAnimations[i]
+                    }
+                  ]
+                }
               ]}
             />
           );
@@ -207,7 +199,7 @@ export default class Animation30 extends Component {
         style={[
           styles.closeContainer,
           styles.burgerContainer,
-          { position: "absolute", top: 0, right: 0 },
+          { position: "absolute", top: 0, right: 0 }
         ]}
       >
         <Animated.View
@@ -217,10 +209,10 @@ export default class Animation30 extends Component {
             {
               transform: [
                 {
-                  translateX: this.burgerAnimations[1],
-                },
-              ],
-            },
+                  translateX: this.burgerAnimations[1]
+                }
+              ]
+            }
           ]}
         />
         <Animated.View
@@ -229,10 +221,10 @@ export default class Animation30 extends Component {
             {
               transform: [
                 {
-                  translateX: this.burgerAnimations[0],
-                },
-              ],
-            },
+                  translateX: this.burgerAnimations[0]
+                }
+              ]
+            }
           ]}
         />
         <Animated.View
@@ -242,10 +234,10 @@ export default class Animation30 extends Component {
             {
               transform: [
                 {
-                  translateX: this.burgerAnimations[2],
-                },
-              ],
-            },
+                  translateX: this.burgerAnimations[2]
+                }
+              ]
+            }
           ]}
         />
       </View>
@@ -259,14 +251,14 @@ export default class Animation30 extends Component {
           Animated.timing(this.state.animateBg, {
             toValue: 1,
             duration: DURATION / 10,
-            useNativeDriver: false,
+            useNativeDriver: false
           }),
           Animated.timing(this.state.animateStripe, {
             toValue: height,
             duration: DURATION,
             easing: Easing.Out,
-            useNativeDriver: false,
-          }),
+            useNativeDriver: false
+          })
         ]),
         this.animateClose(),
         this.animateBurger(),
@@ -275,13 +267,13 @@ export default class Animation30 extends Component {
           Animated.timing(this.state.animateOpacity, {
             toValue: 1,
             duration: DURATION,
-            useNativeDriver: false,
-          }),
-        ]),
+            useNativeDriver: false
+          })
+        ])
       ]).start(() => {
         this.state.animateBg.setValue(0);
         this.setState({
-          closeFinished: !this.state.closeFinished,
+          closeFinished: !this.state.closeFinished
         });
       });
     } else {
@@ -289,7 +281,7 @@ export default class Animation30 extends Component {
         Animated.timing(this.state.animateOpacity, {
           toValue: 0,
           duration: DURATION,
-          useNativeDriver: false,
+          useNativeDriver: false
         }),
 
         this.animateBurger(),
@@ -301,13 +293,13 @@ export default class Animation30 extends Component {
             toValue: 0,
             duration: DURATION,
             easing: Easing.Out,
-            useNativeDriver: false,
-          }),
-        ]),
+            useNativeDriver: false
+          })
+        ])
       ]).start(() => {
         this.state.animateOpacity.setValue(0);
         this.setState({
-          closeFinished: !this.state.closeFinished,
+          closeFinished: !this.state.closeFinished
         });
       });
     }
@@ -317,35 +309,35 @@ export default class Animation30 extends Component {
     const top = this.state.animateStripe.interpolate({
       inputRange: [0, height],
       outputRange: [-height / 4, 0],
-      extrapolate: "clamp",
+      extrapolate: "clamp"
     });
 
     const bottom = this.state.animateStripe.interpolate({
       inputRange: [0, height],
       outputRange: [height / 4, 0],
-      extrapolate: "clamp",
+      extrapolate: "clamp"
     });
 
     const opacity = this.state.animateStripe.interpolate({
       inputRange: [0, height / 1.5, height],
       outputRange: [1, 0, 0],
-      extrapolate: "clamp",
+      extrapolate: "clamp"
     });
 
     const translateContent = this.state.animateStripe.interpolate({
       inputRange: [0, height],
       outputRange: [0, 30],
-      extrapolate: "clamp",
+      extrapolate: "clamp"
     });
 
     const bgColor = this.state.animateBg.interpolate({
       inputRange: [0, 0.002, 1],
-      outputRange: ["transparent", "#2F8BE6", "#2F8BE6"],
+      outputRange: ["transparent", "#2F8BE6", "#2F8BE6"]
     });
 
     const scaleLogo = this.state.animateOpacity.interpolate({
       inputRange: [0, 1],
-      outputRange: [0.3, 1],
+      outputRange: [0.3, 1]
     });
 
     return (
@@ -360,8 +352,8 @@ export default class Animation30 extends Component {
             {
               backgroundColor: "transparent",
               opacity: opacity,
-              transform: [{ translateY: translateContent }],
-            },
+              transform: [{ translateY: translateContent }]
+            }
           ]}
         >
           <View
@@ -369,7 +361,7 @@ export default class Animation30 extends Component {
               flex: 1,
               alignItems: "center",
               justifyContent: "space-around",
-              backgroundColor: "transparent",
+              backgroundColor: "transparent"
             }}
           >
             <Text style={styles.buttonStyle}>Login</Text>
@@ -384,9 +376,9 @@ export default class Animation30 extends Component {
             position: "absolute",
             transform: [
               {
-                rotate: "-35deg",
-              },
-            ],
+                rotate: "-35deg"
+              }
+            ]
           }}
         >
           <Animated.View
@@ -397,10 +389,10 @@ export default class Animation30 extends Component {
                 height: this.state.animateStripe,
                 transform: [
                   {
-                    translateY: top,
-                  },
-                ],
-              },
+                    translateY: top
+                  }
+                ]
+              }
             ]}
           />
           <Animated.View
@@ -411,16 +403,16 @@ export default class Animation30 extends Component {
                 height: this.state.animateStripe,
                 transform: [
                   {
-                    translateY: bottom,
-                  },
-                ],
-              },
+                    translateY: bottom
+                  }
+                ]
+              }
             ]}
           />
         </View>
         <Animated.Image
           source={{
-            uri: "https://ui8.s3.amazonaws.com/v5/assets/global/touch-icon-ipad-retina.png",
+            uri: "https://ui8.s3.amazonaws.com/v5/assets/global/touch-icon-ipad-retina.png"
           }}
           style={[
             StyleSheet.absoluteFill,
@@ -429,10 +421,10 @@ export default class Animation30 extends Component {
               opacity: this.state.animateOpacity,
               transform: [
                 {
-                  scale: scaleLogo,
-                },
-              ],
-            },
+                  scale: scaleLogo
+                }
+              ]
+            }
           ]}
         />
 
@@ -440,7 +432,7 @@ export default class Animation30 extends Component {
           style={[styles.closeContainer, styles.burgerContainer]}
           onPress={() => {
             this.setState({
-              finished: !this.state.finished,
+              finished: !this.state.finished
             });
             this.restartAnimation();
           }}
@@ -452,10 +444,10 @@ export default class Animation30 extends Component {
               {
                 transform: [
                   {
-                    rotate: "-45deg",
-                  },
-                ],
-              },
+                    rotate: "-45deg"
+                  }
+                ]
+              }
             ]}
           >
             {this.renderCloseButton()}

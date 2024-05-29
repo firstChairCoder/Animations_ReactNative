@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 import { useEffect, useRef } from "react";
 import {
   Animated,
@@ -6,7 +5,7 @@ import {
   StatusBar,
   Text,
   TouchableOpacity,
-  View,
+  View
 } from "react-native";
 
 import data from "../mockdata/hublotData.json";
@@ -54,30 +53,30 @@ export const Animation22 = () => {
       )}
       contentContainerStyle={{
         backgroundColor: "#EEEFF3",
-        paddingVertical: (height - SLIDE_HEIGHT) / 4,
+        paddingVertical: (height - SLIDE_HEIGHT) / 4
       }}
       renderItem={({ item, index }) => {
         const inputRange = [index - 1, index, index + 1];
         const translateY = Animated.divide(scrollY, SLIDE_HEIGHT).interpolate({
           inputRange,
-          outputRange: [300, 0, -300],
+          outputRange: [300, 0, -300]
         });
         const scale = Animated.divide(scrollY, SLIDE_HEIGHT).interpolate({
           inputRange,
           outputRange: [0.5, 1, 0.5],
-          extrapolate: "clamp",
+          extrapolate: "clamp"
         });
         const opacity = Animated.divide(scrollY, SLIDE_HEIGHT).interpolate({
           inputRange,
           outputRange: [0, 1, 0],
-          extrapolate: "clamp",
+          extrapolate: "clamp"
         });
         const translateYText = Animated.divide(
           scrollY,
           SLIDE_HEIGHT
         ).interpolate({
           inputRange,
-          outputRange: [-200, 0, -200],
+          outputRange: [-200, 0, -200]
         });
         return (
           <View
@@ -85,7 +84,7 @@ export const Animation22 = () => {
               width: width,
               height: SLIDE_HEIGHT,
               alignItems: "center",
-              justifyContent: "flex-start",
+              justifyContent: "flex-start"
             }}
           >
             <Animated.Image
@@ -97,15 +96,15 @@ export const Animation22 = () => {
                 opacity: 0.5,
                 transform: [
                   {
-                    rotate: "50deg",
+                    rotate: "50deg"
                   },
                   {
-                    translateY,
-                  },
+                    translateY
+                  }
                 ],
                 width: _imageWidth * 0.8,
                 height: _imageHeight * 0.75,
-                resizeMode: "contain",
+                resizeMode: "contain"
               }}
               blurRadius={4}
             />
@@ -114,12 +113,12 @@ export const Animation22 = () => {
               style={{
                 transform: [
                   {
-                    scale,
-                  },
+                    scale
+                  }
                 ],
                 width: _imageWidth,
                 height: _imageHeight,
-                resizeMode: "cover",
+                resizeMode: "cover"
               }}
             />
             <Animated.View
@@ -130,13 +129,13 @@ export const Animation22 = () => {
                 borderRadius: 12,
                 transform: [
                   {
-                    translateY: translateYText,
-                  },
+                    translateY: translateYText
+                  }
                 ],
                 opacity,
                 alignItems: "center",
                 marginTop: -20,
-                zIndex: -1,
+                zIndex: -1
               }}
             >
               <Text
@@ -147,7 +146,7 @@ export const Animation22 = () => {
                   maxWidth: width * 0.7,
                   marginBottom: 20,
                   textAlign: "center",
-                  letterSpacing: 3,
+                  letterSpacing: 3
                 }}
               >
                 {item.collection}
@@ -160,7 +159,7 @@ export const Animation22 = () => {
                   textAlign: "center",
                   fontSize: 16,
                   fontWeight: "800",
-                  fontFamily: "serif",
+                  fontFamily: "serif"
                 }}
               >
                 {item.subcollection}
@@ -169,7 +168,7 @@ export const Animation22 = () => {
                 style={{
                   fontFamily: "serif",
                   fontSize: 32,
-                  marginBottom: 10,
+                  marginBottom: 10
                 }}
               >
                 {item.price}
@@ -183,14 +182,14 @@ export const Animation22 = () => {
                     height: 44,
                     paddingHorizontal: 44,
                     alignItems: "center",
-                    justifyContent: "center",
+                    justifyContent: "center"
                   }}
                 >
                   <Text
                     style={{
                       color: "white",
                       fontWeight: "800",
-                      textTransform: "uppercase",
+                      textTransform: "uppercase"
                     }}
                   >
                     Add to cart

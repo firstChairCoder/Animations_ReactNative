@@ -6,7 +6,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "lint": "eslint . --ext .js"
+    "lint": "eslint --cache --cache-location '.cache/eslint/' --ext .js,.jsx --fix",
+    "lint:all": "yarn lint ."
   },
   "dependencies": {
     "@expo-google-fonts/anonymous-pro": "0.2.2",
@@ -56,10 +57,9 @@
     "@babel/core": "^7.24.0",
     "@babel/eslint-parser": "^7.16.5",
     "@babel/preset-typescript": "^7.16.7",
-    "@react-native-community/eslint-config": "^3.0.1",
-    "eslint": "^8.5.0",
-    "eslint-plugin-flowtype": "^8.0.3",
-    "eslint-plugin-import": "^2.25.4"
+    "eslint": "^8.48.0",
+    "eslint-config-react-native-wcandillon": "3.10.2",
+    "eslint-plugin-unused-imports": "4.0.0"
   },
   "private": true
 }

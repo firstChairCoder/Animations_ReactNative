@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 // import { Component } from "react";
 // import {
 //   Dimensions,

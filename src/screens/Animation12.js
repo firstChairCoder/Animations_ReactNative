@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
   Animated,
@@ -6,7 +5,7 @@ import {
   StatusBar,
   Text,
   TouchableOpacity,
-  View,
+  View
 } from "react-native";
 import { MotiView } from "moti";
 import { findLastIndex } from "lodash";
@@ -33,8 +32,8 @@ const DATA = [
       "Osso buco",
       "Prosciutto",
       "Salame",
-      "Brodo",
-    ],
+      "Brodo"
+    ]
   },
   {
     title: "Sides",
@@ -48,24 +47,24 @@ const DATA = [
       "Fried eggplant",
       "Vitello",
       "Burrini",
-      "Fontina",
-    ],
+      "Fontina"
+    ]
   },
   {
     title: "Extra Sides",
     key: "ExtraSides",
-    data: ["Ricotta", "Toma", "Tabor", "Sandwich", "Biscotti", "Fruit Salad"],
+    data: ["Ricotta", "Toma", "Tabor", "Sandwich", "Biscotti", "Fruit Salad"]
   },
   {
     title: "Drinks",
     key: "Drinks",
-    data: ["Water", "Coke", "Beer", "Wine", "Tequila", "Soda"],
+    data: ["Water", "Coke", "Beer", "Wine", "Tequila", "Soda"]
   },
   {
     title: "Desserts",
     key: "Desserts",
-    data: ["Tiramisu", "Cheese Cake", "Icecream"],
-  },
+    data: ["Tiramisu", "Cheese Cake", "Icecream"]
+  }
 ];
 
 export const Animation12 = () => {
@@ -79,8 +78,8 @@ export const Animation12 = () => {
     []
   );
 
-  const onCheckViewableItems = ({ viewableItems, changed }) => {
-    const half = viewableItems.slice(Math.floor(viewableItems.length / 2), -1);
+  const onCheckViewableItems = ({ viewableItems }) => {
+    // const half = viewableItems.slice(Math.floor(viewableItems.length / 2), -1);
     const lastIndex = findLastIndex(
       viewableItems,
       (i) => i.index === 0 || i.index === null
@@ -90,7 +89,7 @@ export const Animation12 = () => {
       return;
     }
     const {
-      section: { key },
+      section: { key }
     } = middleSection;
     const activeIndex = DATA.findIndex((item) => item.key === key);
     if (activeIndex !== activeSection.current || index !== activeIndex) {
@@ -108,14 +107,14 @@ export const Animation12 = () => {
       index,
       animated: true,
       viewOffset: 0,
-      viewPosition: 0.5,
+      viewPosition: 0.5
     });
   }, [index]);
   return (
     <SafeAreaView
       style={{
         flex: 1,
-        paddingTop: StatusBar.currentHeight,
+        paddingTop: StatusBar.currentHeight
       }}
     >
       <StatusBar hidden />
@@ -138,7 +137,7 @@ export const Animation12 = () => {
                   itemIndex: 0,
                   animated: true,
                   viewOffset: 0,
-                  viewPosition: 0.2,
+                  viewPosition: 0.2
                 });
               }}
             >
@@ -152,12 +151,12 @@ export const Animation12 = () => {
                   marginVertical: 10,
                   paddingHorizontal: 24,
                   borderRadius: 16,
-                  borderWidth: 2,
+                  borderWidth: 2
                 }}
                 animate={{
                   backgroundColor: fIndex === index ? "#F9C2FFFF" : "#F9C2FF00",
                   borderColor: fIndex === index ? "#F9C2FF00" : "#F9C2FFFF",
-                  opacity: fIndex === index ? 1 : 0.6,
+                  opacity: fIndex === index ? 1 : 0.6
                 }}
               >
                 <Text
@@ -165,7 +164,7 @@ export const Animation12 = () => {
                     fontSize: 14,
                     fontWeight: "800",
                     textTransform: "uppercase",
-                    letterSpacing: 2,
+                    letterSpacing: 2
                   }}
                 >
                   {item.title}
@@ -187,26 +186,26 @@ export const Animation12 = () => {
         stickySectionHeadersEnabled={false}
         viewabilityConfig={{
           minimumViewTime: 300,
-          itemVisiblePercentThreshold: 300,
+          itemVisiblePercentThreshold: 300
         }}
         renderSectionHeader={({ section: { title } }) => (
           <Text
             style={{
               fontSize: 32,
               backgroundColor: "whitesmoke",
-              marginVertical: 20,
+              marginVertical: 20
             }}
           >
             {title}
           </Text>
         )}
-        renderItem={({ item, i }) => {
+        renderItem={({ item }) => {
           return (
             <View
               style={{
                 backgroundColor: "#F9C2FF",
                 padding: 10,
-                marginVertical: 8,
+                marginVertical: 8
               }}
             >
               <Text style={{ fontSize: 24 }}>{item}</Text>

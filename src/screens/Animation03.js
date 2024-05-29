@@ -8,7 +8,7 @@ import {
   StyleSheet,
   Text,
   TouchableWithoutFeedback,
-  View,
+  View
 } from "react-native";
 import faker from "faker";
 import Animated, {
@@ -17,7 +17,7 @@ import Animated, {
   useAnimatedStyle,
   useDerivedValue,
   useSharedValue,
-  withTiming,
+  withTiming
 } from "react-native-reanimated";
 import { AntDesign as Icon } from "@expo/vector-icons";
 import {
@@ -26,7 +26,7 @@ import {
   Inter_500Medium,
   Inter_700Bold,
   Inter_900Black,
-  useFonts,
+  useFonts
 } from "@expo-google-fonts/inter";
 import Constants from "expo-constants";
 import { MotiText, MotiView } from "moti";
@@ -45,7 +45,7 @@ const months = [
   "Sep",
   "Oct",
   "Nov",
-  "Dec",
+  "Dec"
 ];
 
 const _min = 3000;
@@ -59,44 +59,44 @@ const _colors = {
   active: "#329F82",
   inactive: "#E9F0EE",
   up: "#329F82",
-  down: "#E7B824",
+  down: "#E7B824"
 };
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: "#FFF",
     flex: 1,
     justifyContent: "center",
-    backgroundColor: "#FFF",
     padding: 20,
-    paddingTop: Constants.statusBarHeight,
+    paddingTop: Constants.statusBarHeight
   },
   textWrapper: {
     backgroundColor: _colors.active,
     borderRadius: 16,
-    marginBottom: 10,
+    marginBottom: 10
   },
   monthText: {
-    textTransform: "uppercase",
-    fontSize: 10,
-    fontWeight: "700",
     alignSelf: "center",
     color: _colors.active,
+    fontSize: 10,
+    fontWeight: "700",
+    textTransform: "uppercase"
   },
-  label: { fontSize: 32, fontFamily: "Bold" },
+  label: { fontFamily: "Bold", fontSize: 32 },
   value: {
     fontFamily: "Regular",
     fontSize: 32,
     lineHeight: 32 * 1.4,
-    width: 90,
+    width: 90
     // color: "lime",
   },
   percent: {
     fontFamily: "Medium",
-    fontSize: 16,
+    fontSize: 16
     // color: "fuchsia",
   },
-  visitorsText: { fontSize: 52, fontFamily: "Bold", color: "#000" },
-  monthsLabel: { fontSize: 32, fontFamily: "Light" },
+  visitorsText: { color: "#000", fontFamily: "Bold", fontSize: 52 },
+  monthsLabel: { fontFamily: "Light", fontSize: 32 }
 });
 
 faker.seed(21);
@@ -107,7 +107,7 @@ const _data = months.map((month) => {
     key: month,
     visitors,
     visitorsHeight: scaleBetween(visitors),
-    usage: faker.datatype.number(4000) + _min,
+    usage: faker.datatype.number(4000) + _min
   };
 });
 
@@ -127,14 +127,13 @@ const Item = ({ d, activeIndex, index, onPress }) => {
   });
   const stylez = useAnimatedStyle(() => {
     return {
-      opacity: v.value,
+      opacity: v.value
     };
   });
   return (
     <TouchableWithoutFeedback onPress={onPress}>
       <View
         key={d.key}
-        // eslint-disable-next-line react-native/no-inline-styles
         style={{ width: ITEM_WIDTH, justifyContent: "flex-end" }}
       >
         <Animated.View
@@ -159,7 +158,6 @@ const AnimatedIcon = Animated.createAnimatedComponent(Icon);
 const AnimatedText = ({ num, value, style, formatter }) => {
   const xxx = usePrevious(num);
   return (
-    // eslint-disable-next-line react-native/no-inline-styles
     <MotiView style={{ height: 32, overflow: "hidden" }}>
       <MotiView
         from={{ translateY: -32 * (xxx ?? 0) }}
@@ -167,7 +165,7 @@ const AnimatedText = ({ num, value, style, formatter }) => {
         transition={{
           type: "timing",
           duration: 500,
-          delay: 80,
+          delay: 80
         }}
       >
         <MotiText style={style}>
@@ -178,38 +176,38 @@ const AnimatedText = ({ num, value, style, formatter }) => {
   );
 };
 
-const BottomStats = ({ label, activeIndex, percentage, data, value }) => {
+const BottomStats = ({ label, percentage, value }) => {
   const direction = useDerivedValue(() => {
     return withTiming(percentage.value < 0 ? -1 : 1);
   });
-  const newPercentage = useDerivedValue(() => {
-    return Math.abs(percentage.value);
-  });
+  // const newPercentage = useDerivedValue(() => {
+  //   return Math.abs(percentage.value);
+  // });
   const animatedProps = useAnimatedProps(() => {
     return {
       color: interpolateColor(
         direction.value,
         [-1, 1],
         [_colors.down, _colors.up]
-      ),
+      )
     };
   });
   const iconStyles = useAnimatedStyle(() => {
     return {
       transform: [
         {
-          rotate: `${-direction.value * 45}deg`,
-        },
-      ],
+          rotate: `${-direction.value * 45}deg`
+        }
+      ]
     };
   });
   return (
     <View style={{ width: width / 2 }}>
       <Text style={styles.label}>{label}</Text>
-      {/* eslint-disable-next-line react-native/no-inline-styles */}
+      {}
       <View style={{ flexDirection: "row", alignItems: "flex-end" }}>
         <AnimatedText text={value} style={styles.value} />
-        {/* eslint-disable-next-line react-native/no-inline-styles */}
+        {}
         <View style={{ flexDirection: "row", justifyContent: "flex-start" }}>
           <AnimatedIcon
             name={"arrowright"}
@@ -239,7 +237,7 @@ export const Animation03 = () => {
     Light: Inter_300Light,
     Regular: Inter_400Regular,
     Bold: Inter_700Bold,
-    Black: Inter_900Black,
+    Black: Inter_900Black
   });
 
   if (!fontsLoaded) {
@@ -249,13 +247,13 @@ export const Animation03 = () => {
   return (
     <View style={styles.container}>
       <StatusBar hidden />
-      {/* eslint-disable-next-line react-native/no-inline-styles */}
+      {}
       <View style={{ alignItems: "center", marginBottom: height * 0.1 }}>
         <Text style={styles.visitorsText}>{totalVisitors}</Text>
         <Text style={styles.monthsLabel}>Last 6 months</Text>
       </View>
 
-      {/* eslint-disable-next-line react-native/no-inline-styles */}
+      {}
       <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
         {_data.slice(0, MAX_ITEMS).map((d, index) => {
           return (
@@ -286,7 +284,7 @@ export const Animation03 = () => {
         })}
       </View>
 
-      {/* eslint-disable-next-line react-native/no-inline-styles */}
+      {}
       <View style={{ flexDirection: "row" }}>
         <BottomStats
           data={_data}

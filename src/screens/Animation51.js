@@ -1,11 +1,10 @@
-/* eslint-disable react-native/no-inline-styles */
+/* eslint-disable @typescript-eslint/no-shadow */
 //Inspiration: https://dribbble.com/shots/4858673-Button-PRD
-import { Dimensions, StyleSheet, TouchableOpacity, View } from "react-native";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { AnimatePresence, MotiText, MotiView } from "moti";
 import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
 
-const { width, height } = Dimensions.get("window");
 const buttonHeight = 60;
 const spacing = 20;
 const colors = {
@@ -13,7 +12,7 @@ const colors = {
   bg: "#33E4",
   enabled: "#fff",
   enabledText: "#032ae3",
-  disabledText: "#fff",
+  disabledText: "#fff"
 };
 
 const Animation51 = () => {
@@ -24,7 +23,7 @@ const Animation51 = () => {
         flex: 1,
         justifyContent: "center",
         padding: spacing * 2,
-        backgroundColor: colors.bg,
+        backgroundColor: colors.bg
       }}
     >
       <StatusBar hidden />
@@ -35,7 +34,7 @@ const Animation51 = () => {
             justifyContent: "center",
             alignItems: "center",
             overflow: "hidden",
-            backgroundColor: colors.enabled,
+            backgroundColor: colors.enabled
           }}
         >
           <AnimatePresence>
@@ -48,7 +47,7 @@ const Animation51 = () => {
                 transition={{ delay: 200, type: "timing" }}
                 style={[
                   StyleSheet.absoluteFillObject,
-                  { backgroundColor: colors.disabled },
+                  { backgroundColor: colors.disabled }
                 ]}
               />
             )}
@@ -67,7 +66,7 @@ const Animation51 = () => {
                     fontSize: 18,
                     letterSpacing: -0.5,
                     textTransform: "uppercase",
-                    color: colors.disabledText,
+                    color: colors.disabledText
                   }}
                 >
                   Enabled
@@ -84,7 +83,7 @@ const Animation51 = () => {
                     fontSize: 18,
                     letterSpacing: -0.5,
                     textTransform: "uppercase",
-                    color: colors.disabledText,
+                    color: colors.disabledText
                   }}
                 >
                   Disabled

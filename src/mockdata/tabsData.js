@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 //@ts-check
 import faker from "faker";
 
@@ -50,8 +51,8 @@ export const data = {
           description: faker.lorem.lines(2),
           price: faker.commerce.price(5, 60),
           // @ts-ignore
-          image: require("../../assets/images/banhmi.jpg"),
-        })),
+          image: require("../../assets/images/banhmi.jpg")
+        }))
     },
     {
       title: "Pizza",
@@ -63,8 +64,8 @@ export const data = {
           description: faker.lorem.lines(2),
           price: faker.commerce.price(5, 60),
           // @ts-ignore
-          image: require("../../assets/images/banhmi.jpg"),
-        })),
+          image: require("../../assets/images/banhmi.jpg")
+        }))
     },
     {
       title: "Sushi and rolls",
@@ -76,8 +77,8 @@ export const data = {
           description: faker.lorem.lines(2),
           price: faker.commerce.price(5, 60),
           // @ts-ignore
-          image: require("../../assets/images/banhmi.jpg"),
-        })),
+          image: require("../../assets/images/banhmi.jpg")
+        }))
     },
     {
       title: "Pasta",
@@ -89,8 +90,8 @@ export const data = {
           description: faker.lorem.lines(2),
           price: faker.commerce.price(5, 60),
           // @ts-ignore
-          image: require("../../assets/images/banhmi.jpg"),
-        })),
+          image: require("../../assets/images/banhmi.jpg")
+        }))
     },
     {
       title: "Dessert",
@@ -102,8 +103,8 @@ export const data = {
           description: faker.lorem.lines(2),
           price: faker.commerce.price(5, 60),
           // @ts-ignore
-          image: require("../../assets/images/banhmi.jpg"),
-        })),
-    },
-  ],
+          image: require("../../assets/images/banhmi.jpg")
+        }))
+    }
+  ]
 };

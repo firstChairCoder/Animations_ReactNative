@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 import { useEffect, useState } from "react";
 import { Dimensions, StyleSheet, View } from "react-native";
 import { AnimatePresence, MotiText, MotiView } from "moti";
@@ -11,16 +10,16 @@ const _barHeight = 60;
 const _colors = {
   inactive: "#6823BB",
   active: "#FFF",
-  bg: "#9A2DED",
+  bg: "#9A2DED"
 };
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: _colors.bg,
     flex: 1,
     justifyContent: "center",
-    padding: _spacing,
-    backgroundColor: _colors.bg,
-  },
+    padding: _spacing
+  }
 });
 
 export const Animation46 = () => {
@@ -60,7 +59,7 @@ export const Animation46 = () => {
           justifyContent: "center",
           paddingHorizontal: _spacing,
           overflow: "hidden",
-          maxWidth: width,
+          maxWidth: width
         }}
       >
         <MotiView
@@ -73,11 +72,11 @@ export const Animation46 = () => {
             translateX: Math.min(
               -bar + (bar * parseInt(progress, 10)) / 100,
               60
-            ),
+            )
           }}
           transition={{
             type: "timing",
-            duration: 200,
+            duration: 200
           }}
           style={[
             StyleSheet.absoluteFillObject,
@@ -85,8 +84,8 @@ export const Animation46 = () => {
               backgroundColor: _colors.active,
               alignItems: "flex-end",
               justifyContent: "center",
-              paddingHorizontal: _spacing,
-            },
+              paddingHorizontal: _spacing
+            }
           ]}
         >
           <View
@@ -101,14 +100,14 @@ export const Animation46 = () => {
                   transition={{
                     delay: progress === "100" ? 100 : 0,
                     type: "timing",
-                    duration: 200,
+                    duration: 200
                   }}
                   key={"done"}
                   style={{
                     fontFamily: "Menlo",
                     fontWeight: "800",
                     fontSize: 18,
-                    color: _colors.inactive,
+                    color: _colors.inactive
                   }}
                 >
                   DONE
@@ -122,7 +121,7 @@ export const Animation46 = () => {
           style={{
             flexDirection: "row",
             justifyContent: "space-betweeen",
-            alignItems: "center",
+            alignItems: "center"
           }}
         >
           {parseInt(progress, 10) < 100 && parseInt(progress, 10) > 0 && (
@@ -135,7 +134,7 @@ export const Animation46 = () => {
                       overflow: "hidden",
                       height: 20,
                       justifyContent: "center",
-                      width: 10,
+                      width: 10
                     }}
                   >
                     <AnimatePresence>
@@ -151,7 +150,7 @@ export const Animation46 = () => {
                           position: "absolute",
                           fontWeight: "800",
                           fontSize: 18,
-                          color: _colors.inactive,
+                          color: _colors.inactive
                         }}
                       >
                         {t}

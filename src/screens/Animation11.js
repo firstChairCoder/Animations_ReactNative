@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 import { useState } from "react";
 import {
   Dimensions,
@@ -6,7 +5,7 @@ import {
   Pressable,
   StatusBar,
   StyleSheet,
-  View,
+  View
 } from "react-native";
 import Constants from "expo-constants";
 import { AnimatePresence, MotiText, MotiView } from "moti";
@@ -28,55 +27,55 @@ const _logoDelay = _duration * 0.1;
 const _transition = {
   easing: Easing.bezier(0.16, 1, 0.3, 1),
   duration: _duration,
-  type: "timing",
+  type: "timing"
 };
 
 const _menu = [...Array(6).keys()].map(() => {
   return {
     key: faker.datatype.uuid(),
-    label: faker.commerce.department(),
+    label: faker.commerce.department()
   };
 });
 
 const styles = StyleSheet.create({
   btnAnimate: {
     position: "absolute",
-    right: 0,
+    right: 0
   },
   container: {
+    backgroundColor: "whitesmoke",
     flex: 1,
     justifyContent: "center",
-    backgroundColor: "whitesmoke",
-    marginTop: 40,
+    marginTop: 40
   },
   item: {
-    flexDirection: "row",
     alignItems: "center",
-    marginBottom: _spacing * 1.5,
+    flexDirection: "row",
+    marginBottom: _spacing * 1.5
   },
   itemText: {
-    fontSize: 42,
     color: "#333",
+    fontSize: 42
   },
   logo: {
     flex: 1,
-    resizeMode: "contain",
     padding: _spacing,
+    resizeMode: "contain"
   },
   logoAnimate: {
     backgroundColor: _color,
-    width: _size,
     height: _size,
-    padding: _spacing,
     marginBottom: _spacing * 3,
+    padding: _spacing,
+    width: _size
   },
   menuBtnWrapper: {
-    position: "absolute",
-    top: Constants.statusBarHeight,
-    right: _spacing * 2,
-    zIndex: 1,
     backgroundColor: "#F00",
-  },
+    position: "absolute",
+    right: _spacing * 2,
+    top: Constants.statusBarHeight,
+    zIndex: 1
+  }
 });
 
 export const Animation11 = () => {
@@ -93,7 +92,7 @@ export const Animation11 = () => {
           top: 20,
           bottom: 20,
           left: 20,
-          right: 20,
+          right: 20
         }}
         style={styles.menuBtnWrapper}
       >
@@ -127,19 +126,19 @@ export const Animation11 = () => {
         transition={{
           ..._transition,
           duration: 0,
-          delay: isVisible ? 0 : _duration + _delay,
+          delay: isVisible ? 0 : _duration + _delay
         }}
       >
         <MotiView
           style={[
             StyleSheet.absoluteFillObject,
-            { backgroundColor: "rgba(251, 240, 168, 0.3)" },
+            { backgroundColor: "rgba(251, 240, 168, 0.3)" }
           ]}
           animate={{ translateY: isVisible ? 0 : -height }}
           transition={{
             ..._transition,
             duration: _duration,
-            delay: isVisible ? 0 : _duration * 0.3,
+            delay: isVisible ? 0 : _duration * 0.3
           }}
         />
         <MotiView
@@ -148,7 +147,7 @@ export const Animation11 = () => {
           transition={{
             ..._transition,
             delay: _logoDelay,
-            duration: _duration,
+            duration: _duration
           }}
         >
           <Image source={{ uri: _logo }} style={styles.logo} />
@@ -160,11 +159,11 @@ export const Animation11 = () => {
                 key={index}
                 animate={{
                   translateY: isVisible ? 0 : 40,
-                  opacity: isVisible ? 1 : 0,
+                  opacity: isVisible ? 1 : 0
                 }}
                 transition={{
                   ..._transition,
-                  delay: isVisible ? index * _delay + _logoDelay * 2 : 0,
+                  delay: isVisible ? index * _delay + _logoDelay * 2 : 0
                 }}
               >
                 <Pressable

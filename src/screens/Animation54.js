@@ -1,12 +1,12 @@
-import { FlatList, SafeAreaView, Text, View } from "react-native";
+import { SafeAreaView, Text } from "react-native";
 
 // import { Header, SwipableItem, Card } from "../components/Set";
 // import swipeData from "../mockdata/swipeData";
 
 export const Animation54 = () => {
-	return (
-		<SafeAreaView style={{ flex: 1, backgroundColor: "#FFF" }}>
-			{/* <View style={{ marginTop: 48, paddingHorizontal: 16, marginBottom: 24 }}>
+  return (
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#FFF" }}>
+      {/* <View style={{ marginTop: 48, paddingHorizontal: 16, marginBottom: 24 }}>
 				<Header />
 
 				<FlatList
@@ -23,7 +23,7 @@ export const Animation54 = () => {
 					bounces={false}
 				/>
 			</View> */}
-			<Text>Empty</Text>
-		</SafeAreaView>
-	);
+      <Text>Empty</Text>
+    </SafeAreaView>
+  );
 };

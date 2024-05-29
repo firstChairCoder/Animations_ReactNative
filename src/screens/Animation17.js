@@ -1,18 +1,17 @@
-/* eslint-disable react-native/no-inline-styles */
+/* eslint-disable max-len */
 //WIP!
-import React from "react";
 import { StyleSheet, View } from "react-native";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
-  withSpring,
+  withSpring
 } from "react-native-reanimated";
 
 const IMG_URL =
   "https://images.unsplash.com/photo-1553697388-94e804e2f0f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80";
 const styles = StyleSheet.create({
-  img: { width: 300, height: 300 },
+  img: { height: 300, width: 300 }
 });
 
 export const Animation17 = () => {
@@ -22,7 +21,7 @@ export const Animation17 = () => {
   const positionY = useSharedValue(0);
   const savedPosition = useSharedValue({
     x: 0,
-    y: 0,
+    y: 0
   });
 
   const pinchGesture = Gesture.Pinch()
@@ -41,7 +40,7 @@ export const Animation17 = () => {
     .onStart(() => {
       savedPosition.value = {
         x: positionX.value,
-        y: positionY.value,
+        y: positionY.value
       };
     });
 
@@ -50,17 +49,17 @@ export const Animation17 = () => {
     .onStart(() => {
       if (scale.value !== 1 || positionX.value !== 0 || positionY.value !== 0) {
         scale.value = withSpring(1, {
-          overshootClamping: true,
+          overshootClamping: true
         });
         positionX.value = withSpring(0, {
-          overshootClamping: true,
+          overshootClamping: true
         });
         positionY.value = withSpring(0, {
-          overshootClamping: true,
+          overshootClamping: true
         });
       } else {
         scale.value = withSpring(2, {
-          overshootClamping: true,
+          overshootClamping: true
         });
       }
     });
@@ -73,15 +72,15 @@ export const Animation17 = () => {
   const animatedImg = useAnimatedStyle(() => ({
     transform: [
       {
-        scale: scale.value,
+        scale: scale.value
       },
       {
-        translateX: positionX.value,
+        translateX: positionX.value
       },
       {
-        translateY: positionY.value,
-      },
-    ],
+        translateY: positionY.value
+      }
+    ]
   }));
 
   return (

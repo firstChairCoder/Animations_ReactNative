@@ -1,4 +1,3 @@
-import React from "react";
 import { Image } from "react-native";
 
 const IMAGES = {
@@ -10,7 +9,7 @@ const IMAGES = {
   prev: require("../../assets/images/icons/prev.png"),
   pause: require("../../assets/images/icons/pause.png"),
   settings: require("../../assets/images/icons/settings.png"),
-  logo: require("../../assets/images/icons/logo.png"),
+  logo: require("../../assets/images/icons/logo.png")
 };
 
 const Icon = ({ name, size = 24, style = {}, ...rest }) => {

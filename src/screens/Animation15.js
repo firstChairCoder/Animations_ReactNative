@@ -1,4 +1,4 @@
-/* eslint-disable react-native/no-inline-styles */
+/* eslint-disable @typescript-eslint/no-shadow */
 //WIP! related to Animation 8
 import { useEffect, useState } from "react";
 import {
@@ -7,23 +7,21 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  View,
+  View
 } from "react-native";
 import Svg, {
   ClipPath,
-  Defs,
   G,
   Path,
   Rect,
-  Text as SvgText,
+  Text as SvgText
 } from "react-native-svg";
 import Animated, {
   Easing,
   useAnimatedProps,
-  useDerivedValue,
   useSharedValue,
   withRepeat,
-  withTiming,
+  withTiming
 } from "react-native-reanimated";
 
 const { width, height } = Dimensions.get("window");
@@ -35,10 +33,17 @@ const waveConfig = {
   width,
   amplitude: 16,
   speed: 2.5,
-  color: "#0099cc",
+  color: "#0099cc"
 };
 
 const maxCups = 10;
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "#fff",
+    flex: 1
+  }
+});
 
 export const Animation15 = () => {
   const offset = useSharedValue(0);
@@ -65,7 +70,7 @@ export const Animation15 = () => {
     L${waveConfig.width} ${height}
     L0 ${height}
     Z
-  `,
+  `
     };
   });
 
@@ -84,7 +89,7 @@ export const Animation15 = () => {
     offset.value = withRepeat(
       withTiming(waveConfig.width - 11, {
         duration: 2000 / waveConfig.speed,
-        easing: Easing.linear,
+        easing: Easing.linear
       }),
       Infinity,
       false
@@ -94,7 +99,7 @@ export const Animation15 = () => {
   useEffect(() => {
     // const newHeight = height * Math.random();
     waveHeight.value = withTiming(height - (height * cups) / (maxCups - 1), {
-      duration: 1000,
+      duration: 1000
     });
 
     // higher we go, smaller the amplitude.
@@ -104,7 +109,7 @@ export const Animation15 = () => {
         (height - (height * cups) / (maxCups - 1))) /
         height,
       {
-        duration: 1000,
+        duration: 1000
       }
     );
   }, [cups]);
@@ -150,7 +155,7 @@ export const Animation15 = () => {
         style={{
           position: "absolute",
           bottom: 100,
-          width,
+          width
         }}
       >
         <View
@@ -159,13 +164,13 @@ export const Animation15 = () => {
             paddingVertical: 16,
             backgroundColor: "white",
             alignSelf: "center",
-            borderRadius: 100,
+            borderRadius: 100
           }}
         >
           <Text
             style={{
               textTransform: "uppercase",
-              fontWeight: "700",
+              fontWeight: "700"
             }}
           >
             Tap for water
@@ -175,16 +180,3 @@ export const Animation15 = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-  },
-  paragraph: {
-    margin: 24,
-    fontSize: 18,
-    fontWeight: "bold",
-    textAlign: "center",
-  },
-});

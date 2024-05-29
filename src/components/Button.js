@@ -1,19 +1,18 @@
-import React from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import { MaterialCommunityIcons as Icon } from "@expo/vector-icons";
 
 const styles = StyleSheet.create({
   row: {
-    flexDirection: "row",
     alignItems: "center",
-    marginVertical: 8,
+    flexDirection: "row",
+    marginVertical: 8
   },
   text: {
     flex: 1,
-    fontSize: 32,
-    textAlign: "auto",
     fontFamily: "Lobster",
-  },
+    fontSize: 32,
+    textAlign: "auto"
+  }
 });
 
 const Button = ({ onPress, color, label, disabled = false }) => {
@@ -24,7 +23,6 @@ const Button = ({ onPress, color, label, disabled = false }) => {
           name={"hand-pointing-right"}
           color={color}
           size={32}
-          // eslint-disable-next-line react-native/no-inline-styles
           style={{ marginRight: 30 }}
         />
         <Text style={styles.text}>{label}</Text>
