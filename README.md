@@ -10,6 +10,7 @@ Simple Animation demos made using popular animations such as:
 - Shared Elements Transitions Lib.
 - React Native Redash
 - React Native Bottom Sheet.
+- React Native Skia
 
 This gathers knowledge gotten from various sources, as well as independently demoed work.
 
