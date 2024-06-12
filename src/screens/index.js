@@ -52,3 +52,4 @@ export { default as Animation51 } from "./Animation51";
 export * from "./Animation52";
 export * from "./Animation53";
 // export * from "./Animation54";
+export { default as Animation55 } from "./Animation55";

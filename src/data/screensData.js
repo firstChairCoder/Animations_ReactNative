@@ -48,6 +48,7 @@ import {
   Animation51,
   Animation52,
   Animation53,
+  Animation55,
   Animation06 as Animation6,
   Animation07 as Animation7,
   Animation08 as Animation8,
@@ -386,12 +387,19 @@ const screens = [
     label: "Animation 53",
     component: Animation53
   },
-  // {
-  //   name: "SwipeDelete",
-  //   color: "#83A6EE",
-  //   label: "Animation 54",
-  //   component: Animation54,
-  // },
+  {
+    name: "SwipeDelete",
+    color: "#83A6EE",
+    label: "Animation 54",
+    component: Animation53,
+    disabled: true
+  },
+  {
+    name: "SkiaHelix",
+    color: "#8DB7BA",
+    label: "Animation 55",
+    component: Animation55
+  },
   // for extra bottom padding on main screen. simply a non-existent button
   {
     name: "Blank",
