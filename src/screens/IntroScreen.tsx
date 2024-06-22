@@ -4,11 +4,12 @@ import { FontAwesome as Icon } from "@expo/vector-icons";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import type { StackScreenProps } from "@react-navigation/stack";
 
+// eslint-disable-next-line import/no-cycle
 import { screens } from "../navigation/RootNavigator";
 import type { RootStackParamList } from "../navigation/types";
 
 export const IntroScreen = ({
-  navigation,
+  navigation
 }: StackScreenProps<RootStackParamList, "Intro">) => {
   const insets = useSafeAreaInsets();
   const SCREENS = screens.slice(1);
@@ -18,12 +19,12 @@ export const IntroScreen = ({
         style={{
           flex: 0.95,
           backgroundColor: "linen",
-          paddingTop: insets.bottom * 1.25,
+          paddingTop: insets.bottom * 1.25
         }}
         contentContainerStyle={{
           justifyContent: "center",
           paddingHorizontal: 16,
-          paddingBottom: insets.bottom * 1.25,
+          paddingBottom: insets.bottom * 1.25
         }}
       >
         {SCREENS.map((screen, index) => {
@@ -42,14 +43,14 @@ export const IntroScreen = ({
                   borderRadius: 12,
                   paddingHorizontal: 32,
                   justifyContent: "space-between",
-                  alignItems: "center",
+                  alignItems: "center"
                 }}
               >
                 <Text
                   style={{
                     marginRight: 32,
                     fontSize: 24,
-                    fontWeight: "bold",
+                    fontWeight: "bold"
                   }}
                 >
                   {screen?.label || "Hello"}

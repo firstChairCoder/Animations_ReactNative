@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { View } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { LinearGradient } from "expo-linear-gradient";
 import Animated, {
@@ -9,7 +8,7 @@ import Animated, {
   useAnimatedStyle,
   useSharedValue,
   withSequence,
-  withTiming,
+  withTiming
 } from "react-native-reanimated";
 import styled from "styled-components/native";
 import { Entypo as Icon } from "@expo/vector-icons";
@@ -23,7 +22,7 @@ import {
   CardSelect,
   Cloud,
   FlyContent,
-  StatusContent,
+  StatusContent
 } from "../components/Airline";
 
 interface Props {
@@ -53,7 +52,7 @@ const FlyInfo = styled(Animated.View)`
 const Content = styled(LinearGradient).attrs({
   colors: ["#0438AE", "#0438AE", "#859DDF"],
   start: { x: 0.5, y: -0.6 },
-  end: { x: 0.5, y: 1 },
+  end: { x: 0.5, y: 1 }
 })`
   width: 100%;
   height: 100%;
@@ -90,11 +89,6 @@ const SmallText = styled.Text<Props>`
   margin-top: ${({ mt }) => (mt ? mt : 0)}px;
   font-weight: ${({ bold }) => (bold ? "600" : "normal")};
   opacity: ${({ mt }) => (mt ? 1 : 0.8)};
-`;
-
-const LargeText = styled.Text`
-  color: white;
-  font-size: 35px;
 `;
 
 const Airplane = styled(Animated.Image)`
@@ -148,7 +142,7 @@ const Duration = styled.Text`
 `;
 
 const Row = styled.TouchableOpacity.attrs({
-  activeOpacity: 0.8,
+  activeOpacity: 0.8
 })`
   flex-direction: row;
   align-items: center;
@@ -195,7 +189,7 @@ export const AirlineScreen = () => {
 
   const backgroundColor = useSharedValue("white");
   const backgroundAnimatedStyle = useAnimatedStyle(() => ({
-    backgroundColor: backgroundColor.value,
+    backgroundColor: backgroundColor.value
   }));
 
   const airplaneAnimatedStyle = useAnimatedStyle(() => {
@@ -219,8 +213,8 @@ export const AirlineScreen = () => {
       transform: [
         { rotateZ: airplaneRotateZ.value + "deg" },
         { scale: airplaneScale.value },
-        { translateY: airplaneTranslateY.value },
-      ], //console warning
+        { translateY: airplaneTranslateY.value }
+      ] //console warning
     };
   });
 
@@ -256,7 +250,7 @@ export const AirlineScreen = () => {
     <>
       <Background style={backgroundAnimatedStyle} />
       <Container>
-        <StatusBar barStyle="dark-content" />
+        <StatusBar style="dark" />
 
         {!confirm && (
           <FlyInfo exiting={FlipOutXUp.duration(600)}>
