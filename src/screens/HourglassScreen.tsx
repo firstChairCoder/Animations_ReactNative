@@ -1,5 +1,4 @@
 /* eslint-disable max-len */
-import React from "react";
 import { View } from "react-native";
 import Animated, {
   Easing,
@@ -7,7 +6,7 @@ import Animated, {
   useDerivedValue,
   withRepeat,
   withSequence,
-  withTiming,
+  withTiming
 } from "react-native-reanimated";
 import Svg, { Path } from "react-native-svg";
 
@@ -19,12 +18,12 @@ interface AnimationConfigOptions {
 
 const rotationConfig: AnimationConfigOptions = {
   duration: 1200,
-  easing: Easing.elastic(1),
+  easing: Easing.elastic(1)
 };
 
 const sandConfig: AnimationConfigOptions = {
   duration: 1200,
-  easing: Easing.bezierFn(1, 0.2, 0.47, 0.97),
+  easing: Easing.bezierFn(1, 0.2, 0.47, 0.97)
 };
 
 export const HourglassScreen = () => {
@@ -54,13 +53,13 @@ export const HourglassScreen = () => {
   const animatedRotationStyles = useAnimatedStyle(() => ({
     transform: [
       {
-        rotateZ: `${rotateHourglass.value}deg`,
-      },
-    ],
+        rotateZ: `${rotateHourglass.value}deg`
+      }
+    ]
   }));
 
   const animatedSandStyles = useAnimatedStyle(() => ({
-    transform: [{ translateY: offsetSandMask.value }],
+    transform: [{ translateY: offsetSandMask.value }]
   }));
 
   return (
@@ -69,13 +68,13 @@ export const HourglassScreen = () => {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "lightblue",
+        backgroundColor: "lightblue"
       }}
     >
       <Animated.View
         style={[
           { justifyContent: "center", alignItems: "center" },
-          animatedRotationStyles,
+          animatedRotationStyles
         ]}
       >
         <Svg height="120" viewBox="0 0 120 120" width="120">

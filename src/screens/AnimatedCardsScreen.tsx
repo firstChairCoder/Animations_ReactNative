@@ -1,19 +1,19 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { SafeAreaView } from "react-native";
 import type {
   PanGestureHandlerGestureEvent,
-  TapGestureHandlerGestureEvent,
+  TapGestureHandlerGestureEvent
 } from "react-native-gesture-handler";
 import {
   PanGestureHandler,
-  TapGestureHandler,
+  TapGestureHandler
 } from "react-native-gesture-handler";
 import Animated, {
   Extrapolation,
   interpolate,
   useAnimatedGestureHandler,
   useSharedValue,
-  withSpring,
+  withSpring
 } from "react-native-reanimated";
 
 import SpringCard from "../components/SpringCard";
@@ -68,9 +68,9 @@ export const AnimatedCardsScreen = () => {
         stiffness: 100,
         restSpeedThreshold: 0.01,
         restDisplacementThreshold: 0.001,
-        velocity: cappedVelocity,
+        velocity: cappedVelocity
       });
-    },
+    }
   });
 
   const onPress = () => {
@@ -87,7 +87,7 @@ export const AnimatedCardsScreen = () => {
     useAnimatedGestureHandler<TapGestureHandlerGestureEvent>({
       onEnd: () => {
         onPress();
-      },
+      }
     });
 
   return (

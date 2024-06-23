@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import { useCallback } from "react";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, View } from "react-native";
 import type { PanGestureHandlerGestureEvent } from "react-native-gesture-handler";
@@ -9,7 +9,7 @@ import Animated, {
   useAnimatedGestureHandler,
   useAnimatedStyle,
   useSharedValue,
-  withTiming,
+  withTiming
 } from "react-native-reanimated";
 import { Feather as Icon } from "@expo/vector-icons";
 
@@ -19,10 +19,10 @@ const BG_COLOR = "#1E1E45";
 const THRESHOLD = SCREEN_WIDTH / 3;
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: BG_COLOR,
-    marginTop: 30,
-  },
+    flex: 1,
+    marginTop: 30
+  }
 });
 
 export const MenuDemoScreen = () => {
@@ -46,7 +46,7 @@ export const MenuDemoScreen = () => {
       } else {
         translateX.value = withTiming(SCREEN_WIDTH / 2);
       }
-    },
+    }
   });
 
   const rStyle = useAnimatedStyle(() => {
@@ -69,12 +69,12 @@ export const MenuDemoScreen = () => {
       transform: [
         { perspective: 100 },
         {
-          translateX: translateX.value,
+          translateX: translateX.value
         },
         {
-          rotateY: `-${rotate}deg`,
-        },
-      ],
+          rotateY: `-${rotate}deg`
+        }
+      ]
     };
   }, []);
 

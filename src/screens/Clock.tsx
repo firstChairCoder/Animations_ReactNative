@@ -1,5 +1,5 @@
 import type { ReactChild } from "react";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { View } from "react-native";
 import {
   Canvas,
@@ -12,7 +12,7 @@ import {
   Text,
   useComputedValue,
   useSpring,
-  vec,
+  vec
 } from "@shopify/react-native-skia";
 import { SensorType, useAnimatedSensor } from "react-native-reanimated";
 
@@ -35,7 +35,7 @@ function degreesToRadians(degrees: number) {
 export enum FaceShape {
   // eslint-disable-next-line @typescript-eslint/no-shadow
   Circle = "Circle",
-  Square = "Square",
+  Square = "Square"
 }
 
 export interface ClockProps {
@@ -47,14 +47,14 @@ export interface ClockProps {
 export function ClockScreen({
   scale = 1,
   faceShape = FaceShape.Circle,
-  faceColor = "rgba(211,211,211, 0.2)",
+  faceColor = "rgba(211,211,211, 0.2)"
 }: ClockProps) {
   const animatedSensor = useAnimatedSensor(SensorType.ROTATION, {
-    interval: 100,
+    interval: 100
   });
 
   const rotation = useSpring(animatedSensor.sensor.value.roll, {
-    velocity: 200,
+    velocity: 200
   });
 
   const rotationTransform = useComputedValue(() => {
@@ -64,7 +64,7 @@ export function ClockScreen({
   const secondHandlerEffect = useSpring({
     to: Math.abs(rotation.current) * 10,
     from: 0,
-    yoyo: false,
+    yoyo: false
   });
 
   const [currentSeconds, setCurrentSeconds] = useState(new Date().getSeconds());

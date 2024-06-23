@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import { useWindowDimensions } from "react-native";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
 import Animated, {
@@ -6,7 +6,7 @@ import Animated, {
   useAnimatedStyle,
   useSharedValue,
   withDecay,
-  withTiming,
+  withTiming
 } from "react-native-reanimated";
 
 export type ImageViewerProps = {
@@ -22,7 +22,7 @@ function ImageViewer({
   width,
   height,
   onSingleTap,
-  onRequestClose,
+  onRequestClose
 }: ImageViewerProps) {
   const dimensions = useWindowDimensions();
 
@@ -50,12 +50,12 @@ function ImageViewer({
 
     const resizedBasedOnWidth = {
       width: dimensions.width,
-      height: ruleOfThree(width, dimensions.width, height),
+      height: ruleOfThree(width, dimensions.width, height)
     };
 
     const resizedBasedOnHeight = {
       width: ruleOfThree(height, dimensions.height, width),
-      height: dimensions.height,
+      height: dimensions.height
     };
 
     if (width === height) {
@@ -66,7 +66,7 @@ function ImageViewer({
 
       return {
         width: smallestScreenDimension,
-        height: smallestScreenDimension,
+        height: smallestScreenDimension
       };
     } else if (width > height) {
       return resizedBasedOnWidth;
@@ -176,7 +176,7 @@ function ImageViewer({
 
         translateX.value = withDecay({
           velocity: event.velocityX,
-          clamp: [minTranslateX, maxTranslateX],
+          clamp: [minTranslateX, maxTranslateX]
         });
 
         const realImageHeight = finalHeight * scale.value;
@@ -192,7 +192,7 @@ function ImageViewer({
 
         translateY.value = withDecay({
           velocity: event.velocityY,
-          clamp: [minTranslateY, maxTranslateY],
+          clamp: [minTranslateY, maxTranslateY]
         });
       }
     });
@@ -263,8 +263,8 @@ function ImageViewer({
     return {
       transform: [
         { translateX: translateX.value },
-        { translateY: translateY.value },
-      ],
+        { translateY: translateY.value }
+      ]
     };
   });
 
@@ -272,9 +272,9 @@ function ImageViewer({
     return {
       transform: [
         {
-          scale: scale.value,
-        },
-      ],
+          scale: scale.value
+        }
+      ]
     };
   }, []);
 
@@ -288,7 +288,7 @@ function ImageViewer({
           flex: 1,
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: "#000",
+          backgroundColor: "#000"
         }}
       >
         <Animated.View style={imageContainerAnimatedStyle}>
@@ -297,11 +297,11 @@ function ImageViewer({
               imageAnimatedStyle,
               {
                 width: finalWidth,
-                height: finalHeight,
-              },
+                height: finalHeight
+              }
             ]}
             source={{
-              uri: imageUrl,
+              uri: imageUrl
             }}
           />
         </Animated.View>

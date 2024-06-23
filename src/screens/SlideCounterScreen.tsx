@@ -1,5 +1,5 @@
 import { AntDesign as Icon } from "@expo/vector-icons";
-import React, { useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import type { PanGestureHandlerGestureEvent } from "react-native-gesture-handler";
 import { PanGestureHandler } from "react-native-gesture-handler";
@@ -9,7 +9,7 @@ import Animated, {
   useAnimatedGestureHandler,
   useAnimatedStyle,
   useSharedValue,
-  withSpring,
+  withSpring
 } from "react-native-reanimated";
 
 const ICON_SIZE = 20;
@@ -21,34 +21,34 @@ const clamp = (value: number, min: number, max: number) => {
 
 const styles = StyleSheet.create({
   button: {
-    height: 70,
-    width: BUTTON_WIDTH,
-    margin: 80,
+    alignItems: "center",
     backgroundColor: "#17161A",
     borderRadius: 50,
-    alignItems: "center",
-    justifyContent: "space-evenly",
     flexDirection: "row",
+    height: 70,
+    justifyContent: "space-evenly",
+    margin: 80,
+    width: BUTTON_WIDTH
   },
   countText: {
-    fontSize: 25,
     color: "white",
+    fontSize: 25
   },
   circle: {
-    height: 50,
-    width: 50,
+    alignItems: "center",
     backgroundColor: "#232323",
     borderRadius: 25,
-    position: "absolute",
+    height: 50,
     justifyContent: "center",
-    alignItems: "center",
+    position: "absolute",
+    width: 50
   },
   container: {
-    flex: 1,
-    justifyContent: "center",
     alignItems: "center",
     backgroundColor: "white",
-  },
+    flex: 1,
+    justifyContent: "center"
+  }
 });
 
 export const SlideCounterScreen = () => {
@@ -97,15 +97,15 @@ export const SlideCounterScreen = () => {
 
         translateX.value = withSpring(0);
         translateY.value = withSpring(0);
-      },
+      }
     });
 
   const rStyle = useAnimatedStyle(() => {
     return {
       transform: [
         { translateX: translateX.value },
-        { translateY: translateY.value },
-      ],
+        { translateY: translateY.value }
+      ]
     };
   }, []);
 
@@ -123,7 +123,7 @@ export const SlideCounterScreen = () => {
     );
 
     return {
-      opacity: opacityX * opacityY,
+      opacity: opacityX * opacityY
     };
   }, []);
 
@@ -135,7 +135,7 @@ export const SlideCounterScreen = () => {
     );
 
     return {
-      opacity,
+      opacity
     };
   }, []);
 
@@ -143,10 +143,10 @@ export const SlideCounterScreen = () => {
     return {
       transform: [
         {
-          translateX: translateX.value * 0.1,
+          translateX: translateX.value * 0.1
         },
-        { translateY: translateY.value * 0.1 },
-      ],
+        { translateY: translateY.value * 0.1 }
+      ]
     };
   }, []);
 
@@ -165,7 +165,7 @@ export const SlideCounterScreen = () => {
         style={{
           ...StyleSheet.absoluteFillObject,
           justifyContent: "center",
-          alignItems: "center",
+          alignItems: "center"
         }}
       >
         <PanGestureHandler onGestureEvent={onPanGestureEvent}>

@@ -1,6 +1,5 @@
 /* eslint-disable import/no-cycle */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 

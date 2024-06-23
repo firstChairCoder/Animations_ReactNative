@@ -1,20 +1,17 @@
-import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import Animated, {
-  useAnimatedStyle,
   interpolate,
+  useAnimatedStyle
 } from "react-native-reanimated";
-import {
-  THRESHOLD,
-  MIN_PLAYER_HEIGHT,
-  WINDOW_WIDTH,
-  ISongs,
-} from "../screens/Player";
 import {
   FontAwesome5,
   Ionicons,
-  MaterialCommunityIcons,
+  MaterialCommunityIcons
 } from "@expo/vector-icons";
+
+import type { ISongs } from "../screens/Player";
+// eslint-disable-next-line import/no-cycle
+import { MIN_PLAYER_HEIGHT, THRESHOLD, WINDOW_WIDTH } from "../screens/Player";
 
 type ControllerProps = {
   y: Animated.SharedValue<number>;
@@ -23,7 +20,7 @@ type ControllerProps = {
 
 const MiniPlayerController: React.FC<ControllerProps> = ({
   y,
-  songDetails,
+  songDetails
 }) => {
   const miniPlayerStyle = useAnimatedStyle(() => {
     return {
@@ -31,7 +28,7 @@ const MiniPlayerController: React.FC<ControllerProps> = ({
         y.value,
         [-THRESHOLD * 0.7, 0, THRESHOLD * 0.7],
         [0, 1, 1]
-      ),
+      )
     };
   });
 
@@ -64,38 +61,38 @@ const MiniPlayerController: React.FC<ControllerProps> = ({
 
 const styles = StyleSheet.create({
   container: {
-    position: "absolute",
-    height: MIN_PLAYER_HEIGHT * 1.05,
-    width: WINDOW_WIDTH,
-    right: 0,
     bottom: 0,
+    height: MIN_PLAYER_HEIGHT * 1.05,
     paddingBottom: 4,
+    position: "absolute",
+    right: 0,
+    width: WINDOW_WIDTH
   },
   wrapper: {
-    flexDirection: "row",
-    alignSelf: "flex-end",
-    justifyContent: "space-between",
     alignItems: "center",
-    paddingRight: 25,
+    alignSelf: "flex-end",
+    flexDirection: "row",
     height: "100%",
-    width: "85%",
+    justifyContent: "space-between",
+    paddingRight: 25,
+    width: "85%"
   },
   title: {
-    fontSize: 15.5,
-    fontWeight: "500",
     color: "rgba(256,256,256,0.8)",
+    fontSize: 15.5,
+    fontWeight: "500"
   },
   author: {
-    fontSize: 10.5,
-    marginTop: -2,
     color: "rgba(256,256,256,0.8)",
+    fontSize: 10.5,
+    marginTop: -2
   },
   controllers: {
-    flexDirection: "row",
     alignItems: "center",
+    flexDirection: "row",
     justifyContent: "space-between",
-    width: "40%",
-  },
+    width: "40%"
+  }
 });
 
 export default MiniPlayerController;

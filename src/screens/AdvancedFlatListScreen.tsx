@@ -1,10 +1,10 @@
-import React, { memo } from "react";
+import { memo } from "react";
 import type { ViewToken } from "react-native";
-import { FlatList, Text, View } from "react-native";
+import { FlatList, View } from "react-native";
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
-  withTiming,
+  withTiming
 } from "react-native-reanimated";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
@@ -50,9 +50,9 @@ const ListItem = memo(({ item, viewableItems }: ListItemProps) => {
       opacity: withTiming(isVisible ? 1 : 0),
       transform: [
         {
-          scale: withTiming(isVisible ? 1 : 0.55),
-        },
-      ],
+          scale: withTiming(isVisible ? 1 : 0.55)
+        }
+      ]
     };
   }, []);
 
@@ -65,9 +65,9 @@ const ListItem = memo(({ item, viewableItems }: ListItemProps) => {
           backgroundColor: "lightblue",
           alignSelf: "center",
           borderRadius: 16,
-          marginTop: 16,
+          marginTop: 16
         },
-        animatedStyle,
+        animatedStyle
       ]}
     />
   );

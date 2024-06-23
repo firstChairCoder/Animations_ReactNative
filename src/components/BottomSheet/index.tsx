@@ -1,19 +1,13 @@
-import { Dimensions, StyleSheet, Text, View } from "react-native";
-import React, {
-  ReactNode,
-  forwardRef,
-  useCallback,
-  useEffect,
-  useImperativeHandle,
-} from "react";
+import { StyleSheet, View } from "react-native";
+import type { ReactNode } from "react";
+import { forwardRef, useCallback, useImperativeHandle } from "react";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
 import Animated, {
   Extrapolate,
   interpolate,
   useAnimatedStyle,
   useSharedValue,
-  withSpring,
-  withTiming,
+  withSpring
 } from "react-native-reanimated";
 
 import { SCREEN_HEIGHT } from "../Wallet";
@@ -21,21 +15,21 @@ import { SCREEN_HEIGHT } from "../Wallet";
 const MAX_TRANSLATE_Y = -SCREEN_HEIGHT + 50;
 const styles = StyleSheet.create({
   bottomSheetContainer: {
-    height: SCREEN_HEIGHT,
-    width: "100%",
     backgroundColor: "white",
+    borderRadius: 25,
+    height: SCREEN_HEIGHT,
     position: "absolute",
     top: SCREEN_HEIGHT,
-    borderRadius: 25,
+    width: "100%"
   },
   line: {
-    width: 75,
-    height: 4,
-    backgroundColor: "gray",
     alignSelf: "center",
-    marginVertical: 15,
+    backgroundColor: "gray",
     borderRadius: 2,
-  },
+    height: 4,
+    marginVertical: 15,
+    width: 75
+  }
 });
 
 type BottomSheetProps = {
@@ -65,7 +59,7 @@ const BottomSheet = forwardRef<BottomSheetRefProps, BottomSheetProps>(
 
     useImperativeHandle(ref, () => ({ scrollTo, isActive }), [
       scrollTo,
-      isActive,
+      isActive
     ]);
 
     const context = useSharedValue({ y: 0 });
@@ -95,7 +89,7 @@ const BottomSheet = forwardRef<BottomSheetRefProps, BottomSheetProps>(
 
       return {
         borderRadius,
-        transform: [{ translateY: translateY.value }],
+        transform: [{ translateY: translateY.value }]
       };
     });
 

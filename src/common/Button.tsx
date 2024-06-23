@@ -1,5 +1,6 @@
-import { Text, TouchableOpacity } from "react-native";
-import React, { FC } from "react";
+import { TouchableOpacity } from "react-native";
+import type { FC } from "react";
+
 import Typography from "./Typography";
 
 type Props = {

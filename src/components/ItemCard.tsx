@@ -1,10 +1,9 @@
-import React from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 import type { SharedValue } from "react-native-reanimated";
 import Animated, {
   Extrapolation,
   interpolate,
-  useAnimatedStyle,
+  useAnimatedStyle
 } from "react-native-reanimated";
 
 import type { Item } from "../screens";
@@ -13,28 +12,28 @@ export const ITEM_HEIGHT = 80;
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-    justifyContent: "center",
+    justifyContent: "center"
   },
   container: {
-    width: "100%",
-    height: 80,
-    flexDirection: "row",
     alignItems: "center",
+    flexDirection: "row",
+    height: 80,
+    width: "100%"
   },
   onlineIndicator: {
-    height: 12,
-    width: 12,
-    borderRadius: 6,
     backgroundColor: "#34C759",
-    position: "absolute",
+    borderRadius: 6,
     bottom: 0,
+    height: 12,
+    position: "absolute",
     right: 20,
+    width: 12
   },
-  image: { height: 60, width: 60, borderRadius: 30, marginRight: 16 },
-  name: { fontWeight: "600", fontSize: 17, marginBottom: 8 },
+  image: { borderRadius: 30, height: 60, marginRight: 16, width: 60 },
+  name: { fontSize: 17, fontWeight: "600", marginBottom: 8 },
   message: {
-    fontSize: 14,
-  },
+    fontSize: 14
+  }
 });
 
 interface ItemCardProps {
@@ -50,7 +49,7 @@ const ItemCard = ({
   index,
   scrollOffset,
   maxScrollOffset,
-  numItems,
+  numItems
 }: ItemCardProps) => {
   const animatedElasticStyles = useAnimatedStyle(() => ({
     transform: [
@@ -60,9 +59,9 @@ const ItemCard = ({
           [-15, 0, maxScrollOffset.value, maxScrollOffset.value + 15],
           [index * 2, 0, 0, (index - numItems - 1) * 2],
           Extrapolation.EXTEND
-        ),
-      },
-    ],
+        )
+      }
+    ]
   }));
 
   return (
@@ -82,8 +81,8 @@ const ItemCard = ({
               styles.message,
               {
                 color: item.read ? "#444" : "#222",
-                fontWeight: item.read ? "400" : "600",
-              },
+                fontWeight: item.read ? "400" : "600"
+              }
             ]}
           >
             {item.message}

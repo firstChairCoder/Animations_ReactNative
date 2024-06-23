@@ -1,4 +1,3 @@
-import React from "react";
 import { Pressable, ScrollView, Text, View } from "react-native";
 import { FontAwesome as Icon } from "@expo/vector-icons";
 import { useSafeAreaInsets } from "react-native-safe-area-context";

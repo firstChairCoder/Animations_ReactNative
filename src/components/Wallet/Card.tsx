@@ -1,15 +1,15 @@
-import React from "react";
 import { Dimensions, Image, StyleSheet } from "react-native";
 
-export const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get("window");
+export const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } =
+  Dimensions.get("window");
 const ratio = 228 / 362;
 export const CARD_WIDTH = SCREEN_WIDTH * 0.8;
 export const CARD_HEIGHT = CARD_WIDTH * ratio;
 const styles = StyleSheet.create({
   card: {
-    width: CARD_WIDTH,
     height: CARD_HEIGHT,
-  },
+    width: CARD_WIDTH
+  }
 });
 
 export enum Cards {
@@ -18,7 +18,7 @@ export enum Cards {
   Card3,
   Card4,
   Card5,
-  Card6,
+  Card6
 }
 
 interface CardProps {

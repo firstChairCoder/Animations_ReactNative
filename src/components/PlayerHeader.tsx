@@ -1,10 +1,9 @@
-import React from "react";
-import { View, TouchableOpacity } from "react-native";
+import { TouchableOpacity, View } from "react-native";
 import {
   Entypo,
   Ionicons,
   MaterialCommunityIcons,
-  MaterialIcons,
+  MaterialIcons
 } from "@expo/vector-icons";
 import { runOnUI } from "react-native-reanimated";
 
@@ -19,7 +18,7 @@ const PlayerHeader: React.FC<PlayerHeaderProps> = ({ reset }) => {
         width: "100%",
         flexDirection: "row",
         alignItems: "center",
-        marginBottom: 297,
+        marginBottom: 297
       }}
     >
       <TouchableOpacity
@@ -35,15 +34,11 @@ const PlayerHeader: React.FC<PlayerHeaderProps> = ({ reset }) => {
           flexGrow: 1,
           flexDirection: "row",
           alignItems: "center",
-          justifyContent: "space-between",
+          justifyContent: "space-between"
         }}
       >
         <Ionicons name="md-volume-medium-outline" size={24} color="black" />
-        <MaterialCommunityIcons
-          name="animation-play"
-          size={24}
-          color="black"
-        />
+        <MaterialCommunityIcons name="animation-play" size={24} color="black" />
         <MaterialIcons name="graphic-eq" size={24} color="black" />
         <Entypo name="dots-three-vertical" size={16} color="black" />
       </View>

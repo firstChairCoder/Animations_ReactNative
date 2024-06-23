@@ -1,18 +1,14 @@
 //Inspo: Inspiration: https://dribbble.com/shots/2343572-Countdown-timer
 
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import {
-  Vibration,
-  StatusBar,
-  Easing,
-  TextInput,
-  Dimensions,
   Animated,
-  TouchableOpacity,
-  FlatList,
-  Text,
-  View,
+  StatusBar,
   StyleSheet,
+  TextInput,
+  TouchableOpacity,
+  Vibration,
+  View
 } from "react-native";
 
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from "../components/Wallet";
@@ -24,51 +20,51 @@ const ITEM_SPACING = (SCREEN_WIDTH - ITEM_SIZE) / 2;
 const colors = {
   black: "#323F4E",
   red: "#F76A6A",
-  text: "#FFFFFF",
+  text: "#FFFFFF"
 };
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: colors.black,
+    flex: 1
   },
   roundButton: {
-    width: 80,
-    height: 80,
-    borderRadius: 80,
     backgroundColor: colors.red,
+    borderRadius: 80,
+    height: 80,
+    width: 80
   },
   text: {
+    color: colors.text,
     fontSize: ITEM_SIZE * 0.8,
     fontStyle: "italic",
-    color: colors.text,
-    fontWeight: "900",
+    fontWeight: "900"
   },
   btnWrapper: {
-    justifyContent: "flex-end",
     alignItems: "center",
-    paddingBottom: 100,
+    justifyContent: "flex-end",
+    paddingBottom: 100
   },
   numWrapper: {
     flex: 1,
-    position: "absolute",
-    top: SCREEN_HEIGHT / 3,
     left: 0,
+    position: "absolute",
     right: 0,
+    top: SCREEN_HEIGHT / 3
   },
   input: {
-    position: "absolute",
-    width: ITEM_SIZE,
-    justifyContent: "center",
     alignItems: "center",
     alignSelf: "center",
-  },
+    justifyContent: "center",
+    position: "absolute",
+    width: ITEM_SIZE
+  }
 });
 
 export const CountdownScreen = () => {
   const [seconds, setSeconds] = useState(timers[0]);
   const x = useRef(new Animated.Value(0)).current;
   const onScroll = Animated.event([{ nativeEvent: { contentOffset: { x } } }], {
-    useNativeDriver: true,
+    useNativeDriver: true
   });
   const animation = useRef(new Animated.Value(SCREEN_HEIGHT)).current;
   const btnAnimation = useRef(new Animated.Value(0)).current;
@@ -78,7 +74,7 @@ export const CountdownScreen = () => {
   useEffect(() => {
     inputAnimation.addListener(({ value }) => {
       inputRef?.current?.setNativeProps({
-        text: Math.ceil(value).toString(),
+        text: Math.ceil(value).toString()
       });
     });
 
@@ -93,24 +89,24 @@ export const CountdownScreen = () => {
       Animated.timing(btnAnimation, {
         toValue: 1,
         duration: 300,
-        useNativeDriver: true,
+        useNativeDriver: true
       }),
       Animated.timing(animation, {
         toValue: 0,
         duration: 300,
-        useNativeDriver: true,
+        useNativeDriver: true
       }),
       Animated.parallel([
         Animated.timing(inputAnimation, {
           toValue: 0,
           duration: seconds * 1000,
-          useNativeDriver: true,
+          useNativeDriver: true
         }),
         Animated.timing(animation, {
           toValue: SCREEN_HEIGHT,
           duration: seconds * 1000,
-          useNativeDriver: true,
-        }),
+          useNativeDriver: true
+        })
       ]),
       Animated.delay(400)
     ]).start(() => {
@@ -120,29 +116,29 @@ export const CountdownScreen = () => {
       Animated.timing(btnAnimation, {
         toValue: 0,
         duration: 300,
-        useNativeDriver: true,
+        useNativeDriver: true
       }).start();
     });
   }, [seconds]);
 
   const opacity = btnAnimation.interpolate({
     inputRange: [0, 1],
-    outputRange: [1, 0],
+    outputRange: [1, 0]
   });
 
   const textOpacity = btnAnimation.interpolate({
     inputRange: [0, 1],
-    outputRange: [0, 1],
+    outputRange: [0, 1]
   });
 
   const translateY = btnAnimation.interpolate({
     inputRange: [0, 1],
-    outputRange: [0, 200],
+    outputRange: [0, 200]
   });
 
   const animatedBtnStyles = {
     transform: [{ translateY }],
-    opacity,
+    opacity
   };
 
   return (
@@ -156,15 +152,15 @@ export const CountdownScreen = () => {
             height: SCREEN_HEIGHT,
             width: SCREEN_WIDTH,
             backgroundColor: colors.red,
-            transform: [{ translateY: animation }],
-          },
+            transform: [{ translateY: animation }]
+          }
         ]}
       />
       <Animated.View
         style={[
           StyleSheet.absoluteFillObject,
           styles.btnWrapper,
-          animatedBtnStyles,
+          animatedBtnStyles
         ]}
       >
         <TouchableOpacity onPress={handleAnimate}>
@@ -188,17 +184,17 @@ export const CountdownScreen = () => {
             const inputRange = [
               (index - 1) * ITEM_SIZE,
               index * ITEM_SIZE,
-              (index + 1) * ITEM_SIZE,
+              (index + 1) * ITEM_SIZE
             ];
 
             const opacity = x.interpolate({
               inputRange,
-              outputRange: [0.35, 1, 0.35],
+              outputRange: [0.35, 1, 0.35]
             });
 
             const scale = x.interpolate({
               inputRange,
-              outputRange: [0.6, 1, 0.6],
+              outputRange: [0.6, 1, 0.6]
             });
 
             return (
@@ -206,7 +202,7 @@ export const CountdownScreen = () => {
                 style={{
                   width: ITEM_SIZE,
                   justifyContent: "center",
-                  alignItems: "center",
+                  alignItems: "center"
                 }}
               >
                 <Animated.Text

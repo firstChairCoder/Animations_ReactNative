@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-import React, { useLayoutEffect } from "react";
+import { useLayoutEffect } from "react";
 import * as NavigationBar from "expo-navigation-bar";
 import { useFont } from "@shopify/react-native-skia";
 import { GestureHandlerRootView } from "react-native-gesture-handler";

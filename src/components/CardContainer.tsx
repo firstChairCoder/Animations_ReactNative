@@ -1,7 +1,7 @@
-import { Animated, Image, Pressable, StyleSheet } from "react-native";
-import React from "react";
-import Typography from "../common/Typography";
+import { Animated, Image, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+
+import Typography from "../common/Typography";
 
 const CardContainer = (props: any) => {
   const { item, item_width, scrollX, index } = props;
@@ -9,49 +9,49 @@ const CardContainer = (props: any) => {
 
   const navigate = () => {
     navigation.navigate("Details", {
-      item,
+      item
     });
   };
 
   const inputRange = [
     (index - 1) * item_width,
     index * item_width,
-    (index + 1) * item_width,
+    (index + 1) * item_width
   ];
 
   const opacity = scrollX.interpolate({
     inputRange,
-    outputRange: [0, 1, 0],
+    outputRange: [0, 1, 0]
   });
 
   const scaleY = scrollX.interpolate({
     inputRange,
-    outputRange: [0.8, 1.1, 0.8],
+    outputRange: [0.8, 1.1, 0.8]
   });
 
   const translateY = scrollX.interpolate({
     inputRange,
-    outputRange: [60, 0, 60],
+    outputRange: [60, 0, 60]
   });
 
   return (
     <Pressable
       style={{
         width: item_width,
-        padding: 20,
+        padding: 20
       }}
       onPress={navigate}
     >
       <Animated.View
         style={{
-          opacity,
+          opacity
         }}
       >
         <Typography
           text={item.name}
           size={18}
           style={{
-            marginLeft: 10,
+            marginLeft: 10
           }}
         />
       </Animated.View>
@@ -66,12 +66,12 @@ const CardContainer = (props: any) => {
           overflow: "hidden",
           transform: [
             {
-              scaleY,
+              scaleY
             },
             {
-              translateY,
-            },
-          ],
+              translateY
+            }
+          ]
         }}
       >
         <Image
@@ -79,7 +79,7 @@ const CardContainer = (props: any) => {
           style={{
             width: "100%",
             height: "100%",
-            resizeMode: "contain",
+            resizeMode: "contain"
           }}
         />
       </Animated.View>

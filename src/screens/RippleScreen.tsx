@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import type { StyleProp, ViewStyle } from "react-native";
 import { StyleSheet, Text, View } from "react-native";
 import type { TapGestureHandlerGestureEvent } from "react-native-gesture-handler";
@@ -10,28 +10,28 @@ import Animated, {
   useAnimatedRef,
   useAnimatedStyle,
   useSharedValue,
-  withTiming,
+  withTiming
 } from "react-native-reanimated";
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "snow",
     alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: "snow",
+    flex: 1,
+    justifyContent: "center"
   },
   ripple: {
-    width: 200,
-    height: 200,
-    backgroundColor: "#FFF",
     alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: "#FFF",
     borderRadius: 25,
-    shadowOpacity: 0.2,
-    shadowOffset: { width: 0, height: 0 },
-    shadowRadius: 20,
     elevation: 2,
-  },
+    height: 200,
+    justifyContent: "center",
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.2,
+    shadowRadius: 20,
+    width: 200
+  }
 });
 
 export const RippleScreen = () => {
@@ -61,7 +61,7 @@ function Ripple({
   style,
   onTap,
   children,
-  contentContainerStyle,
+  contentContainerStyle
 }: RippleProps) {
   const centerX = useSharedValue(0);
   const centerY = useSharedValue(0);
@@ -94,7 +94,7 @@ function Ripple({
       },
       onFinish: () => {
         rippleOpacity.value = withTiming(0);
-      },
+      }
     });
 
   const rStyle = useAnimatedStyle(() => {
@@ -116,9 +116,9 @@ function Ripple({
         { translateX },
         { translateY },
         {
-          scale: scale.value,
-        },
-      ],
+          scale: scale.value
+        }
+      ]
     };
   });
 

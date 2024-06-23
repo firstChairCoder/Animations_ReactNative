@@ -1,11 +1,10 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { View } from "react-native";
 import Animated, {
-  useAnimatedGestureHandler,
   useAnimatedStyle,
   useSharedValue,
   withRepeat,
-  withSpring,
+  withSpring
 } from "react-native-reanimated";
 
 const SIZE = 100.0;
@@ -23,7 +22,7 @@ export const ProgressScreen = () => {
     return {
       borderRadius: (progress.value * SIZE) / 2,
       opacity: progress.value,
-      transform: [{ scale: scale.value }, { rotate: handleRotation(progress) }],
+      transform: [{ scale: scale.value }, { rotate: handleRotation(progress) }]
     };
   });
 
@@ -38,13 +37,13 @@ export const ProgressScreen = () => {
         flex: 1,
         backgroundColor: "white",
         alignItems: "center",
-        justifyContent: "center",
+        justifyContent: "center"
       }}
     >
       <Animated.View
         style={[
           { height: SIZE, width: SIZE, backgroundColor: "teal" },
-          animatedStyle,
+          animatedStyle
         ]}
       />
     </View>

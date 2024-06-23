@@ -1,4 +1,3 @@
-import React from "react";
 import { PixelRatio, StyleSheet } from "react-native";
 import type { SharedValue } from "react-native-reanimated";
 import Animated, {
@@ -7,7 +6,7 @@ import Animated, {
   useAnimatedStyle,
   useDerivedValue,
   withDelay,
-  withSpring,
+  withSpring
 } from "react-native-reanimated";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
@@ -15,31 +14,31 @@ import {
   CARD_SIZE,
   getCardSnapPosition,
   InitTranslationX,
-  InitTranslationY,
+  InitTranslationY
 } from "../../utils/getCardSnapPosition";
 import CardContent from "./CardContent";
 
 const styles = StyleSheet.create({
   card: {
-    paddingVertical: 12,
-    paddingHorizontal: 8,
-    height: CARD_SIZE.height,
-    width: CARD_SIZE.width,
     backgroundColor: "#FBFBFC",
     borderColor: "#DEE",
-    borderWidth: PixelRatio.roundToNearestPixel(1.5),
     borderRadius: 8,
+    borderWidth: PixelRatio.roundToNearestPixel(1.5),
+    elevation: 5,
+    height: CARD_SIZE.height,
+    paddingHorizontal: 8,
+    paddingVertical: 12,
     position: "absolute",
     shadowColor: "#CDC",
     shadowOffset: {
       width: 0,
-      height: 5,
+      height: 5
     },
     shadowOpacity: 0.25,
     shadowRadius: 7,
 
-    elevation: 5,
-  },
+    width: CARD_SIZE.width
+  }
 });
 
 interface SpringCardProps {
@@ -60,7 +59,7 @@ const SpringCard = ({ snap, index, gestureProgress }: SpringCardProps) => {
           damping: 15,
           stiffness: 100,
           restSpeedThreshold: 0.01,
-          restDisplacementThreshold: 0.001,
+          restDisplacementThreshold: 0.001
         })
       );
     } else {
@@ -76,16 +75,16 @@ const SpringCard = ({ snap, index, gestureProgress }: SpringCardProps) => {
             progress.value,
             [0, 1],
             [InitTranslationY - 40, snapPosition.y]
-          ),
+          )
         },
         {
           translateX: interpolate(
             progress.value,
             [0, 1],
             [InitTranslationX, snapPosition.x]
-          ),
-        },
-      ],
+          )
+        }
+      ]
     };
   });
 
@@ -99,7 +98,7 @@ const SpringCard = ({ snap, index, gestureProgress }: SpringCardProps) => {
     return {
       transform: [
         {
-          rotate: `${rotation}deg`,
+          rotate: `${rotation}deg`
         },
         {
           scale: interpolate(
@@ -107,15 +106,15 @@ const SpringCard = ({ snap, index, gestureProgress }: SpringCardProps) => {
             [0, 1],
             [1, index === 0 ? 1.1 : 1],
             Extrapolation.CLAMP
-          ),
-        },
-      ],
+          )
+        }
+      ]
     };
   });
 
   const animatedContentStyle = useAnimatedStyle(
     () => ({
-      opacity: interpolate(progress.value, [0, 1], [0.4, 0.9]),
+      opacity: interpolate(progress.value, [0, 1], [0.4, 0.9])
     }),
     []
   );

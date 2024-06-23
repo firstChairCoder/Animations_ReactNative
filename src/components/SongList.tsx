@@ -1,9 +1,10 @@
-import React from "react";
 import { FlatList } from "react-native";
+
 import ListHeader from "./ListHeader";
 import SongItem from "./SongItem";
-
-import { ISongs, MUSIC } from "../screens/Player";
+import type { ISongs } from "../screens/Player";
+// eslint-disable-next-line import/no-cycle
+import { MUSIC } from "../screens/Player";
 
 interface SongListProps {
   getSongDetails: (details: ISongs) => void;

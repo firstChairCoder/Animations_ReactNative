@@ -1,14 +1,13 @@
-import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { Entypo, Ionicons } from "@expo/vector-icons";
 
 const styles = StyleSheet.create({
   header: {
     height: 94,
-    paddingTop: 35,
     paddingBottom: 22,
     paddingHorizontal: 20,
-  },
+    paddingTop: 35
+  }
 });
 
 const Header = ({ totalSongs }) => {
@@ -20,7 +19,7 @@ const Header = ({ totalSongs }) => {
           alignItems: "center",
           flexDirection: "row",
           margin: 0,
-          padding: 0,
+          padding: 0
         }}
       >
         <Entypo name="chevron-thin-left" size={22} color="black" />
@@ -30,7 +29,7 @@ const Header = ({ totalSongs }) => {
             flexDirection: "row",
             justifyContent: "space-between",
             alignItems: "center",
-            marginLeft: 16,
+            marginLeft: 16
           }}
         >
           <View>
@@ -38,7 +37,7 @@ const Header = ({ totalSongs }) => {
               style={{
                 fontSize: 18,
                 fontWeight: "500",
-                color: "#060606",
+                color: "#060606"
               }}
             >
               Favorite Tracks
@@ -46,7 +45,7 @@ const Header = ({ totalSongs }) => {
             <Text
               style={{
                 fontSize: 13,
-                color: "#636363",
+                color: "#636363"
               }}
             >
               {totalSongs} tracks
@@ -55,7 +54,7 @@ const Header = ({ totalSongs }) => {
           <View
             style={{
               flexDirection: "row",
-              alignItems: "center",
+              alignItems: "center"
             }}
           >
             <Ionicons

@@ -1,5 +1,5 @@
 import { Text } from "react-native";
-import React, { FC } from "react";
+import type { FC } from "react";
 
 type Props = {
   text: string;
@@ -15,7 +15,7 @@ const Typography: FC<Props> = ({ text, color, bold, size, style }) => {
         color: color ? color : "#fff",
         fontWeight: bold ? "bold" : "400",
         fontSize: size ? size : 14,
-        ...style,
+        ...style
       }}
     >
       {text}

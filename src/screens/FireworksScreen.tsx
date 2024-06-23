@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Platform, StyleSheet, Text, TouchableOpacity } from "react-native";
 import { Canvas, Circle, Fill, useTiming } from "@shopify/react-native-skia";
 
@@ -11,30 +11,30 @@ const rocketTimeOffset = Platform.OS === "ios" ? 100 : 125;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1
   },
   sprayerBtn: {
-    position: "absolute",
-    bottom: 150,
-    right: 30,
-    width: 60,
-    height: 60,
-    borderRadius: 30,
-    justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#FFF",
+    borderRadius: 30,
+    bottom: 150,
+    height: 60,
+    justifyContent: "center",
+    position: "absolute",
+    right: 30,
+    width: 60
   },
   rocketBtn: {
-    position: "absolute",
-    bottom: 60,
-    right: 30,
-    width: 60,
-    height: 60,
-    borderRadius: 30,
-    justifyContent: "center",
     alignItems: "center",
     backgroundColor: "lightblue",
-  },
+    borderRadius: 30,
+    bottom: 60,
+    height: 60,
+    justifyContent: "center",
+    position: "absolute",
+    right: 30,
+    width: 60
+  }
 });
 console.log(getRandomColor());
 export const FireworksScreen = () => {

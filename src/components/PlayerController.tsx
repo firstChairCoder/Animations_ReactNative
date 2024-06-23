@@ -1,18 +1,19 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import { Text, View } from "react-native";
 import Animated, {
   Extrapolate,
   interpolate,
-  useAnimatedStyle,
-} from 'react-native-reanimated';
+  useAnimatedStyle
+} from "react-native-reanimated";
 import {
-  MaterialCommunityIcons,
-  Ionicons,
   FontAwesome5,
-} from '@expo/vector-icons';
+  Ionicons,
+  MaterialCommunityIcons
+} from "@expo/vector-icons";
 
-import { ISongs, SCREEN_HEIGHT, THRESHOLD } from '../screens/Player';
-import PlayerHeader from './PlayerHeader';
+import type { ISongs } from "../screens/Player";
+// eslint-disable-next-line import/no-cycle
+import { SCREEN_HEIGHT, THRESHOLD } from "../screens/Player";
+import PlayerHeader from "./PlayerHeader";
 
 type PlayerControllerProps = {
   y: Animated.SharedValue<number>;
@@ -23,7 +24,7 @@ type PlayerControllerProps = {
 const PlayerController: React.FC<PlayerControllerProps> = ({
   y,
   reset,
-  songDetails,
+  songDetails
 }) => {
   const playerContainerStyle = useAnimatedStyle(() => {
     return {
@@ -32,7 +33,7 @@ const PlayerController: React.FC<PlayerControllerProps> = ({
         [-THRESHOLD * 0.4, 0, THRESHOLD * 0.4],
         [1, 0, 0],
         Extrapolate.CLAMP
-      ),
+      )
     };
   });
 
@@ -43,8 +44,8 @@ const PlayerController: React.FC<PlayerControllerProps> = ({
       <PlayerHeader reset={reset} />
       <View
         style={{
-          alignItems: 'center',
-          marginBottom: 200,
+          alignItems: "center",
+          marginBottom: 200
         }}
       >
         <View>
@@ -58,16 +59,16 @@ const PlayerController: React.FC<PlayerControllerProps> = ({
       <View
         style={{
           height: SCREEN_HEIGHT * 0.15,
-          justifyContent: 'space-between',
-          paddingHorizontal: 10,
+          justifyContent: "space-between",
+          paddingHorizontal: 10
         }}
       >
         <View
           style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            paddingHorizontal: 10,
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-between",
+            paddingHorizontal: 10
           }}
         >
           <MaterialCommunityIcons
@@ -81,31 +82,31 @@ const PlayerController: React.FC<PlayerControllerProps> = ({
         <View>
           <View
             style={{
-              width: '100%',
+              width: "100%",
               height: 2,
-              backgroundColor: '#ffffff50',
-              borderRadius: 1,
+              backgroundColor: "#ffffff50",
+              borderRadius: 1
             }}
           />
           <View
             style={{
-              position: 'absolute',
-              top: '50%',
+              position: "absolute",
+              top: "50%",
 
               width: 18,
               height: 18,
-              backgroundColor: 'white',
+              backgroundColor: "white",
               borderRadius: 9,
-              transform: [{ translateY: -9 }],
+              transform: [{ translateY: -9 }]
             }}
           />
         </View>
         <View
           style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            paddingHorizontal: 10,
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-between",
+            paddingHorizontal: 10
           }}
         >
           <Ionicons name="md-shuffle" size={20} color="#ffffff" />

@@ -1,10 +1,10 @@
-import React, { useCallback, useRef } from "react";
+import { useCallback, useRef } from "react";
 import { Dimensions, FlatList, Text, View } from "react-native";
 import type { ImageSourcePropType, ListRenderItem } from "react-native";
 import Animated, {
   useAnimatedScrollHandler,
   useDerivedValue,
-  useSharedValue,
+  useSharedValue
 } from "react-native-reanimated";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
@@ -49,13 +49,13 @@ export const ElasticScrollScreen = () => {
   const getItemLayout = (_: any, index: number) => ({
     length: height,
     offset: height * index,
-    index,
+    index
   });
 
   const onScroll = useAnimatedScrollHandler({
     onScroll: (event) => {
       scrollOffset.value = event.contentOffset.y;
-    },
+    }
   });
 
   const renderItem: ListRenderItem<Item> = useCallback(({ item, index }) => {
@@ -79,7 +79,7 @@ export const ElasticScrollScreen = () => {
         contentContainerStyle={{
           paddingBottom: insets.bottom,
           paddingHorizontal: 16,
-          paddingTop: insets.top + 20,
+          paddingTop: insets.top + 20
         }}
         ListHeaderComponent={renderHeader}
         getItemLayout={getItemLayout}

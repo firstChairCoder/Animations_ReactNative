@@ -1,55 +1,55 @@
-import React, { FC } from "react";
-import { Dimensions, StyleSheet, Text, View } from "react-native";
-import {
-  PanGestureHandler,
+import type { FC } from "react";
+import { StyleSheet, Text } from "react-native";
+import type {
   PanGestureHandlerGestureEvent,
-  PanGestureHandlerProps,
+  PanGestureHandlerProps
 } from "react-native-gesture-handler";
+import { PanGestureHandler } from "react-native-gesture-handler";
 import Animated, {
   runOnJS,
   useAnimatedGestureHandler,
   useAnimatedStyle,
   useSharedValue,
-  withTiming,
+  withTiming
 } from "react-native-reanimated";
 import { FontAwesome5 } from "@expo/vector-icons";
 
-import { SCREEN_WIDTH } from "../Wallet"
+import { SCREEN_WIDTH } from "../Wallet";
 
 const LIST_ITEM_HEIGHT = 70;
 const TRANSLATE_X_THRESHOLD = -SCREEN_WIDTH * 0.3;
 
 const styles = StyleSheet.create({
   taskContainer: {
-    width: "100%",
     alignItems: "center",
+    width: "100%"
   },
   task: {
-    width: "90%",
+    backgroundColor: "#FFF",
+    borderRadius: 10,
+    elevation: 5,
     height: LIST_ITEM_HEIGHT,
     justifyContent: "center",
     paddingLeft: 20,
-    backgroundColor: "#FFF",
-    borderRadius: 10,
-    shadowOpacity: 0.08,
     shadowOffset: {
       width: 0,
-      height: 20,
+      height: 20
     },
+    shadowOpacity: 0.08,
     shadowRadius: 10,
-    elevation: 5,
+    width: "90%"
   },
   taskTitle: {
-    fontSize: 16,
+    fontSize: 16
   },
   iconContainer: {
+    alignItems: "center",
     height: LIST_ITEM_HEIGHT,
-    width: LIST_ITEM_HEIGHT,
+    justifyContent: "center",
     position: "absolute",
     right: "10%",
-    justifyContent: "center",
-    alignItems: "center",
-  },
+    width: LIST_ITEM_HEIGHT
+  }
 });
 
 export interface TaskInterface {
@@ -63,11 +63,10 @@ interface ListItemProps
   onDismiss?: (task: TaskInterface) => void;
 }
 
-
 const ListItem: FC<ListItemProps> = ({
   task,
   onDismiss,
-  simultaneousHandlers,
+  simultaneousHandlers
 }) => {
   const translateX = useSharedValue(0);
   const itemHeight = useSharedValue(LIST_ITEM_HEIGHT);
@@ -92,15 +91,15 @@ const ListItem: FC<ListItemProps> = ({
       } else {
         translateX.value = withTiming(0);
       }
-    },
+    }
   });
 
   const rStyle = useAnimatedStyle(() => ({
     transform: [
       {
-        translateX: translateX.value,
-      },
-    ],
+        translateX: translateX.value
+      }
+    ]
   }));
 
   const rIconContainerStyle = useAnimatedStyle(() => {
@@ -114,7 +113,7 @@ const ListItem: FC<ListItemProps> = ({
     return {
       height: itemHeight.value,
       marginVertical: marginVertical.value,
-      opacity: opacity.value,
+      opacity: opacity.value
     };
   });
 

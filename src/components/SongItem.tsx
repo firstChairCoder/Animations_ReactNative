@@ -1,8 +1,7 @@
-import React from 'react';
-import { View, Text, Image, TouchableOpacity } from 'react-native';
-import { Entypo } from '@expo/vector-icons';
+import { Image, Text, TouchableOpacity, View } from "react-native";
+import { Entypo } from "@expo/vector-icons";
 
-import { ISongs } from '../screens/Player';
+import type { ISongs } from "../screens/Player";
 
 interface SongProps {
   item: ISongs;
@@ -18,8 +17,8 @@ const SongItem = ({ item, getSongDetails }: SongProps) => {
       style={{
         height: 75,
         paddingHorizontal: 20,
-        flexDirection: 'row',
-        alignItems: 'center',
+        flexDirection: "row",
+        alignItems: "center"
       }}
     >
       <Image
@@ -28,25 +27,25 @@ const SongItem = ({ item, getSongDetails }: SongProps) => {
           width: 50,
           height: 50,
           borderRadius: 10,
-          resizeMode: 'cover',
+          resizeMode: "cover"
         }}
       />
       <View
         style={{
           flex: 1,
-          height: '100%',
+          height: "100%",
           marginLeft: 19,
           paddingRight: 3,
           borderBottomWidth: 0.8,
-          borderBottomColor: '#E6E7E7',
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          alignItems: 'center',
+          borderBottomColor: "#E6E7E7",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "center"
         }}
       >
         <View>
           <Text style={{ fontSize: 16 }}>{item.title}</Text>
-          <Text style={{ fontSize: 13, color: '#919291' }}>{item.artist}</Text>
+          <Text style={{ fontSize: 13, color: "#919291" }}>{item.artist}</Text>
         </View>
         <Entypo name="dots-three-vertical" size={15} color="rgba(0,0,0,0.2)" />
       </View>

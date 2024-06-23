@@ -1,10 +1,10 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import {
   ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
-  View,
+  View
 } from "react-native";
 import Animated, { FadeIn, FadeOut, Layout } from "react-native-reanimated";
 
@@ -22,34 +22,34 @@ interface Item {
 // ]
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: "#FFF",
+    flex: 1
   },
   listItem: {
-    height: 100,
-    backgroundColor: LIST_ITEM_COLOR,
-    width: "90%",
-    marginVertical: 10,
-    borderRadius: 20,
     alignSelf: "center",
+    backgroundColor: LIST_ITEM_COLOR,
+    borderRadius: 20,
     elevation: 5,
+    height: 100,
+    marginVertical: 10,
     shadowColor: "#000",
-    shadowOpacity: 0.15,
     shadowOffset: { width: 0, height: 10 },
+    shadowOpacity: 0.15,
     shadowRadius: 20,
+    width: "90%"
   },
   floatingButton: {
-    width: 80,
+    alignItems: "center",
     aspectRatio: 1,
     backgroundColor: "#000",
     borderRadius: 40,
-    position: "absolute",
     bottom: 50,
-    right: "5%",
-    zIndex: 10,
-    alignItems: "center",
     justifyContent: "center",
-  },
+    position: "absolute",
+    right: "5%",
+    width: 80,
+    zIndex: 10
+  }
 });
 
 export const LayoutAnimationScreen = () => {

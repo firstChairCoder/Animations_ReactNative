@@ -1,5 +1,5 @@
 import type { PropsWithChildren } from "react";
-import React, { useLayoutEffect } from "react";
+import { useLayoutEffect } from "react";
 import type { StyleProp, ViewStyle } from "react-native";
 import { Image, View } from "react-native";
 import Animated, {
@@ -7,7 +7,7 @@ import Animated, {
   useAnimatedStyle,
   useSharedValue,
   withRepeat,
-  withTiming,
+  withTiming
 } from "react-native-reanimated";
 import Svg, { Path } from "react-native-svg";
 
@@ -18,7 +18,7 @@ type SpinProps = PropsWithChildren<{
 export const SpinAnimation = ({
   children,
   style,
-  duration = 2000,
+  duration = 2000
 }: SpinProps) => {
   const progress = useSharedValue(0);
 
@@ -26,7 +26,7 @@ export const SpinAnimation = ({
     progress.value = withRepeat(
       withTiming(1, {
         duration,
-        easing: Easing.linear,
+        easing: Easing.linear
       }),
       -1
     );
@@ -44,7 +44,7 @@ export const SpinAnimation = ({
 
 export const CustomSpinScreen = ({
   color,
-  size = 12,
+  size = 12
 }: {
   color?: string;
   size?: number;
@@ -55,7 +55,7 @@ export const CustomSpinScreen = ({
         flex: 1,
         backgroundColor: "lightblue",
         justifyContent: "center",
-        alignItems: "center",
+        alignItems: "center"
       }}
     >
       <SpinAnimation>

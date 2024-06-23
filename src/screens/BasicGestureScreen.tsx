@@ -1,10 +1,9 @@
-import React from "react";
 import { View } from "react-native";
 import Animated, {
   useAnimatedGestureHandler,
   useAnimatedStyle,
   useSharedValue,
-  withSpring,
+  withSpring
 } from "react-native-reanimated";
 import type { PanGestureHandlerGestureEvent } from "react-native-gesture-handler";
 import { PanGestureHandler } from "react-native-gesture-handler";
@@ -25,12 +24,12 @@ export const BasicGestureScreen = () => {
     return {
       transform: [
         {
-          translateX: translateX.value,
+          translateX: translateX.value
         },
         {
-          translateY: translateY.value,
-        },
-      ],
+          translateY: translateY.value
+        }
+      ]
     };
   });
 
@@ -53,7 +52,7 @@ export const BasicGestureScreen = () => {
         translateX.value = withSpring(0);
         translateY.value = withSpring(0);
       }
-    },
+    }
   });
 
   return (
@@ -62,7 +61,7 @@ export const BasicGestureScreen = () => {
         flex: 1,
         backgroundColor: "lime",
         alignItems: "center",
-        justifyContent: "center",
+        justifyContent: "center"
       }}
     >
       <View
@@ -73,7 +72,7 @@ export const BasicGestureScreen = () => {
           justifyContent: "center",
           borderRadius: RADIUS,
           borderWidth: 5,
-          borderColor: "rgba(0, 0, 256, 0.5)",
+          borderColor: "rgba(0, 0, 256, 0.5)"
         }}
       >
         <PanGestureHandler onGestureEvent={panGestureEvent}>
@@ -83,9 +82,9 @@ export const BasicGestureScreen = () => {
                 width: SIZE,
                 height: SIZE,
                 backgroundColor: "rgba(0, 0, 256, 0.5)",
-                borderRadius: 20,
+                borderRadius: 20
               },
-              animatedStyle,
+              animatedStyle
             ]}
           />
         </PanGestureHandler>

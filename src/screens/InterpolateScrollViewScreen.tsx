@@ -1,11 +1,10 @@
-import React from "react";
 import { Dimensions, Text, View } from "react-native";
 import Animated, {
   Extrapolate,
   interpolate,
   useAnimatedScrollHandler,
   useAnimatedStyle,
-  useSharedValue,
+  useSharedValue
 } from "react-native-reanimated";
 
 const WORDS = ["The", "obliquity", "of", "the", "ecliptic"];
@@ -66,7 +65,7 @@ const Page = ({ title, index, translateX }: PageProps) => {
 
     return {
       transform: [{ scale }],
-      borderRadius,
+      borderRadius
     };
   });
 
@@ -87,7 +86,7 @@ const Page = ({ title, index, translateX }: PageProps) => {
 
     return {
       transform: [{ translateY }],
-      opacity,
+      opacity
     };
   });
 
@@ -98,7 +97,7 @@ const Page = ({ title, index, translateX }: PageProps) => {
         alignItems: "center",
         width,
         height,
-        backgroundColor: `rgba(0,0,256, 0.${index + 2})`,
+        backgroundColor: `rgba(0,0,256, 0.${index + 2})`
       }}
     >
       <Animated.View
@@ -106,9 +105,9 @@ const Page = ({ title, index, translateX }: PageProps) => {
           {
             width: SIZE,
             height: SIZE,
-            backgroundColor: "rgba(0, 0, 256, 0.45)",
+            backgroundColor: "rgba(0, 0, 256, 0.45)"
           },
-          animatedStyle,
+          animatedStyle
         ]}
       />
 
@@ -118,7 +117,7 @@ const Page = ({ title, index, translateX }: PageProps) => {
             fontSize: 60,
             color: "lime",
             textTransform: "uppercase",
-            fontWeight: "700",
+            fontWeight: "700"
           }}
         >
           {title}

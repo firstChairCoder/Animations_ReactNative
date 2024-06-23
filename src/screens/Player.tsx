@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import type { ImageSourcePropType } from "react-native";
 import { Dimensions, StatusBar, StyleSheet, View } from "react-native";
 import type { PanGestureHandlerGestureEvent } from "react-native-gesture-handler";
 import {
   GestureHandlerRootView,
-  PanGestureHandler,
+  PanGestureHandler
 } from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Animated, {
@@ -14,7 +14,7 @@ import Animated, {
   useAnimatedGestureHandler,
   useAnimatedStyle,
   useSharedValue,
-  withTiming,
+  withTiming
 } from "react-native-reanimated";
 
 import Header from "../components/Header";
@@ -51,99 +51,99 @@ export const MUSIC: Array<ISongs> = [
     title: "Our Father",
     thumbImage: require("../../assets/thumb/chosen.jpg"),
     artist: "Chosen SG",
-    color: "#6E767F",
+    color: "#6E767F"
   },
   {
     id: "02",
     title: "Desire",
     thumbImage: require("../../assets/thumb/kiki-sheard.jpg"),
     artist: "Kierra Sheard",
-    color: "#FABE7F",
+    color: "#FABE7F"
   },
   {
     id: "03",
     title: "Kune Musik",
     thumbImage: require("../../assets/thumb/radiance-1.jpg"),
     artist: "Radiance Acapella",
-    color: "#595A57",
+    color: "#595A57"
   },
   {
     id: "04",
     title: "Medley",
     thumbImage: require("../../assets/thumb/radiance-2.jpg"),
     artist: "Radiance Acapella",
-    color: "#938C07",
+    color: "#938C07"
   },
   {
     id: "05",
     title: "Over the Horizon",
     thumbImage: require("../../assets/thumb/samsung.jpg"),
     artist: "Samsung",
-    color: "#1C4A5E",
+    color: "#1C4A5E"
   },
   {
     id: "06",
     title: "Enquanto Ele Não Vem",
     thumbImage: require("../../assets/thumb/arautos-1.jpg"),
     artist: "Arautos do Rei",
-    color: "#289BD6",
+    color: "#289BD6"
   },
   {
     id: "07",
     title: "Paradise",
     thumbImage: require("../../assets/thumb/isaac.jpg"),
     artist: "Isaac Carree",
-    color: "#3D3D44",
+    color: "#3D3D44"
   },
   {
     id: "08",
     title: "Our Father",
     thumbImage: require("../../assets/thumb/chosen.jpg"),
     artist: "Chosen SG",
-    color: "#6E767F",
+    color: "#6E767F"
   },
   {
     id: "09",
     title: "Desire",
     thumbImage: require("../../assets/thumb/kiki-sheard.jpg"),
     artist: "Kierra Sheard",
-    color: "#FABE7F",
+    color: "#FABE7F"
   },
   {
     id: "10",
     title: "Kune Musik",
     thumbImage: require("../../assets/thumb/radiance-1.jpg"),
     artist: "Radiance Acapella",
-    color: "#595A57",
+    color: "#595A57"
   },
   {
     id: "11",
     title: "Medley",
     thumbImage: require("../../assets/thumb/radiance-2.jpg"),
     artist: "Radiance Acapella",
-    color: "#938C07",
+    color: "#938C07"
   },
   {
     id: "12",
     title: "Over the Horizon",
     thumbImage: require("../../assets/thumb/samsung.jpg"),
     artist: "Samsung",
-    color: "#1C4A5E",
+    color: "#1C4A5E"
   },
   {
     id: "13",
     title: "Enquanto Ele Não Vem",
     thumbImage: require("../../assets/thumb/arautos-1.jpg"),
     artist: "Arautos do Rei",
-    color: "#289BD6",
+    color: "#289BD6"
   },
   {
     id: "14",
     title: "Paradise",
     thumbImage: require("../../assets/thumb/isaac.jpg"),
     artist: "Isaac Carree",
-    color: "#3D3D44",
-  },
+    color: "#3D3D44"
+  }
 ];
 
 type Context = {
@@ -186,7 +186,7 @@ const Player = () => {
         if (isPlayerOpen && !context.isGoingUp) {
           slidedDistance < MIN_DISTANCE ? reset(-THRESHOLD) : reset(0);
         }
-      },
+      }
     },
     [isPlayerOpen]
   );
@@ -210,7 +210,7 @@ const Player = () => {
         INPUT_RANGE,
         [MIN_PLAYER_RADIUS * 0.5, MIN_PLAYER_RADIUS, MIN_PLAYER_RADIUS],
         Extrapolate.CLAMP
-      ),
+      )
     };
   });
 
@@ -222,17 +222,17 @@ const Player = () => {
         [
           STATUS_BAR_HEIGHT,
           -PLAYER_HEIGHT + STATUS_BAR_HEIGHT,
-          -PLAYER_HEIGHT + STATUS_BAR_HEIGHT,
+          -PLAYER_HEIGHT + STATUS_BAR_HEIGHT
         ],
         Extrapolate.CLAMP
-      ),
+      )
     };
   });
 
   const reset = (toValue: number) => {
     "worklet";
     y.value = withTiming(toValue, {
-      duration: 200,
+      duration: 200
     });
     runOnJS(setIsPlayerOpen)(toValue === 0 ? false : true);
   };
@@ -254,7 +254,7 @@ const Player = () => {
           style={[
             { backgroundColor: songDetails.color },
             styles.player,
-            rStyle,
+            rStyle
           ]}
         >
           <Animated.View
@@ -275,28 +275,28 @@ export default Player;
 const styles = StyleSheet.create({
   container: { flex: 1 },
   flatListContainer: {
-    flex: 1,
     backgroundColor: "#FCFBFC",
     borderTopLeftRadius: 24,
     borderTopRightRadius: 24,
+    flex: 1
   },
   player: {
-    width: "100%",
-    position: "absolute",
     overflow: "hidden",
+    position: "absolute",
+    width: "100%"
   },
   main: {
-    flex: 1,
     backgroundColor: "#F3F4F5",
+    flex: 1
   },
 
   playerContainer: {
+    alignItems: "center",
+    height: SCREEN_HEIGHT - (STATUS_BAR_HEIGHT + NAVIGATION_BAR_HEIGHT),
+    paddingHorizontal: 20,
+    paddingTop: 35,
     position: "absolute",
     top: STATUS_BAR_HEIGHT,
-    height: SCREEN_HEIGHT - (STATUS_BAR_HEIGHT + NAVIGATION_BAR_HEIGHT),
-    width: "100%",
-    paddingTop: 35,
-    paddingHorizontal: 20,
-    alignItems: "center",
-  },
+    width: "100%"
+  }
 });
