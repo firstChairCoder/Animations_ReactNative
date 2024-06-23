@@ -7,8 +7,10 @@ import {
   AdvancedFlatListScreen,
   AirlineScreen,
   AnimatedCardsScreen,
+  ArcSliderScreen,
   BasicGestureScreen,
   BottomSheetDemoScreen,
+  CardFlipScreen,
   CardsSwapScreen,
   Carousel3DScreen,
   ColorScreen,
@@ -22,11 +24,13 @@ import {
   IntroScreen,
   LayoutAnimationScreen,
   MenuDemoScreen,
+  ProductCardScreen,
   ProgressScreen,
   RippleScreen,
   SensorRotationScreen,
   SlideCounterScreen,
   SquareRotationScreen,
+  SwipeButtonScreen,
   SwipeDeleteScreen,
   ToolbarDemoScreen,
   WalletFlatListScreen
@@ -202,6 +206,30 @@ export const screens = [
     component: ColorSwatchScreen,
     borderColor: "#D90",
     label: "Color Swatch"
+  },
+  {
+    name: "ArcSliider",
+    component: ArcSliderScreen,
+    borderColor: "#FFF5EE",
+    label: "Arc Slider"
+  },
+  {
+    name: "SwipeButton",
+    component: SwipeButtonScreen,
+    borderColor: "#33FFB2",
+    label: "Swipe Button"
+  },
+  {
+    name: "SwipeButtono",
+    component: CardFlipScreen,
+    borderColor: "#F533FF",
+    label: "Card Flip"
+  },
+  {
+    name: "PerspectiveCard",
+    component: ProductCardScreen,
+    borderColor: "#33F5FF",
+    label: "Perspective Card"
   }
 ];
 
@@ -209,8 +237,6 @@ const Stack = createStackNavigator<RootStackParamList>();
 
 const Root = () => {
   return (
-    //    error is related to @types/react version. TS2768
-    //    @ts-ignore
     <Stack.Navigator
       screenOptions={{
         headerShown: false
