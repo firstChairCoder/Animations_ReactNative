@@ -29,6 +29,7 @@ import {
   RippleScreen,
   SensorRotationScreen,
   SlideCounterScreen,
+  SplitButtonScreen,
   SquareRotationScreen,
   SwipeButtonScreen,
   SwipeDeleteScreen,
@@ -230,6 +231,12 @@ export const screens = [
     component: ProductCardScreen,
     borderColor: "#33F5FF",
     label: "Perspective Card"
+  },
+  {
+    name: "SplitButton",
+    component: SplitButtonScreen,
+    borderColor: "#0DA123",
+    label: "Split Button"
   }
 ];
 

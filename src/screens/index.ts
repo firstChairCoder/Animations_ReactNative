@@ -30,3 +30,4 @@ export * from "./ArcSliderScreen";
 export * from "./SwipeButtonScreen";
 export * from "./CardFlipScreen";
 export * from "./ProductCardScreen";
+export * from "./SplitButtonScreen";

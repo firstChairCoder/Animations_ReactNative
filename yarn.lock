@@ -881,6 +881,11 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@expo-google-fonts/fira-code@^0.2.3":
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/@expo-google-fonts/fira-code/-/fira-code-0.2.3.tgz#1316c8c618747f60c098caaf9394a4e57885b5f4"
+  integrity sha512-rrl8TxYYuAO4xGKlOatEDLUH8mkrGc+ywG54BfL649hHTg2K5UwfT2k7jg7YMhw48FPQ0ebyt4ISoRc3fhyHjg==
+
 "@expo/bunyan@^4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@expo/bunyan/-/bunyan-4.0.0.tgz#be0c1de943c7987a9fbd309ea0b1acd605890c7b"
