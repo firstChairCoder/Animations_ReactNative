@@ -16,6 +16,29 @@ export type RootStackParamList = {
   Intro: undefined;
   CustomSpin: undefined;
   ElasticScroll: undefined;
+
+  Progress: undefined;
+  BasicGesture: undefined;
+  IntScroll: undefined;
+  IntColor: undefined;
+  AdvancedFlatList: undefined;
+  Flight: undefined;
+  Toolbar: undefined;
+  Ripple: undefined;
+  CardsSwap: undefined;
+  ImageViewer: undefined;
+  AnimatedCards: undefined;
+  Hourglass: undefined;
+  Elastic: undefined;
+  SensorRotationScreen: undefined;
+  Draggable: undefined;
+  ColorSwatch: undefined;
+  ArcSlider: undefined;
+  SwipeButton: undefined;
+  SwipeButtono: undefined;
+  PerspectiveCard: undefined;
+  SplitButton: undefined;
+  BlurMenu: undefined;
 };
 
 export type RootParamList = RootStackParamList | null;

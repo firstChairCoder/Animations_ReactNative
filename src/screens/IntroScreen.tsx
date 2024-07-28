@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Pressable, ScrollView, Text, View } from "react-native";
 import { FontAwesome as Icon } from "@expo/vector-icons";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -5,11 +6,11 @@ import type { StackScreenProps } from "@react-navigation/stack";
 
 // eslint-disable-next-line import/no-cycle
 import { screens } from "../navigation/RootNavigator";
-import type { RootStackParamList } from "../navigation/types";
+import { type RootStackParamList } from "../navigation/types";
 
 export const IntroScreen = ({
   navigation
-}: StackScreenProps<RootStackParamList, "Intro">) => {
+}: StackScreenProps<RootStackParamList>) => {
   const insets = useSafeAreaInsets();
   const SCREENS = screens.slice(1);
   return (
@@ -27,10 +28,12 @@ export const IntroScreen = ({
         }}
       >
         {SCREENS.map((screen, index) => {
+          const screenName = screen.name as keyof RootStackParamList;
           return (
             <Pressable
               key={index.toString()}
-              onPress={() => navigation.navigate(`${screen.name}`)}
+              //@ts-ignore
+              onPress={() => navigation.navigate(screenName)}
               style={{ marginVertical: 8 }}
             >
               <View

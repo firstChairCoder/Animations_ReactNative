@@ -1,7 +1,7 @@
 /* eslint-disable import/no-cycle */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import type { ComponentType } from "react";
 
 import {
   AdvancedFlatListScreen,
@@ -9,6 +9,7 @@ import {
   AnimatedCardsScreen,
   ArcSliderScreen,
   BasicGestureScreen,
+  BlurMenuScreen,
   BottomSheetDemoScreen,
   CardFlipScreen,
   CardsSwapScreen,
@@ -41,7 +42,14 @@ import {
 import type { RootStackParamList } from "./types";
 import { DraggableDemoScreen } from "../screens/DraggableDemoScreen";
 
-export const screens = [
+export interface IScreen {
+  name: keyof RootStackParamList;
+  component: ComponentType<any>;
+  borderColor?: string;
+  label?: string;
+}
+
+export const screens: IScreen[] = [
   {
     name: "Intro",
     component: IntroScreen
@@ -209,7 +217,7 @@ export const screens = [
     label: "Color Swatch"
   },
   {
-    name: "ArcSliider",
+    name: "ArcSlider",
     component: ArcSliderScreen,
     borderColor: "#FFF5EE",
     label: "Arc Slider"
@@ -237,6 +245,12 @@ export const screens = [
     component: SplitButtonScreen,
     borderColor: "#0DA123",
     label: "Split Button"
+  },
+  {
+    name: "BlurMenu",
+    component: BlurMenuScreen,
+    borderColor: "#7A5DC7",
+    label: "Blur Menu"
   }
 ];
 

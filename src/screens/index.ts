@@ -31,3 +31,4 @@ export * from "./SwipeButtonScreen";
 export * from "./CardFlipScreen";
 export * from "./ProductCardScreen";
 export * from "./SplitButtonScreen";
+export * from "./BlurMenuScreen";
